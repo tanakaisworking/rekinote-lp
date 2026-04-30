@@ -1,27 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+:root { color-scheme: dark; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  background: #0c0c10;
+  color: #ececef;
+  font-family: 'Inter', 'Noto Sans JP', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "palt";
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+  line-break: strict;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+h1, h2, h3 { letter-spacing: -0.01em; line-height: 1.35; }
+
+.font-mono-num { font-family: 'JetBrains Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+
+.section { padding: 96px 24px; }
+@media (max-width: 768px) { .section { padding: 64px 20px; } }
+.container-x { max-width: 1180px; margin: 0 auto; }
+
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 60%, #a78bfa 100%); color: #fff; font-weight: 600;
+  padding: 14px 22px; border-radius: 10px;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.08) inset, 0 8px 24px -12px rgba(139,92,246,0.6);
 }
+.btn-primary:hover {
+  transform: translateY(-1px); filter: brightness(1.08);
+  box-shadow: 0 1px 0 rgba(255,255,255,0.12) inset, 0 14px 36px -12px rgba(139,92,246,0.8);
+}
+
+.btn-ghost {
+  display: inline-flex; align-items: center; justify-content: center;
+  color: #ececef; font-weight: 500; padding: 14px 18px; border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.13); background: transparent;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+.btn-ghost:hover {
+  transform: translateY(-1px); background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.22);
+}
+
+.card { background: #131318; border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; }
+.card-strong { background: linear-gradient(180deg, #16161d 0%, #131318 100%); border: 1px solid rgba(255,255,255,0.13); border-radius: 16px; }
+
+.eyebrow {
+  display: inline-block; font-family: 'JetBrains Mono', monospace;
+  font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+  background: linear-gradient(90deg, #6366f1 0%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-text {
+  background: linear-gradient(120deg, #6366f1 0%, #8b5cf6 50%, #c4b5fd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* 太字でレンダリング崩れ防止 */
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Animated gradient border that rotates around an element. Apply to a container; child must sit on top with its own bg. */
+@property --rb-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.rotating-border {
+  position: relative;
+  border-radius: 18px;
+  padding: 1.5px;
+  background:
+    conic-gradient(
+      from var(--rb-angle, 0deg),
+      rgba(99,102,241,0) 0deg,
+      rgba(99,102,241,0.95) 60deg,
+      rgba(167,139,250,1) 120deg,
+      rgba(99,102,241,0) 180deg,
+      rgba(99,102,241,0) 360deg
+    );
+  animation: rb-spin 3.5s linear infinite;
+  box-shadow: 0 0 22px -4px rgba(139,92,246,0.45);
+}
+@keyframes rb-spin {
+  to { --rb-angle: 360deg; }
+}
+/* Fallback for browsers without @property: rotate the pseudo background */
+@supports not (background: conic-gradient(from var(--rb-angle), red, blue)) {
+  .rotating-border { background: linear-gradient(135deg, #6366f1, #a78bfa, #6366f1); background-size: 200% 200%; animation: rb-shift 3.5s linear infinite; }
+  @keyframes rb-shift { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+}
+
+.gradient-text-strong {
+  background: linear-gradient(120deg, #4f46e5 0%, #7c3aed 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  display: inline-block;
+}
+
+.muted { color: #8c8c97; }
+.dim { color: #5e5e6a; }
+
+.hero-orb {
+  position: absolute; pointer-events: none;
+  width: 860px; height: 860px;
+  left: 50%; top: -260px; transform: translateX(-50%);
+  background:
+    radial-gradient(circle at 30% 50%, rgba(99,102,241,0.10), transparent 55%),
+    radial-gradient(circle at 70% 50%, rgba(167,139,250,0.10), transparent 55%);
+  filter: blur(40px); z-index: 0;
+}
+
+.pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 8px 14px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.13);
+  background: rgba(255,255,255,0.02);
+  color: #ececef; font-size: 14px;
+}
+
+table.compare { width: 100%; border-collapse: separate; border-spacing: 0; }
+table.compare th, table.compare td {
+  padding: 16px 18px; border-bottom: 1px solid rgba(255,255,255,0.07);
+  text-align: left; vertical-align: top; font-size: 14.5px;
+}
+table.compare thead th {
+  font-size: 12px; color: #8c8c97; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  border-bottom: 1px solid rgba(255,255,255,0.13);
+}
+table.compare td.highlight { background: rgba(139,92,246,0.05); color: #ececef; font-weight: 500; }
+table.compare th.highlight { color: #a78bfa; }
