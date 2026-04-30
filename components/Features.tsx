@@ -1,4 +1,7 @@
-import { ReactNode } from "react";
+'use client';
+
+import { ReactNode, useState, useEffect, useRef } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 function Row({
   num, phase, title, body, mock, reverse,
@@ -18,7 +21,7 @@ function Row({
 }
 
 const NotificationMock = () => (
-  <div className="card-strong p-6 max-w-[420px]">
+  <div className="card-strong p-6 max-w-[420px] notification-pop">
     <div className="flex items-center gap-2 text-xs muted">
       <span className="w-2 h-2 rounded-full bg-[#a78bfa]" />
       <span>NOTIFICATION</span>
@@ -59,14 +62,34 @@ const ChatMock = () => (
   </div>
 );
 
+const baseRecords = [
+  { date: "今日",   title: "週次定例",              excerpt: "次回までにプロト..." },
+  { date: "3日前",  title: "顧客MTG / HIBACHI inc.", excerpt: "予算は概ねOK" },
+  { date: "先週",   title: "1on1 / 田中さん",        excerpt: "キャリア面談の続き" },
+  { date: "2週前",  title: "プロダクトレビュー",      excerpt: "デザイン方針の決定" },
+  { date: "半年前", title: "Q3キックオフ",            excerpt: "目標設定の根拠" },
+];
+
+const opacities = [1, 0.85, 0.65, 0.45, 0.28];
+
 const MemoryMock = () => {
-  const records = [
-    { date: "今日", title: "週次定例", excerpt: "次回までにプロト...", op: 1 },
-    { date: "3日前", title: "顧客MTG / HIBACHI inc.", excerpt: "予算は概ねOK", op: 0.85 },
-    { date: "先週", title: "1on1 / 田中さん", excerpt: "キャリア面談の続き", op: 0.65 },
-    { date: "2週前", title: "プロダクトレビュー", excerpt: "デザイン方針の決定", op: 0.45 },
-    { date: "半年前", title: "Q3キックオフ", excerpt: "目標設定の根拠", op: 0.28 },
-  ];
+  const uidRef     = useRef(baseRecords.length);
+  const nextIdxRef = useRef(baseRecords.length - 1); // next record index to add at top
+
+  const [items, setItems] = useState(() =>
+    baseRecords.map((r, i) => ({ ...r, uid: i }))
+  );
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const idx = nextIdxRef.current;
+      nextIdxRef.current = (idx - 1 + baseRecords.length) % baseRecords.length;
+      const newItem = { ...baseRecords[idx], uid: uidRef.current++ };
+      setItems(prev => [newItem, ...prev.slice(0, 4)]);
+    }, 2000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <div className="card p-6 max-w-[460px] relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none"
@@ -75,19 +98,27 @@ const MemoryMock = () => {
         <div className="flex items-center justify-between mb-5">
           <div className="text-xs muted font-mono-num tracking-widest">MEMORY</div>
         </div>
-        <ul className="space-y-2">
-          {records.map((r, i) => (
-            <li key={i}
+        <ul className="space-y-2 overflow-hidden">
+          <AnimatePresence initial={false} mode="popLayout">
+            {items.map((r, i) => (
+              <motion.li
+                key={r.uid}
+                layout
+                initial={{ opacity: 0, y: -28 }}
+                animate={{ opacity: opacities[i], y: 0 }}
+                exit={{ opacity: 0, y: 28 }}
+                transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
                 className="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-line bg-surface-2"
-                style={{ opacity: r.op }}>
-              <div className="font-mono-num text-[10px] dim w-12 shrink-0">{r.date}</div>
-              <div className="flex-1 min-w-0">
-                <div className="text-[13px] truncate">{r.title}</div>
-                <div className="text-[11px] muted truncate">{r.excerpt}</div>
-              </div>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#a78bfa] shrink-0" />
-            </li>
-          ))}
+              >
+                <div className="font-mono-num text-[10px] dim w-12 shrink-0">{r.date}</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-[13px] truncate">{r.title}</div>
+                  <div className="text-[11px] muted truncate">{r.excerpt}</div>
+                </div>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#a78bfa] shrink-0" />
+              </motion.li>
+            ))}
+          </AnimatePresence>
         </ul>
       </div>
     </div>

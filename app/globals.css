@@ -149,3 +149,17 @@ table.compare thead th {
 }
 table.compare td.highlight { background: rgba(139,92,246,0.05); color: #ececef; font-weight: 500; }
 table.compare th.highlight { color: #a78bfa; }
+
+
+/* 会議を検出しました — ポコン繰り返しアニメーション */
+@keyframes notification-pop {
+  0%   { opacity: 0; transform: translateY(20px); }
+  15%  { opacity: 1; transform: translateY(0);    }
+  62%  { opacity: 1; transform: translateY(0);    }
+  85%  { opacity: 0; transform: translateY(0);    }
+  100% { opacity: 0; transform: translateY(20px); }
+}
+
+.notification-pop {
+  animation: notification-pop 4.5s ease-out infinite;
+}

@@ -5,7 +5,9 @@
       "name": "rekinote-lp",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
-      "port": 3000
+      "cwd": "/Users/kotatsu/AI-BASE/company/ai-dev/lp/rekinote-lp/app",
+      "port": 3002,
+      "autoPort": false
     }
   ]
 }
