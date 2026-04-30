@@ -8,13 +8,6 @@ const TEXT =
 const FONT_SIZE = 12
 const COLOR     = 'rgba(196, 181, 253, 1)'
 
-// 五線譜のように長く伸びる、ゆるやかな波。
-const STREAMS = [
-  { yFrac: 0.30, amp: 14, freq: 0.0024, speed: 70, phase: 0           },
-  { yFrac: 0.52, amp: 20, freq: 0.0019, speed: 56, phase: Math.PI     },
-  { yFrac: 0.74, amp: 14, freq: 0.0026, speed: 76, phase: Math.PI / 2 },
-]
-
 // アイコンの周りを回るオービタル（楕円軌道）
 const ORBITS = [
   { rx: 210, ry: 100, tilt: -0.18, speed: 0.16, phase: 0,           dir:  1, density: 0.55, reverseText: false },
@@ -54,23 +47,6 @@ export function HeroStreamCanvas() {
     for (let i = 0; i < TEXT.length; i++) {
       widths[i] = ctx.measureText(TEXT[i]).width
       totalWidth += widths[i]
-    }
-
-    const drawCharOnWave = (
-      ch: string, w: number, xCenter: number, yBase: number,
-      s: typeof STREAMS[number], dir: 1 | -1, alpha: number, t: number,
-    ) => {
-      if (alpha < 0.01 || ch === ' ' || ch === '　') return
-      const waveArg = s.freq * xCenter + s.phase + dir * 0.6 * t
-      const y       = yBase + s.amp * Math.sin(waveArg)
-      const dy_dx   = s.amp * s.freq * Math.cos(waveArg)
-      const angle   = Math.atan(dy_dx)
-      ctx.save()
-      ctx.globalAlpha = alpha
-      ctx.translate(xCenter, y)
-      ctx.rotate(angle)
-      ctx.fillText(ch, -w / 2, 0)
-      ctx.restore()
     }
 
     const FADE_IN = 1.6 // 秒
