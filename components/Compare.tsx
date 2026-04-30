@@ -11,14 +11,12 @@ export function Compare() {
   return (
     <section className="section" id="compare">
       <div className="container-x">
-        <div className="grid md:grid-cols-2 gap-10 items-end mb-10">
-          <div>
-            <span className="eyebrow">Compare</span>
-            <h2 className="mt-4 text-3xl md:text-[42px] font-bold tracking-tight leading-tight">
-              他のAI議事録ツールと、<br className="hidden md:block" /><span className="gradient-text">何が違うのか。</span>
-            </h2>
-          </div>
-          <p className="muted leading-[1.95] md:text-right">
+        <div className="mb-10">
+          <span className="eyebrow">Compare</span>
+          <h2 className="mt-4 text-3xl md:text-[42px] font-bold tracking-tight leading-tight">
+            他のAI議事録ツールと、<span className="gradient-text">何が違うのか。</span>
+          </h2>
+          <p className="mt-4 muted leading-[1.95]">
             Reki noteは、オープンにします。
           </p>
         </div>

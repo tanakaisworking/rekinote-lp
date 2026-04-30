@@ -144,10 +144,8 @@ export function HowItWorks() {
                     <stop offset="1" stopColor="#a78bfa" />
                   </linearGradient>
                 </defs>
-                {/* 右カード中央(75%) → 下へ → 左へ中央(50%) → 下へ */}
-                <path d="M75 0 L75 32 L50 32 L50 60" stroke="url(#lg)" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
-                {/* 矢印先端 */}
-                <path d="M47.5 54 L50 62 L52.5 54" stroke="#a78bfa" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M75 0 L75 32 L50 32 L50 60" stroke="url(#lg)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke"/>
+                <path d="M47.5 54 L50 62 L52.5 54" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke"/>
               </svg>
             </div>
 
