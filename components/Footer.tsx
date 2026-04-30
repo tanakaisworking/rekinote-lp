@@ -10,19 +10,16 @@ export function Footer() {
             <span className="font-semibold tracking-tight">Reki note</span>
           </div>
           <p className="mt-3 dim text-xs">
-            HIBACHI inc. ・ Macで起きる会話を、あなたの記憶に。
+            Reki note ・ デバイスで起きる全ての会話を、あなたの記憶に。
           </p>
         </div>
         <div className="flex gap-7 text-sm muted">
-          <a href="#features" className="hover:text-[#ececef] transition-colors duration-180">機能</a>
-          <a href="#privacy" className="hover:text-[#ececef] transition-colors duration-180">プライバシー</a>
           <a href="https://hibachi-inc.jp" className="hover:text-[#ececef] transition-colors duration-180">運営会社</a>
         </div>
       </div>
       <div className="border-t border-line">
         <div className="container-x px-6 py-6 dim text-xs flex flex-col md:flex-row justify-between gap-2">
           <span>© 2026 HIBACHI inc.</span>
-          <span className="font-mono-num">macOS / Apple Silicon</span>
         </div>
       </div>
     </footer>

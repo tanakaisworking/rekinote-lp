@@ -10,8 +10,8 @@ export function Hero() {
       <div className="container-x relative z-10 px-6 pt-20 pb-12 md:pt-28 md:pb-20 grid md:grid-cols-2 gap-12 items-center">
         <div className="max-w-[640px]">
           <h1 className="text-4xl md:text-[60px] font-bold tracking-tight leading-[1.15]">
-            議事録ツール、<br />
-            <span className="gradient-text">1つで足りる。</span>
+            全ての議事録を、<br />
+            <span className="gradient-text">Rekiに統合しよう。</span>
           </h1>
           <p className="mt-7 text-lg md:text-[20px] text-[#ececef]/95 leading-[1.7] max-w-[560px]">
             デバイス上の全ての会話を文字起こし。AIで横断検索。
@@ -21,8 +21,8 @@ export function Hero() {
           </p>
           <div className="mt-9">
             <div className="flex flex-wrap items-center gap-3">
-              <a href="#download" className="btn-primary">無料でダウンロード</a>
-              <a href="#compare" className="btn-ghost">他のツールと比較 →</a>
+              <a href="#download" className="btn-primary">無料ダウンロード</a>
+              <a href="#compare" className="btn-ghost">他ツールと比較 →</a>
             </div>
             <div className="mt-6 flex flex-wrap justify-center gap-x-7 gap-y-3 items-center text-[13px]">
               <span className="flex items-center gap-2 text-[#ececef]/90">

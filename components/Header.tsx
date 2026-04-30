@@ -12,7 +12,6 @@ export function Header() {
         <nav className="hidden md:flex items-center gap-7 text-sm muted">
           <a href="#features" className="hover:text-[#ececef] transition-colors duration-180">機能</a>
           <a href="#compare" className="hover:text-[#ececef] transition-colors duration-180">比較</a>
-          <a href="#how" className="hover:text-[#ececef] transition-colors duration-180">使い方</a>
           <a href="#privacy" className="hover:text-[#ececef] transition-colors duration-180">プライバシー</a>
         </nav>
         <a href="#download" className="btn-primary !py-2.5 !px-4 text-sm">無料でダウンロード</a>

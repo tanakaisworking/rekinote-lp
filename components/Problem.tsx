@@ -14,11 +14,10 @@ export function Problem() {
         <div className="max-w-[760px]">
           <span className="eyebrow">The Problem</span>
           <h2 className="mt-4 text-3xl md:text-[42px] font-bold tracking-tight leading-tight">
-            議事録のために、<br className="hidden md:block" />
-            <span className="gradient-text">いくつのAI</span>に払っていますか？
+            議事録のために<span className="md:hidden">、<br /></span><span className="hidden md:inline">、</span><span className="gradient-text">いくつのAIを</span>契約していますか？
           </h2>
           <p className="mt-6 muted leading-[1.95]">
-            会議ツールごとにAI議事録の課金。同じ「議事録」のために、気づけば月1万円近くを複数のサービスに分散させていませんか。データはバラバラのサーバーに閉じ込められ、横断検索すらできない。
+            会議ツールごとにAI課金。「議事録」のために、気づけば月1万円近くを複数のサービスに分散させていませんか。データはバラバラのサーバーに閉じ込められ、横断検索すらできない。
           </p>
         </div>
 
@@ -71,7 +70,7 @@ export function Problem() {
             <div className="relative mt-8 pt-6 border-t border-line-strong flex items-baseline justify-between gap-3">
               <span className="font-semibold">合計</span>
               <div className="text-right">
-                <span className="font-mono-num text-2xl gradient-text">¥0/月〜</span>
+                <span className="font-mono-num text-2xl gradient-text font-bold">¥0/月〜</span>
                 <div className="mt-1 text-[12px] dim">APIキーを自由に設定可能</div>
               </div>
             </div>

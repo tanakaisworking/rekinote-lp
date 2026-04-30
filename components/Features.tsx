@@ -62,7 +62,7 @@ const ChatMock = () => (
 const MemoryMock = () => {
   const records = [
     { date: "今日", title: "週次定例", excerpt: "次回までにプロト...", op: 1 },
-    { date: "3日前", title: "顧客MTG / Acme社", excerpt: "予算は概ねOK", op: 0.85 },
+    { date: "3日前", title: "顧客MTG / HIBACHI inc.", excerpt: "予算は概ねOK", op: 0.85 },
     { date: "先週", title: "1on1 / 田中さん", excerpt: "キャリア面談の続き", op: 0.65 },
     { date: "2週前", title: "プロダクトレビュー", excerpt: "デザイン方針の決定", op: 0.45 },
     { date: "半年前", title: "Q3キックオフ", excerpt: "目標設定の根拠", op: 0.28 },
@@ -74,7 +74,6 @@ const MemoryMock = () => {
       <div className="relative">
         <div className="flex items-center justify-between mb-5">
           <div className="text-xs muted font-mono-num tracking-widest">MEMORY</div>
-          <div className="text-[11px] dim font-mono-num">AIが全部覚えてる</div>
         </div>
         <ul className="space-y-2">
           {records.map((r, i) => (
@@ -102,29 +101,26 @@ export function Features() {
         <div className="max-w-[760px] mb-20">
           <span className="eyebrow">Benefits</span>
           <h2 className="mt-4 text-3xl md:text-[42px] font-bold tracking-tight leading-tight">
-            1本に集約 →<br className="md:hidden" /> ラクな毎日 →<br className="md:hidden" /> <span className="gradient-text">第二の脳。</span>
+            Rekiを使うと<span className="gradient-text">何が変わるか</span>
           </h2>
-          <p className="mt-6 muted leading-[1.95]">
-            使い始めた瞬間から効くベネフィットと、使い続けて初めて手に入る資産。Reki noteは3段階であなたの仕事を変えていきます。
-          </p>
         </div>
 
         <div className="space-y-28 md:space-y-36">
           <Row
             num="01" phase="今すぐ ・ Soon"
-            title="バラバラの議事録AIをやめて、1つのアプリに。"
+            title="議事録を一本化し、課金をスリムに。"
             body="Zoom / Meet / Teams / Slack / 対面、Macで起きる会話はすべて検知して録音。文字起こしから議事録生成まで、1本で完結します。複数のサービスに月1万円払う必要も、データが各社サーバーに散らばる悩みも、ここで終わります。"
             mock={<NotificationMock />}
           />
           <Row
             num="02" phase="数週間後 ・ 中期" reverse
-            title="メモを取らない。探さない。AIに聞くだけ。"
-            body="話した瞬間に文字起こしと要約が走るから、もうメモを取る必要はありません。「先週の田中さんとの会議で何が決まった？」と聞くだけで、どの会議の何分の発言かを出典付きで答えてくれる。サービスを横断せず、過去の全会話を一発で検索できる毎日が始まります。"
+            title="全てのメモはRekiにお任せ"
+            body="デバイス上の全ての通話を文字起こし。一箇所に統合された会話メモから、Reki AIがあなたの質問に答えます。"
             mock={<ChatMock />}
           />
           <Row
             num="03" phase="使い続けた先に ・ 長期"
-            title="思い出さなくていい毎日が、当たり前になる。"
+            title="あなただけの第二の&quot;脳&quot;が誕生する"
             body="半年前の決定理由も、3年前の打ち合わせの細部も、AIに聞けば即座に出てくる。会議を重ねるほど、あなたの仕事の文脈すべてを覚えている『第二の脳』が手元で育っていく。記憶に頼って疲れる毎日から、いつでも引き出せる毎日へ。仕事の判断スピードと精度が、根本から変わります。"
             mock={<MemoryMock />}
           />

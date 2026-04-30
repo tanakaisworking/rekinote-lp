@@ -17,10 +17,10 @@ export function WorksWith() {
           <div>
             <span className="eyebrow">Works Where You Work</span>
             <h2 className="mt-4 text-3xl md:text-[40px] font-bold tracking-tight leading-[1.3]">
-              いつものMacの、<br className="hidden md:block" />すべての通話に。
+              いつものデバイスの、<br className="hidden md:block" />すべての通話に。
             </h2>
             <p className="mt-6 muted leading-[1.95] max-w-[440px]">
-              OS直取りだから、特定アプリのAPI連携もbot招待も不要。インストールして起動するだけで、すべての会話を捕まえます。
+              OSレベルから音声を拾うので、インストールして起動するだけで、サービスを超えてすべての会話を捕まえます。
             </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">

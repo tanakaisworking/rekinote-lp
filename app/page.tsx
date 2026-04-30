@@ -6,7 +6,6 @@ import { WorksWith } from "@/components/WorksWith";
 import { Compare } from "@/components/Compare";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Privacy } from "@/components/Privacy";
-import { UseCases } from "@/components/UseCases";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 
@@ -22,7 +21,6 @@ export default function Page() {
         <Compare />
         <Privacy />
         <HowItWorks />
-        <UseCases />
         <FinalCTA />
       </main>
       <Footer />

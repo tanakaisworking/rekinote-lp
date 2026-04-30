@@ -15,7 +15,7 @@ export function Privacy() {
           <div className="md:col-span-5">
             <span className="eyebrow">Privacy by Design</span>
             <h2 className="mt-4 text-3xl md:text-[42px] font-bold tracking-tight leading-tight">
-              あなたの会議は、<br className="hidden md:block" /><span className="gradient-text">あなたのもの。</span>
+              秘密を守るか、<br className="hidden md:block" /><span className="gradient-text">コストを抑えるか</span>
             </h2>
             <ul className="mt-8 space-y-3.5">
               {facts.map((f) => (

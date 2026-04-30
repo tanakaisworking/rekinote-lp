@@ -1,55 +1,111 @@
-const items = [
-  {
-    title: "Capture Everything",
-    body: "あらゆるアプリと対面の会話を録音。",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7">
-        <path d="M3 12h2M19 12h2M7 8v8M11 5v14M15 7v10" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    title: "Auto Context",
-    body: "カレンダー・参加者と自動で紐付け。",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7">
-        <rect x="3.5" y="5" width="17" height="15" rx="2" />
-        <path d="M3.5 9.5h17M8 3v4M16 3v4" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    title: "Unified Knowledge",
-    body: "全議事録が1つのナレッジベースに。",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7">
-        <ellipse cx="12" cy="6" rx="7.5" ry="2.5" />
-        <path d="M4.5 6v12c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5V6M4.5 12c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5" />
-      </svg>
-    ),
-  },
-  {
-    title: "Ask Anything",
-    body: "自然な言葉で過去の全会話に質問。",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7">
-        <circle cx="11" cy="11" r="6.5" />
-        <path d="m20 20-3.5-3.5" strokeLinecap="round" />
-      </svg>
-    ),
-  },
-  {
-    title: "Second Brain",
-    body: "使うほど積み上がる、自分だけの資産。",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-7 h-7">
-        <path d="M9 4.5C7 4.5 5.5 6 5.5 8c-1.5.5-2.5 2-2.5 3.5s1 3 2.5 3.5C5.5 17 7 18.5 9 18.5c1 .5 2 .5 3 0M15 4.5c2 0 3.5 1.5 3.5 3.5 1.5.5 2.5 2 2.5 3.5s-1 3-2.5 3.5c0 2-1.5 3.5-3.5 3.5-1 .5-2 .5-3 0M12 4v16" />
-      </svg>
-    ),
-  },
-];
-
 export function HowItWorks() {
+  const TranscriptCard = () => (
+    <div className="card p-6 flex flex-col gap-4 flex-1">
+      <div className="flex items-center gap-3">
+        <div className="w-9 h-9 rounded-xl border border-line-strong bg-[rgba(139,92,246,0.06)] flex items-center justify-center text-[#a78bfa] shrink-0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
+            <rect x="9" y="2" width="6" height="12" rx="3" />
+            <path d="M5 10c0 3.87 3.13 7 7 7s7-3.13 7-7M12 19v3M8 22h8" strokeLinecap="round" />
+          </svg>
+        </div>
+        <div>
+          <div className="text-[10px] font-mono-num tracking-widest text-[#a78bfa] uppercase">Input 01</div>
+          <div className="text-[14px] font-semibold mt-0.5">音声書き起こし</div>
+        </div>
+      </div>
+      <div className="bg-[#0c0c10] rounded-xl p-4 space-y-3 text-[12.5px] leading-[1.75] border border-line">
+        <div className="flex gap-2.5">
+          <span className="font-mono-num text-[#5e5e6a] shrink-0 mt-px">00:03</span>
+          <p className="text-[#ececef]/80"><span className="text-[#a78bfa] font-medium">田中：</span>先月の売上を上回ったそうですが、原因としては何が一番大きいですか？</p>
+        </div>
+        <div className="flex gap-2.5">
+          <span className="font-mono-num text-[#5e5e6a] shrink-0 mt-px">00:18</span>
+          <p className="text-[#ececef]/80"><span className="text-[#7c9cf0] font-medium">松嶋：</span>新規チャネルの転換率が改善したのが主要因です。特にリードの質が上がって——</p>
+        </div>
+        <div className="flex gap-2.5">
+          <span className="font-mono-num text-[#5e5e6a] shrink-0 mt-px">00:34</span>
+          <p className="text-[#ececef]/80"><span className="text-[#a78bfa] font-medium">田中：</span>具体的な数字は次回までに共有お願いします。</p>
+        </div>
+      </div>
+    </div>
+  );
+
+  const CalendarCard = () => (
+    <div className="card p-6 flex flex-col gap-4 flex-1">
+      <div className="flex items-center gap-3">
+        <div className="w-9 h-9 rounded-xl border border-line-strong bg-[rgba(139,92,246,0.06)] flex items-center justify-center text-[#a78bfa] shrink-0">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4">
+            <rect x="3.5" y="5" width="17" height="15" rx="2" />
+            <path d="M3.5 9.5h17M8 3v4M16 3v4" strokeLinecap="round" />
+          </svg>
+        </div>
+        <div>
+          <div className="text-[10px] font-mono-num tracking-widest text-[#a78bfa] uppercase">Input 02</div>
+          <div className="text-[14px] font-semibold mt-0.5">カレンダー情報</div>
+        </div>
+      </div>
+      <div className="bg-[#0c0c10] rounded-xl p-4 border border-line flex flex-col gap-3">
+        <div className="flex items-center gap-2 pb-3 border-b border-line">
+          <div className="w-2.5 h-2.5 rounded-full bg-[#a78bfa]" />
+          <span className="text-[13px] font-semibold">週次定例</span>
+        </div>
+        <div className="space-y-2.5 text-[12.5px]">
+          <div className="flex justify-between">
+            <span className="muted">日時</span>
+            <span className="text-[#ececef]/90 font-mono-num">2026/05/01　10:00</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="muted">参加者</span>
+            <span className="text-[#ececef]/90">田中、松嶋、佐藤</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="muted">ツール</span>
+            <span className="text-[#ececef]/90">Google Meet</span>
+          </div>
+        </div>
+        <p className="text-[11.5px] muted leading-[1.7] pt-1 border-t border-line">
+          音声に「誰が・いつ・何の会議か」を自動で紐付け
+        </p>
+      </div>
+    </div>
+  );
+
+  const OutputCard = () => (
+    <div className="card-strong p-8 relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none"
+           style={{ background: "radial-gradient(ellipse 70% 60% at 50% 100%, rgba(139,92,246,0.12), transparent 70%)" }} />
+      <div className="relative">
+        <div className="flex items-center gap-3 mb-6">
+          <div className="w-10 h-10 rounded-xl border border-[rgba(139,92,246,0.5)] bg-[rgba(139,92,246,0.1)] flex items-center justify-center text-[#a78bfa] shrink-0">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-5 h-5">
+              <ellipse cx="12" cy="6" rx="7.5" ry="2.5" />
+              <path d="M4.5 6v12c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5V6M4.5 12c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5" />
+            </svg>
+          </div>
+          <div>
+            <div className="text-[11px] font-mono-num tracking-widest text-[#a78bfa] uppercase">Output</div>
+            <div className="text-[18px] font-bold mt-0.5">ナレッジデータベース</div>
+          </div>
+        </div>
+        <div className="grid md:grid-cols-3 gap-4">
+          {[
+            { title: "全文検索", body: "参加者・日付・発言内容で横断検索" },
+            { title: "AI質問応答", body: "「先週の決定事項は？」と自然言語で問い合わせ" },
+            { title: "蓄積される資産", body: "使うほど文脈が深まる、自分だけの第二の脳" },
+          ].map((f) => (
+            <div key={f.title} className="bg-surface rounded-xl p-5 border border-line">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#a78bfa]" />
+                <span className="text-[13px] font-semibold">{f.title}</span>
+              </div>
+              <p className="text-[12.5px] muted leading-[1.7]">{f.body}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <section className="section relative" id="how">
       <div className="absolute inset-0 pointer-events-none opacity-50"
@@ -58,21 +114,65 @@ export function HowItWorks() {
         <div className="text-center mb-16">
           <span className="eyebrow">How it Works</span>
           <h2 className="mt-4 text-3xl md:text-[42px] font-bold tracking-tight leading-tight">
-            Simple. <span className="gradient-text">Private.</span> Powerful.
+            シンプルに、<span className="gradient-text">パワフル。</span>
           </h2>
-          <p className="mt-5 muted">録音から第二の脳まで、5つの機能で完結します。</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-          {items.map((it) => (
-            <div key={it.title} className="card p-6 text-center hover:border-line-strong transition-colors duration-180">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl border border-line-strong text-[#a78bfa] mb-4 bg-[rgba(139,92,246,0.06)]">
-                {it.icon}
+        <div className="max-w-[860px] mx-auto">
+
+          {/* ── デスクトップ: 横並び + L字矢印 ── */}
+          <div className="hidden md:block">
+            {/* 上段: card → arrow → card */}
+            <div className="flex items-center gap-0">
+              <TranscriptCard />
+              {/* 横矢印 */}
+              <div className="shrink-0 px-4 flex items-center">
+                <svg viewBox="0 0 44 16" fill="none" className="w-11 h-4">
+                  <path d="M0 8 H38" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.7"/>
+                  <path d="M32 3 L42 8 L32 13" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                </svg>
               </div>
-              <div className="text-[14px] font-semibold tracking-tight">{it.title}</div>
-              <p className="mt-2 text-[12.5px] muted leading-[1.7]">{it.body}</p>
+              <CalendarCard />
             </div>
-          ))}
+
+            {/* L字矢印: 右カード中央 → 下 → 中央 */}
+            <div className="relative h-16">
+              <svg viewBox="0 0 100 64" fill="none" preserveAspectRatio="none" className="w-full h-full">
+                <defs>
+                  <linearGradient id="lg" x1="75" y1="0" x2="50" y2="64" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="rgba(139,92,246,0.5)" />
+                    <stop offset="1" stopColor="#a78bfa" />
+                  </linearGradient>
+                </defs>
+                {/* 右カード中央(75%) → 下へ → 左へ中央(50%) → 下へ */}
+                <path d="M75 0 L75 32 L50 32 L50 60" stroke="url(#lg)" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
+                {/* 矢印先端 */}
+                <path d="M47.5 54 L50 62 L52.5 54" stroke="#a78bfa" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+
+            <OutputCard />
+          </div>
+
+          {/* ── モバイル: 縦スタック + 下矢印 ── */}
+          <div className="md:hidden flex flex-col gap-0">
+            <TranscriptCard />
+            <div className="flex justify-center py-3">
+              <svg viewBox="0 0 16 32" fill="none" className="w-4 h-8">
+                <path d="M8 0 V26" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.7"/>
+                <path d="M3 20 L8 28 L13 20" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <CalendarCard />
+            <div className="flex justify-center py-3">
+              <svg viewBox="0 0 16 32" fill="none" className="w-4 h-8">
+                <path d="M8 0 V26" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.7"/>
+                <path d="M3 20 L8 28 L13 20" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </div>
+            <OutputCard />
+          </div>
+
         </div>
       </div>
     </section>

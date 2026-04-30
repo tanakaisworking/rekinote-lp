@@ -5,7 +5,7 @@ export function FinalCTA() {
         <div
           className="relative px-8 md:px-16 py-16 md:py-20 rounded-2xl overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, #6d3df0 0%, #8b5cf6 50%, #a78bfa 100%)",
+            background: "linear-gradient(135deg, #3b1a8a 0%, #5a2fc2 50%, #7c3aed 100%)",
           }}
         >
           {/* テクスチャ */}
@@ -34,8 +34,8 @@ export function FinalCTA() {
                 </span>
               </div>
             </div>
-            <div className="flex flex-col sm:flex-row md:flex-col gap-3 md:items-end">
-              <a href="#" className="bg-white text-[#6d3df0] hover:bg-white/95 font-semibold px-6 py-3.5 rounded-lg text-center transition-all duration-180 shadow-lg shadow-black/10 hover:-translate-y-px">
+            <div className="flex flex-row gap-3 md:justify-end flex-wrap">
+              <a href="#" className="bg-white text-[#3b1a8a] hover:bg-white/95 font-semibold px-6 py-3.5 rounded-lg text-center transition-all duration-180 shadow-lg shadow-black/10 hover:-translate-y-px">
                 無料でダウンロード
               </a>
               <a href="#compare" className="border border-white/40 text-white hover:bg-white/10 font-medium px-6 py-3.5 rounded-lg text-center transition-all duration-180 hover:-translate-y-px">
