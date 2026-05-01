@@ -65,6 +65,7 @@ export function WorksWith() {
               <div key={a.name} className="card p-4 flex flex-col items-center gap-2.5 hover:border-line-strong transition-colors duration-180">
                 <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-white/[0.06] border border-white/10 text-[#ececef] text-sm font-semibold">
                   {a.slug ? (
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={`https://cdn.simpleicons.org/${a.slug}/ececef`}
                       alt=""

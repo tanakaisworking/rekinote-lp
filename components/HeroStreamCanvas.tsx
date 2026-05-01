@@ -69,7 +69,7 @@ export function HeroStreamCanvas() {
       let iconY = H * 0.52
 
       const logoEls = document.querySelectorAll('.hero-logo-target')
-      let logoEl = Array.from(logoEls).find(el => {
+      const logoEl = Array.from(logoEls).find(el => {
         const rect = el.getBoundingClientRect()
         return rect.width > 0 && rect.height > 0
       })
