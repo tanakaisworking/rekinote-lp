@@ -1,6 +1,44 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 export function FinalCTA() {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setLoading(true);
+    setError("");
+
+    try {
+      const { error: submitError } = await supabase
+        .from("waitlist")
+        .insert([{ email }]);
+
+      if (submitError) {
+        if (submitError.code === "23505") {
+          setError("このメールアドレスは既に登録されています。");
+        } else {
+          throw submitError;
+        }
+      } else {
+        setSubmitted(true);
+      }
+    } catch (err) {
+      console.error(err);
+      setError("エラーが発生しました。時間をおいて再度お試しください。");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="section relative overflow-hidden" id="download">
       <div className="container-x relative">
@@ -15,7 +53,7 @@ export function FinalCTA() {
                style={{ background: "radial-gradient(circle at 80% 20%, rgba(255,255,255,0.25), transparent 50%)" }} />
 
           <div className="relative grid md:grid-cols-2 items-center">
-            {/* 左: テキスト + ボタン */}
+            {/* 左: テキスト + フォーム */}
             <div className="px-8 md:px-16 pt-16 md:pt-20 pb-10 md:pb-16 flex flex-col justify-between h-full">
               <div>
                 <h2 className="text-3xl md:text-[40px] font-bold tracking-tight leading-[1.3] text-white">
@@ -39,14 +77,42 @@ export function FinalCTA() {
                   </span>
                 </div>
               </div>
-              {/* ボタン: 左下 */}
-              <div className="mt-10 flex flex-row gap-3 flex-wrap">
-                <a href="#" className="bg-white text-[#3b1a8a] hover:bg-white/95 font-semibold px-6 py-3.5 rounded-lg text-center transition-all duration-180 shadow-lg shadow-black/10 hover:-translate-y-px">
-                  無料でダウンロード
-                </a>
-                <a href="#compare" className="border border-white/40 text-white hover:bg-white/10 font-medium px-6 py-3.5 rounded-lg text-center transition-all duration-180 hover:-translate-y-px">
-                  比較表を見る
-                </a>
+              
+              {/* フォーム: 左下 */}
+              <div className="mt-10">
+                {!submitted ? (
+                  <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
+                    <input
+                      type="email"
+                      required
+                      placeholder="メールアドレスを入力"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      disabled={loading}
+                      className="px-5 py-3.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 w-full sm:w-auto flex-1"
+                    />
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="bg-white text-[#3b1a8a] hover:bg-white/95 font-semibold px-6 py-3.5 rounded-lg text-center transition-all duration-180 shadow-lg shadow-black/10 hover:-translate-y-px disabled:opacity-70 disabled:hover:translate-y-0 flex-shrink-0"
+                    >
+                      {loading ? "送信中..." : "ウェイティングリストに登録"}
+                    </button>
+                  </form>
+                ) : (
+                  <div className="bg-white/10 border border-white/20 rounded-lg p-5">
+                    <p className="text-white font-medium flex items-center gap-2">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-5 h-5 text-green-400">
+                        <path d="M20 6L9 17l-5-5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                      ご登録ありがとうございます！
+                    </p>
+                    <p className="text-white/70 text-sm mt-1">
+                      準備が整い次第、ご案内のメールをお送りします。
+                    </p>
+                  </div>
+                )}
+                {error && <p className="text-[#ffb3b3] text-sm mt-2">{error}</p>}
               </div>
             </div>
 

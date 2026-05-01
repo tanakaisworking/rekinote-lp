@@ -43,8 +43,8 @@ export function Hero() {
           </p>
           <div className="mt-9">
             <div className="flex flex-wrap items-center gap-3">
-              <a href="#download" className="btn-primary">無料ダウンロード</a>
-              <a href="#compare" className="btn-ghost">他ツールと比較 →</a>
+              <a href="#download" className="btn-primary">ウェイティングリストに登録</a>
+              {/* <a href="#compare" className="btn-ghost">他ツールと比較 →</a> */}
             </div>
             <div className="mt-6 flex flex-wrap gap-x-7 gap-y-3 items-center text-[13px]">
               <span className="flex items-center gap-2 text-[#ececef]/90">
