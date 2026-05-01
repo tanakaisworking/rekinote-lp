@@ -1,10 +1,10 @@
 const rows = [
-  ["対応する会議ツール", "そのPFのみ", "主要会議アプリのみ", "Mac全アプリ＋対面"],
-  ["課金モデル", "PFごと", "独自サブスク", "自分のAIキーで動く"],
-  ["データ保存場所", "各社サーバー", "各社サーバー", "あなたのMac"],
-  ["過去議事録の横断質問", "不可 / 限定的", "単発要約のみ", "全議事録を横断"],
-  ["出力形式", "PF内閲覧", "一部エクスポート", "Markdown / Obsidian"],
-  ["対面会話の録音", "不可", "一部のみ", "対応"],
+  ["対応する会議ツール", "Mac全アプリ＋対面", "そのPFのみ", "主要会議アプリのみ"],
+  ["課金モデル", "自分のAIキーで動く", "PFごと", "独自サブスク"],
+  ["データ保存場所", "あなたのMac", "各社サーバー", "各社サーバー"],
+  ["過去議事録の横断質問", "全議事録を横断", "不可 / 限定的", "単発要約のみ"],
+  ["出力形式", "Markdown / Obsidian", "PF内閲覧", "一部エクスポート"],
+  ["対面会話の録音", "対応", "不可", "一部のみ"],
 ];
 
 export function Compare() {
@@ -23,7 +23,7 @@ export function Compare() {
 
         <div className="card relative overflow-x-auto">
           {/* Reki列のハイライト枠 */}
-          <div className="hidden md:block absolute top-0 bottom-0 right-0 w-[26%] pointer-events-none rounded-r-2xl"
+          <div className="hidden md:block absolute top-0 bottom-0 left-[26%] w-[24.66%] pointer-events-none rounded-md"
                style={{
                  background: "linear-gradient(180deg, rgba(139,92,246,0.10) 0%, rgba(139,92,246,0.04) 100%)",
                  boxShadow: "inset 0 0 0 1px rgba(139,92,246,0.35)",
@@ -32,23 +32,23 @@ export function Compare() {
             <thead>
               <tr>
                 <th className="w-[26%]">比較軸</th>
-                <th>Zoom AI / Teams Copilot</th>
-                <th>Otter / tl;dv / Notta</th>
                 <th className="highlight">
                   <span className="inline-flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#a78bfa]" />
                     Reki note
                   </span>
                 </th>
+                <th>Zoom AI / Teams Copilot</th>
+                <th>Otter / tl;dv / Notta</th>
               </tr>
             </thead>
             <tbody>
               {rows.map((r) => (
                 <tr key={r[0]}>
                   <td className="muted">{r[0]}</td>
-                  <td>{r[1]}</td>
+                  <td className="highlight">{r[1]}</td>
                   <td>{r[2]}</td>
-                  <td className="highlight">{r[3]}</td>
+                  <td>{r[3]}</td>
                 </tr>
               ))}
             </tbody>

@@ -40,7 +40,7 @@ const apps: App[] = [
   { name: "Teams",                node: UsersIcon },
   { name: "LINE",                 slug: "line" },
   { name: "Discord",              slug: "discord" },
-  { name: "Telegram",             slug: "telegram" },
+  { name: "Messenger",            slug: "messenger" },
   { name: "Macアプリ全般",        slug: "apple" },
   { name: "対面の会話",           node: MessagesSquareIcon },
   { name: "その他の通話サービス", fallback: "…" },

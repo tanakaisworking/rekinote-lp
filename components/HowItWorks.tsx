@@ -128,7 +128,10 @@ export function HowItWorks() {
               {/* 横矢印 */}
               <div className="shrink-0 px-4 flex items-center">
                 <svg viewBox="0 0 44 16" fill="none" className="w-11 h-4">
-                  <path d="M0 8 H38" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.7"/>
+                  <path d="M0 8 H38" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.6"/>
+                  <path d="M0 8 H38" stroke="#fff" strokeWidth="2" strokeLinecap="round" pathLength="100" strokeDasharray="10 160" opacity="0.9">
+                    <animate attributeName="stroke-dashoffset" values="10; -160" dur="1.5s" repeatCount="indefinite" />
+                  </path>
                   <path d="M32 3 L42 8 L32 13" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
@@ -140,11 +143,14 @@ export function HowItWorks() {
               <svg viewBox="0 0 100 64" fill="none" preserveAspectRatio="none" className="w-full h-full">
                 <defs>
                   <linearGradient id="lg" x1="75" y1="0" x2="50" y2="64" gradientUnits="userSpaceOnUse">
-                    <stop stopColor="rgba(139,92,246,0.5)" />
+                    <stop stopColor="rgba(139,92,246,0.4)" />
                     <stop offset="1" stopColor="#a78bfa" />
                   </linearGradient>
                 </defs>
                 <path d="M75 0 L75 32 L50 32 L50 60" stroke="url(#lg)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke"/>
+                <path d="M75 0 L75 32 L50 32 L50 60" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke" pathLength="100" strokeDasharray="10 160" opacity="0.9">
+                  <animate attributeName="stroke-dashoffset" values="10; -160" dur="2.5s" repeatCount="indefinite" />
+                </path>
                 <path d="M47.5 54 L50 62 L52.5 54" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" vectorEffect="non-scaling-stroke"/>
               </svg>
             </div>
@@ -157,14 +163,20 @@ export function HowItWorks() {
             <TranscriptCard />
             <div className="flex justify-center py-3">
               <svg viewBox="0 0 16 32" fill="none" className="w-4 h-8">
-                <path d="M8 0 V26" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.7"/>
+                <path d="M8 0 V26" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.6"/>
+                <path d="M8 0 V26" stroke="#fff" strokeWidth="2" strokeLinecap="round" pathLength="100" strokeDasharray="10 160" opacity="0.9">
+                  <animate attributeName="stroke-dashoffset" values="10; -160" dur="1.5s" repeatCount="indefinite" />
+                </path>
                 <path d="M3 20 L8 28 L13 20" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>
             <CalendarCard />
             <div className="flex justify-center py-3">
               <svg viewBox="0 0 16 32" fill="none" className="w-4 h-8">
-                <path d="M8 0 V26" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.7"/>
+                <path d="M8 0 V26" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeOpacity="0.6"/>
+                <path d="M8 0 V26" stroke="#fff" strokeWidth="2" strokeLinecap="round" pathLength="100" strokeDasharray="10 160" opacity="0.9">
+                  <animate attributeName="stroke-dashoffset" values="10; -160" dur="1.5s" repeatCount="indefinite" />
+                </path>
                 <path d="M3 20 L8 28 L13 20" stroke="#a78bfa" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </div>

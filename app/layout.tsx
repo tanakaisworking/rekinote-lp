@@ -2,14 +2,34 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rekinote.app"),
+  alternates: {
+    canonical: "/",
+  },
   title: "Reki note — 議事録ツール、1つで足りる。",
   description:
     "Macで起きる全ての通話と対面の会話を、1つのアプリに。Zoom / Meet / Teams / Slack 対応のAI議事録アプリ。",
+  keywords: ["議事録", "AI", "音声認識", "文字起こし", "Mac", "Zoom", "Meet", "Teams", "自動化"],
+  robots: {
+    index: true,
+    follow: true,
+  },
+  icons: {
+    icon: "/logo.png",
+    apple: "/logo.png",
+  },
   openGraph: {
     title: "Reki note — 議事録ツール、1つで足りる。",
     description:
       "Macで起きる全ての通話と対面の会話を、1つのアプリに。Zoom / Meet / Teams / Slack 対応のAI議事録アプリ。",
-    images: [{ url: "/ogp.jpg" }],
+    images: [
+      {
+        url: "/ogp.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Reki note",
+      },
+    ],
     type: "website",
   },
   twitter: {
@@ -24,8 +44,28 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Reki note",
+    operatingSystem: "macOS",
+    applicationCategory: "BusinessApplication",
+    description: "Macで起きる全ての通話と対面の会話を、1つのアプリに集約するAI議事録アプリ。",
+    offers: {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "JPY",
+    },
+  };
+
   return (
     <html lang="ja">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="bg-[#0c0c10] text-[#ececef]">{children}</body>
     </html>
   );

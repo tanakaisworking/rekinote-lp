@@ -18,6 +18,26 @@ export function Hero() {
           <p className="mt-7 text-lg md:text-[20px] text-[#ececef]/95 leading-[1.7] max-w-[560px]">
             デバイス上の全ての会話を文字起こし。AIで横断検索。
           </p>
+
+          {/* スマホ表示用ロゴ: テキスト間に配置 */}
+          <div className="relative mt-12 mb-10 md:hidden flex justify-center">
+            <div className="absolute -inset-12 pointer-events-none"
+                 style={{ background: "radial-gradient(circle at 50% 50%, rgba(139,92,246,0.25), transparent 70%)" }} />
+            <div className="flex items-center justify-center p-4 relative">
+              <Image
+                src="/logo-transparent.png"
+                alt="Reki note"
+                width={600}
+                height={600}
+                priority
+                className="hero-logo-target w-full h-auto max-w-[280px] drop-shadow-[0_0_60px_rgba(139,92,246,0.5)] select-none pointer-events-none"
+                draggable={false}
+              />
+              {/* 画像保存防止用 透明オーバーレイ */}
+              <div className="absolute inset-0 z-10 bg-transparent" />
+            </div>
+          </div>
+
           <p className="mt-5 muted text-[15px] max-w-[560px] leading-[1.85]">
             Zoom / Meet / Teams / Slack / 対面。Macで起きる全ての通話が、1つのアプリに集まります。
           </p>
@@ -43,18 +63,21 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="relative">
+        <div className="relative hidden md:block">
           <div className="absolute -inset-12 pointer-events-none"
                style={{ background: "radial-gradient(circle at 50% 50%, rgba(139,92,246,0.25), transparent 70%)" }} />
-          <div className="flex items-center justify-center p-8">
+          <div className="flex items-center justify-center p-8 relative">
             <Image
               src="/logo-transparent.png"
               alt="Reki note"
               width={600}
               height={600}
               priority
-              className="w-full h-auto max-w-[320px] drop-shadow-[0_0_60px_rgba(139,92,246,0.5)]"
+              className="hero-logo-target w-full h-auto max-w-[320px] drop-shadow-[0_0_60px_rgba(139,92,246,0.5)] select-none pointer-events-none"
+              draggable={false}
             />
+            {/* 画像保存防止用 透明オーバーレイ */}
+            <div className="absolute inset-0 z-10 bg-transparent" />
           </div>
         </div>
       </div>

@@ -65,8 +65,21 @@ export function HeroStreamCanvas() {
       ctx.fillStyle    = COLOR
       ctx.textBaseline = 'middle'
 
-      const iconX = W * 0.74
-      const iconY = H * 0.52
+      let iconX = W * 0.74
+      let iconY = H * 0.52
+
+      const logoEls = document.querySelectorAll('.hero-logo-target')
+      let logoEl = Array.from(logoEls).find(el => {
+        const rect = el.getBoundingClientRect()
+        return rect.width > 0 && rect.height > 0
+      })
+
+      if (logoEl) {
+        const canvasRect = canvas.getBoundingClientRect()
+        const logoRect = logoEl.getBoundingClientRect()
+        iconX = logoRect.left - canvasRect.left + logoRect.width / 2
+        iconY = logoRect.top - canvasRect.top + logoRect.height / 2
+      }
 
       // ===================== 軌道（アイコン周りに纏わり付く） =====================
       for (const o of ORBITS) {
