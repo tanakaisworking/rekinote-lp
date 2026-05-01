@@ -1,24 +1,18 @@
-const facts = [
-  "音声ファイルは、あなたのMacの中に保存されます",
-  "文字起こしは、あなたが選んだAIプロバイダへ直接送信",
-  "議事録生成も、あなたのAIキーで動きます",
-];
+import type { DictPrivacy } from "@/dictionaries/types";
 
-const providers = ["OpenAI", "Gemini", "Groq", "OpenRouter", "NVIDIA", "+ 今後追加"];
-
-export function Privacy() {
+export function Privacy({ dict }: { dict: DictPrivacy }) {
   return (
     <section className="section relative" id="privacy">
       <div className="container-x">
         <div className="grid md:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* テキスト */}
           <div className="md:col-span-5">
-            <span className="eyebrow">Privacy by Design</span>
+            <span className="eyebrow">{dict.eyebrow}</span>
             <h2 className="mt-4 text-3xl md:text-[42px] font-bold tracking-tight leading-tight">
-              秘密を守るか、<br className="hidden md:block" /><span className="gradient-text">コストを抑えるか</span>
+              {dict.title1}<br className="hidden md:block" /><span className="gradient-text">{dict.title2}</span>
             </h2>
             <ul className="mt-8 space-y-3.5">
-              {facts.map((f) => (
+              {dict.facts.map((f) => (
                 <li key={f} className="flex items-start gap-3 text-[14.5px]">
                   <span className="mt-[7px] w-4 h-4 rounded-full flex items-center justify-center shrink-0"
                         style={{ background: "rgba(139,92,246,0.15)", border: "1px solid rgba(139,92,246,0.5)" }}>
@@ -60,12 +54,12 @@ export function Privacy() {
               <div className="absolute inset-0 pointer-events-none opacity-50"
                    style={{ background: "radial-gradient(circle at 100% 0%, rgba(99,102,241,0.10), transparent 60%)" }} />
               <div className="relative">
-                <div className="text-xs muted font-mono-num tracking-widest mb-1">PROVIDERS</div>
+                <div className="text-xs muted font-mono-num tracking-widest mb-1">{dict.providersLabel}</div>
                 <div className="text-[13px] muted mb-5 leading-relaxed">
-                  あなたが契約済みのAIを直接使えます
+                  {dict.providersDesc}
                 </div>
                 <div className="grid grid-cols-2 gap-2.5">
-                  {providers.map((p, i) => (
+                  {dict.providers.map((p, i) => (
                     <div key={p}
                          className={`flex items-center justify-between px-3.5 py-2.5 rounded-lg border text-[13px] ${
                            i === 5 ? "border-dashed border-line text-[#5e5e6a]" : "border-line bg-surface-2"

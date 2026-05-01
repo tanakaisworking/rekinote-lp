@@ -1,7 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import type { DictHeader } from "@/dictionaries/types";
 
-export function Header() {
+export function Header({ dict }: { dict: DictHeader }) {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-[rgba(12,12,16,0.7)] border-b border-line">
       <div className="container-x flex items-center justify-between h-16 px-6">
@@ -10,14 +11,14 @@ export function Header() {
           <span className="font-semibold tracking-tight text-[15px]">Reki note</span>
         </Link>
         <nav className="hidden md:flex items-center gap-7 text-sm muted">
-          <a href="#problem" className="hover:text-[#ececef] transition-colors duration-180">効果</a>
-          <a href="#features" className="hover:text-[#ececef] transition-colors duration-180">機能</a>
-          <a href="#works-with" className="hover:text-[#ececef] transition-colors duration-180">範囲</a>
-          <a href="#compare" className="hover:text-[#ececef] transition-colors duration-180">比較</a>
-          <a href="#privacy" className="hover:text-[#ececef] transition-colors duration-180">プライバシー</a>
-          <a href="#how" className="hover:text-[#ececef] transition-colors duration-180">仕組み</a>
+          <a href="#problem" className="hover:text-[#ececef] transition-colors duration-180">{dict.benefits}</a>
+          <a href="#features" className="hover:text-[#ececef] transition-colors duration-180">{dict.features}</a>
+          <a href="#works-with" className="hover:text-[#ececef] transition-colors duration-180">{dict.integrations}</a>
+          <a href="#compare" className="hover:text-[#ececef] transition-colors duration-180">{dict.compare}</a>
+          <a href="#privacy" className="hover:text-[#ececef] transition-colors duration-180">{dict.privacy}</a>
+          <a href="#how" className="hover:text-[#ececef] transition-colors duration-180">{dict.howItWorks}</a>
         </nav>
-        <a href="#download" className="btn-primary !py-2.5 !px-4 text-sm">ウェイティングリストに登録</a>
+        <a href="#download" className="btn-primary !py-2.5 !px-4 text-sm">{dict.waitlist}</a>
       </div>
     </header>
   );

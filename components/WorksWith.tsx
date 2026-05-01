@@ -1,10 +1,5 @@
 import type { ReactNode } from "react";
 
-type App =
-  | { name: string; slug: string;       node?: never;     fallback?: never }
-  | { name: string; slug?: never;       node: ReactNode;  fallback?: never }
-  | { name: string; slug?: never;       node?: never;     fallback: string };
-
 // Lucide icons (ISC License — lucide.dev)
 const UsersIcon = (
   <svg
@@ -34,52 +29,45 @@ const MessagesSquareIcon = (
   </svg>
 );
 
-const apps: App[] = [
-  { name: "Zoom",                 slug: "zoom" },
-  { name: "Google Meet",          slug: "googlemeet" },
-  { name: "Teams",                node: UsersIcon },
-  { name: "LINE",                 slug: "line" },
-  { name: "Discord",              slug: "discord" },
-  { name: "Messenger",            slug: "messenger" },
-  { name: "Macアプリ全般",        slug: "apple" },
-  { name: "対面の会話",           node: MessagesSquareIcon },
-  { name: "その他の通話サービス", fallback: "…" },
-];
+function getIcon(app: { slug?: string | null; icon?: string | null; fallback?: string | null }): ReactNode {
+  if (app.slug) {
+    return (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        src={`https://cdn.simpleicons.org/${app.slug}/ececef`}
+        alt=""
+        width={20}
+        height={20}
+        className="opacity-90"
+      />
+    );
+  }
+  if (app.icon === "users") return UsersIcon;
+  if (app.icon === "messages") return MessagesSquareIcon;
+  return app.fallback ?? null;
+}
 
-export function WorksWith() {
+import type { DictWorksWith } from "@/dictionaries/types";
+
+export function WorksWith({ dict }: { dict: DictWorksWith }) {
   return (
     <section className="section" id="works-with">
       <div className="container-x">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="eyebrow">Works Where You Work</span>
+            <span className="eyebrow">{dict.eyebrow}</span>
             <h2 className="mt-4 text-3xl md:text-[40px] font-bold tracking-tight leading-[1.3]">
-              いつものデバイスの、<br className="hidden md:block" />すべての通話に。
+              {dict.title}
             </h2>
             <p className="mt-6 muted leading-[1.95] max-w-[440px]">
-              OSレベルから音声を拾うので、インストールして起動するだけで、サービスを超えてすべての会話を捕まえます。
+              {dict.desc}
             </p>
           </div>
           <div className="grid grid-cols-3 gap-3">
-            {apps.map((a) => (
+            {dict.apps.map((a) => (
               <div key={a.name} className="card p-4 flex flex-col items-center gap-2.5 hover:border-line-strong transition-colors duration-180">
                 <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-white/[0.06] border border-white/10 text-[#ececef] text-sm font-semibold">
-                  {a.slug ? (
-                    <>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={`https://cdn.simpleicons.org/${a.slug}/ececef`}
-                        alt=""
-                        width={20}
-                        height={20}
-                        className="opacity-90"
-                      />
-                    </>
-                  ) : a.node ? (
-                    a.node
-                  ) : (
-                    a.fallback
-                  )}
+                  {getIcon(a)}
                 </div>
                 <div className="text-[12px] muted text-center leading-tight">{a.name}</div>
               </div>

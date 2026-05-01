@@ -1,0 +1,306 @@
+{
+  "Header": {
+    "benefits": "Benefits",
+    "features": "Features",
+    "integrations": "Integrations",
+    "compare": "Compare",
+    "privacy": "Privacy",
+    "howItWorks": "How it works",
+    "waitlist": "Join the Waitlist"
+  },
+  "Hero": {
+    "title1": "Unify all your meetings",
+    "title2": "with Reki.",
+    "subtitle": "Transcribe every conversation on your device. Search across everything with AI.",
+    "desc": "Zoom / Meet / Teams / Slack / In-person. All calls on your Mac gathered in one single app.",
+    "waitlist": "Join the Waitlist",
+    "mac": "Mac",
+    "macSub": "Early Access",
+    "win": "Win",
+    "winSub": "Coming soon"
+  },
+  "Problem": {
+    "eyebrow": "The Problem",
+    "title1": "How many AI subscriptions",
+    "title2": "are you paying for",
+    "title3": "just to get notes?",
+    "desc": "Paying for an AI add-on for every single meeting tool you use? You might be spending nearly $70 a month spread across multiple services just for transcription. And worse, your data is siloed on different servers, making it impossible to search across everything.",
+    "before": "Before",
+    "beforeTitle": "Scattered costs and data",
+    "beforeItems": [
+      {
+        "name": "Zoom AI Companion",
+        "price": "+ $15/mo"
+      },
+      {
+        "name": "Microsoft Teams Copilot",
+        "price": "+ $30/mo"
+      },
+      {
+        "name": "Google Meet AI",
+        "price": "+ $10/mo"
+      },
+      {
+        "name": "Notta / Plaud etc.",
+        "price": "+ $15/mo"
+      }
+    ],
+    "total": "Total",
+    "beforeTotal": "$70/mo",
+    "beforeTotalDesc": "Spread across multiple services",
+    "after": "After",
+    "afterTitle": "Consolidated into Reki",
+    "afterDesc": "Zoom / Meet / Teams / In-person all supported",
+    "afterItems": [
+      "Record everything with one app",
+      "Data stays securely on your Mac",
+      "Ask AI questions across all notes",
+      "Bring your own API key. No extra fees."
+    ],
+    "afterTotal": "$0/mo~",
+    "afterTotalDesc": "Set your own API key"
+  },
+  "Features": {
+    "eyebrow": "Benefits",
+    "title1": "What changes",
+    "title2": "with Reki?",
+    "rows": [
+      {
+        "num": "01",
+        "phase": "Now ・ Soon",
+        "title": "Consolidate notes, slim down costs.",
+        "body": "Zoom, Meet, Teams, Slack, or in-person—Reki detects and records all conversations on your Mac. From transcription to generating minutes, it's all handled in one app. Say goodbye to paying $70/month across multiple services and having your data scattered."
+      },
+      {
+        "num": "02",
+        "phase": "Weeks later ・ Mid-term",
+        "title": "Let Reki handle all your notes.",
+        "body": "Every call on your device transcribed. With all your conversation notes integrated into one place, Reki AI can answer any question you have about them."
+      },
+      {
+        "num": "03",
+        "phase": "Long-term use",
+        "title": "Your personalized 'Second Brain'.",
+        "body": "Why did we make that decision 6 months ago? What were the details of that meeting 3 years ago? Just ask the AI and get an instant answer. Your decision-making speed and accuracy will change fundamentally."
+      }
+    ],
+    "notificationTitle": "Meeting detected",
+    "notificationApp": "App",
+    "notificationCalendar": "Calendar",
+    "notificationCalendarValue": "Weekly Sync",
+    "notificationBtn": "Start Recording",
+    "chatQuestion": "What were the action items with Tanaka-san last week?",
+    "chatAnswerLabel": "ANSWER",
+    "chatAnswer": "Here are the 3 action items:\n1. Deliver the prototype by April 15th\n2. Review async via Slack\n3. Budget is approved internally",
+    "chatSource": "Source: Weekly Sync 4/8 18:02",
+    "memoryLabel": "MEMORY",
+    "memoryItems": [
+      {
+        "date": "Today",
+        "title": "Weekly Sync",
+        "excerpt": "For next time..."
+      },
+      {
+        "date": "3d ago",
+        "title": "Client MTG / HIBACHI",
+        "excerpt": "Budget is roughly OK"
+      },
+      {
+        "date": "1w ago",
+        "title": "1on1 / Tanaka-san",
+        "excerpt": "Career discussion"
+      },
+      {
+        "date": "2w ago",
+        "title": "Product Review",
+        "excerpt": "Design direction finalized"
+      },
+      {
+        "date": "6mo ago",
+        "title": "Q3 Kickoff",
+        "excerpt": "Reasons for the goals"
+      }
+    ]
+  },
+  "WorksWith": {
+    "eyebrow": "Works Where You Work",
+    "title": "For every call, on your usual device.",
+    "desc": "Since it captures audio at the OS level, just install and launch it. It catches every conversation across any service you use.",
+    "apps": [
+      {
+        "name": "Zoom",
+        "slug": "zoom"
+      },
+      {
+        "name": "Google Meet",
+        "slug": "googlemeet"
+      },
+      {
+        "name": "Teams",
+        "slug": null,
+        "icon": "users"
+      },
+      {
+        "name": "LINE",
+        "slug": "line"
+      },
+      {
+        "name": "Discord",
+        "slug": "discord"
+      },
+      {
+        "name": "Messenger",
+        "slug": "messenger"
+      },
+      {
+        "name": "Any Mac App",
+        "slug": "apple"
+      },
+      {
+        "name": "In-person",
+        "slug": null,
+        "icon": "messages"
+      },
+      {
+        "name": "Other Call Services",
+        "slug": null,
+        "fallback": "…"
+      }
+    ]
+  },
+  "Compare": {
+    "eyebrow": "Compare",
+    "title1": "What makes it different",
+    "title2": "from other tools?",
+    "desc": "Reki note is open and local-first.",
+    "colFeature": "Features",
+    "footnote": "* Based on public information as of April 2026",
+    "rows": [
+      [
+        "Supported Meeting Apps",
+        "All Mac apps + In-person",
+        "That platform only",
+        "Major meeting apps only"
+      ],
+      [
+        "Pricing Model",
+        "Bring your own API key",
+        "Per platform",
+        "Custom subscription"
+      ],
+      [
+        "Data Storage",
+        "Your Mac",
+        "Their servers",
+        "Their servers"
+      ],
+      [
+        "Cross-meeting AI queries",
+        "Query across all notes",
+        "Not possible / Limited",
+        "Single meeting summary only"
+      ],
+      [
+        "Export Format",
+        "Markdown / Obsidian",
+        "View in platform",
+        "Limited export"
+      ],
+      [
+        "In-person recording",
+        "Supported",
+        "Not possible",
+        "Limited"
+      ]
+    ]
+  },
+  "Privacy": {
+    "eyebrow": "Privacy by Design",
+    "title1": "Keep your secrets safe,",
+    "title2": "and your costs low.",
+    "facts": [
+      "Audio files are saved locally on your Mac",
+      "Transcriptions are sent directly to the AI provider you choose",
+      "Meeting notes generation runs entirely on your own AI key"
+    ],
+    "providersLabel": "PROVIDERS",
+    "providersDesc": "Use your existing AI subscriptions directly",
+    "providers": [
+      "OpenAI",
+      "Gemini",
+      "Groq",
+      "OpenRouter",
+      "NVIDIA",
+      "+ More coming soon"
+    ]
+  },
+  "HowItWorks": {
+    "eyebrow": "How it Works",
+    "title1": "Simple,",
+    "title2": "yet powerful.",
+    "input01Label": "Input 01",
+    "input01Title": "Audio Transcription",
+    "transcript": [
+      {
+        "time": "00:03",
+        "speaker": "Tanaka",
+        "color": "#a78bfa",
+        "text": "Sales exceeded last month. What do you think is the main reason?"
+      },
+      {
+        "time": "00:18",
+        "speaker": "Matsushima",
+        "color": "#7c9cf0",
+        "text": "The main factor is the improved conversion rate of the new channel—"
+      },
+      {
+        "time": "00:34",
+        "speaker": "Tanaka",
+        "color": "#a78bfa",
+        "text": "Please share the specific numbers by next time."
+      }
+    ],
+    "input02Label": "Input 02",
+    "input02Title": "Calendar Information",
+    "calendarMeeting": "Weekly Sync",
+    "calendarDate": "Date",
+    "calendarDateValue": "2026/05/01 10:00",
+    "calendarParticipants": "Participants",
+    "calendarParticipantsValue": "Tanaka, Matsushima, Sato",
+    "calendarTool": "Tool",
+    "calendarNote": "Automatically links \"who, when, what\" to the audio",
+    "outputLabel": "Output",
+    "outputTitle": "Knowledge Database",
+    "outputCards": [
+      {
+        "title": "Full-text Search",
+        "body": "Search across participants, dates, and meeting contents."
+      },
+      {
+        "title": "AI Q&A",
+        "body": "Ask 'What were last week's decisions?' in natural language."
+      },
+      {
+        "title": "Accumulated Assets",
+        "body": "The more you use it, the deeper the context. Your own second brain."
+      }
+    ]
+  },
+  "FinalCTA": {
+    "title": "You won't be able to\nlive without it.",
+    "desc": "Start by eliminating scattered subscriptions and consolidating into one app. Once you get used to it, let AI handle your notes and searches, making your days surprisingly easier.",
+    "macSub": "Early Access",
+    "winSub": "Coming soon",
+    "placeholder": "Enter your email address",
+    "btnLoading": "Sending...",
+    "btnDefault": "Join the Waitlist",
+    "successTitle": "Thank you for registering!",
+    "successDesc": "We will send you an email as soon as it's ready.",
+    "errorDuplicate": "This email is already registered.",
+    "errorGeneral": "An error occurred. Please try again later."
+  },
+  "Footer": {
+    "tagline": "Reki note ・ All the conversations on your device, saved to your memory.",
+    "company": "Company"
+  }
+}

@@ -1,6 +1,7 @@
 import Image from "next/image";
+import type { DictFooter } from "@/dictionaries/types";
 
-export function Footer() {
+export function Footer({ dict }: { dict: DictFooter }) {
   return (
     <footer className="border-t border-line">
       <div className="container-x px-6 py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
@@ -10,11 +11,11 @@ export function Footer() {
             <span className="font-semibold tracking-tight">Reki note</span>
           </div>
           <p className="mt-3 dim text-xs">
-            Reki note ・ デバイスで起きる全ての会話を、あなたの記憶に。
+            {dict.tagline}
           </p>
         </div>
         <div className="flex gap-7 text-sm muted">
-          <a href="https://hibachi-inc.jp" className="hover:text-[#ececef] transition-colors duration-180">運営会社</a>
+          <a href="https://hibachi-inc.jp" className="hover:text-[#ececef] transition-colors duration-180">{dict.company}</a>
         </div>
       </div>
       <div className="border-t border-line">

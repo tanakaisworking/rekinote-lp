@@ -1,29 +1,6 @@
-import { Header } from "@/components/Header";
-import { Hero } from "@/components/Hero";
-import { Problem } from "@/components/Problem";
-import { Features } from "@/components/Features";
-import { WorksWith } from "@/components/WorksWith";
-import { Compare } from "@/components/Compare";
-import { HowItWorks } from "@/components/HowItWorks";
-import { Privacy } from "@/components/Privacy";
-import { FinalCTA } from "@/components/FinalCTA";
-import { Footer } from "@/components/Footer";
+import { redirect } from "next/navigation";
 
-export default function Page() {
-  return (
-    <>
-      <Header />
-      <main>
-        <Hero />
-        <Problem />
-        <Features />
-        <WorksWith />
-        <Compare />
-        <Privacy />
-        <HowItWorks />
-        <FinalCTA />
-      </main>
-      <Footer />
-    </>
-  );
+// ルートアクセスは日本語LPにリダイレクト
+export default function RootPage() {
+  redirect("/ja/lp/");
 }

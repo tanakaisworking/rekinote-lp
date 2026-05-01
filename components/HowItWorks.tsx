@@ -1,4 +1,6 @@
-export function HowItWorks() {
+import type { DictHowItWorks } from "@/dictionaries/types";
+
+export function HowItWorks({ dict }: { dict: DictHowItWorks }) {
   const TranscriptCard = () => (
     <div className="card p-6 flex flex-col gap-4 flex-1">
       <div className="flex items-center gap-3">
@@ -9,23 +11,20 @@ export function HowItWorks() {
           </svg>
         </div>
         <div>
-          <div className="text-[10px] font-mono-num tracking-widest text-[#a78bfa] uppercase">Input 01</div>
-          <div className="text-[14px] font-semibold mt-0.5">音声書き起こし</div>
+          <div className="text-[10px] font-mono-num tracking-widest text-[#a78bfa] uppercase">{dict.input01Label}</div>
+          <div className="text-[14px] font-semibold mt-0.5">{dict.input01Title}</div>
         </div>
       </div>
       <div className="bg-[#0c0c10] rounded-xl p-4 space-y-3 text-[12.5px] leading-[1.75] border border-line">
-        <div className="flex gap-2.5">
-          <span className="font-mono-num text-[#5e5e6a] shrink-0 mt-px">00:03</span>
-          <p className="text-[#ececef]/80"><span className="text-[#a78bfa] font-medium">田中：</span>先月の売上を上回ったそうですが、原因としては何が一番大きいですか？</p>
-        </div>
-        <div className="flex gap-2.5">
-          <span className="font-mono-num text-[#5e5e6a] shrink-0 mt-px">00:18</span>
-          <p className="text-[#ececef]/80"><span className="text-[#7c9cf0] font-medium">松嶋：</span>新規チャネルの転換率が改善したのが主要因です。特にリードの質が上がって——</p>
-        </div>
-        <div className="flex gap-2.5">
-          <span className="font-mono-num text-[#5e5e6a] shrink-0 mt-px">00:34</span>
-          <p className="text-[#ececef]/80"><span className="text-[#a78bfa] font-medium">田中：</span>具体的な数字は次回までに共有お願いします。</p>
-        </div>
+        {dict.transcript.map((line) => (
+          <div key={line.time} className="flex gap-2.5">
+            <span className="font-mono-num text-[#5e5e6a] shrink-0 mt-px">{line.time}</span>
+            <p className="text-[#ececef]/80">
+              <span className="font-medium" style={{ color: line.color }}>{line.speaker}：</span>
+              {line.text}
+            </p>
+          </div>
+        ))}
       </div>
     </div>
   );
@@ -40,31 +39,31 @@ export function HowItWorks() {
           </svg>
         </div>
         <div>
-          <div className="text-[10px] font-mono-num tracking-widest text-[#a78bfa] uppercase">Input 02</div>
-          <div className="text-[14px] font-semibold mt-0.5">カレンダー情報</div>
+          <div className="text-[10px] font-mono-num tracking-widest text-[#a78bfa] uppercase">{dict.input02Label}</div>
+          <div className="text-[14px] font-semibold mt-0.5">{dict.input02Title}</div>
         </div>
       </div>
       <div className="bg-[#0c0c10] rounded-xl p-4 border border-line flex flex-col gap-3">
         <div className="flex items-center gap-2 pb-3 border-b border-line">
           <div className="w-2.5 h-2.5 rounded-full bg-[#a78bfa]" />
-          <span className="text-[13px] font-semibold">週次定例</span>
+          <span className="text-[13px] font-semibold">{dict.calendarMeeting}</span>
         </div>
         <div className="space-y-2.5 text-[12.5px]">
           <div className="flex justify-between">
-            <span className="muted">日時</span>
-            <span className="text-[#ececef]/90 font-mono-num">2026/05/01　10:00</span>
+            <span className="muted">{dict.calendarDate}</span>
+            <span className="text-[#ececef]/90 font-mono-num">{dict.calendarDateValue}</span>
           </div>
           <div className="flex justify-between">
-            <span className="muted">参加者</span>
-            <span className="text-[#ececef]/90">田中、松嶋、佐藤</span>
+            <span className="muted">{dict.calendarParticipants}</span>
+            <span className="text-[#ececef]/90">{dict.calendarParticipantsValue}</span>
           </div>
           <div className="flex justify-between">
-            <span className="muted">ツール</span>
+            <span className="muted">{dict.calendarTool}</span>
             <span className="text-[#ececef]/90">Google Meet</span>
           </div>
         </div>
         <p className="text-[11.5px] muted leading-[1.7] pt-1 border-t border-line">
-          音声に「誰が・いつ・何の会議か」を自動で紐付け
+          {dict.calendarNote}
         </p>
       </div>
     </div>
@@ -83,16 +82,12 @@ export function HowItWorks() {
             </svg>
           </div>
           <div>
-            <div className="text-[11px] font-mono-num tracking-widest text-[#a78bfa] uppercase">Output</div>
-            <div className="text-[18px] font-bold mt-0.5">ナレッジデータベース</div>
+            <div className="text-[11px] font-mono-num tracking-widest text-[#a78bfa] uppercase">{dict.outputLabel}</div>
+            <div className="text-[18px] font-bold mt-0.5">{dict.outputTitle}</div>
           </div>
         </div>
         <div className="grid md:grid-cols-3 gap-4">
-          {[
-            { title: "全文検索", body: "参加者・日付・発言内容で横断検索" },
-            { title: "AI質問応答", body: "「先週の決定事項は？」と自然言語で問い合わせ" },
-            { title: "蓄積される資産", body: "使うほど文脈が深まる、自分だけの第二の脳" },
-          ].map((f) => (
+          {dict.outputCards.map((f) => (
             <div key={f.title} className="bg-surface rounded-xl p-5 border border-line">
               <div className="flex items-center gap-2 mb-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#a78bfa]" />
@@ -112,9 +107,9 @@ export function HowItWorks() {
            style={{ background: "radial-gradient(ellipse 50% 40% at 50% 50%, rgba(139,92,246,0.07), transparent 70%)" }} />
       <div className="container-x relative">
         <div className="text-center mb-16">
-          <span className="eyebrow">How it Works</span>
+          <span className="eyebrow">{dict.eyebrow}</span>
           <h2 className="mt-4 text-3xl md:text-[42px] font-bold tracking-tight leading-tight">
-            シンプルに、<span className="gradient-text">パワフル。</span>
+            {dict.title1}<span className="gradient-text">{dict.title2}</span>
           </h2>
         </div>
 
