@@ -56,7 +56,7 @@ export default async function LpPage({
 
   return (
     <>
-      <Header dict={dict.Header} />
+      <Header dict={dict.Header} lang={params.lang} />
       <main>
         <Hero dict={dict.Hero} />
         <Problem dict={dict.Problem} />
