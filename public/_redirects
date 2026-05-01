@@ -1,6 +1,8 @@
-# ルートリダイレクト
-/       /lp/       302
+# Cloudflare Pages リダイレクト設定
+# ルートと旧URLをそれぞれの言語LPへ301リダイレクト
 
-# ロケール未指定アクセスのフォールバック
-/lp/    /en/lp/    302
-/lp     /en/lp/    302
+/           /ja/lp/   301
+/lp/        /ja/lp/   301
+/lp         /ja/lp/   301
+/ja/lp      /ja/lp/   301
+/en/lp      /en/lp/   301
