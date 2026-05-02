@@ -2,8 +2,11 @@
 
 import { useEffect, useRef } from 'react'
 
-const TEXT =
+const TEXT_JA =
   '次回MTGまでにプロト初版を共有 / 担当: 田中 期日: 4/22 / 予算は経営会議で承認済 上限300万 / Q3 OKR は MAU 3万・ARR 1.2億 で合意 / 顧客ヒアリング結果: 検索精度への要望が最多 / リリースは段階展開 まず社内ドッグフード / 競合A は録音単機能 弊社は横断検索で差別化 / 田中さん 1on1 メモ: キャリア面談継続 / 議事録は Reki に集約 Zoom Meet Teams Slack 対面 すべて / '
+
+const TEXT_EN =
+  'Share prototype by next MTG / Owner: Tanaka Due: 4/22 / Budget approved at board meeting up to $20K / Q3 OKR agreed MAU 30K ARR $1.2M / Customer research: search accuracy is top request / Staged rollout starting with internal dogfood / Competitor A is record-only we differentiate with cross-search / Tanaka 1on1 notes: continue career discussions / All notes in Reki Zoom Meet Teams Slack in-person / '
 
 const FONT_SIZE = 12
 const COLOR     = 'rgba(196, 181, 253, 1)'
@@ -15,10 +18,11 @@ const ORBITS = [
   { rx: 170, ry:  78, tilt:  0.32, speed: 0.22, phase: Math.PI / 2, dir:  1, density: 0.60, reverseText: false },
 ]
 
-export function HeroStreamCanvas() {
+export function HeroStreamCanvas({ lang = 'ja' }: { lang?: 'ja' | 'en' }) {
   const ref = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
+    const TEXT = lang === 'en' ? TEXT_EN : TEXT_JA
     const canvas = ref.current
     if (!canvas) return
     const ctx = canvas.getContext('2d')!
@@ -41,7 +45,9 @@ export function HeroStreamCanvas() {
     const ro = new ResizeObserver(resize)
     ro.observe(canvas.parentElement!)
 
-    ctx.font = `400 ${FONT_SIZE}px "Noto Sans JP","Hiragino Sans",sans-serif`
+    ctx.font = lang === 'en'
+      ? `400 ${FONT_SIZE}px "Inter","Helvetica Neue",sans-serif`
+      : `400 ${FONT_SIZE}px "Noto Sans JP","Hiragino Sans",sans-serif`
     const widths = new Array(TEXT.length)
     let totalWidth = 0
     for (let i = 0; i < TEXT.length; i++) {
@@ -61,7 +67,9 @@ export function HeroStreamCanvas() {
       const fadeT = Math.min(1, t / FADE_IN)
       const globalFade = 1 - Math.pow(1 - fadeT, 3)
 
-      ctx.font         = `400 ${FONT_SIZE}px "Noto Sans JP","Hiragino Sans",sans-serif`
+      ctx.font         = lang === 'en'
+        ? `400 ${FONT_SIZE}px "Inter","Helvetica Neue",sans-serif`
+        : `400 ${FONT_SIZE}px "Noto Sans JP","Hiragino Sans",sans-serif`
       ctx.fillStyle    = COLOR
       ctx.textBaseline = 'middle'
 
@@ -135,7 +143,7 @@ export function HeroStreamCanvas() {
 
     raf = requestAnimationFrame(frame)
     return () => { cancelAnimationFrame(raf); ro.disconnect() }
-  }, [])
+  }, [lang])
 
   return <canvas ref={ref} className="absolute inset-0 w-full h-full pointer-events-none" />
 }

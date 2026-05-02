@@ -2,11 +2,11 @@ import Image from "next/image";
 import { HeroStreamCanvas } from "./HeroStreamCanvas";
 import type { DictHero } from "@/dictionaries/types";
 
-export function Hero({ dict }: { dict: DictHero }) {
+export function Hero({ dict, lang }: { dict: DictHero; lang?: 'ja' | 'en' }) {
   return (
     <section className="relative overflow-hidden">
       {/* テキストストリーム — セクション全幅で左右から流れ込む */}
-      <HeroStreamCanvas />
+      <HeroStreamCanvas lang={lang} />
       <div className="hero-orb" />
       <div className="absolute left-1/2 -translate-x-1/2 top-[480px] w-[1200px] h-[420px] pointer-events-none opacity-60"
            style={{ background: "radial-gradient(ellipse 60% 50% at 50% 50%, rgba(139,92,246,0.10), transparent 70%)" }} />
