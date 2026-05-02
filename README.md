@@ -1,36 +1,114 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# rekinote-lp
 
-## Getting Started
+Reki note LP for Cloudflare Pages.
 
-First, run the development server:
+## Stack
+
+- Next.js 14 App Router
+- Static export via `next build`
+- Cloudflare Pages hosting
+- `trailingSlash: true`
+
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3002`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+Static files are exported to `out/`.
 
-To learn more about Next.js, take a look at the following resources:
+## Cloudflare Pages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is deployed from `main`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Recommended Pages settings:
 
-## Deploy on Vercel
+- Production branch: `main`
+- Root directory: `app`
+- Build command: `npm run build`
+- Build output directory: `out`
+- Node version: `20`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Routing assumptions:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `/` redirects to `/ja/lp/`
+- `/ja/lp/` serves Japanese LP
+- `/en/lp/` serves English LP
+- `public/_redirects` is required for Cloudflare routing
+
+## Why The Root Page Has A Fallback
+
+`app/page.tsx` includes a `meta refresh` fallback in addition to Cloudflare redirects.
+
+Reason:
+
+- Cloudflare static hosting may still serve generated `index.html`
+- if server-side redirect output leaks into static artifacts, users can get a blank screen
+- the fallback makes `/` move to `/ja/lp/` even if edge redirect behavior is inconsistent
+
+## Smoke Check
+
+Local:
+
+```bash
+npm run smoke
+```
+
+Production:
+
+```bash
+npm run smoke:prod
+```
+
+Custom host:
+
+```bash
+bash ./scripts/smoke-check.sh https://example.com
+```
+
+The smoke check validates:
+
+- `/` redirects or lands correctly
+- `/ja/lp/` returns expected content
+- `/en/lp/` returns expected content
+- static assets are referenced correctly
+- localized primary CTA text is present
+
+## Release Checklist
+
+Before push:
+
+1. `npm run build`
+2. `npm run smoke`
+
+After production deploy:
+
+1. Open `/`
+2. Open `/ja/lp/`
+3. Open `/en/lp/`
+4. Confirm language toggle works both ways
+5. Confirm no blank screen
+6. Confirm browser console has no fatal errors
+
+## Incident Note
+
+2026-05-02:
+
+- `/ja/lp/` and `/en/lp/` had duplicate route definitions under both `[lang]/lp` and fixed `ja/en` paths
+- the static export picked up redirect-shaped output for the fixed routes
+- Cloudflare then served HTML containing `NEXT_REDIRECT`, which caused the black screen
+
+Fix:
+
+- keep LP routes only under `app/[lang]/lp/page.tsx`
+- remove duplicate `ja/en` LP pages and layouts
+- keep a static fallback on `/`

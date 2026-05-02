@@ -6,7 +6,9 @@
     "dev": "next dev -p 3002",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "smoke": "bash ./scripts/smoke-check.sh",
+    "smoke:prod": "bash ./scripts/smoke-check.sh https://rekinote.app"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.105.1",
