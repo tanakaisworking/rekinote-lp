@@ -1,6 +1,16 @@
-import { redirect } from "next/navigation";
+import Link from "next/link";
 
-// ルートアクセスは日本語LPにリダイレクト
+// Cloudflare Pages の静的配信でも確実に遷移できるよう、HTML側でもフォールバックを持つ
 export default function RootPage() {
-  redirect("/ja/lp/");
+  return (
+    <main className="min-h-screen bg-[#0c0c10] text-[#ececef] grid place-items-center px-6">
+      <meta httpEquiv="refresh" content="0;url=/ja/lp/" />
+      <div className="text-center">
+        <p className="text-sm muted">Redirecting...</p>
+        <Link href="/ja/lp/" className="mt-4 inline-flex text-[#a78bfa] hover:text-[#c4b5fd] transition-colors">
+          Continue to Reki note
+        </Link>
+      </div>
+    </main>
+  );
 }
