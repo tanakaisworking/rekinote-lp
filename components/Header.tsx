@@ -16,7 +16,6 @@ export function Header({ dict, lang }: { dict: DictHeader; lang: "ja" | "en" }) 
           <a href="#features" className="hover:text-[#ececef] transition-colors duration-180">{dict.features}</a>
           <a href="#works-with" className="hover:text-[#ececef] transition-colors duration-180">{dict.integrations}</a>
           <a href="#compare" className="hover:text-[#ececef] transition-colors duration-180">{dict.compare}</a>
-          <a href="#privacy" className="hover:text-[#ececef] transition-colors duration-180">{dict.privacy}</a>
           <a href="#how" className="hover:text-[#ececef] transition-colors duration-180">{dict.howItWorks}</a>
         </nav>
         <div className="flex items-center gap-3">

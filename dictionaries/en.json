@@ -12,11 +12,11 @@
     "title1": "Unify all your meetings",
     "title2": "with Reki.",
     "subtitle": "Transcribe every conversation on your device. Search across everything with AI.",
-    "desc": "Zoom / Meet / Teams / Slack / In-person. All calls on your Mac gathered in one single app.",
+    "desc": "OS-level transcription for every conversation. One productivity layer across every service you use.",
     "waitlist": "Join the Waitlist",
     "mac": "Mac",
     "macSub": "Early Access",
-    "win": "Win",
+    "win": "Windows",
     "winSub": "Coming soon"
   },
   "Problem": {
@@ -49,8 +49,8 @@
     "beforeTotal": "$70/mo",
     "beforeTotalDesc": "Spread across multiple services",
     "after": "After",
-    "afterTitle": "Consolidated into Reki",
-    "afterDesc": "Zoom / Meet / Teams / In-person all supported",
+    "afterTitle": "All in on Reki",
+    "afterDesc": "Works across Zoom, Meet, Teams, and in-person conversations",
     "afterItems": [
       "Record everything with one app",
       "Data stays securely on your Mac",
@@ -67,21 +67,21 @@
     "rows": [
       {
         "num": "01",
-        "phase": "Now ・ Soon",
+        "phase": "Immediately",
         "title": "Consolidate notes, slim down costs.",
         "body": "Zoom, Meet, Teams, Slack, or in-person—Reki detects and records all conversations on your Mac. From transcription to generating minutes, it's all handled in one app. Say goodbye to paying $70/month across multiple services and having your data scattered."
       },
       {
         "num": "02",
-        "phase": "Weeks later ・ Mid-term",
-        "title": "Let Reki handle all your notes.",
-        "body": "Every call on your device transcribed. With all your conversation notes integrated into one place, Reki AI can answer any question you have about them."
+        "phase": "A few weeks in",
+        "title": "Let Reki become your source of truth.",
+        "body": "Every call on your device is transcribed automatically. Once your conversation history lives in one place, Reki AI can answer questions across all of it."
       },
       {
         "num": "03",
-        "phase": "Long-term use",
-        "title": "Your personalized 'Second Brain'.",
-        "body": "Why did we make that decision 6 months ago? What were the details of that meeting 3 years ago? Just ask the AI and get an instant answer. Your decision-making speed and accuracy will change fundamentally."
+        "phase": "Over time",
+        "title": "Build a second brain for work.",
+        "body": "Why did we make that decision six months ago? What came up in that meeting three years ago? Ask the AI and get an answer instantly. The speed and quality of your decisions start to change."
       }
     ],
     "notificationTitle": "Meeting detected",
@@ -89,7 +89,7 @@
     "notificationCalendar": "Calendar",
     "notificationCalendarValue": "Weekly Sync",
     "notificationBtn": "Start Recording",
-    "chatQuestion": "What were the action items with Tanaka-san last week?",
+    "chatQuestion": "What were the action items from my meeting with Alex last week?",
     "chatAnswerLabel": "ANSWER",
     "chatAnswer": "Here are the 3 action items:\n1. Deliver the prototype by April 15th\n2. Review async via Slack\n3. Budget is approved internally",
     "chatSource": "Source: Weekly Sync 4/8 18:02",
@@ -102,30 +102,30 @@
       },
       {
         "date": "3d ago",
-        "title": "Client MTG / HIBACHI",
-        "excerpt": "Budget is roughly OK"
+        "title": "Client Meeting / HIBACHI",
+        "excerpt": "Budget looks good"
       },
       {
         "date": "1w ago",
-        "title": "1on1 / Tanaka-san",
-        "excerpt": "Career discussion"
+        "title": "1:1 / Alex",
+        "excerpt": "Career conversation"
       },
       {
         "date": "2w ago",
         "title": "Product Review",
-        "excerpt": "Design direction finalized"
+        "excerpt": "Design direction approved"
       },
       {
         "date": "6mo ago",
         "title": "Q3 Kickoff",
-        "excerpt": "Reasons for the goals"
+        "excerpt": "Goal-setting rationale"
       }
     ]
   },
   "WorksWith": {
     "eyebrow": "Works Where You Work",
-    "title": "For every call, on your usual device.",
-    "desc": "Since it captures audio at the OS level, just install and launch it. It catches every conversation across any service you use.",
+    "title": "For every call on the device you already use.",
+    "desc": "Reki captures audio at the OS level, so once it's installed, it can record conversations across the services you already work in.",
     "apps": [
       {
         "name": "Zoom",
@@ -170,8 +170,8 @@
   },
   "Compare": {
     "eyebrow": "Compare",
-    "title1": "What makes it different",
-    "title2": "from other tools?",
+    "title1": "How is it different",
+    "title2": "from other AI note takers?",
     "desc": "Reki note is open and local-first.",
     "colFeature": "Features",
     "footnote": "* Based on public information as of April 2026",
@@ -243,19 +243,19 @@
     "transcript": [
       {
         "time": "00:03",
-        "speaker": "Tanaka",
+        "speaker": "Alex",
         "color": "#a78bfa",
         "text": "Sales exceeded last month. What do you think is the main reason?"
       },
       {
         "time": "00:18",
-        "speaker": "Matsushima",
+        "speaker": "Morgan",
         "color": "#7c9cf0",
         "text": "The main factor is the improved conversion rate of the new channel—"
       },
       {
         "time": "00:34",
-        "speaker": "Tanaka",
+        "speaker": "Alex",
         "color": "#a78bfa",
         "text": "Please share the specific numbers by next time."
       }
@@ -266,7 +266,7 @@
     "calendarDate": "Date",
     "calendarDateValue": "2026/05/01 10:00",
     "calendarParticipants": "Participants",
-    "calendarParticipantsValue": "Tanaka, Matsushima, Sato",
+    "calendarParticipantsValue": "Alex, Morgan, Taylor",
     "calendarTool": "Tool",
     "calendarNote": "Automatically links \"who, when, what\" to the audio",
     "outputLabel": "Output",
@@ -282,13 +282,13 @@
       },
       {
         "title": "Accumulated Assets",
-        "body": "The more you use it, the deeper the context. Your own second brain."
+        "body": "The more you use it, the richer the context becomes. A second brain built around your work."
       }
     ]
   },
   "FinalCTA": {
-    "title": "You won't be able to\nlive without it.",
-    "desc": "Start by eliminating scattered subscriptions and consolidating into one app. Once you get used to it, let AI handle your notes and searches, making your days surprisingly easier.",
+    "title": "Once you have it,\nyou won't want to work without it.",
+    "desc": "Start by replacing scattered subscriptions with one app. Then let AI handle your notes and search so your day runs lighter.",
     "macSub": "Early Access",
     "winSub": "Coming soon",
     "placeholder": "Enter your email address",
@@ -300,7 +300,7 @@
     "errorGeneral": "An error occurred. Please try again later."
   },
   "Footer": {
-    "tagline": "Reki note ・ All the conversations on your device, saved to your memory.",
+    "tagline": "Reki note ・ Every conversation on your device, turned into searchable memory.",
     "company": "Company"
   }
 }

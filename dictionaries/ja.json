@@ -12,7 +12,7 @@
     "title1": "全ての議事録を、",
     "title2": "Rekiに統合しよう。",
     "subtitle": "デバイス上の全ての会話を文字起こし。AIで横断検索。",
-    "desc": "Zoom / Meet / Teams / Slack / 対面。Macで起きる全ての通話が、1つのアプリに集まります。",
+    "desc": "OSレベルで音声を文字起こし。サービスを超えて記録する「効率化のOS」",
     "waitlist": "ウェイティングリストに登録",
     "mac": "Mac",
     "macSub": "先行配信中",
@@ -179,13 +179,13 @@
       [
         "対応する会議ツール",
         "Mac全アプリ＋対面",
-        "そのPFのみ",
+        "そのプラットフォームのみ",
         "主要会議アプリのみ"
       ],
       [
         "課金モデル",
         "自分のAIキーで動く",
-        "PFごと",
+        "プラットフォームごと",
         "独自サブスク"
       ],
       [
@@ -203,7 +203,7 @@
       [
         "出力形式",
         "Markdown / Obsidian",
-        "PF内閲覧",
+        "プラットフォーム内閲覧",
         "一部エクスポート"
       ],
       [
@@ -266,7 +266,7 @@
     "calendarDate": "日時",
     "calendarDateValue": "2026/05/01　10:00",
     "calendarParticipants": "参加者",
-    "calendarParticipantsValue": "田中、松嶋、佐藤",
+    "calendarParticipantsValue": "田中、松嶋、北条",
     "calendarTool": "ツール",
     "calendarNote": "音声に「誰が・いつ・何の会議か」を自動で紐付け",
     "outputLabel": "Output",
