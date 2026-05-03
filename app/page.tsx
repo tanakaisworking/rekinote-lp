@@ -4,10 +4,10 @@ import Link from "next/link";
 export default function RootPage() {
   return (
     <main className="min-h-screen bg-[#0c0c10] text-[#ececef] grid place-items-center px-6">
-      <meta httpEquiv="refresh" content="0;url=/ja/lp/" />
+      <meta httpEquiv="refresh" content="0;url=/en/lp/" />
       <div className="text-center">
         <p className="text-sm muted">Redirecting...</p>
-        <Link href="/ja/lp/" className="mt-4 inline-flex text-[#a78bfa] hover:text-[#c4b5fd] transition-colors">
+        <Link href="/en/lp/" className="mt-4 inline-flex text-[#a78bfa] hover:text-[#c4b5fd] transition-colors">
           Continue to Reki note
         </Link>
       </div>

@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "next lint",
     "smoke": "bash ./scripts/smoke-check.sh",
-    "smoke:prod": "bash ./scripts/smoke-check.sh https://rekinote.app"
+    "smoke:prod": "bash ./scripts/smoke-check.sh https://rekinote.app",
+    "deploy:pages": "npm run build && wrangler pages deploy out --project-name rekinote-lp --branch main --commit-dirty=true",
+    "deploy:pages:fresh": "npm run build && wrangler pages deploy out --project-name rekinote-lp --branch main --commit-dirty=true --skip-caching"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.105.1",
