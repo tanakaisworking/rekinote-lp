@@ -1,15 +1,15 @@
 "use client";
 
-import Image from "next/image";
-import { useState } from "react";
+import * as React from "react";
 import { supabase } from "@/lib/supabase";
 import type { DictFinalCTA } from "@/dictionaries/types";
+import { MeetingHomePreview } from "@/components/MeetingHomePreview";
 
 export function FinalCTA({ dict }: { dict: DictFinalCTA }) {
-  const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState("");
+  const [email, setEmail] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+  const [submitted, setSubmitted] = React.useState(false);
+  const [error, setError] = React.useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,7 +55,7 @@ export function FinalCTA({ dict }: { dict: DictFinalCTA }) {
           <div className="absolute inset-0 pointer-events-none opacity-30"
                style={{ background: "radial-gradient(circle at 80% 20%, rgba(255,255,255,0.25), transparent 50%)" }} />
 
-          <div className="relative grid md:grid-cols-2 items-center">
+          <div className="relative grid md:grid-cols-[0.9fr_1.1fr] items-center">
             {/* 左: テキスト + フォーム */}
             <div className="px-8 md:px-16 pt-16 md:pt-20 pb-10 md:pb-16 flex flex-col justify-between h-full">
               <div>
@@ -82,7 +82,7 @@ export function FinalCTA({ dict }: { dict: DictFinalCTA }) {
               </div>
               
               {/* フォーム: 左下 */}
-              <div className="mt-10">
+              <div className="mt-10 max-w-[560px]">
                 {!submitted ? (
                   <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
                     <input
@@ -119,16 +119,10 @@ export function FinalCTA({ dict }: { dict: DictFinalCTA }) {
               </div>
             </div>
 
-            {/* 右: UI画像 */}
-            <div className="flex items-center justify-center px-8 pb-10 md:py-8">
-              <div className="rounded-lg overflow-hidden shadow-[0_-20px_60px_-10px_rgba(0,0,0,0.5)] w-full max-w-[520px]">
-                <Image
-                  src="/dashboard-hero.png"
-                  alt="Reki note dashboard"
-                  width={2000}
-                  height={1250}
-                  className="w-full h-auto"
-                />
+            {/* 右: 実装したホーム画面プレビュー */}
+            <div className="flex items-center justify-center overflow-hidden px-6 pb-10 md:self-stretch md:px-8 md:py-8">
+              <div className="w-full max-w-[520px] md:w-full md:max-w-[520px] lg:translate-x-4 lg:translate-y-6">
+                <MeetingHomePreview />
               </div>
             </div>
           </div>

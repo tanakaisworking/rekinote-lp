@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import * as React from 'react'
 
 const TEXT_JA =
   '次回MTGまでにプロト初版を共有 / 担当: 田中 期日: 4/22 / 予算は経営会議で承認済 上限300万 / Q3 OKR は MAU 3万・ARR 1.2億 で合意 / 顧客ヒアリング結果: 検索精度への要望が最多 / リリースは段階展開 まず社内ドッグフード / 競合A は録音単機能 弊社は横断検索で差別化 / 田中さん 1on1 メモ: キャリア面談継続 / 議事録は Reki に集約 Zoom Meet Teams Slack 対面 すべて / '
@@ -19,9 +19,9 @@ const ORBITS = [
 ]
 
 export function HeroStreamCanvas({ lang = 'ja' }: { lang?: 'ja' | 'en' }) {
-  const ref = useRef<HTMLCanvasElement>(null)
+  const ref = React.useRef<HTMLCanvasElement>(null)
 
-  useEffect(() => {
+  React.useEffect(() => {
     const TEXT = lang === 'en' ? TEXT_EN : TEXT_JA
     const canvas = ref.current
     if (!canvas) return

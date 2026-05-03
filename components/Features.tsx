@@ -1,7 +1,7 @@
 'use client';
 
-import { ReactNode, useState, useEffect, useRef } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import * as React from "react";
+import type { ReactNode } from "react";
 import type { DictFeatures, DictMemoryItem } from "@/dictionaries/types";
 
 function Row({
@@ -67,12 +67,12 @@ export function Features({ dict }: { dict: DictFeatures }) {
 
   const MemoryMock = () => {
     const baseRecords = dict.memoryItems;
-    const uidRef = useRef(baseRecords.length);
-    const nextIdxRef = useRef(baseRecords.length - 1);
-    const [items, setItems] = useState(() =>
+    const uidRef = React.useRef(baseRecords.length);
+    const nextIdxRef = React.useRef(baseRecords.length - 1);
+    const [items, setItems] = React.useState(() =>
       baseRecords.map((r: DictMemoryItem, i: number) => ({ ...r, uid: i }))
     );
-    useEffect(() => {
+    React.useEffect(() => {
       const timer = setInterval(() => {
         const idx = nextIdxRef.current;
         nextIdxRef.current = (idx - 1 + baseRecords.length) % baseRecords.length;
@@ -91,26 +91,23 @@ export function Features({ dict }: { dict: DictFeatures }) {
             <div className="text-xs muted font-mono-num tracking-widest">{dict.memoryLabel}</div>
           </div>
           <ul className="space-y-2 overflow-hidden">
-            <AnimatePresence initial={false} mode="popLayout">
-              {items.map((r, i) => (
-                <motion.li
-                  key={r.uid}
-                  layout
-                  initial={{ opacity: 0, y: -28 }}
-                  animate={{ opacity: opacities[i], y: 0 }}
-                  exit={{ opacity: 0, y: 28 }}
-                  transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
-                  className="flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-line bg-surface-2"
-                >
-                  <div className="font-mono-num text-[10px] dim w-12 shrink-0">{r.date}</div>
-                  <div className="flex-1 min-w-0">
-                    <div className="text-[13px] truncate">{r.title}</div>
-                    <div className="text-[11px] muted truncate">{r.excerpt}</div>
-                  </div>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#a78bfa] shrink-0" />
-                </motion.li>
-              ))}
-            </AnimatePresence>
+            {items.map((r, i) => (
+              <li
+                key={r.uid}
+                className="feature-memory-item flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-line bg-surface-2"
+                style={{
+                  opacity: opacities[i],
+                  animationDelay: `${i * 40}ms`,
+                }}
+              >
+                <div className="font-mono-num text-[10px] dim w-12 shrink-0">{r.date}</div>
+                <div className="flex-1 min-w-0">
+                  <div className="text-[13px] truncate">{r.title}</div>
+                  <div className="text-[11px] muted truncate">{r.excerpt}</div>
+                </div>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#a78bfa] shrink-0" />
+              </li>
+            ))}
           </ul>
         </div>
       </div>
