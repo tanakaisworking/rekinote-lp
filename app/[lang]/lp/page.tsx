@@ -6,7 +6,6 @@ import { Features } from "@/components/Features";
 import { WorksWith } from "@/components/WorksWith";
 import { Compare } from "@/components/Compare";
 import { HowItWorks } from "@/components/HowItWorks";
-import { Privacy } from "@/components/Privacy";
 import { FinalCTA } from "@/components/FinalCTA";
 import { Footer } from "@/components/Footer";
 import type { Metadata } from "next";
@@ -63,7 +62,6 @@ export default async function LpPage({
         <Features dict={dict.Features} />
         <WorksWith dict={dict.WorksWith} />
         <Compare dict={dict.Compare} />
-        <Privacy dict={dict.Privacy} />
         <HowItWorks dict={dict.HowItWorks} />
         <FinalCTA dict={dict.FinalCTA} />
       </main>

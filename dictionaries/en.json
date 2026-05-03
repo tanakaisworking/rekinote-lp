@@ -228,7 +228,7 @@
     "providers": [
       "OpenAI",
       "Gemini",
-      "Groq",
+      "Groq Cloud",
       "OpenRouter",
       "NVIDIA",
       "+ More coming soon"
