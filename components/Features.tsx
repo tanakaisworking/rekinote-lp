@@ -69,6 +69,7 @@ export function Features({ dict }: { dict: DictFeatures }) {
     const baseRecords = dict.memoryItems;
     const uidRef = React.useRef(baseRecords.length);
     const nextIdxRef = React.useRef(baseRecords.length - 1);
+    const [flowPulse, setFlowPulse] = React.useState(0);
     const [items, setItems] = React.useState(() =>
       baseRecords.map((r: DictMemoryItem, i: number) => ({ ...r, uid: i }))
     );
@@ -78,6 +79,7 @@ export function Features({ dict }: { dict: DictFeatures }) {
         nextIdxRef.current = (idx - 1 + baseRecords.length) % baseRecords.length;
         const newItem = { ...baseRecords[idx], uid: uidRef.current++ };
         setItems((prev) => [newItem, ...prev.slice(0, 4)]);
+        setFlowPulse((prev) => prev + 1);
       }, 2000);
       return () => clearInterval(timer);
     }, [baseRecords]);
@@ -90,7 +92,7 @@ export function Features({ dict }: { dict: DictFeatures }) {
           <div className="flex items-center justify-between mb-5">
             <div className="text-xs muted font-mono-num tracking-widest">{dict.memoryLabel}</div>
           </div>
-          <ul className="space-y-2 overflow-hidden">
+          <ul className={`space-y-2 overflow-hidden ${flowPulse % 2 === 0 ? "feature-memory-list-a" : "feature-memory-list-b"}`}>
             {items.map((r, i) => (
               <li
                 key={r.uid}

@@ -372,10 +372,42 @@ table.compare .highlight-bottom {
   animation: featureMemoryItemIn 420ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.feature-memory-list-a {
+  animation: featureMemoryStackFlowA 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.feature-memory-list-b {
+  animation: featureMemoryStackFlowB 520ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 @keyframes featureMemoryItemIn {
   from {
     opacity: 0;
     transform: translateY(-28px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes featureMemoryStackFlowA {
+  from {
+    transform: translateY(-14px);
+  }
+  55% {
+    transform: translateY(4px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes featureMemoryStackFlowB {
+  from {
+    transform: translateY(-14px);
+  }
+  55% {
+    transform: translateY(4px);
   }
   to {
     transform: translateY(0);
