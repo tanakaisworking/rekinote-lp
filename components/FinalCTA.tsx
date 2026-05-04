@@ -85,15 +85,36 @@ export function FinalCTA({ dict }: { dict: DictFinalCTA }) {
               <div className="mt-10 max-w-[560px]">
                 {!submitted ? (
                   <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
-                    <input
-                      type="email"
-                      required
-                      placeholder={dict.placeholder}
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      disabled={loading}
-                      className="px-5 py-3.5 rounded-lg bg-white/10 border border-white/20 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 w-full sm:w-auto flex-1"
-                    />
+                    <div className="relative w-full sm:w-auto flex-1">
+                      <svg
+                        aria-hidden="true"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-white/45"
+                      >
+                        <path
+                          d="M4 7h16v10H4z"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                        <path
+                          d="m4 8 8 6 8-6"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                      <input
+                        type="email"
+                        required
+                        placeholder={dict.placeholder}
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        disabled={loading}
+                        className="w-full rounded-lg border border-white/20 bg-white/10 py-3.5 pl-12 pr-5 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-white/50 sm:w-auto"
+                      />
+                    </div>
                     <button
                       type="submit"
                       disabled={loading}
