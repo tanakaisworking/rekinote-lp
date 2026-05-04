@@ -75,7 +75,7 @@
         "num": "02",
         "phase": "数週間後 ・ 中期",
         "title": "全てのメモはRekiにお任せ",
-        "body": "デバイス上の全ての通話を文字起こし。一箇所に統合された会話メモから、Reki AIがあなたの質問に答えます。"
+        "body": "デバイス上の全ての通話を文字起こしして、要約。一箇所に統合された会話メモから、Reki AIがあなたの質問に答えます。"
       },
       {
         "num": "03",
@@ -125,7 +125,7 @@
   "WorksWith": {
     "eyebrow": "Works Where You Work",
     "title": "いつものデバイスの、すべての通話に。",
-    "desc": "OSレベルから音声を拾うので、インストールして起動するだけで、サービスを超えてすべての会話を捕まえます。",
+    "desc": "OSレベルから音声を拾うので、インストールして起動するだけで、全ての通話に使えます",
     "apps": [
       {
         "name": "Zoom",
@@ -172,7 +172,7 @@
     "eyebrow": "Compare",
     "title1": "他のAI議事録ツールと、",
     "title2": "何が違うのか。",
-    "desc": "Reki noteは、オープンにします。",
+    "desc": "",
     "colFeature": "比較軸",
     "col2": "Zoom AI / Teams Copilot",
     "col3": "Otter / tl;dv / Notta",
