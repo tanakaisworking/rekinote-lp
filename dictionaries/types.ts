@@ -81,6 +81,20 @@ export type DictWorksWith = {
   apps: DictApp[];
 };
 
+export type DictCompareTone = "good" | "soso" | "bad";
+
+export type DictCompareCell = {
+  tone: DictCompareTone;
+  text: string;
+};
+
+export type DictCompareRow = {
+  feature: string;
+  reki: DictCompareCell;
+  otherAi: DictCompareCell;
+  notes: DictCompareCell;
+};
+
 export type DictCompare = {
   eyebrow: string;
   title1: string;
@@ -90,7 +104,7 @@ export type DictCompare = {
   col2: string;
   col3: string;
   footnote: string;
-  rows: string[][];
+  rows: DictCompareRow[];
 };
 
 export type DictPrivacy = {

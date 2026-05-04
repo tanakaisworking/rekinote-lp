@@ -131,11 +131,36 @@ const studentDictionaries: Record<Lang, Dictionary> = {
       col3: "手書き / ノートアプリ",
       footnote: "※想定機能の比較",
       rows: [
-        ["大学の配信環境", "システム音声録音で環境に依存しない", "講義によって様々", "環境に依存しない"],
-        ["Bot招待・権限設定", "不要", "必要", "不要"],
-        ["対面講義", "マイク録音でそのまま記録", "スマホアプリで別途録音", "自分で書く"],
-        ["あとから見返す", "全文検索 + AI質問", "文字起こし検索あり", "ノートを探して読み返す"],
-        ["講義ごとの整理", "時間割と自動で紐づく", "手動でフォルダ分け", "自分で管理"],
+        {
+          feature: "大学の配信環境",
+          reki: { tone: "good", text: "環境を選ばず、そのまま記録" },
+          otherAi: { tone: "bad", text: "講義環境しだいで使い分け" },
+          notes: { tone: "soso", text: "環境は問わないが記録は手作業" },
+        },
+        {
+          feature: "Bot招待・権限設定",
+          reki: { tone: "good", text: "不要" },
+          otherAi: { tone: "bad", text: "必要" },
+          notes: { tone: "good", text: "不要" },
+        },
+        {
+          feature: "対面講義",
+          reki: { tone: "good", text: "そのまま録音して残せる" },
+          otherAi: { tone: "soso", text: "別端末での録音が必要" },
+          notes: { tone: "bad", text: "自分で全部書く必要あり" },
+        },
+        {
+          feature: "あとから見返す",
+          reki: { tone: "good", text: "検索も質問もすぐできる" },
+          otherAi: { tone: "soso", text: "文字起こし検索まではできる" },
+          notes: { tone: "bad", text: "探して読み返すのに時間がかかる" },
+        },
+        {
+          feature: "講義ごとの整理",
+          reki: { tone: "good", text: "時間割と自動でつながる" },
+          otherAi: { tone: "soso", text: "手動でフォルダ分け" },
+          notes: { tone: "bad", text: "自分で管理し続ける必要あり" },
+        },
       ],
     },
     Privacy: {
@@ -365,11 +390,36 @@ const studentDictionaries: Record<Lang, Dictionary> = {
       col3: "Handwritten / Note Apps",
       footnote: "* Conceptual comparison for student workflows",
       rows: [
-        ["Campus platforms", "System audio capture works regardless of platform", "Varies by lecture setup", "Platform-independent"],
-        ["Bot invite / permissions", "Not needed", "Required", "Not needed"],
-        ["In-person lectures", "Captured with mic input", "Separate phone app recording", "Write it yourself"],
-        ["Catch-up flow", "Full-text search + AI questions", "Transcript search available", "Find and re-read notes"],
-        ["Class organization", "Auto-linked to class schedule", "Manual folder sorting", "Self-managed"],
+        {
+          feature: "Campus platforms",
+          reki: { tone: "good", text: "Works across setups without changing tools" },
+          otherAi: { tone: "bad", text: "Usability depends on the lecture setup" },
+          notes: { tone: "soso", text: "Platform-independent, but still fully manual" },
+        },
+        {
+          feature: "Bot invite / permissions",
+          reki: { tone: "good", text: "Not needed" },
+          otherAi: { tone: "bad", text: "Required" },
+          notes: { tone: "good", text: "Not needed" },
+        },
+        {
+          feature: "In-person lectures",
+          reki: { tone: "good", text: "Capture and keep it as-is" },
+          otherAi: { tone: "soso", text: "Needs a separate recording flow" },
+          notes: { tone: "bad", text: "You have to write everything yourself" },
+        },
+        {
+          feature: "Catch-up flow",
+          reki: { tone: "good", text: "Search and ask questions right away" },
+          otherAi: { tone: "soso", text: "Transcript search is available" },
+          notes: { tone: "bad", text: "You still have to find and re-read notes" },
+        },
+        {
+          feature: "Class organization",
+          reki: { tone: "good", text: "Auto-linked to your class schedule" },
+          otherAi: { tone: "soso", text: "Manual folders and sorting" },
+          notes: { tone: "bad", text: "Ongoing self-management" },
+        },
       ],
     },
     Privacy: {

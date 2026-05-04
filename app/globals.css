@@ -315,6 +315,28 @@ table.compare td.highlight {
 }
 table.compare td.highlight { color: #ececef; font-weight: 500; }
 table.compare th.highlight { color: #a78bfa; }
+.compare-cell {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.compare-tone {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+}
+.compare-copy {
+  display: inline-block;
+  line-height: 1.6;
+}
+.compare-copy--emphasized {
+  font-weight: 600;
+}
 table.compare .highlight-top {
   box-shadow:
     inset 1px 0 0 rgba(139,92,246,0.35),
