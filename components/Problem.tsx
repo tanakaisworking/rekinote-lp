@@ -28,8 +28,13 @@ export function Problem({ dict }: { dict: DictProblem }) {
             <h3 className="mt-3 text-xl font-semibold">{dict.beforeTitle}</h3>
 
             <ul className="mt-7 space-y-0 flex-1">
-              {dict.beforeItems.map((it) => (
-                <li key={it.name} className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between text-[14.5px] py-3 border-b border-line">
+              {dict.beforeItems.map((it, index) => (
+                <li
+                  key={it.name}
+                  className={`flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between text-[14.5px] py-3 ${
+                    index === dict.beforeItems.length - 1 ? "" : "border-b border-line"
+                  }`}
+                >
                   <span className="text-[#ececef]/90">{it.name}</span>
                   <span className="font-mono-num muted text-[13px] sm:text-[14.5px]">{it.price}</span>
                 </li>
