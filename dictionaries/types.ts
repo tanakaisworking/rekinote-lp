@@ -30,6 +30,7 @@ export type DictProblem = {
   title1: string;
   title2: string;
   title3: string;
+  titleDivider?: string;
   desc: string;
   before: string;
   beforeTitle: string;
@@ -164,6 +165,12 @@ export type DictFinalCTA = {
 export type DictFooter = {
   tagline: string;
   company: string;
+  switchHeading: string;
+  businessLabel: string;
+  businessDesc: string;
+  studentLabel: string;
+  studentDesc: string;
+  currentLabel: string;
 };
 
 export type Dictionary = {

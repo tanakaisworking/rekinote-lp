@@ -31,10 +31,10 @@ export async function generateMetadata({
     },
     title: isJa
       ? "Reki note — 議事録ツール、1つで足りる。"
-      : "Reki note — One app for all your meeting notes.",
+      : "Reki note — Local-first meeting memory for Mac.",
     description: isJa
       ? "Macで起きる全ての通話と対面の会話を、1つのアプリに。Zoom / Meet / Teams / Slack 対応のAI議事録アプリ。"
-      : "All calls and in-person conversations on your Mac, in one app. AI meeting notes for Zoom / Meet / Teams / Slack.",
+      : "Capture calls across Zoom, Meet, Teams, Slack huddles, and in-person meetings, then search the full record with your own AI keys.",
   };
 }
 
@@ -57,7 +57,7 @@ export default async function BusinessLpPage({
         <HowItWorks dict={dict.HowItWorks} />
         <FinalCTA dict={dict.FinalCTA} />
       </main>
-      <Footer dict={dict.Footer} lang={params.lang} />
+      <Footer dict={dict.Footer} lang={params.lang} audience="business" />
     </>
   );
 }

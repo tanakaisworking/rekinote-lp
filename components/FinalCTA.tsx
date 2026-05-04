@@ -76,7 +76,7 @@ export function FinalCTA({ dict }: { dict: DictFinalCTA }) {
                     <svg viewBox="0 0 24 24" fill="currentColor" className="w-4 h-4">
                       <path d="M3 5.5 11 4v7.5H3V5.5zM12 3.85 21 3v8.5h-9V3.85zM3 12.5h8V20l-8-1.4v-6.1zM12 12.5h9V21l-9-1.3v-7.2z"/>
                     </svg>
-                    <span>Win <span className="text-white/55">{dict.winSub}</span></span>
+                    <span>Windows <span className="text-white/55">{dict.winSub}</span></span>
                   </span>
                 </div>
               </div>

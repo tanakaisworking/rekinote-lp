@@ -344,6 +344,12 @@
   },
   "Footer": {
     "tagline": "Reki note ・ デバイスで起きる全ての会話を、あなたの記憶に。",
-    "company": "運営会社"
+    "company": "運営会社",
+    "switchHeading": "ユースケース",
+    "businessLabel": "ビジネス向け",
+    "businessDesc": "会議、商談、1on1、対面MTGの記録を1つに。",
+    "studentLabel": "学生向け",
+    "studentDesc": "講義、文字起こし、試験前の見返しをラクに。",
+    "currentLabel": "表示中"
   }
 }

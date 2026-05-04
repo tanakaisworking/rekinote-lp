@@ -2,13 +2,19 @@ import Image from "next/image";
 import type { DictProblem } from "@/dictionaries/types";
 
 export function Problem({ dict }: { dict: DictProblem }) {
+  const divider = dict.titleDivider ?? "、";
+
   return (
     <section className="section" id="problem">
       <div className="container-x">
         <div className="max-w-[760px]">
           <span className="eyebrow">{dict.eyebrow}</span>
           <h2 className="mt-4 text-3xl md:text-[42px] font-bold tracking-tight leading-tight">
-            {dict.title1}<span className="md:hidden">、<br /></span><span className="hidden md:inline">、</span><span className="gradient-text">{dict.title2}</span>{dict.title3}
+            {dict.title1}
+            <span className="md:hidden">{divider}<br /></span>
+            <span className="hidden md:inline">{divider}</span>
+            <span className="gradient-text">{dict.title2}</span>
+            {dict.title3}
           </h2>
           <p className="mt-6 muted leading-[1.95]">
             {dict.desc}

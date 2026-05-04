@@ -237,6 +237,12 @@ const studentDictionaries: Record<Lang, Dictionary> = {
     Footer: {
       tagline: "Reki note ・ 講義の記録を、理解の味方に。",
       company: "運営会社",
+      switchHeading: "ユースケース",
+      businessLabel: "ビジネス向け",
+      businessDesc: "会議、商談、1on1、対面MTGの記録を1つに。",
+      studentLabel: "学生向け",
+      studentDesc: "講義、文字起こし、試験前の見返しをラクに。",
+      currentLabel: "表示中",
     },
   },
   en: {
@@ -264,7 +270,8 @@ const studentDictionaries: Record<Lang, Dictionary> = {
       eyebrow: "The Problem",
       title1: "You cannot do every class",
       title2: "the careful way.",
-      title3: "You just do not want later to hurt.",
+      title3: " You just do not want later to hurt.",
+      titleDivider: " ",
       desc: "Keeping polished notes for every lecture takes energy. But when nothing is left behind, exam week and paper deadlines get much harder. Records scatter across Zoom, campus tools, livestream pages, and paper notes.",
       before: "Before",
       beforeTitle: "Every class leaves a different kind of mess",
@@ -274,9 +281,9 @@ const studentDictionaries: Record<Lang, Dictionary> = {
         { name: "Delay catching up on missed lectures", price: "Backlog grows" },
         { name: "Search old lectures before exams", price: "Time disappears" }
       ],
-      total: "Outcome",
-      beforeTotal: "Catching up gets heavier over time",
-      beforeTotalDesc: "What you skip now becomes harder to recover later",
+      total: "Result",
+      beforeTotal: "Harder to catch up",
+      beforeTotalDesc: "What you skip now is harder later",
       after: "After",
       afterTitle: "Put your class record in one place",
       afterDesc: "Streaming, online classes, and in-person lectures in one flow",
@@ -286,12 +293,12 @@ const studentDictionaries: Record<Lang, Dictionary> = {
         "Keep transcripts and summaries automatically",
         "Search across past lectures before exams"
       ],
-      afterTotal: "Lower effort, steadier recovery",
-      afterTotalDesc: "You do not need perfect habits to stay retraceable",
+      afterTotal: "Easier to catch up",
+      afterTotalDesc: "You do not need perfect notes to recover",
     },
     Features: {
       eyebrow: "Benefits",
-      title1: "With Reki, class can be",
+      title1: "With Reki, class can feel ",
       title2: "lighter to manage",
       rows: [
         {
@@ -349,8 +356,8 @@ const studentDictionaries: Record<Lang, Dictionary> = {
     },
     Compare: {
       eyebrow: "Compare",
-      title1: "For students, what matters is",
-      title2: "keeping it usable without extra effort.",
+      title1: "For students, what matters is ",
+      title2: "keeping class records usable without extra effort.",
       desc: "Reki is built for campus environments where students usually do not control the platform, permissions, or recording setup.",
       colFeature: "Features",
       footnote: "* Conceptual comparison for student workflows",
@@ -366,7 +373,7 @@ const studentDictionaries: Record<Lang, Dictionary> = {
     Privacy: {
       eyebrow: "Privacy by Design",
       title1: "Keep your study record",
-      title2: "close to you.",
+      title2: " close to you.",
       facts: [
         "Audio files stay on your Mac",
         "Transcriptions go directly to the AI provider you choose",
@@ -378,7 +385,7 @@ const studentDictionaries: Record<Lang, Dictionary> = {
     },
     HowItWorks: {
       eyebrow: "How it Works",
-      title1: "Simple,",
+      title1: "Simple, ",
       title2: "but built for classes.",
       input01Label: "Input 01",
       input01Title: "Lecture Audio",
@@ -463,6 +470,12 @@ const studentDictionaries: Record<Lang, Dictionary> = {
     Footer: {
       tagline: "Reki note ・ Turn lecture records into better understanding.",
       company: "Company",
+      switchHeading: "Use Cases",
+      businessLabel: "Business",
+      businessDesc: "Meetings, customer calls, 1:1s, and team memory.",
+      studentLabel: "Student",
+      studentDesc: "Lectures, transcripts, and easier exam-season catch-up.",
+      currentLabel: "Current",
     },
   },
 };
@@ -514,7 +527,7 @@ export default function StudentLpPage({
         <HowItWorks dict={dict.HowItWorks} />
         <FinalCTA dict={dict.FinalCTA} />
       </main>
-      <Footer dict={dict.Footer} lang={params.lang} />
+      <Footer dict={dict.Footer} lang={params.lang} audience="student" />
     </>
   );
 }

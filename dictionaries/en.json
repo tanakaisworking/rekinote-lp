@@ -1,19 +1,19 @@
 {
   "Header": {
-    "benefits": "Benefits",
-    "features": "Features",
-    "integrations": "Integrations",
+    "benefits": "Problem",
+    "features": "Outcomes",
+    "integrations": "Coverage",
     "compare": "Compare",
     "privacy": "Privacy",
     "howItWorks": "How it works",
-    "waitlist": "Join the Waitlist"
+    "waitlist": "Get Early Access"
   },
   "Hero": {
-    "title1": "Unify all your meetings",
-    "title2": "with Reki.",
-    "subtitle": "Transcribe every conversation on your device. Search across everything with AI.",
-    "desc": "OS-level transcription for every conversation. One productivity layer across every service you use.",
-    "waitlist": "Join the Waitlist",
+    "title1": "Your meeting history,",
+    "title2": "finally in one place.",
+    "subtitle": "Capture every call on your Mac. Ask AI across the full record later.",
+    "desc": "Reki is a local-first meeting memory for people who live in Zoom, Meet, Teams, Slack huddles, and in-person conversations.",
+    "waitlist": "Get Early Access",
     "mac": "Mac",
     "macSub": "Early Access",
     "win": "Windows",
@@ -21,111 +21,112 @@
   },
   "Problem": {
     "eyebrow": "The Problem",
-    "title1": "How many AI subscriptions",
-    "title2": "are you paying for",
-    "title3": "just to get notes?",
-    "desc": "Paying for an AI add-on for every single meeting tool you use? You might be spending nearly $70 a month spread across multiple services just for transcription. And worse, your data is siloed on different servers, making it impossible to search across everything.",
+    "title1": "How many tools are you paying for",
+    "title2": "just to remember meetings",
+    "title3": "?",
+    "titleDivider": " ",
+    "desc": "Most teams patch together platform add-ons, standalone note takers, and manual exports just to keep meeting context. The result is extra spend, scattered transcripts, and no single place to ask what was decided.",
     "before": "Before",
-    "beforeTitle": "Scattered costs and data",
+    "beforeTitle": "Extra subscriptions, scattered context",
     "beforeItems": [
       {
-        "name": "Zoom AI Companion",
-        "price": "+ $15/mo"
+        "name": "Zoom or Meet AI add-on",
+        "price": "$10-20+/seat"
       },
       {
-        "name": "Microsoft Teams Copilot",
-        "price": "+ $30/mo"
+        "name": "Copilot or workspace upgrade",
+        "price": "$20-30+/seat"
       },
       {
-        "name": "Google Meet AI",
-        "price": "+ $10/mo"
+        "name": "Standalone recorder",
+        "price": "$10-20/mo"
       },
       {
-        "name": "Notta / Plaud etc.",
-        "price": "+ $15/mo"
+        "name": "Export or storage workaround",
+        "price": "Another tool"
       }
     ],
-    "total": "Total",
-    "beforeTotal": "$70/mo",
-    "beforeTotalDesc": "Spread across multiple services",
+    "total": "Result",
+    "beforeTotal": "More tools, less recall",
+    "beforeTotalDesc": "You pay more and remember less",
     "after": "After",
-    "afterTitle": "All in on Reki",
-    "afterDesc": "Works across Zoom, Meet, Teams, and in-person conversations",
+    "afterTitle": "One local workspace for every conversation",
+    "afterDesc": "Across Zoom, Meet, Teams, Slack huddles, and in-person conversations",
     "afterItems": [
-      "Record everything with one app",
-      "Data stays securely on your Mac",
-      "Ask AI questions across all notes",
-      "Bring your own API key. No extra fees."
+      "Capture calls and in-person discussions in one app",
+      "Keep audio and notes on your Mac",
+      "Ask AI across every transcript and summary",
+      "Use your own model keys instead of another markup"
     ],
-    "afterTotal": "$0/mo~",
-    "afterTotalDesc": "Set your own API key"
+    "afterTotal": "One place to recall",
+    "afterTotalDesc": "Keep the record and query it later"
   },
   "Features": {
-    "eyebrow": "Benefits",
-    "title1": "What changes",
-    "title2": "with Reki?",
+    "eyebrow": "Outcomes",
+    "title1": "What changes ",
+    "title2": "once Reki is your memory layer",
     "rows": [
       {
         "num": "01",
-        "phase": "Immediately",
-        "title": "Consolidate notes, slim down costs.",
-        "body": "Zoom, Meet, Teams, Slack, or in-person—Reki detects and records all conversations on your Mac. From transcription to generating minutes, it's all handled in one app. Say goodbye to paying $70/month across multiple services and having your data scattered."
+        "phase": "Right away",
+        "title": "You stop paying per meeting surface.",
+        "body": "Instead of buying a separate AI layer for every platform, you capture the conversations themselves. Reki gives you one local place for transcripts, summaries, and follow-up context."
       },
       {
         "num": "02",
-        "phase": "A few weeks in",
-        "title": "Let Reki become your source of truth.",
-        "body": "Every call on your device is transcribed automatically. Once your conversation history lives in one place, Reki AI can answer questions across all of it."
+        "phase": "Within a few weeks",
+        "title": "Scattered calls become searchable context.",
+        "body": "Every conversation on your Mac can land in the same archive. Once the record is unified, asking 'what did we decide?' becomes easier than hunting through apps, channels, and exports."
       },
       {
         "num": "03",
         "phase": "Over time",
-        "title": "Build a second brain for work.",
-        "body": "Why did we make that decision six months ago? What came up in that meeting three years ago? Ask the AI and get an answer instantly. The speed and quality of your decisions start to change."
+        "title": "Your team gets recall it can actually use.",
+        "body": "Past 1:1s, customer calls, and decision reviews stop disappearing into separate silos. Reki turns them into a working memory you can query whenever the why behind a decision matters."
       }
     ],
-    "notificationTitle": "Meeting detected",
-    "notificationApp": "App",
-    "notificationCalendar": "Calendar",
-    "notificationCalendarValue": "Weekly Sync",
+    "notificationTitle": "Call detected",
+    "notificationApp": "Source",
+    "notificationCalendar": "Event",
+    "notificationCalendarValue": "Pipeline Review",
     "notificationBtn": "Start Recording",
-    "chatQuestion": "What were the action items from my meeting with Alex last week?",
+    "chatQuestion": "What did we commit to in the Acme QBR last Thursday?",
     "chatAnswerLabel": "ANSWER",
-    "chatAnswer": "Here are the 3 action items:\n1. Deliver the prototype by April 15th\n2. Review async via Slack\n3. Budget is approved internally",
-    "chatSource": "Source: Weekly Sync 4/8 18:02",
+    "chatAnswer": "Here are the 3 commitments:\n1. Launch the pilot with the sales team first\n2. Finalize admin permissions by next Tuesday\n3. Send a redlined rollout plan after legal review",
+    "chatSource": "Source: Acme QBR 4/18 14:00",
     "memoryLabel": "MEMORY",
     "memoryItems": [
       {
         "date": "Today",
-        "title": "Weekly Sync",
-        "excerpt": "For next time..."
+        "title": "Pipeline Review",
+        "excerpt": "Shared rollout risks..."
       },
       {
-        "date": "3d ago",
-        "title": "Client Meeting / HIBACHI",
-        "excerpt": "Budget looks good"
+        "date": "2d ago",
+        "title": "Client Call / Acme",
+        "excerpt": "Pilot seats approved"
       },
       {
         "date": "1w ago",
         "title": "1:1 / Alex",
-        "excerpt": "Career conversation"
+        "excerpt": "Hiring trade-offs"
       },
       {
         "date": "2w ago",
         "title": "Product Review",
-        "excerpt": "Design direction approved"
+        "excerpt": "Permission model locked"
       },
       {
         "date": "6mo ago",
         "title": "Q3 Kickoff",
-        "excerpt": "Goal-setting rationale"
+        "excerpt": "Why the GTM shifted"
       }
     ]
   },
   "WorksWith": {
     "eyebrow": "Works Where You Work",
-    "title": "For every call on the device you already use.",
-    "desc": "Reki captures audio at the OS level, so once it's installed, it can record conversations across the services you already work in.",
+    "title": "One recorder for the tools your team already uses.",
+    "desc": "Because Reki captures audio at the OS level, you do not need a different note-taking flow for every platform. Install it once and keep the record in one place.",
     "apps": [
       {
         "name": "Zoom",
@@ -141,16 +142,16 @@
         "icon": "users"
       },
       {
-        "name": "LINE",
-        "slug": "line"
+        "name": "Slack Huddles",
+        "slug": "slack"
       },
       {
         "name": "Discord",
         "slug": "discord"
       },
       {
-        "name": "Messenger",
-        "slug": "messenger"
+        "name": "Webex",
+        "slug": "webex"
       },
       {
         "name": "Any Mac App",
@@ -170,61 +171,61 @@
   },
   "Compare": {
     "eyebrow": "Compare",
-    "title1": "How is it different",
-    "title2": "from other AI note takers?",
-    "desc": "Reki note is open and local-first.",
+    "title1": "Why teams pick a local-first recorder ",
+    "title2": "instead of another note-taking add-on",
+    "desc": "Reki is built around owning the raw conversation record, not renting it back from every meeting platform.",
     "colFeature": "Features",
-    "footnote": "* Based on public information as of April 2026",
+    "footnote": "* Representative categories based on public pricing and product information",
     "rows": [
       [
-        "Supported Meeting Apps",
-        "All Mac apps + In-person",
-        "That platform only",
+        "Coverage",
+        "All Mac apps + in-person",
+        "Their platform only",
         "Major meeting apps only"
       ],
       [
-        "Pricing Model",
+        "Pricing model",
         "Bring your own API key",
-        "Per platform",
-        "Custom subscription"
+        "Platform upgrade",
+        "Separate subscription"
       ],
       [
-        "Data Storage",
+        "Data storage",
         "Your Mac",
         "Their servers",
         "Their servers"
       ],
       [
-        "Cross-meeting AI queries",
-        "Query across all notes",
-        "Not possible / Limited",
-        "Single meeting summary only"
+        "Cross-meeting recall",
+        "Ask across every note",
+        "Limited to platform history",
+        "Usually single-meeting"
       ],
       [
-        "Export Format",
+        "Output format",
         "Markdown / Obsidian",
-        "View in platform",
+        "Mostly in-platform",
         "Limited export"
       ],
       [
-        "In-person recording",
+        "In-person capture",
         "Supported",
-        "Not possible",
-        "Limited"
+        "Not supported",
+        "Varies"
       ]
     ]
   },
   "Privacy": {
     "eyebrow": "Privacy by Design",
-    "title1": "Keep your secrets safe,",
-    "title2": "and your costs low.",
+    "title1": "Private by default.",
+    "title2": "Portable by design.",
     "facts": [
-      "Audio files are saved locally on your Mac",
-      "Transcriptions are sent directly to the AI provider you choose",
-      "Meeting notes generation runs entirely on your own AI key"
+      "Audio files stay on your Mac",
+      "Transcripts go straight to the AI provider you choose",
+      "Summaries run on your own model keys"
     ],
     "providersLabel": "PROVIDERS",
-    "providersDesc": "Use your existing AI subscriptions directly",
+    "providersDesc": "Use the model providers you already pay for",
     "providers": [
       "OpenAI",
       "Gemini",
@@ -236,114 +237,120 @@
   },
   "HowItWorks": {
     "eyebrow": "How it Works",
-    "title1": "Simple,",
-    "title2": "yet powerful.",
+    "title1": "Simple capture, ",
+    "title2": "useful memory.",
     "input01Label": "Input 01",
-    "input01Title": "Audio Transcription",
+    "input01Title": "Conversation Audio",
     "transcript": [
       {
         "time": "00:03",
         "speaker": "Alex",
         "color": "#a78bfa",
-        "text": "Sales exceeded last month. What do you think is the main reason?"
+        "text": "We are over plan for the quarter. What actually moved the number?"
       },
       {
         "time": "00:18",
         "speaker": "Morgan",
         "color": "#7c9cf0",
-        "text": "The main factor is the improved conversion rate of the new channel—"
+        "text": "The biggest driver was conversion from the new outbound segment, especially after the onboarding change."
       },
       {
         "time": "00:34",
         "speaker": "Alex",
         "color": "#a78bfa",
-        "text": "Please share the specific numbers by next time."
+        "text": "Good. Pull the exact numbers into the board prep doc before Friday."
       }
     ],
     "input02Label": "Input 02",
-    "input02Title": "Calendar Information",
-    "calendarMeeting": "Weekly Sync",
+    "input02Title": "Calendar Context",
+    "calendarMeeting": "Board Prep Review",
     "calendarDate": "Date",
     "calendarDateValue": "2026/05/01 10:00",
-    "calendarParticipants": "Participants",
+    "calendarParticipants": "People",
     "calendarParticipantsValue": "Alex, Morgan, Taylor",
     "calendarTool": "Tool",
-    "calendarNote": "Automatically links \"who, when, what\" to the audio",
+    "calendarNote": "Who joined, when it happened, and what it was about get linked to the recording automatically.",
     "outputLabel": "Output",
-    "outputTitle": "Knowledge Database",
+    "outputTitle": "Searchable Memory",
     "outputCards": [
       {
-        "title": "Full-text Search",
-        "body": "Search across participants, dates, and meeting contents."
+        "title": "Full-text search",
+        "body": "Search across people, dates, and what was actually said."
       },
       {
         "title": "AI Q&A",
-        "body": "Ask 'What were last week's decisions?' in natural language."
+        "body": "Ask things like 'what did we decide last quarter?' in plain English."
       },
       {
-        "title": "Accumulated Assets",
-        "body": "The more you use it, the richer the context becomes. A second brain built around your work."
+        "title": "Accumulated context",
+        "body": "The more you use it, the more your conversations turn into usable working memory."
       }
     ]
   },
   "FinalCTA": {
-    "title": "Once you have it,\nyou won't want to work without it.",
-    "desc": "Start by replacing scattered subscriptions with one app. Then let AI handle your notes and search so your day runs lighter.",
+    "title": "Own the record.\nQuery the past.",
+    "desc": "Start with the calls you already have today. Reki gives you one local archive, one search surface, and one cleaner way to remember what happened.",
     "macSub": "Early Access",
     "winSub": "Coming soon",
-    "placeholder": "Enter your email address",
+    "placeholder": "Enter your work email",
     "btnLoading": "Sending...",
-    "btnDefault": "Join the Waitlist",
-    "successTitle": "Thank you for registering!",
-    "successDesc": "We will send you an email as soon as it's ready.",
+    "btnDefault": "Get Early Access",
+    "successTitle": "You are on the list.",
+    "successDesc": "We will send access details as soon as your spot opens.",
     "errorDuplicate": "This email is already registered.",
-    "errorGeneral": "An error occurred. Please try again later.",
+    "errorGeneral": "Something went wrong. Please try again later.",
     "preview": {
       "ariaLabel": "Reki note home preview",
       "recordTitle": "Start Recording",
-      "recordSubtitle": "Capture from this moment on",
+      "recordSubtitle": "Capture from here forward",
       "importAudio": "Import Audio",
       "todaySchedule": "Today's Schedule",
       "schedule": [
         { "time": "09:30", "title": "Daily Standup", "status": "Starting soon" },
-        { "time": "13:00", "title": "Client Meeting", "status": "Google Meet" },
-        { "time": "18:00", "title": "Weekly Sync", "status": "Zoom" }
+        { "time": "13:00", "title": "Acme QBR", "status": "Google Meet" },
+        { "time": "18:00", "title": "Board Prep Review", "status": "Zoom" }
       ],
       "home": "Home",
       "heading": "Home",
-      "subheading": "Every conversation on your Mac, in one place.",
-      "searchPlaceholder": "Search meeting notes",
+      "subheading": "Every work conversation, in one place.",
+      "searchPlaceholder": "Search meetings and calls",
       "filters": ["Today", "Newest", "< 30 min"],
       "sessions": [
         {
-          "title": "Weekly Sync / HIBACHI inc.",
+          "title": "Board Prep Review / HIBACHI inc.",
           "time": "Today 18:02-18:47",
           "app": "Zoom",
           "attendees": "4",
-          "preview": "Prototype due by 4/15. Review will happen async in Slack. Budget is internally approved."
+          "preview": "Board memo needs exact pipeline numbers by Friday. Legal redline follows the pricing update. Hiring ask stays out of this draft."
         },
         {
-          "title": "Client Meeting / ACME",
+          "title": "Acme QBR / ACME",
           "time": "4/28 13:00-13:38",
           "app": "Google Meet",
           "attendees": "3",
-          "preview": "Rollout starts with the sales team in month one. Admin permissions will be finalized next round."
+          "preview": "Pilot starts with sales in month one. Admin permissions finalize next Tuesday. Procurement asked for a security appendix."
         },
         {
           "title": "1:1 / Alex",
           "time": "4/25 11:00-11:31",
           "app": "In-person",
           "attendees": "2",
-          "preview": "Aligned on prioritizing onboarding improvements before investing further in recruiting PR."
+          "preview": "Agreed to fix onboarding drop-off before expanding outbound hiring. Team bandwidth is the main constraint through June."
         }
       ],
       "attendeesUnit": " attendees",
       "aiLink": "Open Room",
-      "aiQuestion": "What decisions did Alex and I make last week?"
+      "aiQuestion": "What did we decide with Acme about the pilot rollout?"
     }
   },
   "Footer": {
-    "tagline": "Reki note ・ Every conversation on your device, turned into searchable memory.",
-    "company": "Company"
+    "tagline": "Reki note ・ Turn work conversations into searchable memory.",
+    "company": "Company",
+    "switchHeading": "Use Cases",
+    "businessLabel": "Business",
+    "businessDesc": "Meetings, customer calls, 1:1s, and team memory.",
+    "studentLabel": "Student",
+    "studentDesc": "Lectures, transcripts, and easier exam-season catch-up.",
+    "currentLabel": "Current"
   }
 }

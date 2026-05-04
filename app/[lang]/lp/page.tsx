@@ -22,10 +22,10 @@ export async function generateMetadata({
     },
     title: isJa
       ? "Reki note — あなたはどっち？"
-      : "Reki note — Which one are you?",
+      : "Reki note — Choose your setup.",
     description: isJa
       ? "仕事向けと学生向け、あなたに合うReki noteのLPを選べます。"
-      : "Choose the Reki note page that fits you best: business or student.",
+      : "Choose the Reki note experience that fits your workflow: work or classes.",
   };
 }
 
@@ -51,16 +51,16 @@ export default function LpPage({
       }
     : {
         eyebrow: "Choose Your Route",
-        title: "Which one are you?",
-        body: "Reki note is for people who want every important conversation recorded. We split the LP based on whether you use it for work or for classes.",
+        title: "Choose your setup.",
+        body: "Reki note works across work calls and class recordings, but the value is different in each context. Pick the version built for how you use it.",
         businessLabel: "Business",
         businessTitle: "I want it for work",
-        businessBody: "Meetings, client calls, 1:1s, and in-person discussions. For people who want all work notes in one place.",
-        businessCta: "Open Business LP",
+        businessBody: "For meetings, customer calls, 1:1s, and in-person discussions that should become searchable team memory.",
+        businessCta: "Explore Business",
         studentLabel: "Student",
         studentTitle: "I want it for classes",
-        studentBody: "Lecture notes, transcripts, class schedule storage. For students who want to focus on understanding.",
-        studentCta: "Open Student LP",
+        studentBody: "For lectures, transcripts, and exam-season catch-up when you want a steadier way to keep the record.",
+        studentCta: "Explore Student",
       };
 
   return (

@@ -32,7 +32,7 @@ en_student_body="$(fetch /en/lp/student/)"
 
 check_contains "$root_body" "/en/lp/business/" "root"
 check_contains "$ja_hub_body" "あなた、どっち？" "ja hub"
-check_contains "$en_hub_body" "Which one are you?" "en hub"
+check_contains "$en_hub_body" "Choose your setup." "en hub"
 check_contains "$ja_business_body" "<html" "ja business"
 check_contains "$en_business_body" "<html" "en business"
 check_contains "$ja_student_body" "<html" "ja student"
@@ -43,7 +43,7 @@ check_contains "$ja_student_body" "/_next/static/" "ja student"
 check_contains "$en_student_body" "/_next/static/" "en student"
 
 check_contains "$ja_business_body" "ウェイティングリストに登録" "ja business"
-check_contains "$en_business_body" "Join the Waitlist" "en business"
+check_contains "$en_business_body" "Get Early Access" "en business"
 check_contains "$ja_student_body" "講義ノート取るの、やめた" "ja student"
 check_contains "$en_student_body" "I stopped taking lecture notes" "en student"
 
