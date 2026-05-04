@@ -15,7 +15,7 @@ export function HowItWorks({ dict }: { dict: DictHowItWorks }) {
           <div className="text-[14px] font-semibold mt-0.5">{dict.input01Title}</div>
         </div>
       </div>
-      <div className="bg-[#0c0c10] rounded-xl p-4 space-y-3 text-[12.5px] leading-[1.75] border border-line">
+      <div className="panel-inset rounded-xl p-4 space-y-3 text-[12.5px] leading-[1.75]">
         {dict.transcript.map((line) => (
           <div key={line.time} className="flex gap-2.5">
             <span className="font-mono-num text-[#5e5e6a] shrink-0 mt-px">{line.time}</span>
@@ -43,7 +43,7 @@ export function HowItWorks({ dict }: { dict: DictHowItWorks }) {
           <div className="text-[14px] font-semibold mt-0.5">{dict.input02Title}</div>
         </div>
       </div>
-      <div className="bg-[#0c0c10] rounded-xl p-4 border border-line flex flex-col gap-3">
+      <div className="panel-inset rounded-xl p-4 flex flex-col gap-3">
         <div className="flex items-center gap-2 pb-3 border-b border-line">
           <div className="w-2.5 h-2.5 rounded-full bg-[#a78bfa]" />
           <span className="text-[13px] font-semibold">{dict.calendarMeeting}</span>
@@ -88,7 +88,7 @@ export function HowItWorks({ dict }: { dict: DictHowItWorks }) {
         </div>
         <div className="grid md:grid-cols-3 gap-4">
           {dict.outputCards.map((f) => (
-            <div key={f.title} className="bg-surface rounded-xl p-5 border border-line">
+            <div key={f.title} className="panel-inset-soft rounded-xl p-5">
               <div className="flex items-center gap-2 mb-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#a78bfa]" />
                 <span className="text-[13px] font-semibold">{f.title}</span>

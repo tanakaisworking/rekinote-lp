@@ -14,7 +14,7 @@ export function Compare({ dict }: { dict: DictCompare }) {
           </p>
         </div>
 
-        <div className="card relative overflow-x-auto">
+        <div className="compare-card relative overflow-x-auto">
           <table className="compare relative min-w-[760px]">
             <colgroup>
               <col style={{ width: "26%" }} />

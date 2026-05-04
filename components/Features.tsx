@@ -45,13 +45,13 @@ export function Features({ dict }: { dict: DictFeatures }) {
   const ChatMock = () => (
     <div className="card p-6 max-w-[460px] space-y-4">
       <div className="flex justify-end">
-        <div className="bg-[#1f1f29] rounded-2xl rounded-tr-sm px-4 py-3 text-sm max-w-[78%]">
+        <div className="panel-inset-soft rounded-2xl rounded-tr-sm px-4 py-3 text-sm max-w-[78%]">
           {dict.chatQuestion}
         </div>
       </div>
       <div className="flex">
-        <div className="rotating-border max-w-[88%] rounded-2xl rounded-tl-sm">
-          <div className="bg-surface-2 rounded-[16px] rounded-tl-[2px] px-4 py-3.5 text-[13.5px] leading-relaxed">
+        <div className="rotating-border max-w-[88%] rounded-2xl">
+          <div className="panel-inset rounded-[16px] px-4 py-3.5 text-[13.5px] leading-relaxed">
             <div className="mb-2 text-[#a78bfa] text-xs font-mono-num">{dict.chatAnswerLabel}</div>
             {dict.chatAnswer.split('\n').map((line: string, i: number) => (
               <span key={i}>{line}{i < dict.chatAnswer.split('\n').length - 1 && <br />}</span>
@@ -94,7 +94,7 @@ export function Features({ dict }: { dict: DictFeatures }) {
             {items.map((r, i) => (
               <li
                 key={r.uid}
-                className="feature-memory-item flex items-center gap-3 px-3.5 py-2.5 rounded-lg border border-line bg-surface-2"
+                className="feature-memory-item panel-inset flex items-center gap-3 px-3.5 py-2.5 rounded-lg"
                 style={{
                   opacity: opacities[i],
                   animationDelay: `${i * 40}ms`,

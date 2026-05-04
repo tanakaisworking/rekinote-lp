@@ -66,6 +66,18 @@ h1, h2, h3 { letter-spacing: -0.01em; line-height: 1.35; }
   box-shadow: 0 22px 42px -34px rgba(31, 13, 77, 0.8);
 }
 
+.panel-inset {
+  background: linear-gradient(180deg, #2a2d37 0%, #23262f 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+
+.panel-inset-soft {
+  background: linear-gradient(180deg, #30333d 0%, #282b35 100%);
+  border: 1px solid rgba(255,255,255,0.07);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.035);
+}
+
 .eyebrow {
   display: inline-block; font-family: 'JetBrains Mono', monospace;
   font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
@@ -169,6 +181,32 @@ h1, h2, h3 { letter-spacing: -0.01em; line-height: 1.35; }
   color: #ececef;
 }
 
+.light-section-scope .card {
+  background: linear-gradient(180deg, #2a2b31 0%, #25262c 100%);
+  border-color: rgba(255,255,255,0.11);
+  box-shadow:
+    0 18px 34px -30px rgba(12,12,16,0.26),
+    0 1px 0 rgba(255,255,255,0.035) inset;
+}
+
+.light-section-scope .card-strong {
+  background: linear-gradient(180deg, #30323a 0%, #2a2c34 100%);
+  border-color: rgba(255,255,255,0.12);
+  box-shadow:
+    0 20px 36px -30px rgba(12,12,16,0.28),
+    0 1px 0 rgba(255,255,255,0.04) inset;
+}
+
+.light-section-scope .panel-inset {
+  background: linear-gradient(180deg, #353840 0%, #2f323a 100%);
+  border-color: rgba(255,255,255,0.08);
+}
+
+.light-section-scope .panel-inset-soft {
+  background: linear-gradient(180deg, #3a3d46 0%, #33363f 100%);
+  border-color: rgba(255,255,255,0.08);
+}
+
 .light-section-scope .card .muted,
 .light-section-scope .card-strong .muted {
   color: #8c8c97;
@@ -190,9 +228,54 @@ h1, h2, h3 { letter-spacing: -0.01em; line-height: 1.35; }
 }
 
 .works-with-icon-shell {
-  background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
-  border: 1px solid rgba(255,255,255,0.1);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(246,247,249,0.98));
+  border: 1px solid rgba(12,12,16,0.08);
+  box-shadow:
+    0 8px 18px -14px rgba(12,12,16,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.92);
+}
+
+.works-with-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,247,249,0.98));
+  border: 1px solid rgba(42,45,52,0.18);
+  border-radius: 16px;
+  box-shadow: 0 16px 34px -28px rgba(12,12,16,0.14);
+}
+
+.works-with-card:hover {
+  border-color: rgba(42,45,52,0.28);
+}
+
+.works-with-card__label {
+  color: #5f6472;
+}
+
+.compare-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(247,247,249,0.98));
+  border: 1px solid rgba(12,12,16,0.08);
+  border-radius: 16px;
+  box-shadow: 0 18px 36px -28px rgba(12,12,16,0.16);
+}
+
+.compare-card table.compare th,
+.compare-card table.compare td {
+  color: #17171c;
+  border-bottom-color: rgba(12,12,16,0.08);
+}
+
+.compare-card table.compare thead th {
+  color: #6c7381;
+  border-bottom-color: rgba(12,12,16,0.12);
+}
+
+.compare-card table.compare th.highlight,
+.compare-card table.compare td.highlight {
+  background: linear-gradient(180deg, rgba(139,92,246,0.12) 0%, rgba(139,92,246,0.06) 100%);
+  color: #17171c;
+}
+
+.compare-card .muted {
+  color: #5f6472;
 }
 
 .hero-orb {
@@ -313,6 +396,7 @@ table.compare .highlight-bottom {
   border-radius: 20px;
   background:
     linear-gradient(180deg, rgba(17, 17, 23, 0.94), rgba(11, 11, 15, 0.98));
+  color: #fff;
   padding: 14px;
   box-shadow:
     0 30px 70px -30px rgba(15, 23, 42, 0.72),

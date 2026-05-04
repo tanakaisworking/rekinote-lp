@@ -62,7 +62,7 @@ export function Privacy({ dict }: { dict: DictPrivacy }) {
                   {dict.providers.map((p, i) => (
                     <div key={p}
                          className={`flex items-center justify-between px-3.5 py-2.5 rounded-lg border text-[13px] ${
-                           i === 5 ? "border-dashed border-line text-[#5e5e6a]" : "border-line bg-surface-2"
+                           i === 5 ? "border-dashed border-line text-[#5e5e6a]" : "panel-inset"
                          }`}>
                       <span>{p}</span>
                       {i !== 5 && <span className="w-1.5 h-1.5 rounded-full bg-[#a78bfa]" />}

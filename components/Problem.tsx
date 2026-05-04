@@ -29,16 +29,16 @@ export function Problem({ dict }: { dict: DictProblem }) {
 
             <ul className="mt-7 space-y-0 flex-1">
               {dict.beforeItems.map((it) => (
-                <li key={it.name} className="flex items-center justify-between text-[14.5px] py-3 border-b border-line">
+                <li key={it.name} className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between text-[14.5px] py-3 border-b border-line">
                   <span className="text-[#ececef]/90">{it.name}</span>
-                  <span className="font-mono-num muted">{it.price}</span>
+                  <span className="font-mono-num muted text-[13px] sm:text-[14.5px]">{it.price}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-8 pt-6 border-t border-line-strong flex items-baseline justify-between gap-3">
+            <div className="mt-8 pt-6 border-t border-line-strong flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
               <span className="font-semibold">{dict.total}</span>
-              <div className="text-right">
+              <div className="sm:text-right">
                 <span className="font-mono-num text-2xl text-[#ececef]">{dict.beforeTotal}</span>
                 <div className="mt-1 text-[12px] dim">{dict.beforeTotalDesc}</div>
               </div>

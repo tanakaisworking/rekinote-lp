@@ -21,14 +21,14 @@ const studentDictionaries: Record<Lang, Dictionary> = {
       compare: "比較",
       privacy: "プライバシー",
       howItWorks: "仕組み",
-      waitlist: "先行ユーザー登録",
+      waitlist: "最新情報を受け取る",
     },
     Hero: {
       title1: "講義ノート取るの、",
       title2: "やめた。",
       subtitle: "毎回ちゃんと書かなくても、あとから追いつける。",
       desc: "Zoomでも、大学の独自配信でも、対面でも。デバイスの音とマイクをそのまま記録し、見返しやすい講義ノートにまとめる。",
-      waitlist: "先行ユーザー登録",
+      waitlist: "最新情報を受け取る",
       mac: "Mac",
       macSub: "先行配信中",
       win: "Win",
@@ -39,29 +39,29 @@ const studentDictionaries: Record<Lang, Dictionary> = {
       title1: "毎回ちゃんとは",
       title2: "やりきれない。",
       title3: "でも後で困りたくない。",
-      desc: "授業ごとに丁寧にノートを取るのは大変。何も残っていないと、試験前やレポート前に一気につらくなる。しかも配信も対面も記録の残り方がバラバラで、あとで追いつくほど負担が増える。",
+      desc: "授業中メモに必死で話が入ってこない。配信の録画は気づいたら消えてる。対面はそもそも記録が残らない。テスト前に「あの回、先生なんて言ってたっけ」——そこから全部やり直しになる。",
       before: "Before",
-      beforeTitle: "授業ごとに残り方が違う",
+      beforeTitle: "ノート、だいたい間に合ってない。",
       beforeItems: [
-        { name: "授業中ずっとメモを取る", price: "負担が大きい" },
-        { name: "配信ごとに録音方法が変わる", price: "地味に面倒" },
-        { name: "聞き逃した回を後回しにする", price: "あとで重くなる" },
-        { name: "試験前に過去回を探し直す", price: "時間がかかる" }
+        { name: "メモに必死で、話が頭に入らない", price: "何のための授業だっけ" },
+        { name: "配信アーカイブ、気づいたら期限切れ", price: "見返そうと思ってたのに" },
+        { name: "友達に「ノート見せて」とLINE", price: "毎回は頼みづらい" },
+        { name: "テスト前、何がどの回だったか分からない", price: "結局イチから探す" }
       ],
       total: "結果",
-      beforeTotal: "あとで追いつくほどしんどい",
-      beforeTotalDesc: "後半になるほど取り返しづらい",
+      beforeTotal: "結局、テスト前に全部やり直し",
+      beforeTotalDesc: "毎回なんとなく不安で、直前にまとめて焦る",
       after: "After",
-      afterTitle: "Rekiに授業記録を集約",
-      afterDesc: "配信も対面も、あとで追いつきやすい形にまとまる",
+      afterTitle: "録音ボタン押すだけで、あとが楽になる",
+      afterDesc: "配信でも対面でも、同じやり方で記録が残る",
       afterItems: [
-        "OSレベルで音を取るから、大学の配信環境に縛られない",
-        "Bot招待なしで、そのまま記録を残せる",
-        "講義ごとに自動で文字起こしと要点整理が残る",
-        "試験前に過去回をまとめて検索できる"
+        "Zoomでも対面でも、やり方を変えなくていい",
+        "教授や大学に何か頼む必要がない",
+        "文字起こしと要点が勝手にまとまってる",
+        "テスト前に「あの回どこだっけ」がすぐ見つかる"
       ],
-      afterTotal: "無理せず、崩れにくい",
-      afterTotalDesc: "毎回完璧でなくても、必要な時に戻りやすい",
+      afterTotal: "テスト前、ちょっと余裕がある",
+      afterTotalDesc: "完璧じゃなくても、戻れる場所がある",
     },
     Features: {
       eyebrow: "Benefits",
@@ -71,20 +71,20 @@ const studentDictionaries: Record<Lang, Dictionary> = {
         {
           num: "01",
           phase: "今すぐ",
-          title: "講義開始時に通知、録音ポップアップ",
-          body: "時間割に合わせて通知。あとは録音を始めるだけで、講義の記録が残る。"
+          title: "授業始まったら、録音ボタンを押すだけ。",
+          body: "時間割に合わせて通知が来る。あとはボタン1つ。メモを取る手を止めなくていいから、授業の話に集中できる。"
         },
         {
           num: "02",
           phase: "数日後",
-          title: "大学の配信環境に振り回されにくい。",
-          body: "Zoomでも、大学独自の配信ページでも、生放送でも、対面でも。OSレベルで音を取るから、授業ごとにやり方を変えなくていい。"
+          title: "「あれ何だっけ」が、すぐ引ける。",
+          body: "レポートを書いてて思い出せないとき、講義の中身を検索できる。友達に聞かなくても、自分の記録から答えが出てくる。"
         },
         {
           num: "03",
           phase: "試験前",
-          title: "後からでも、追いつきやすい。",
-          body: "聞き逃した回や欠席気味の授業も、あとから検索して要点を拾える。日々の記録が、そのまま試験前の見返しやすさになる。"
+          title: "サボった回も、取り戻せる。",
+          body: "出席が甘かった授業も、文字起こしと要点が残ってる。テスト前に一からやり直さなくても、ポイントだけ拾い直せる。"
         }
       ],
       notificationTitle: "授業を検出しました",
@@ -115,7 +115,7 @@ const studentDictionaries: Record<Lang, Dictionary> = {
         { name: "Teams", icon: "users" },
         { name: "Discord", slug: "discord" },
         { name: "YouTube Live", slug: "youtube" },
-        { name: "Google Classroom", fallback: "GC" },
+        { name: "Google Classroom", slug: "googleclassroom" },
         { name: "デバイス上の他アプリ", slug: "apple" },
         { name: "対面講義", icon: "messages" },
         { name: "その他の授業環境", fallback: "…" }
@@ -179,13 +179,13 @@ const studentDictionaries: Record<Lang, Dictionary> = {
       ],
     },
     FinalCTA: {
-      title: "ノートを“録る”時代へ。",
-      desc: "毎回完璧にノートを取らなくても、あとで見返せる記録を残しておく。大学ごとに違う授業環境でも使いやすいRekiを、先行ユーザーとして試してください。",
+      title: "ノートは、“録る”時代へ。",
+      desc: "リリースしたらすぐお知らせします。メールアドレスだけで登録完了。",
       macSub: "先行配信中",
       winSub: "リリース準備中",
       placeholder: "メールアドレスを入力",
       btnLoading: "送信中...",
-      btnDefault: "先行ユーザー登録する",
+      btnDefault: "最新情報を受け取る",
       successTitle: "ご登録ありがとうございます！",
       successDesc: "準備が整い次第、ご案内のメールをお送りします。",
       errorDuplicate: "このメールアドレスは既に登録されています。",
@@ -274,16 +274,16 @@ const studentDictionaries: Record<Lang, Dictionary> = {
       titleDivider: " ",
       desc: "Keeping polished notes for every lecture takes energy. But when nothing is left behind, exam week and paper deadlines get much harder. Records scatter across Zoom, campus tools, livestream pages, and paper notes.",
       before: "Before",
-      beforeTitle: "Every class leaves a different kind of mess",
+      beforeTitle: "The more carefully you try to keep up, the harder it feels",
       beforeItems: [
-        { name: "Write notes the whole time", price: "Draining" },
-        { name: "Change setup for every class tool", price: "Friction" },
-        { name: "Delay catching up on missed lectures", price: "Backlog grows" },
-        { name: "Search old lectures before exams", price: "Time disappears" }
+        { name: "Take notes through the whole class", price: "Attention splits" },
+        { name: "Change how you record for each class format", price: "Constant friction" },
+        { name: "Put off missed lectures until later", price: "Backlog builds" },
+        { name: "Search for the right lecture before exams", price: "Stress spikes late" }
       ],
       total: "Result",
-      beforeTotal: "Harder to catch up",
-      beforeTotalDesc: "What you skip now is harder later",
+      beforeTotal: "Trying harder still feels heavy later",
+      beforeTotalDesc: "Even serious effort turns into catch-up debt",
       after: "After",
       afterTitle: "Put your class record in one place",
       afterDesc: "Streaming, online classes, and in-person lectures in one flow",

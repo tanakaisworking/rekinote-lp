@@ -34,7 +34,7 @@ function getIcon(app: { slug?: string | null; icon?: string | null; fallback?: s
     return (
       // eslint-disable-next-line @next/next/no-img-element
       <img
-        src={`https://cdn.simpleicons.org/${app.slug}/ececef`}
+        src={`https://cdn.simpleicons.org/${app.slug}/2a2d34`}
         alt=""
         width={20}
         height={20}
@@ -65,11 +65,11 @@ export function WorksWith({ dict }: { dict: DictWorksWith }) {
           </div>
           <div className="grid grid-cols-3 gap-3">
             {dict.apps.map((a) => (
-              <div key={a.name} className="card p-4 flex flex-col items-center gap-2.5 hover:border-line-strong transition-colors duration-180">
-                <div className="works-with-icon-shell w-10 h-10 rounded-lg flex items-center justify-center text-[#ececef] text-sm font-semibold">
+              <div key={a.name} className="works-with-card p-4 flex flex-col items-center gap-2.5 transition-colors duration-180">
+                <div className="works-with-icon-shell w-10 h-10 rounded-lg flex items-center justify-center text-[#2a2d34] text-sm font-semibold">
                   {getIcon(a)}
                 </div>
-                <div className="text-[12px] muted text-center leading-tight">{a.name}</div>
+                <div className="works-with-card__label text-[12px] text-center leading-tight">{a.name}</div>
               </div>
             ))}
           </div>
