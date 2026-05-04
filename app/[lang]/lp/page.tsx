@@ -35,14 +35,6 @@ export async function generateMetadata({
     description: isJa
       ? "Macで起きる全ての通話と対面の会話を、1つのアプリに。Zoom / Meet / Teams / Slack 対応のAI議事録アプリ。"
       : "All calls and in-person conversations on your Mac, in one app. AI meeting notes for Zoom / Meet / Teams / Slack.",
-    openGraph: {
-      images: [{ url: "/ogp.jpg", width: 1200, height: 630, alt: "Reki note" }],
-      type: "website",
-    },
-    twitter: {
-      card: "summary_large_image",
-      images: ["/ogp.jpg"],
-    },
   };
 }
 
