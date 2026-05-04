@@ -31,7 +31,7 @@ export function Footer({
     <footer className="border-t border-line">
       <div className="container-x px-6 py-14">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:gap-14">
-          <div>
+          <div className="order-2 lg:order-1">
             <div className="flex items-center gap-2.5">
               <Image src="/logo.png" alt="" width={24} height={24} className="rounded-md" />
               <span className="font-semibold tracking-tight">Reki note</span>
@@ -39,15 +39,16 @@ export function Footer({
             <p className="mt-3 dim text-xs">
               {dict.tagline}
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 text-sm muted">
+            <div className="mt-8 flex flex-row items-center gap-5 text-sm muted">
               <LanguageSelect lang={lang} />
+              <span className="w-px h-4 bg-[rgba(255,255,255,0.12)]" aria-hidden />
               <a href="https://hibachi-inc.jp" className="hover:text-[#ececef] transition-colors duration-180">
                 {dict.company}
               </a>
             </div>
           </div>
 
-          <div>
+          <div className="order-1 lg:order-2">
             <div className="text-xs font-mono-num tracking-[0.22em] uppercase text-[#8e8e98]">
               {dict.switchHeading}
             </div>

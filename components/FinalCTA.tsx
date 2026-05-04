@@ -80,7 +80,14 @@ export function FinalCTA({ dict }: { dict: DictFinalCTA }) {
                   </span>
                 </div>
               </div>
-              
+
+              {/* スマホのみ: UIイメージをOS badges と フォームの間に表示 */}
+              <div className="md:hidden mt-8 flex justify-center overflow-hidden px-2">
+                <div className="w-full max-w-[360px]">
+                  <MeetingHomePreview dict={dict.preview} />
+                </div>
+              </div>
+
               {/* フォーム: 左下 */}
               <div className="mt-10 max-w-[560px]">
                 {!submitted ? (
@@ -140,8 +147,8 @@ export function FinalCTA({ dict }: { dict: DictFinalCTA }) {
               </div>
             </div>
 
-            {/* 右: 実装したホーム画面プレビュー */}
-            <div className="flex items-center justify-center overflow-hidden px-6 pb-10 md:self-stretch md:px-8 md:py-8">
+            {/* 右: 実装したホーム画面プレビュー（デスクトップのみ） */}
+            <div className="hidden md:flex items-center justify-center overflow-hidden px-6 pb-10 md:self-stretch md:px-8 md:py-8">
               <div className="w-full max-w-[520px] md:w-full md:max-w-[520px] lg:translate-x-4 lg:translate-y-6">
                 <MeetingHomePreview dict={dict.preview} />
               </div>
