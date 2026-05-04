@@ -179,42 +179,42 @@
     "col3": "Otter / tl;dv / Notta",
     "footnote": "* Representative categories based on public pricing and product information",
     "rows": [
-      [
-        "Coverage",
-        "All Mac apps + in-person",
-        "Their platform only",
-        "Major meeting apps only"
-      ],
-      [
-        "Pricing model",
-        "Bring your own API key",
-        "Platform upgrade",
-        "Separate subscription"
-      ],
-      [
-        "Data storage",
-        "Your Mac",
-        "Their servers",
-        "Their servers"
-      ],
-      [
-        "Cross-meeting recall",
-        "Ask across every note",
-        "Limited to platform history",
-        "Usually single-meeting"
-      ],
-      [
-        "Output format",
-        "Markdown / Obsidian",
-        "Mostly in-platform",
-        "Limited export"
-      ],
-      [
-        "In-person capture",
-        "Supported",
-        "Not supported",
-        "Varies"
-      ]
+      {
+        "feature": "Coverage",
+        "reki": { "tone": "good", "text": "All Mac apps and in-person in one flow" },
+        "otherAi": { "tone": "bad", "text": "Locked to their own platform" },
+        "notes": { "tone": "soso", "text": "Usually covers only major meeting apps" }
+      },
+      {
+        "feature": "Pricing model",
+        "reki": { "tone": "good", "text": "Bring your own API key" },
+        "otherAi": { "tone": "bad", "text": "Extra platform upgrade" },
+        "notes": { "tone": "bad", "text": "Separate subscription required" }
+      },
+      {
+        "feature": "Data storage",
+        "reki": { "tone": "good", "text": "Stays on your Mac" },
+        "otherAi": { "tone": "bad", "text": "Stored on their servers" },
+        "notes": { "tone": "bad", "text": "Stored on their servers" }
+      },
+      {
+        "feature": "Cross-meeting recall",
+        "reki": { "tone": "good", "text": "Ask across the full record" },
+        "otherAi": { "tone": "bad", "text": "Usually limited to platform history" },
+        "notes": { "tone": "soso", "text": "Often strong per meeting, weaker across all notes" }
+      },
+      {
+        "feature": "Output format",
+        "reki": { "tone": "good", "text": "Markdown / Obsidian friendly" },
+        "otherAi": { "tone": "soso", "text": "Mostly kept inside the platform" },
+        "notes": { "tone": "soso", "text": "Export exists, but usually limited" }
+      },
+      {
+        "feature": "In-person capture",
+        "reki": { "tone": "good", "text": "Supported directly" },
+        "otherAi": { "tone": "bad", "text": "Not supported" },
+        "notes": { "tone": "soso", "text": "Varies by product" }
+      }
     ]
   },
   "Privacy": {

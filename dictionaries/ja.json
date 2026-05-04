@@ -178,42 +178,42 @@
     "col3": "Otter / tl;dv / Notta",
     "footnote": "※各サービスの仕様は2026年4月時点の公開情報に基づきます",
     "rows": [
-      [
-        "対応する会議ツール",
-        "Mac全アプリ＋対面",
-        "そのプラットフォームのみ",
-        "主要会議アプリのみ"
-      ],
-      [
-        "課金モデル",
-        "自分のAIキーで動く",
-        "プラットフォームごと",
-        "独自サブスク"
-      ],
-      [
-        "データ保存場所",
-        "あなたのMac",
-        "各社サーバー",
-        "各社サーバー"
-      ],
-      [
-        "過去議事録の横断質問",
-        "全議事録を横断",
-        "不可 / 限定的",
-        "単発要約のみ"
-      ],
-      [
-        "出力形式",
-        "Markdown / Obsidian",
-        "プラットフォーム内閲覧",
-        "一部エクスポート"
-      ],
-      [
-        "対面会話の録音",
-        "対応",
-        "不可",
-        "一部のみ"
-      ]
+      {
+        "feature": "対応する会議ツール",
+        "reki": { "tone": "good", "text": "Mac全アプリと対面を1つでカバー" },
+        "otherAi": { "tone": "bad", "text": "そのプラットフォーム内に閉じる" },
+        "notes": { "tone": "soso", "text": "主要会議アプリ中心で一部対応" }
+      },
+      {
+        "feature": "課金モデル",
+        "reki": { "tone": "good", "text": "自分のAIキーで動かせる" },
+        "otherAi": { "tone": "bad", "text": "プラットフォームごとに追加課金" },
+        "notes": { "tone": "bad", "text": "独自サブスクが別で必要" }
+      },
+      {
+        "feature": "データ保存場所",
+        "reki": { "tone": "good", "text": "あなたのMacに残る" },
+        "otherAi": { "tone": "bad", "text": "各社サーバーに保存" },
+        "notes": { "tone": "bad", "text": "各社サーバーに保存" }
+      },
+      {
+        "feature": "過去議事録の横断質問",
+        "reki": { "tone": "good", "text": "全議事録をまたいで質問できる" },
+        "otherAi": { "tone": "bad", "text": "不可か、かなり限定的" },
+        "notes": { "tone": "soso", "text": "単発要約中心で横断性は弱い" }
+      },
+      {
+        "feature": "出力形式",
+        "reki": { "tone": "good", "text": "Markdown / Obsidianで扱いやすい" },
+        "otherAi": { "tone": "soso", "text": "基本はプラットフォーム内で閲覧" },
+        "notes": { "tone": "soso", "text": "一部だけエクスポート可能" }
+      },
+      {
+        "feature": "対面会話の録音",
+        "reki": { "tone": "good", "text": "そのまま対応" },
+        "otherAi": { "tone": "bad", "text": "基本不可" },
+        "notes": { "tone": "soso", "text": "一部だけ対応" }
+      }
     ]
   },
   "Privacy": {
