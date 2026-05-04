@@ -66,9 +66,9 @@ export function Problem({ dict }: { dict: DictProblem }) {
                 ))}
               </ul>
             </div>
-            <div className="relative mt-8 pt-6 border-t border-line-strong flex items-baseline justify-between gap-3">
+            <div className="relative mt-8 pt-6 border-t border-line-strong flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
               <span className="font-semibold">{dict.total}</span>
-              <div className="text-right">
+              <div className="sm:text-right">
                 <span className="font-mono-num text-2xl gradient-text font-bold">{dict.afterTotal}</span>
                 <div className="mt-1 text-[12px] dim">{dict.afterTotalDesc}</div>
               </div>
