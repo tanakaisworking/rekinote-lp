@@ -66,7 +66,7 @@ export function WorksWith({ dict }: { dict: DictWorksWith }) {
           <div className="grid grid-cols-3 gap-3">
             {dict.apps.map((a) => (
               <div key={a.name} className="card p-4 flex flex-col items-center gap-2.5 hover:border-line-strong transition-colors duration-180">
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-white/[0.06] border border-white/10 text-[#ececef] text-sm font-semibold">
+                <div className="works-with-icon-shell w-10 h-10 rounded-lg flex items-center justify-center text-[#ececef] text-sm font-semibold">
                   {getIcon(a)}
                 </div>
                 <div className="text-[12px] muted text-center leading-tight">{a.name}</div>

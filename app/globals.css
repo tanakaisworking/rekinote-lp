@@ -53,8 +53,18 @@ h1, h2, h3 { letter-spacing: -0.01em; line-height: 1.35; }
   border-color: rgba(255,255,255,0.22);
 }
 
-.card { background: #131318; border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; }
-.card-strong { background: linear-gradient(180deg, #16161d 0%, #131318 100%); border: 1px solid rgba(255,255,255,0.13); border-radius: 16px; }
+.card {
+  background: linear-gradient(180deg, #1f2028 0%, #191a22 100%);
+  border: 1px solid rgba(255,255,255,0.09);
+  border-radius: 16px;
+  box-shadow: 0 18px 38px -32px rgba(12,12,16,0.72);
+}
+.card-strong {
+  background: linear-gradient(180deg, #242632 0%, #1b1d27 100%);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 16px;
+  box-shadow: 0 22px 42px -34px rgba(31, 13, 77, 0.8);
+}
 
 .eyebrow {
   display: inline-block; font-family: 'JetBrains Mono', monospace;
@@ -118,6 +128,72 @@ h1, h2, h3 { letter-spacing: -0.01em; line-height: 1.35; }
 
 .muted { color: #8c8c97; }
 .dim { color: #5e5e6a; }
+
+.light-section-scope {
+  color: #0c0c10;
+  position: relative;
+  background: #f0f0f0;
+}
+
+.light-section-scope .muted {
+  color: #525866;
+}
+
+.light-section-scope .dim {
+  color: #747b89;
+}
+
+.light-section-scope > .section + .section {
+  position: relative;
+}
+
+.light-section-scope > .section + .section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 24px;
+  right: 24px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(12,12,16,0), rgba(12,12,16,0.08), rgba(12,12,16,0));
+}
+
+@media (max-width: 768px) {
+  .light-section-scope > .section + .section::before {
+    left: 20px;
+    right: 20px;
+  }
+}
+
+.light-section-scope .card,
+.light-section-scope .card-strong {
+  color: #ececef;
+}
+
+.light-section-scope .card .muted,
+.light-section-scope .card-strong .muted {
+  color: #8c8c97;
+}
+
+.light-section-scope .card .dim,
+.light-section-scope .card-strong .dim {
+  color: #5e5e6a;
+}
+
+.light-section-scope table.compare th,
+.light-section-scope table.compare td {
+  border-bottom-color: rgba(12,12,16,0.08);
+}
+
+.light-section-scope table.compare thead th {
+  color: #6c7381;
+  border-bottom-color: rgba(12,12,16,0.12);
+}
+
+.works-with-icon-shell {
+  background: linear-gradient(180deg, rgba(255,255,255,0.12), rgba(255,255,255,0.06));
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+}
 
 .hero-orb {
   position: absolute; pointer-events: none;

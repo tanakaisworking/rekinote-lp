@@ -46,7 +46,7 @@ export function FinalCTA({ dict }: { dict: DictFinalCTA }) {
     <section className="section relative overflow-hidden" id="download">
       <div className="container-x relative">
         <div
-          className="relative rounded-2xl overflow-hidden"
+          className="relative rounded-2xl overflow-hidden shadow-[0_36px_90px_-44px_rgba(76,29,149,0.55)]"
           style={{
             background: "linear-gradient(135deg, #3b1a8a 0%, #5a2fc2 50%, #7c3aed 100%)",
           }}

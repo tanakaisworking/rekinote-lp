@@ -520,12 +520,14 @@ export default function StudentLpPage({
       <Header dict={dict.Header} lang={params.lang} />
       <main>
         <Hero dict={dict.Hero} lang={params.lang} audience="student" />
-        <Problem dict={dict.Problem} />
-        <Features dict={dict.Features} />
-        <WorksWith dict={dict.WorksWith} />
-        <Compare dict={dict.Compare} />
-        <HowItWorks dict={dict.HowItWorks} />
-        <FinalCTA dict={dict.FinalCTA} />
+        <div className="light-section-scope bg-[#f0f0f0] text-[#0c0c10]">
+          <Problem dict={dict.Problem} />
+          <Features dict={dict.Features} />
+          <WorksWith dict={dict.WorksWith} />
+          <Compare dict={dict.Compare} />
+          <HowItWorks dict={dict.HowItWorks} />
+          <FinalCTA dict={dict.FinalCTA} />
+        </div>
       </main>
       <Footer dict={dict.Footer} lang={params.lang} audience="student" />
     </>
