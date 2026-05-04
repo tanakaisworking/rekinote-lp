@@ -25,7 +25,7 @@
     "title2": "just to remember meetings",
     "title3": "?",
     "titleDivider": " ",
-    "desc": "Most teams patch together platform add-ons, standalone note takers, and manual exports just to keep meeting context. The result is extra spend, scattered transcripts, and no single place to ask what was decided.",
+    "desc": "High AI fees for every meeting tool. Your data ends up scattered across different servers, with no easy way to search across it.",
     "before": "Before",
     "beforeTitle": "Extra subscriptions, scattered context",
     "beforeItems": [
@@ -70,13 +70,13 @@
         "num": "01",
         "phase": "Right away",
         "title": "You stop paying per meeting surface.",
-        "body": "Instead of buying a separate AI layer for every platform, you capture the conversations themselves. Reki gives you one local place for transcripts, summaries, and follow-up context."
+        "body": "Across Zoom, Meet, Teams, Slack, and in-person conversations, Reki records everything on your device. Transcription, summaries, and meeting notes all happen in one place. No more paying high fees across multiple services or losing context across different servers."
       },
       {
         "num": "02",
         "phase": "Within a few weeks",
         "title": "Scattered calls become searchable context.",
-        "body": "Every conversation on your Mac can land in the same archive. Once the record is unified, asking 'what did we decide?' becomes easier than hunting through apps, channels, and exports."
+        "body": "Every call on your device gets transcribed and summarized. Once everything lives in one archive, Reki AI can answer questions from your full conversation history."
       },
       {
         "num": "03",
@@ -126,7 +126,7 @@
   "WorksWith": {
     "eyebrow": "Works Where You Work",
     "title": "One recorder for the tools your team already uses.",
-    "desc": "Because Reki captures audio at the OS level, you do not need a different note-taking flow for every platform. Install it once and keep the record in one place.",
+    "desc": "Because Reki captures audio at the OS level, you can use it for every call.",
     "apps": [
       {
         "name": "Zoom",
@@ -173,7 +173,7 @@
     "eyebrow": "Compare",
     "title1": "Why teams pick a local-first recorder ",
     "title2": "instead of another note-taking add-on",
-    "desc": "Reki is built around owning the raw conversation record, not renting it back from every meeting platform.",
+    "desc": "",
     "colFeature": "Features",
     "col2": "Zoom AI / Teams Copilot",
     "col3": "Otter / tl;dv / Notta",
@@ -181,7 +181,7 @@
     "rows": [
       {
         "feature": "Coverage",
-        "reki": { "tone": "good", "text": "All Mac apps and in-person in one flow" },
+        "reki": { "tone": "good", "text": "All apps and in-person in one flow" },
         "otherAi": { "tone": "bad", "text": "Locked to their own platform" },
         "notes": { "tone": "soso", "text": "Usually covers only major meeting apps" }
       },
@@ -193,7 +193,7 @@
       },
       {
         "feature": "Data storage",
-        "reki": { "tone": "good", "text": "Stays on your Mac" },
+        "reki": { "tone": "good", "text": "Stays on your device" },
         "otherAi": { "tone": "bad", "text": "Stored on their servers" },
         "notes": { "tone": "bad", "text": "Stored on their servers" }
       },
