@@ -180,7 +180,7 @@
     "rows": [
       {
         "feature": "対応する会議ツール",
-        "reki": { "tone": "good", "text": "Mac全アプリと対面を1つでカバー" },
+        "reki": { "tone": "good", "text": "全アプリと対面を1つでカバー" },
         "otherAi": { "tone": "bad", "text": "そのプラットフォーム内に閉じる" },
         "notes": { "tone": "soso", "text": "主要会議アプリ中心で一部対応" }
       },
@@ -192,7 +192,7 @@
       },
       {
         "feature": "データ保存場所",
-        "reki": { "tone": "good", "text": "あなたのMacに残る" },
+        "reki": { "tone": "good", "text": "あなたのデバイスに残る" },
         "otherAi": { "tone": "bad", "text": "各社サーバーに保存" },
         "notes": { "tone": "bad", "text": "各社サーバーに保存" }
       },
