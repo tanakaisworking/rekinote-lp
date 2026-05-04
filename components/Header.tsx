@@ -19,7 +19,9 @@ export function Header({ dict, lang }: { dict: DictHeader; lang: "ja" | "en" }) 
           <a href="#how" className="hover:text-[#ececef] transition-colors duration-180">{dict.howItWorks}</a>
         </nav>
         <div className="flex items-center gap-3">
-          <LanguageSelect lang={lang} />
+          <div className="hidden md:block">
+            <LanguageSelect lang={lang} />
+          </div>
           <a href="#download" className="btn-primary !py-2.5 !px-4 text-sm">{dict.waitlist}</a>
         </div>
       </div>

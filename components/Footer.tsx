@@ -1,7 +1,8 @@
 import Image from "next/image";
 import type { DictFooter } from "@/dictionaries/types";
+import { LanguageSelect } from "@/components/LanguageSelect";
 
-export function Footer({ dict }: { dict: DictFooter }) {
+export function Footer({ dict, lang }: { dict: DictFooter; lang: "ja" | "en" }) {
   return (
     <footer className="border-t border-line">
       <div className="container-x px-6 py-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
@@ -14,7 +15,8 @@ export function Footer({ dict }: { dict: DictFooter }) {
             {dict.tagline}
           </p>
         </div>
-        <div className="flex gap-7 text-sm muted">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-7 text-sm muted">
+          <LanguageSelect lang={lang} />
           <a href="https://hibachi-inc.jp" className="hover:text-[#ececef] transition-colors duration-180">{dict.company}</a>
         </div>
       </div>

@@ -65,7 +65,7 @@ export default async function LpPage({
         <HowItWorks dict={dict.HowItWorks} />
         <FinalCTA dict={dict.FinalCTA} />
       </main>
-      <Footer dict={dict.Footer} />
+      <Footer dict={dict.Footer} lang={params.lang} />
     </>
   );
 }
