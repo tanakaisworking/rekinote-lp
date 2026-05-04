@@ -2,39 +2,10 @@
 
 import * as React from "react";
 import type { ReactNode } from "react";
+import type { DictFinalCTA } from "@/dictionaries/types";
 
 const BASE_WIDTH = 1040;
 const BASE_HEIGHT = 588;
-
-const sessions = [
-  {
-    title: "週次定例 / HIBACHI inc.",
-    time: "今日 18:02〜18:47",
-    app: "Zoom",
-    attendees: "4",
-    preview: "プロトタイプの納期は4/15。レビューはSlackで非同期進行。予算は社内承認済み。"
-  },
-  {
-    title: "顧客MTG / ACME",
-    time: "4/28 13:00〜13:38",
-    app: "Google Meet",
-    attendees: "3",
-    preview: "導入初月は営業チームから開始。管理者向けの権限設計は次回詰める。"
-  },
-  {
-    title: "1on1 / 田中さん",
-    time: "4/25 11:00〜11:31",
-    app: "対面",
-    attendees: "2",
-    preview: "採用広報よりも、まずはオンボーディング改善を優先する方針で合意。"
-  }
-];
-
-const schedule = [
-  { time: "09:30", title: "デイリー", status: "まもなく" },
-  { time: "13:00", title: "顧客MTG", status: "Google Meet" },
-  { time: "18:00", title: "週次定例", status: "Zoom" }
-];
 
 function SidebarIcon({
   children,
@@ -46,7 +17,7 @@ function SidebarIcon({
   return <span className={`mc-side-icon${active ? " is-active" : ""}`}>{children}</span>;
 }
 
-export function MeetingHomePreview() {
+export function MeetingHomePreview({ dict }: { dict: DictFinalCTA["preview"] }) {
   const shellRef = React.useRef<HTMLDivElement | null>(null);
   const [scale, setScale] = React.useState(0.5);
 
@@ -83,7 +54,7 @@ export function MeetingHomePreview() {
     <div
       ref={shellRef}
       className="mc-shell"
-      aria-label="Reki note home preview"
+      aria-label={dict.ariaLabel}
       style={{ height: `${BASE_HEIGHT * scale}px` }}
     >
       <div className="mc-scale-frame" style={{ transform: `scale(${scale})` }}>
@@ -100,8 +71,8 @@ export function MeetingHomePreview() {
                 </svg>
               </span>
               <span>
-                <strong>録音を開始</strong>
-                <small>今この瞬間から記録</small>
+                <strong>{dict.recordTitle}</strong>
+                <small>{dict.recordSubtitle}</small>
               </span>
             </button>
 
@@ -111,13 +82,13 @@ export function MeetingHomePreview() {
                 <path d="m8 10 4 4 4-4" />
                 <path d="M5 20h14" />
               </svg>
-              音声をインポート
+              {dict.importAudio}
             </button>
 
             <div className="mc-panel">
-              <div className="mc-panel-title">今日の予定</div>
+              <div className="mc-panel-title">{dict.todaySchedule}</div>
               <div className="mc-schedule">
-                {schedule.map((item) => (
+                {dict.schedule.map((item) => (
                   <div key={item.time + item.title} className="mc-schedule-row">
                     <span className="mc-time">{item.time}</span>
                     <div>
@@ -136,7 +107,7 @@ export function MeetingHomePreview() {
                   <path d="M7 10.5V19h10v-8.5" />
                 </svg>
               </SidebarIcon>
-              ホーム
+              {dict.home}
             </button>
           </aside>
 
@@ -146,8 +117,8 @@ export function MeetingHomePreview() {
             <div className="mc-main-inner">
               <div className="mc-header">
                 <div>
-                  <div className="mc-heading">ホーム</div>
-                  <div className="mc-subheading">Mac上の会話を、全部ここに。</div>
+                  <div className="mc-heading">{dict.heading}</div>
+                  <div className="mc-subheading">{dict.subheading}</div>
                 </div>
                 <div className="mc-header-actions">
                   <button className="mc-icon-button" aria-label="account">
@@ -170,14 +141,14 @@ export function MeetingHomePreview() {
                   <circle cx="11" cy="11" r="6.5" />
                   <path d="m16 16 4 4" />
                 </svg>
-                <span className="mc-search-placeholder">議事録を検索</span>
-                <span className="mc-filter-pill">今日</span>
-                <span className="mc-filter-pill">新しい順</span>
-                <span className="mc-filter-pill">30分以内</span>
+                <span className="mc-search-placeholder">{dict.searchPlaceholder}</span>
+                {dict.filters.map((filter) => (
+                  <span key={filter} className="mc-filter-pill">{filter}</span>
+                ))}
               </div>
 
               <div className="mc-session-list">
-                {sessions.map((session, index) => (
+                {dict.sessions.map((session, index) => (
                   <article key={session.title} className={`mc-session-card${index === 0 ? " is-featured" : ""}`}>
                     <div className="mc-session-head">
                       <div className="mc-session-title">{session.title}</div>
@@ -201,7 +172,7 @@ export function MeetingHomePreview() {
                     <div className="mc-meta">
                       <span>{session.time}</span>
                       <span>· {session.app}</span>
-                      <span>· {session.attendees}人</span>
+                      <span>· {session.attendees}{dict.attendeesUnit}</span>
                     </div>
                     <p>{session.preview}</p>
                   </article>
@@ -216,10 +187,10 @@ export function MeetingHomePreview() {
                     </svg>
                     Ask Reki
                   </span>
-                  <span className="mc-ai-link">ルームに入る</span>
+                  <span className="mc-ai-link">{dict.aiLink}</span>
                 </div>
                 <div className="mc-ai-input">
-                  <span>先週の田中さんとの決定事項は？</span>
+                  <span>{dict.aiQuestion}</span>
                   <button aria-label="send">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                       <path d="M4 12h12" />

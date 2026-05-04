@@ -297,7 +297,50 @@
     "successTitle": "ご登録ありがとうございます！",
     "successDesc": "準備が整い次第、ご案内のメールをお送りします。",
     "errorDuplicate": "このメールアドレスは既に登録されています。",
-    "errorGeneral": "エラーが発生しました。時間をおいて再度お試しください。"
+    "errorGeneral": "エラーが発生しました。時間をおいて再度お試しください。",
+    "preview": {
+      "ariaLabel": "Reki note ホームプレビュー",
+      "recordTitle": "録音を開始",
+      "recordSubtitle": "今この瞬間から記録",
+      "importAudio": "音声をインポート",
+      "todaySchedule": "今日の予定",
+      "schedule": [
+        { "time": "09:30", "title": "デイリー", "status": "まもなく" },
+        { "time": "13:00", "title": "顧客MTG", "status": "Google Meet" },
+        { "time": "18:00", "title": "週次定例", "status": "Zoom" }
+      ],
+      "home": "ホーム",
+      "heading": "ホーム",
+      "subheading": "Mac上の会話を、全部ここに。",
+      "searchPlaceholder": "議事録を検索",
+      "filters": ["今日", "新しい順", "30分以内"],
+      "sessions": [
+        {
+          "title": "週次定例 / HIBACHI inc.",
+          "time": "今日 18:02〜18:47",
+          "app": "Zoom",
+          "attendees": "4",
+          "preview": "プロトタイプの納期は4/15。レビューはSlackで非同期進行。予算は社内承認済み。"
+        },
+        {
+          "title": "顧客MTG / ACME",
+          "time": "4/28 13:00〜13:38",
+          "app": "Google Meet",
+          "attendees": "3",
+          "preview": "導入初月は営業チームから開始。管理者向けの権限設計は次回詰める。"
+        },
+        {
+          "title": "1on1 / 田中さん",
+          "time": "4/25 11:00〜11:31",
+          "app": "対面",
+          "attendees": "2",
+          "preview": "採用広報よりも、まずはオンボーディング改善を優先する方針で合意。"
+        }
+      ],
+      "attendeesUnit": "人",
+      "aiLink": "ルームに入る",
+      "aiQuestion": "先週の田中さんとの決定事項は？"
+    }
   },
   "Footer": {
     "tagline": "Reki note ・ デバイスで起きる全ての会話を、あなたの記憶に。",

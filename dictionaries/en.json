@@ -297,7 +297,50 @@
     "successTitle": "Thank you for registering!",
     "successDesc": "We will send you an email as soon as it's ready.",
     "errorDuplicate": "This email is already registered.",
-    "errorGeneral": "An error occurred. Please try again later."
+    "errorGeneral": "An error occurred. Please try again later.",
+    "preview": {
+      "ariaLabel": "Reki note home preview",
+      "recordTitle": "Start Recording",
+      "recordSubtitle": "Capture from this moment on",
+      "importAudio": "Import Audio",
+      "todaySchedule": "Today's Schedule",
+      "schedule": [
+        { "time": "09:30", "title": "Daily Standup", "status": "Starting soon" },
+        { "time": "13:00", "title": "Client Meeting", "status": "Google Meet" },
+        { "time": "18:00", "title": "Weekly Sync", "status": "Zoom" }
+      ],
+      "home": "Home",
+      "heading": "Home",
+      "subheading": "Every conversation on your Mac, in one place.",
+      "searchPlaceholder": "Search meeting notes",
+      "filters": ["Today", "Newest", "< 30 min"],
+      "sessions": [
+        {
+          "title": "Weekly Sync / HIBACHI inc.",
+          "time": "Today 18:02-18:47",
+          "app": "Zoom",
+          "attendees": "4",
+          "preview": "Prototype due by 4/15. Review will happen async in Slack. Budget is internally approved."
+        },
+        {
+          "title": "Client Meeting / ACME",
+          "time": "4/28 13:00-13:38",
+          "app": "Google Meet",
+          "attendees": "3",
+          "preview": "Rollout starts with the sales team in month one. Admin permissions will be finalized next round."
+        },
+        {
+          "title": "1:1 / Alex",
+          "time": "4/25 11:00-11:31",
+          "app": "In-person",
+          "attendees": "2",
+          "preview": "Aligned on prioritizing onboarding improvements before investing further in recruiting PR."
+        }
+      ],
+      "attendeesUnit": " attendees",
+      "aiLink": "Open Room",
+      "aiQuestion": "What decisions did Alex and I make last week?"
+    }
   },
   "Footer": {
     "tagline": "Reki note ・ Every conversation on your device, turned into searchable memory.",

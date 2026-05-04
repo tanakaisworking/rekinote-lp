@@ -136,6 +136,29 @@ export type DictFinalCTA = {
   successDesc: string;
   errorDuplicate: string;
   errorGeneral: string;
+  preview: {
+    ariaLabel: string;
+    recordTitle: string;
+    recordSubtitle: string;
+    importAudio: string;
+    todaySchedule: string;
+    schedule: { time: string; title: string; status: string }[];
+    home: string;
+    heading: string;
+    subheading: string;
+    searchPlaceholder: string;
+    filters: string[];
+    sessions: {
+      title: string;
+      time: string;
+      app: string;
+      attendees: string;
+      preview: string;
+    }[];
+    attendeesUnit: string;
+    aiLink: string;
+    aiQuestion: string;
+  };
 };
 
 export type DictFooter = {

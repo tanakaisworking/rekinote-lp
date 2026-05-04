@@ -122,7 +122,7 @@ export function FinalCTA({ dict }: { dict: DictFinalCTA }) {
             {/* 右: 実装したホーム画面プレビュー */}
             <div className="flex items-center justify-center overflow-hidden px-6 pb-10 md:self-stretch md:px-8 md:py-8">
               <div className="w-full max-w-[520px] md:w-full md:max-w-[520px] lg:translate-x-4 lg:translate-y-6">
-                <MeetingHomePreview />
+                <MeetingHomePreview dict={dict.preview} />
               </div>
             </div>
           </div>
