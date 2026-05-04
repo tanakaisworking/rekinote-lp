@@ -15,17 +15,17 @@ export function Compare({ dict }: { dict: DictCompare }) {
         </div>
 
         <div className="card relative overflow-x-auto">
-          {/* Reki列のハイライト枠 */}
-          <div className="hidden md:block absolute top-0 bottom-0 left-[26%] w-[24.66%] pointer-events-none rounded-md"
-               style={{
-                 background: "linear-gradient(180deg, rgba(139,92,246,0.10) 0%, rgba(139,92,246,0.04) 100%)",
-                 boxShadow: "inset 0 0 0 1px rgba(139,92,246,0.35)",
-               }} />
           <table className="compare relative min-w-[760px]">
+            <colgroup>
+              <col style={{ width: "26%" }} />
+              <col style={{ width: "24.6667%" }} />
+              <col style={{ width: "24.6667%" }} />
+              <col style={{ width: "24.6667%" }} />
+            </colgroup>
             <thead>
               <tr>
                 <th className="w-[26%]">{dict.colFeature}</th>
-                <th className="highlight">
+                <th className="highlight highlight-top">
                   <span className="inline-flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#a78bfa]" />
                     Reki note
@@ -36,10 +36,12 @@ export function Compare({ dict }: { dict: DictCompare }) {
               </tr>
             </thead>
             <tbody>
-              {dict.rows.map((r) => (
+              {dict.rows.map((r, index) => (
                 <tr key={r[0]}>
                   <td className="muted">{r[0]}</td>
-                  <td className="highlight">{r[1]}</td>
+                  <td className={index === dict.rows.length - 1 ? "highlight highlight-bottom" : "highlight"}>
+                    {r[1]}
+                  </td>
                   <td>{r[2]}</td>
                   <td>{r[3]}</td>
                 </tr>

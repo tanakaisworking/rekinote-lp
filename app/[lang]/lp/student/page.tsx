@@ -26,8 +26,8 @@ const studentDictionaries: Record<Lang, Dictionary> = {
     Hero: {
       title1: "講義ノート取るの、",
       title2: "やめた。",
-      subtitle: "マイク録音で文字起こし。講義まとめまで自動化。",
-      desc: "対面授業もオンライン授業も、時間割に沿って保存。ノートを取る時間を、理解する時間に変える学生向けReki。",
+      subtitle: "毎回ちゃんと書かなくても、あとから追いつける。",
+      desc: "Zoomでも、大学の独自配信でも、対面でも。デバイスの音とマイクをそのまま記録し、見返しやすい講義ノートにまとめる。",
       waitlist: "先行ユーザー登録",
       mac: "Mac",
       macSub: "先行配信中",
@@ -36,55 +36,55 @@ const studentDictionaries: Record<Lang, Dictionary> = {
     },
     Problem: {
       eyebrow: "The Problem",
-      title1: "真面目な人ほど、",
-      title2: "講義中に",
-      title3: "損してる。",
-      desc: "話を理解したいのに、手はノートを取るのに必死。板書を書いている間に説明を聞き逃し、オンライン授業と対面授業の記録は散らばる。試験前には、どこで言っていたか探す時間ばかり増えていく。",
+      title1: "毎回ちゃんとは",
+      title2: "やりきれない。",
+      title3: "でも後で困りたくない。",
+      desc: "授業ごとに丁寧にノートを取るのは大変。何も残っていないと、試験前やレポート前に一気につらくなる。しかも配信も対面も記録の残り方がバラバラで、あとで追いつくほど負担が増える。",
       before: "Before",
-      beforeTitle: "手作業のノート整理",
+      beforeTitle: "授業ごとに残り方が違う",
       beforeItems: [
-        { name: "板書を書き写す", price: "理解が止まる" },
-        { name: "聞き逃した箇所を勘で補う", price: "精度が落ちる" },
-        { name: "授業ごとにメモが散らばる", price: "復習が遅い" },
-        { name: "試験前に過去ノートを掘り返す", price: "時間が消える" }
+        { name: "授業中ずっとメモを取る", price: "負担が大きい" },
+        { name: "配信ごとに録音方法が変わる", price: "地味に面倒" },
+        { name: "聞き逃した回を後回しにする", price: "あとで重くなる" },
+        { name: "試験前に過去回を探し直す", price: "時間がかかる" }
       ],
       total: "結果",
-      beforeTotal: "毎回バラバラ",
-      beforeTotalDesc: "理解より記録が優先される",
+      beforeTotal: "あとで追いつくほどしんどい",
+      beforeTotalDesc: "後半になるほど取り返しづらい",
       after: "After",
-      afterTitle: "Rekiに講義ノートを集約",
-      afterDesc: "対面授業 / オンライン授業 / ゼミを1本化",
+      afterTitle: "Rekiに授業記録を集約",
+      afterDesc: "配信も対面も、あとで追いつきやすい形にまとまる",
       afterItems: [
-        "マイク録音で講義をそのまま記録",
-        "文字起こしと要点整理が自動で残る",
-        "時間割に沿って授業ごとに保存される",
-        "過去講義を横断してAIに質問できる"
+        "OSレベルで音を取るから、大学の配信環境に縛られない",
+        "Bot招待なしで、そのまま記録を残せる",
+        "講義ごとに自動で文字起こしと要点整理が残る",
+        "試験前に過去回をまとめて検索できる"
       ],
-      afterTotal: "理解に集中",
-      afterTotalDesc: "ノート作業を後ろに回せる",
+      afterTotal: "無理せず、崩れにくい",
+      afterTotalDesc: "毎回完璧でなくても、必要な時に戻りやすい",
     },
     Features: {
       eyebrow: "Benefits",
       title1: "Rekiで",
-      title2: "授業の受け方が変わる",
+      title2: "授業との付き合い方が軽くなる",
       rows: [
         {
           num: "01",
           phase: "今すぐ",
-          title: "書くより、聞く時間が増える。",
-          body: "講義中はノートの体裁より、教授の話そのものに集中。録音、文字起こし、講義まとめまで自動化されるから、理解に必要な認知資源を残せます。"
+          title: "講義開始時に通知、録音ポップアップ",
+          body: "時間割に合わせて通知。あとは録音を始めるだけで、講義の記録が残る。"
         },
         {
           num: "02",
           phase: "数日後",
-          title: "復習が、あとで効いてくる。",
-          body: "授業ごとに保存された講義ノートをあとから見返し、要点をすぐ確認。聞き逃した箇所も、全文検索とAI質問で取り戻せます。"
+          title: "大学の配信環境に振り回されにくい。",
+          body: "Zoomでも、大学独自の配信ページでも、生放送でも、対面でも。OSレベルで音を取るから、授業ごとにやり方を変えなくていい。"
         },
         {
           num: "03",
           phase: "試験前",
-          title: "学期分の講義が、ひとつの記憶になる。",
-          body: "半年前の定義も、先週の補足説明も、授業横断でまとめて参照。学期が進むほど、復習の速度と精度が変わります。"
+          title: "後からでも、追いつきやすい。",
+          body: "聞き逃した回や欠席気味の授業も、あとから検索して要点を拾える。日々の記録が、そのまま試験前の見返しやすさになる。"
         }
       ],
       notificationTitle: "授業を検出しました",
@@ -107,34 +107,34 @@ const studentDictionaries: Record<Lang, Dictionary> = {
     },
     WorksWith: {
       eyebrow: "Works Where You Learn",
-      title: "いつもの授業環境、そのままで。",
-      desc: "教室のマイク録音も、PC上のオンライン授業も、Rekiが授業としてまとめて扱う。講義ノートの保存場所をひとつに寄せられます。",
+      title: "大学ごとの授業環境、そのままで。",
+      desc: "Zoom、Google Meet、大学の独自配信、生放送、対面講義まで。Bot招待や権限設定なしで、そのまま残せる。",
       apps: [
         { name: "Zoom", slug: "zoom" },
         { name: "Google Meet", slug: "googlemeet" },
         { name: "Teams", icon: "users" },
         { name: "Discord", slug: "discord" },
         { name: "YouTube Live", slug: "youtube" },
-        { name: "LMS配信", fallback: "LMS" },
-        { name: "Macアプリ全般", slug: "apple" },
+        { name: "Google Classroom", fallback: "GC" },
+        { name: "デバイス上の他アプリ", slug: "apple" },
         { name: "対面講義", icon: "messages" },
         { name: "その他の授業環境", fallback: "…" }
       ],
     },
     Compare: {
       eyebrow: "Compare",
-      title1: "ただの文字起こしと、",
-      title2: "何が違うのか。",
-      desc: "Rekiは、学生の復習導線までまとめて設計する。",
+      title1: "学生にとって大事なのは、",
+      title2: "無理なく続けられること。",
+      desc: "大学ごとの授業環境に左右されず、あとで見返せる記録を残せる。",
       colFeature: "比較軸",
-      footnote: "※学生向け想定機能の比較",
+      footnote: "※想定機能の比較",
       rows: [
-        ["授業の保存単位", "時間割ごとに整理", "音声ファイル単位", "手書きノート単位"],
-        ["対面講義の扱い", "マイク録音で対応", "録音の持ち込みが必要", "自分で書くしかない"],
-        ["オンライン授業の扱い", "検知して録音", "都度操作が必要", "別ノートになる"],
-        ["復習のしやすさ", "全文検索 + AI質問", "聞き返し中心", "ページを探す"],
-        ["講義まとめ", "自動で要点整理", "原文中心", "自分で再整理"],
-        ["試験前の横断確認", "複数授業を一括検索", "不可 / 限定的", "手作業で見返す"]
+        ["大学ごとの配信環境", "OSレベル録音でそのまま対応", "対応可否が環境依存", "自分で書くしかない"],
+        ["Bot招待 / 権限", "不要", "必要なことが多い", "不要"],
+        ["対面講義の扱い", "マイク録音でそのまま残せる", "録音の持ち込みが必要", "手書きノート頼み"],
+        ["あとで見返しやすいか", "全文検索 + AI質問", "聞き返し中心", "ページを探す"],
+        ["講義ごとの整理", "時間割ごとにまとまる", "ファイルが散りやすい", "ノートが散りやすい"],
+        ["試験前の確認", "複数授業をまとめて確認", "不可 / 限定的", "手作業で見返す"]
       ],
     },
     Privacy: {
@@ -152,8 +152,8 @@ const studentDictionaries: Record<Lang, Dictionary> = {
     },
     HowItWorks: {
       eyebrow: "How it Works",
-      title1: "シンプルに、",
-      title2: "講義ノートが残る。",
+      title1: "ただ録音するだけ。",
+      title2: "カレンダーで講義に紐付け",
       input01Label: "Input 01",
       input01Title: "講義音声",
       transcript: [
@@ -179,13 +179,13 @@ const studentDictionaries: Record<Lang, Dictionary> = {
       ],
     },
     FinalCTA: {
-      title: "講義ノートを、\n自分で取り続ける？",
-      desc: "まずは授業を録音して、文字起こしと講義まとめを残すところから。気づいた頃には、ノートのために理解を止める時間が減っていきます。",
+      title: "ノートを“録る”時代へ。",
+      desc: "毎回完璧にノートを取らなくても、あとで見返せる記録を残しておく。大学ごとに違う授業環境でも使いやすいRekiを、先行ユーザーとして試してください。",
       macSub: "先行配信中",
       winSub: "リリース準備中",
       placeholder: "メールアドレスを入力",
       btnLoading: "送信中...",
-      btnDefault: "先行ユーザー登録",
+      btnDefault: "先行ユーザー登録する",
       successTitle: "ご登録ありがとうございます！",
       successDesc: "準備が整い次第、ご案内のメールをお送りします。",
       errorDuplicate: "このメールアドレスは既に登録されています。",
@@ -250,10 +250,10 @@ const studentDictionaries: Record<Lang, Dictionary> = {
       waitlist: "Join the Waitlist",
     },
     Hero: {
-      title1: "I stopped taking",
-      title2: "lecture notes.",
-      subtitle: "Record with your mic. Get transcripts and lecture summaries automatically.",
-      desc: "In-person lectures and online classes are saved by schedule, so your attention stays on understanding instead of formatting notes.",
+      title1: "Take fewer notes.",
+      title2: "Make later easier.",
+      subtitle: "You do not have to capture everything live to stay recoverable later.",
+      desc: "Zoom, campus streaming tools, custom university platforms, or in-person lectures. Reki captures device audio and mic input, then turns it into class notes that are easier to revisit before exams.",
       waitlist: "Join the Waitlist",
       mac: "Mac",
       macSub: "Early Access",
@@ -262,55 +262,55 @@ const studentDictionaries: Record<Lang, Dictionary> = {
     },
     Problem: {
       eyebrow: "The Problem",
-      title1: "The more serious you are,",
-      title2: "the more class time",
-      title3: "you lose.",
-      desc: "You want to understand the lecture, but your hands are busy formatting notes. While copying slides or the board, you miss explanations. Later, in-person and online class records are scattered when you need them most.",
+      title1: "You cannot do every class",
+      title2: "the careful way.",
+      title3: "You just do not want later to hurt.",
+      desc: "Keeping polished notes for every lecture takes energy. But when nothing is left behind, exam week and paper deadlines get much harder. Records scatter across Zoom, campus tools, livestream pages, and paper notes.",
       before: "Before",
-      beforeTitle: "Manual note-taking flow",
+      beforeTitle: "Every class leaves a different kind of mess",
       beforeItems: [
-        { name: "Copy slides and the board", price: "Attention drops" },
-        { name: "Patch missed points from memory", price: "Accuracy falls" },
-        { name: "Keep notes across different apps", price: "Review slows down" },
-        { name: "Dig through old notes before exams", price: "Time disappears" }
+        { name: "Write notes the whole time", price: "Draining" },
+        { name: "Change setup for every class tool", price: "Friction" },
+        { name: "Delay catching up on missed lectures", price: "Backlog grows" },
+        { name: "Search old lectures before exams", price: "Time disappears" }
       ],
       total: "Outcome",
-      beforeTotal: "Always fragmented",
-      beforeTotalDesc: "Recording wins over understanding",
+      beforeTotal: "Catching up gets heavier over time",
+      beforeTotalDesc: "What you skip now becomes harder to recover later",
       after: "After",
-      afterTitle: "Let Reki own the class notes",
-      afterDesc: "One place for lectures, seminars, and online classes",
+      afterTitle: "Put your class record in one place",
+      afterDesc: "Streaming, online classes, and in-person lectures in one flow",
       afterItems: [
-        "Capture lectures with your mic",
-        "Keep transcripts and lecture summaries automatically",
-        "Save everything by class schedule",
-        "Ask AI questions across past lectures"
+        "Capture audio at the OS level across class environments",
+        "No bot invite or platform permission needed",
+        "Keep transcripts and summaries automatically",
+        "Search across past lectures before exams"
       ],
-      afterTotal: "Focus on learning",
-      afterTotalDesc: "Move note labor out of the lecture itself",
+      afterTotal: "Lower effort, steadier recovery",
+      afterTotalDesc: "You do not need perfect habits to stay retraceable",
     },
     Features: {
       eyebrow: "Benefits",
-      title1: "What changes",
-      title2: "for students with Reki?",
+      title1: "With Reki, class can be",
+      title2: "lighter to manage",
       rows: [
         {
           num: "01",
           phase: "Right away",
-          title: "More listening time. Less formatting time.",
-          body: "During class, your attention stays on what the professor is actually saying. Recording, transcription, and lecture summaries are automated, so understanding gets your cognitive bandwidth back."
+          title: "You do not have to build perfect notes every time.",
+          body: "Audio, transcript, and class summaries are already there. That makes each lecture easier to leave in a usable state, even when you are not fully on top of it."
         },
         {
           num: "02",
           phase: "A few days later",
-          title: "Review gets faster when class ends.",
-          body: "Lecture notes are already organized by class. Search the transcript, jump to the summary, and recover anything you missed without replaying everything from scratch."
+          title: "You do not have to adapt to every campus tool.",
+          body: "Zoom, custom streaming portals, random live pages, or in-person lectures. Reki captures system audio and mic input at the OS level, so your workflow can stay consistent."
         },
         {
           num: "03",
           phase: "By exam season",
-          title: "A semester turns into searchable memory.",
-          body: "Definitions from months ago and last week's clarifications sit in one archive. The more classes you save, the more useful your study history becomes."
+          title: "Recovery still feels possible later.",
+          body: "Skipped classes and half-listened lectures are still searchable later. The record you leave behind becomes a calmer way back in before exams."
         }
       ],
       notificationTitle: "Lecture detected",
@@ -333,8 +333,8 @@ const studentDictionaries: Record<Lang, Dictionary> = {
     },
     WorksWith: {
       eyebrow: "Works Where You Learn",
-      title: "Fits the class setup you already use.",
-      desc: "Mic capture in classrooms, online lecture detection on your computer, and one place to keep every class note you want to revisit later.",
+      title: "Works with the campus setup you already have.",
+      desc: "Zoom, Google Meet, custom university platforms, livestreams, and in-person lectures. No bot invite. No special permission flow. Just capture the class audio as it is.",
       apps: [
         { name: "Zoom", slug: "zoom" },
         { name: "Google Meet", slug: "googlemeet" },
@@ -342,25 +342,25 @@ const studentDictionaries: Record<Lang, Dictionary> = {
         { name: "Discord", slug: "discord" },
         { name: "YouTube Live", slug: "youtube" },
         { name: "LMS Streams", fallback: "LMS" },
-        { name: "Any Mac App", slug: "apple" },
+        { name: "Other apps on your device", slug: "apple" },
         { name: "In-person Lectures", icon: "messages" },
         { name: "Other Class Tools", fallback: "…" }
       ],
     },
     Compare: {
       eyebrow: "Compare",
-      title1: "How is it different",
-      title2: "from plain transcription?",
-      desc: "Reki is designed around the student review loop, not just raw recordings.",
+      title1: "For students, what matters is",
+      title2: "keeping it usable without extra effort.",
+      desc: "Reki is built for campus environments where students usually do not control the platform, permissions, or recording setup.",
       colFeature: "Features",
       footnote: "* Conceptual comparison for student workflows",
       rows: [
-        ["Saved by", "Class schedule", "Audio file", "Notebook page"],
-        ["In-person lectures", "Supported via mic capture", "Manual import or setup", "Write everything yourself"],
-        ["Online classes", "Detected and recorded", "Needs manual control", "Lives somewhere else"],
-        ["Review flow", "Search + AI questions", "Replay audio", "Flip through pages"],
-        ["Lecture summaries", "Auto-organized", "Mostly raw transcript", "Manual rewrite"],
-        ["Exam prep across classes", "Search across the semester", "Limited / impossible", "Manual digging"]
+        ["Campus platforms", "Works through OS-level capture", "Support depends on the platform", "Manual only"],
+        ["Bot invite / permissions", "Not needed", "Often needed", "Not needed"],
+        ["In-person lectures", "Captured with mic input", "Needs separate recording setup", "Write it yourself"],
+        ["Catch-up flow", "Search + AI questions", "Mostly replay-based", "Manual page search"],
+        ["Class organization", "Grouped by class schedule", "Files can scatter", "Notes can scatter"],
+        ["Exam recovery", "Review across multiple classes", "Limited or unavailable", "Manual review"]
       ],
     },
     Privacy: {
@@ -405,8 +405,8 @@ const studentDictionaries: Record<Lang, Dictionary> = {
       ],
     },
     FinalCTA: {
-      title: "Still planning to keep\nwriting every lecture yourself?",
-      desc: "Start by recording class and keeping the transcript plus summary. After a while, you stop giving up understanding time just to maintain notes.",
+      title: "Put less pressure on each lecture.\nKeep a clearer way back later.",
+      desc: "Leave yourself a searchable class record without changing your campus workflow. Try Reki early and build a lighter backup before exam week hits.",
       macSub: "Early Access",
       winSub: "Coming soon",
       placeholder: "Enter your email",
@@ -506,7 +506,7 @@ export default function StudentLpPage({
     <>
       <Header dict={dict.Header} lang={params.lang} />
       <main>
-        <Hero dict={dict.Hero} lang={params.lang} />
+        <Hero dict={dict.Hero} lang={params.lang} audience="student" />
         <Problem dict={dict.Problem} />
         <Features dict={dict.Features} />
         <WorksWith dict={dict.WorksWith} />
