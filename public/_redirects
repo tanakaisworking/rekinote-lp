@@ -1,8 +1,14 @@
 # Cloudflare Pages リダイレクト設定
 # ルートと旧URLをそれぞれの言語LPへ301リダイレクト
 
-/           /en/lp/   301
-/lp/        /en/lp/   301
-/lp         /en/lp/   301
-/ja/lp      /ja/lp/   301
-/en/lp      /en/lp/   301
+/           /en/lp/business/   301
+/lp/        /en/lp/business/   301
+/lp         /en/lp/business/   301
+/ja/lp      /ja/lp/business/   301
+/ja/lp/     /ja/lp/   200
+/en/lp      /en/lp/business/   301
+/en/lp/     /en/lp/   200
+/ja/lp/business  /ja/lp/business/  301
+/en/lp/business  /en/lp/business/  301
+/ja/lp/student   /ja/lp/student/   301
+/en/lp/student   /en/lp/student/   301

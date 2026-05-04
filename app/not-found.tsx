@@ -8,7 +8,7 @@ export default function NotFound() {
   const isJa = pathname?.startsWith("/ja");
   const isEn = pathname?.startsWith("/en");
   const locale = isJa ? "ja" : isEn ? "en" : "en";
-  const homeHref = locale === "ja" ? "/ja/lp/" : "/en/lp/";
+  const homeHref = locale === "ja" ? "/ja/lp/business/" : "/en/lp/business/";
   const copy = locale === "ja"
     ? {
         eyebrow: "404 / Page not found",
