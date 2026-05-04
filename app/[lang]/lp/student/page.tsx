@@ -84,7 +84,7 @@ const studentDictionaries: Record<Lang, Dictionary> = {
           num: "03",
           phase: "試験前",
           title: "サボった回も、取り戻せる。",
-          body: "出席が甘かった授業も、文字起こしと要点が残ってる。テスト前に一からやり直さなくても、ポイントだけ拾い直せる。"
+          body: "出席できなかった授業も、文字起こしと要点が残ってる。テスト前に一からやり直さなくても、ポイントだけ拾い直せる。"
         }
       ],
       notificationTitle: "授業を検出しました",
@@ -125,7 +125,7 @@ const studentDictionaries: Record<Lang, Dictionary> = {
       eyebrow: "Compare",
       title1: "学生にとって大事なのは、",
       title2: "無理なく続けられること。",
-      desc: "大学ごとの授業環境に左右されず、あとで見返せる記録を残せる。",
+      desc: "大学ごとの授業環境に左右されず、あとで見返せる記録を残す。",
       colFeature: "比較軸",
       col2: "AI文字起こしツール（Notta / CLOVA Note等）",
       col3: "手書き / ノートアプリ",
