@@ -174,6 +174,8 @@
     "title2": "何が違うのか。",
     "desc": "Reki noteは、オープンにします。",
     "colFeature": "比較軸",
+    "col2": "Zoom AI / Teams Copilot",
+    "col3": "Otter / tl;dv / Notta",
     "footnote": "※各サービスの仕様は2026年4月時点の公開情報に基づきます",
     "rows": [
       [
@@ -305,15 +307,31 @@
       "importAudio": "音声をインポート",
       "todaySchedule": "今日の予定",
       "schedule": [
-        { "time": "09:30", "title": "デイリー", "status": "まもなく" },
-        { "time": "13:00", "title": "顧客MTG", "status": "Google Meet" },
-        { "time": "18:00", "title": "週次定例", "status": "Zoom" }
+        {
+          "time": "09:30",
+          "title": "デイリー",
+          "status": "まもなく"
+        },
+        {
+          "time": "13:00",
+          "title": "顧客MTG",
+          "status": "Google Meet"
+        },
+        {
+          "time": "18:00",
+          "title": "週次定例",
+          "status": "Zoom"
+        }
       ],
       "home": "ホーム",
       "heading": "ホーム",
       "subheading": "Mac上の会話を、全部ここに。",
       "searchPlaceholder": "議事録を検索",
-      "filters": ["今日", "新しい順", "30分以内"],
+      "filters": [
+        "今日",
+        "新しい順",
+        "30分以内"
+      ],
       "sessions": [
         {
           "title": "週次定例 / HIBACHI inc.",

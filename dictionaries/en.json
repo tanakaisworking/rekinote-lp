@@ -175,6 +175,8 @@
     "title2": "instead of another note-taking add-on",
     "desc": "Reki is built around owning the raw conversation record, not renting it back from every meeting platform.",
     "colFeature": "Features",
+    "col2": "Zoom AI / Teams Copilot",
+    "col3": "Otter / tl;dv / Notta",
     "footnote": "* Representative categories based on public pricing and product information",
     "rows": [
       [
@@ -306,15 +308,31 @@
       "importAudio": "Import Audio",
       "todaySchedule": "Today's Schedule",
       "schedule": [
-        { "time": "09:30", "title": "Daily Standup", "status": "Starting soon" },
-        { "time": "13:00", "title": "Acme QBR", "status": "Google Meet" },
-        { "time": "18:00", "title": "Board Prep Review", "status": "Zoom" }
+        {
+          "time": "09:30",
+          "title": "Daily Standup",
+          "status": "Starting soon"
+        },
+        {
+          "time": "13:00",
+          "title": "Acme QBR",
+          "status": "Google Meet"
+        },
+        {
+          "time": "18:00",
+          "title": "Board Prep Review",
+          "status": "Zoom"
+        }
       ],
       "home": "Home",
       "heading": "Home",
       "subheading": "Every work conversation, in one place.",
       "searchPlaceholder": "Search meetings and calls",
-      "filters": ["Today", "Newest", "< 30 min"],
+      "filters": [
+        "Today",
+        "Newest",
+        "< 30 min"
+      ],
       "sessions": [
         {
           "title": "Board Prep Review / HIBACHI inc.",

@@ -87,6 +87,8 @@ export type DictCompare = {
   title2: string;
   desc: string;
   colFeature: string;
+  col2: string;
+  col3: string;
   footnote: string;
   rows: string[][];
 };

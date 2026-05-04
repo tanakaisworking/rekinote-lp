@@ -127,14 +127,15 @@ const studentDictionaries: Record<Lang, Dictionary> = {
       title2: "無理なく続けられること。",
       desc: "大学ごとの授業環境に左右されず、あとで見返せる記録を残せる。",
       colFeature: "比較軸",
+      col2: "AI文字起こしツール（Notta / CLOVA Note等）",
+      col3: "手書き / ノートアプリ",
       footnote: "※想定機能の比較",
       rows: [
-        ["大学ごとの配信環境", "OSレベル録音でそのまま対応", "対応可否が環境依存", "自分で書くしかない"],
-        ["Bot招待 / 権限", "不要", "必要なことが多い", "不要"],
-        ["対面講義の扱い", "マイク録音でそのまま残せる", "録音の持ち込みが必要", "手書きノート頼み"],
-        ["あとで見返しやすいか", "全文検索 + AI質問", "聞き返し中心", "ページを探す"],
-        ["講義ごとの整理", "時間割ごとにまとまる", "ファイルが散りやすい", "ノートが散りやすい"],
-        ["試験前の確認", "複数授業をまとめて確認", "不可 / 限定的", "手作業で見返す"]
+        ["大学の配信環境", "システム音声録音で環境に依存しない", "講義によって様々", "環境に依存しない"],
+        ["Bot招待・権限設定", "不要", "必要", "不要"],
+        ["対面講義", "マイク録音でそのまま記録", "スマホアプリで別途録音", "自分で書く"],
+        ["あとから見返す", "全文検索 + AI質問", "文字起こし検索あり", "ノートを探して読み返す"],
+        ["講義ごとの整理", "時間割と自動で紐づく", "手動でフォルダ分け", "自分で管理"],
       ],
     },
     Privacy: {
@@ -360,14 +361,15 @@ const studentDictionaries: Record<Lang, Dictionary> = {
       title2: "keeping class records usable without extra effort.",
       desc: "Reki is built for campus environments where students usually do not control the platform, permissions, or recording setup.",
       colFeature: "Features",
+      col2: "AI Transcription (Otter / Fireflies etc.)",
+      col3: "Handwritten / Note Apps",
       footnote: "* Conceptual comparison for student workflows",
       rows: [
-        ["Campus platforms", "Works through OS-level capture", "Support depends on the platform", "Manual only"],
-        ["Bot invite / permissions", "Not needed", "Often needed", "Not needed"],
-        ["In-person lectures", "Captured with mic input", "Needs separate recording setup", "Write it yourself"],
-        ["Catch-up flow", "Search + AI questions", "Mostly replay-based", "Manual page search"],
-        ["Class organization", "Grouped by class schedule", "Files can scatter", "Notes can scatter"],
-        ["Exam recovery", "Review across multiple classes", "Limited or unavailable", "Manual review"]
+        ["Campus platforms", "System audio capture works regardless of platform", "Varies by lecture setup", "Platform-independent"],
+        ["Bot invite / permissions", "Not needed", "Required", "Not needed"],
+        ["In-person lectures", "Captured with mic input", "Separate phone app recording", "Write it yourself"],
+        ["Catch-up flow", "Full-text search + AI questions", "Transcript search available", "Find and re-read notes"],
+        ["Class organization", "Auto-linked to class schedule", "Manual folder sorting", "Self-managed"],
       ],
     },
     Privacy: {

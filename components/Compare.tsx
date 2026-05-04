@@ -31,8 +31,8 @@ export function Compare({ dict }: { dict: DictCompare }) {
                     Reki note
                   </span>
                 </th>
-                <th>Zoom AI / Teams Copilot</th>
-                <th>Otter / tl;dv / Notta</th>
+                <th>{dict.col2}</th>
+                <th>{dict.col3}</th>
               </tr>
             </thead>
             <tbody>
