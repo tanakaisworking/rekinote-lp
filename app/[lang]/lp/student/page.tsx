@@ -542,21 +542,45 @@ export async function generateMetadata({
   params: { lang: Lang };
 }): Promise<Metadata> {
   const isJa = params.lang === "ja";
+  const title = isJa
+    ? "Reki note for Students — 講義ノート取るの、やめた。"
+    : "Reki note for Students — Stop trying to catch every word.";
+  const description = isJa
+    ? "講義ノートはRekiに任せよう。マイク録音で文字起こし、講義まとめ、時間割保存、オンライン授業の自動検知まで。"
+    : "Let Reki handle the lecture record. Capture audio, get transcripts and summaries, and keep every class easier to come back to later.";
+  const url = `/${params.lang}/lp/student/`;
+
   return {
     metadataBase: new URL("https://rekinote.app"),
     alternates: {
-      canonical: `/${params.lang}/lp/student/`,
+      canonical: url,
       languages: {
         ja: "/ja/lp/student/",
         en: "/en/lp/student/",
       },
     },
-    title: isJa
-      ? "Reki note for Students — 講義ノート取るの、やめた。"
-      : "Reki note for Students — I stopped taking lecture notes.",
-    description: isJa
-      ? "講義ノートはRekiに任せよう。マイク録音で文字起こし、講義まとめ、時間割保存、オンライン授業の自動検知まで。"
-      : "Let Reki handle lecture notes. Mic capture, transcripts, lecture summaries, schedule-based storage, and online class detection.",
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "website",
+      images: [
+        {
+          url: "/ogp.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Reki note for Students",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/ogp.jpg"],
+    },
   };
 }
 

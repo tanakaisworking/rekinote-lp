@@ -8,8 +8,8 @@ export const metadata: Metadata = {
   },
   title: "Reki note — 議事録ツール、1つで足りる。",
   description:
-    "Macで起きる全ての通話と対面の会話を、1つのアプリに。Zoom / Meet / Teams / Slack 対応のAI議事録アプリ。",
-  keywords: ["議事録", "AI", "音声認識", "文字起こし", "Mac", "Zoom", "Meet", "Teams", "自動化"],
+    "システム音声に統合されたAI議事録アプリ。デバイス上の全ての音声を記録しよう。",
+  keywords: ["議事録", "AI", "音声認識", "文字起こし", "Windows", "Mac", "Zoom", "Meet", "Teams", "自動化"],
   robots: {
     index: true,
     follow: true,
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Reki note — 議事録ツール、1つで足りる。",
     description:
-      "Macで起きる全ての通話と対面の会話を、1つのアプリに。Zoom / Meet / Teams / Slack 対応のAI議事録アプリ。",
+      "システム音声に統合されたAI議事録アプリ。デバイス上の全ての音声を記録しよう。",
     images: [
       {
         url: "/ogp.jpg",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Reki note — 議事録ツール、1つで足りる。",
     description:
-      "Macで起きる全ての通話と対面の会話を、1つのアプリに。Zoom / Meet / Teams / Slack 対応のAI議事録アプリ。",
+      "システム音声に統合されたAI議事録アプリ。デバイス上の全ての音声を記録しよう。",
     images: ["/ogp.jpg"],
   },
 };
@@ -44,9 +44,9 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: "Reki note",
-    operatingSystem: "macOS",
+    operatingSystem: "macOS, Windows",
     applicationCategory: "BusinessApplication",
-    description: "Macで起きる全ての通話と対面の会話を、1つのアプリに集約するAI議事録アプリ。",
+    description: "システム音声に統合されたAI議事録アプリ。デバイス上の全ての音声を記録しよう。",
     offers: {
       "@type": "Offer",
       price: "0",

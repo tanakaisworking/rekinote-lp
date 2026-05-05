@@ -20,21 +20,45 @@ export async function generateMetadata({
   params: { lang: "ja" | "en" };
 }): Promise<Metadata> {
   const isJa = params.lang === "ja";
+  const title = isJa
+    ? "Reki note — 議事録ツール、1つで足りる。"
+    : "Reki note — One place for every conversation.";
+  const description = isJa
+    ? "システム音声に統合されたAI議事録アプリ。デバイス上の全ての音声を記録しよう。"
+    : "An AI meeting recorder built into system audio. Capture every conversation on your device, then come back to it later.";
+  const url = `/${params.lang}/lp/business/`;
+
   return {
     metadataBase: new URL("https://rekinote.app"),
     alternates: {
-      canonical: `/${params.lang}/lp/business/`,
+      canonical: url,
       languages: {
         ja: "/ja/lp/business/",
         en: "/en/lp/business/",
       },
     },
-    title: isJa
-      ? "Reki note — 議事録ツール、1つで足りる。"
-      : "Reki note — Local-first meeting memory for Mac.",
-    description: isJa
-      ? "Macで起きる全ての通話と対面の会話を、1つのアプリに。Zoom / Meet / Teams / Slack 対応のAI議事録アプリ。"
-      : "Capture calls across Zoom, Meet, Teams, Slack huddles, and in-person meetings, then search the full record with your own AI keys.",
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "website",
+      images: [
+        {
+          url: "/ogp.jpg",
+          width: 1200,
+          height: 630,
+          alt: "Reki note",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ["/ogp.jpg"],
+    },
   };
 }
 
