@@ -1,0 +1,442 @@
+{
+  "Header": {
+    "benefits": "効果",
+    "features": "機能",
+    "integrations": "範囲",
+    "compare": "比較",
+    "privacy": "プライバシー",
+    "howItWorks": "仕組み",
+    "download": "Mac版を無料ダウンロード",
+    "downloadWin": "Win版",
+    "pricing": "料金"
+  },
+  "Hero": {
+    "title1": "全ての議事録を、",
+    "title2": "Rekiに統合しよう。",
+    "subtitle": "デバイス上の全ての会話を文字起こし。AIで横断検索。",
+    "desc": "OSレベルで音声を文字起こし。サービスを超えて記録する「効率化のOS」",
+    "downloadMac": "Mac版 無料ダウンロード",
+    "downloadWin": "Windows版 無料ダウンロード",
+    "mac": "Mac",
+    "macSub": "Apple Silicon（M1以降）",
+    "win": "Win",
+    "winSub": "Windows 10以降・ベータ版",
+    "winNote": "Mac版が安定版です。Windows版は一部機能に制限があります"
+  },
+  "Problem": {
+    "eyebrow": "The Problem",
+    "title1": "議事録のために",
+    "title2": "いくつのAIを",
+    "title3": "契約していますか？",
+    "desc": "会議ツールごとに高額のAI課金。データはバラバラのサーバーに閉じ込められ、横断検索すらできない。",
+    "before": "Before",
+    "beforeTitle": "バラバラの課金とデータ",
+    "beforeItems": [
+      {
+        "name": "Zoom AI Companion",
+        "price": "+ ¥2,200/月"
+      },
+      {
+        "name": "Microsoft Teams Copilot",
+        "price": "+ ¥4,497/月"
+      },
+      {
+        "name": "Google Meet AI",
+        "price": "+ ¥1,650/月"
+      },
+      {
+        "name": "Notta / Plaud 等",
+        "price": "+ ¥1,980/月"
+      }
+    ],
+    "total": "合計",
+    "beforeTotal": "¥10,327/月",
+    "beforeTotalDesc": "複数サービス分散課金",
+    "after": "After",
+    "afterTitle": "Reki note 1本に集約",
+    "afterDesc": "Zoom / Meet / Teams / 対面 すべて対応",
+    "afterItems": [
+      "1つのアプリで全通話・対面を録音",
+      "データはあなたのMacに",
+      "全議事録を横断してAIに質問",
+      "無料プランで月3時間。Proでも月¥1,480"
+    ],
+    "afterTotal": "無料〜¥1,480/月",
+    "afterTotalDesc": "週1回30分のMTGなら無料で使い続けられる"
+  },
+  "Features": {
+    "eyebrow": "Benefits",
+    "title1": "Rekiを使うと",
+    "title2": "何が変わるか",
+    "rows": [
+      {
+        "num": "01",
+        "phase": "今すぐ ・ Soon",
+        "title": "議事録を一本化し、課金をスリムに。",
+        "body": "Zoom / Meet / Teams / Slack / 対面、デバイス上の会話を全て録音。文字起こしから議事録生成まで、Rekiで完結。複数のサービスに高額な費用を払う必要も、データが各社サーバーに散らばる悩みも、すぐに解決。"
+      },
+      {
+        "num": "02",
+        "phase": "数週間後 ・ 中期",
+        "title": "全てのメモはRekiにお任せ",
+        "body": "デバイス上の全ての通話を文字起こしして、要約。一箇所に統合された会話メモから、Reki AIがあなたの質問に答えます。"
+      },
+      {
+        "num": "03",
+        "phase": "使い続けた先に ・ 長期",
+        "title": "あなただけの第二の\"脳\"が誕生する",
+        "body": "半年前の決定理由も、3年前の打ち合わせの細部も、AIに聞けば即座に出てくる。仕事の判断スピードと精度が、根本から変わります。"
+      }
+    ],
+    "notificationTitle": "会議を検出しました",
+    "notificationApp": "アプリ",
+    "notificationCalendar": "カレンダー",
+    "notificationCalendarValue": "週次定例",
+    "notificationBtn": "録音を開始",
+    "chatQuestion": "先週の田中さんとの決定事項は？",
+    "chatAnswerLabel": "ANSWER",
+    "chatAnswer": "次の3点が決定事項です。\n① プロトタイプを4/15までに納品\n② レビューはSlack上で非同期で\n③ 予算は社内承認済み",
+    "chatSource": "出典: 週次定例 4/8 18:02",
+    "memoryLabel": "MEMORY",
+    "memoryItems": [
+      {
+        "date": "今日",
+        "title": "週次定例",
+        "excerpt": "次回までにプロト..."
+      },
+      {
+        "date": "3日前",
+        "title": "顧客MTG / HIBACHI inc.",
+        "excerpt": "予算は概ねOK"
+      },
+      {
+        "date": "先週",
+        "title": "1on1 / 田中さん",
+        "excerpt": "キャリア面談の続き"
+      },
+      {
+        "date": "2週前",
+        "title": "プロダクトレビュー",
+        "excerpt": "デザイン方針の決定"
+      },
+      {
+        "date": "半年前",
+        "title": "Q3キックオフ",
+        "excerpt": "目標設定の根拠"
+      }
+    ]
+  },
+  "WorksWith": {
+    "eyebrow": "Works Where You Work",
+    "title": "いつものデバイスの、すべての通話に。",
+    "desc": "OSレベルから音声を拾うので、インストールして起動するだけで、全ての通話に使えます",
+    "apps": [
+      {
+        "name": "Zoom",
+        "slug": "zoom"
+      },
+      {
+        "name": "Google Meet",
+        "slug": "googlemeet"
+      },
+      {
+        "name": "Teams",
+        "slug": null,
+        "icon": "users"
+      },
+      {
+        "name": "LINE",
+        "slug": "line"
+      },
+      {
+        "name": "Discord",
+        "slug": "discord"
+      },
+      {
+        "name": "Messenger",
+        "slug": "messenger"
+      },
+      {
+        "name": "Macアプリ全般",
+        "slug": "apple"
+      },
+      {
+        "name": "対面の会話",
+        "slug": null,
+        "icon": "messages"
+      },
+      {
+        "name": "その他の通話サービス",
+        "slug": null,
+        "fallback": "…"
+      }
+    ]
+  },
+  "Compare": {
+    "eyebrow": "Compare",
+    "title1": "他のAI議事録ツールと、",
+    "title2": "何が違うのか。",
+    "desc": "",
+    "colFeature": "比較軸",
+    "col2": "Zoom AI / Teams Copilot",
+    "col3": "Otter / tl;dv / Notta",
+    "footnote": "※各サービスの仕様は2026年4月時点の公開情報に基づきます",
+    "rows": [
+      {
+        "feature": "対応する会議ツール",
+        "reki": {
+          "tone": "good",
+          "text": "全アプリと対面を1つでカバー"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "そのプラットフォーム内に閉じる"
+        },
+        "notes": {
+          "tone": "soso",
+          "text": "主要会議アプリ中心で一部対応"
+        }
+      },
+      {
+        "feature": "課金モデル",
+        "reki": {
+          "tone": "good",
+          "text": "無料プランあり。Proでも月¥1,480"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "プラットフォームごとに追加課金"
+        },
+        "notes": {
+          "tone": "bad",
+          "text": "独自サブスクが別で必要"
+        }
+      },
+      {
+        "feature": "データ保存場所",
+        "reki": {
+          "tone": "good",
+          "text": "あなたのデバイスに残る"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "各社サーバーに保存"
+        },
+        "notes": {
+          "tone": "bad",
+          "text": "各社サーバーに保存"
+        }
+      },
+      {
+        "feature": "過去議事録の横断質問",
+        "reki": {
+          "tone": "good",
+          "text": "全議事録をまたいで質問できる"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "不可か、かなり限定的"
+        },
+        "notes": {
+          "tone": "soso",
+          "text": "単発要約中心で横断性は弱い"
+        }
+      },
+      {
+        "feature": "出力形式",
+        "reki": {
+          "tone": "good",
+          "text": "Markdown / Obsidianで扱いやすい"
+        },
+        "otherAi": {
+          "tone": "soso",
+          "text": "基本はプラットフォーム内で閲覧"
+        },
+        "notes": {
+          "tone": "soso",
+          "text": "一部だけエクスポート可能"
+        }
+      },
+      {
+        "feature": "対面会話の録音",
+        "reki": {
+          "tone": "good",
+          "text": "そのまま対応"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "基本不可"
+        },
+        "notes": {
+          "tone": "soso",
+          "text": "一部だけ対応"
+        }
+      }
+    ]
+  },
+  "Privacy": {
+    "eyebrow": "Privacy by Design",
+    "title1": "秘密を守るか、",
+    "title2": "コストを抑えるか",
+    "facts": [
+      "音声ファイルは、あなたのMacの中に保存されます",
+      "文字起こしと議事録生成はRekiのサーバーで処理",
+      "生成後のデータはあなたのMacだけに保存されます"
+    ],
+    "providersLabel": "DATA FLOW",
+    "providersDesc": "あなたのデバイスから出るのは音声処理の瞬間だけ",
+    "providers": [
+      "録音 → Mac内に保存",
+      "文字起こし → 処理後すぐ破棄",
+      "議事録 → Mac内に保存",
+      "検索・AI質問 → Mac内で完結"
+    ]
+  },
+  "HowItWorks": {
+    "eyebrow": "How it Works",
+    "title1": "シンプルに、",
+    "title2": "パワフル。",
+    "input01Label": "Input 01",
+    "input01Title": "音声書き起こし",
+    "transcript": [
+      {
+        "time": "00:03",
+        "speaker": "田中",
+        "color": "#a78bfa",
+        "text": "先月の売上を上回ったそうですが、原因としては何が一番大きいですか？"
+      },
+      {
+        "time": "00:18",
+        "speaker": "松嶋",
+        "color": "#7c9cf0",
+        "text": "新規チャネルの転換率が改善したのが主要因です。特にリードの質が上がって——"
+      },
+      {
+        "time": "00:34",
+        "speaker": "田中",
+        "color": "#a78bfa",
+        "text": "具体的な数字は次回までに共有お願いします。"
+      }
+    ],
+    "input02Label": "Input 02",
+    "input02Title": "カレンダー情報",
+    "calendarMeeting": "週次定例",
+    "calendarDate": "日時",
+    "calendarDateValue": "2026/05/01　10:00",
+    "calendarParticipants": "参加者",
+    "calendarParticipantsValue": "田中、松嶋、北条",
+    "calendarTool": "ツール",
+    "calendarNote": "音声に「誰が・いつ・何の会議か」を自動で紐付け",
+    "outputLabel": "Output",
+    "outputTitle": "ナレッジデータベース",
+    "outputCards": [
+      {
+        "title": "全文検索",
+        "body": "参加者・日付・発言内容で横断検索"
+      },
+      {
+        "title": "AI質問応答",
+        "body": "「先週の決定事項は？」と自然言語で問い合わせ"
+      },
+      {
+        "title": "蓄積される資産",
+        "body": "使うほど文脈が深まる、自分だけの第二の脳"
+      }
+    ]
+  },
+  "FinalCTA": {
+    "title": "もう、これなしでは\nいられないはず。",
+    "desc": "まずは分散課金をやめて、1本に集約するところから。慣れてきた頃には、メモも検索もAIに任せて、毎日が驚くほどラクになります。",
+    "macSub": "Apple Silicon（M1以降）",
+    "winSub": "Windows 10以降・ベータ版",
+    "btnDefault": "Mac版を無料ダウンロード",
+    "btnWin": "Windows版を無料ダウンロード",
+    "preview": {
+      "ariaLabel": "Reki note ホームプレビュー",
+      "recordTitle": "録音を開始",
+      "recordSubtitle": "今この瞬間から記録",
+      "importAudio": "音声をインポート",
+      "todaySchedule": "今日の予定",
+      "schedule": [
+        {
+          "time": "09:30",
+          "title": "デイリー",
+          "status": "まもなく"
+        },
+        {
+          "time": "13:00",
+          "title": "顧客MTG",
+          "status": "Google Meet"
+        },
+        {
+          "time": "18:00",
+          "title": "週次定例",
+          "status": "Zoom"
+        }
+      ],
+      "home": "ホーム",
+      "heading": "ホーム",
+      "subheading": "Mac上の会話を、全部ここに。",
+      "searchPlaceholder": "議事録を検索",
+      "filters": [
+        "今日",
+        "新しい順",
+        "30分以内"
+      ],
+      "sessions": [
+        {
+          "title": "週次定例 / HIBACHI inc.",
+          "time": "今日 18:02〜18:47",
+          "app": "Zoom",
+          "attendees": "4",
+          "preview": "プロトタイプの納期は4/15。レビューはSlackで非同期進行。予算は社内承認済み。"
+        },
+        {
+          "title": "顧客MTG / ACME",
+          "time": "4/28 13:00〜13:38",
+          "app": "Google Meet",
+          "attendees": "3",
+          "preview": "導入初月は営業チームから開始。管理者向けの権限設計は次回詰める。"
+        },
+        {
+          "title": "1on1 / 田中さん",
+          "time": "4/25 11:00〜11:31",
+          "app": "対面",
+          "attendees": "2",
+          "preview": "採用広報よりも、まずはオンボーディング改善を優先する方針で合意。"
+        }
+      ],
+      "attendeesUnit": "人",
+      "aiLink": "ルームに入る",
+      "aiQuestion": "先週の田中さんとの決定事項は？"
+    }
+  },
+  "ThankYou": {
+    "title": "ダウンロードありがとうございます！",
+    "desc": "Reki noteについてのご感想・ご要望をお聞かせください。",
+    "feedbackLabel": "感想・ご意見",
+    "feedbackPlaceholder": "使ってみた感想、こんな機能がほしい、など自由にどうぞ",
+    "bugLabel": "バグ・要望",
+    "bugPlaceholder": "不具合の内容や再現手順、改善してほしい点など",
+    "emailLabel": "返信が必要な場合のみ。任意です。",
+    "emailPlaceholder": "メールアドレス（任意）",
+    "submit": "送信する",
+    "sending": "送信中...",
+    "thanks": "フィードバックを送信しました。ありがとうございます！",
+    "close": "閉じる"
+  },
+  "Footer": {
+    "tagline": "Reki note ・ デバイスで起きる全ての会話を、あなたの記憶に。",
+    "company": "運営会社",
+    "switchHeading": "ユースケース",
+    "businessLabel": "ビジネス向け",
+    "businessDesc": "会議、商談、1on1、対面MTGの記録を1つに。",
+    "studentLabel": "学生向け",
+    "studentDesc": "講義、文字起こし、試験前の見返しをラクに。",
+    "currentLabel": "表示中",
+    "developerLabel": "開発者向け",
+    "developerDesc": "API連携、音声処理、プラグイン開発の技術情報。",
+    "otherLabel": "その他",
+    "otherDesc": "どのユースケースが合うか迷ったらこちら。"
+  }
+}
