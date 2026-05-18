@@ -3,12 +3,17 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 export function generateStaticParams() {
-  return [{ lang: "ja" }];
+  return [{ lang: "ja" }, { lang: "en" }];
 }
 
-export async function generateMetadata(): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { lang: "ja" | "en" };
+}): Promise<Metadata> {
+  const isJa = params.lang === "ja";
   return {
-    title: "プライバシーポリシー — Reki note",
+    title: isJa ? "プライバシーポリシー — Reki note" : "Privacy Policy — Reki note",
     robots: { index: true, follow: true },
   };
 }
@@ -18,7 +23,7 @@ type Section = {
   paragraphs: string[];
 };
 
-const sections: Section[] = [
+const sectionsJa: Section[] = [
   {
     heading: "1. はじめに",
     paragraphs: [
@@ -155,12 +160,162 @@ const sections: Section[] = [
   },
 ];
 
-export default function PrivacyPolicyPage() {
+const sectionsEn: Section[] = [
+  {
+    heading: "1. Introduction",
+    paragraphs: [
+      "HIBACHI inc. (\"we\", \"us\", or \"our\") is committed to protecting the personal information and privacy of users of Reki note (the \"App\"). This Privacy Policy explains what data the App collects, how it is used, and how it is stored.",
+      "This service is intended for users aged 13 and older. Persons under 13 may not use this service.",
+    ],
+  },
+  {
+    heading: "2. Company Information",
+    paragraphs: [
+      "Company: HIBACHI inc.",
+      "Representative: Takashi Tanaka",
+      "Address: FPG Links Jinnan 5F, 1-11-4 Jinnan, Shibuya-ku, Tokyo 150-0041, Japan",
+      "Contact: contact@hibachi-inc.jp",
+    ],
+  },
+  {
+    heading: "3. Data We Collect",
+    paragraphs: [
+      "The App collects the following data:",
+      "■ Account information: The email address used to sign in.",
+      "■ Audio data: Audio files temporarily generated on your device during meeting recordings. These are sent through our servers to AI service providers for transcription. Our servers do not store audio data and discard it after processing.",
+      "■ Transcription and meeting notes: Text generated from audio, including transcriptions and meeting notes. If cloud sync is enabled, this data is encrypted and stored on our servers.",
+      "■ Calendar information: If calendar integration is enabled, we retrieve meeting times, titles, and attendee names via the Google Calendar API (calendar.readonly scope) or macOS EventKit. Calendar data is stored only on your device and is not sent to or stored on our servers. Calendar data is used solely to associate meeting information with recording sessions and to improve transcription accuracy (e.g., registering attendee names as dictionary entries). It is never used for advertising, marketing, or AI model training.",
+      "■ Usage data: We collect anonymous usage statistics (e.g., number of recordings, meeting notes generated) to improve the App. We do not collect personally identifiable information such as transcription text, meeting notes content, meeting titles, attendee names, or file paths.",
+    ],
+  },
+  {
+    heading: "4. Purpose of Data Use",
+    paragraphs: [
+      "Collected data is used solely for the following purposes:",
+      "- Providing the App's features (transcription, meeting notes generation, cloud sync)",
+      "- Account authentication and management",
+      "- Improving the quality of the App and fixing bugs",
+      "- Responding to customer inquiries",
+    ],
+  },
+  {
+    heading: "5. No Use for AI Model Training",
+    paragraphs: [
+      "We do not use your audio data, transcription data, or meeting notes for the purpose of training, improving, or developing AI models. Your data is processed solely to provide the App's features.",
+    ],
+  },
+  {
+    heading: "6. Cloud Sync",
+    paragraphs: [
+      "When cloud sync is enabled, transcription and meeting notes data is encrypted and stored on our servers. You may enable or disable cloud sync at any time. When disabled, data is stored only on your device.",
+      "Data stored in the cloud is permanently deleted when you delete your account or request data deletion.",
+    ],
+  },
+  {
+    heading: "7. Disclosure to Third Parties",
+    paragraphs: [
+      "We do not disclose your data to third parties except in the following cases:",
+      "- With your consent",
+      "- When required by law or legal process",
+      "- To service providers (cloud infrastructure, payment processors, etc.) to the minimum extent necessary to provide the App's features. In such cases, we require these providers to handle data appropriately.",
+    ],
+  },
+  {
+    heading: "8. Use of External Services and International Data Transfers",
+    paragraphs: [
+      "The App uses APIs from external AI service providers for transcription and meeting notes generation. Audio and text data is sent through our servers to these providers.",
+      "These providers' servers are primarily located in the United States. While the United States does not have comprehensive data protection laws equivalent to Japan's Act on the Protection of Personal Information, each provider protects data in accordance with its own privacy policy.",
+      "■ Transcription: Speech recognition services located in the US — audio data is transmitted",
+      "■ Meeting notes and chat: AI services located in the US — text data is transmitted",
+      "■ Cloud sync: Cloud database services located in the US — transcription and meeting notes data is stored",
+      "■ Payments: Payment services located in the US — email addresses and payment information is processed",
+      "■ Analytics: Analytics services located in the US — anonymous usage data is transmitted",
+      "Please refer to each provider's privacy policy for details on how transmitted data is handled.",
+    ],
+  },
+  {
+    heading: "9. Data Retention",
+    paragraphs: [
+      "■ Audio data: Immediately discarded from our servers after transcription processing is complete. Recording files on your device are retained until you manually delete them.",
+      "■ Transcription and meeting notes: Retained on your device until the App is uninstalled. If cloud sync is enabled, data is permanently deleted from our servers within 30 days of account deletion or a data deletion request.",
+      "■ Account information: Permanently deleted within 30 days of an account deletion request.",
+      "■ Usage data: Retained in anonymized form for up to 24 months.",
+    ],
+  },
+  {
+    heading: "10. Data Security",
+    paragraphs: [
+      "We implement the following security measures to protect your data:",
+      "■ Encryption in transit: All data transmission is encrypted using TLS 1.2 or higher.",
+      "■ Encryption at rest: Data stored in the cloud is encrypted using AES-256.",
+      "■ Access control: Data access is restricted to authenticated users only. Administrative access is managed based on the principle of least privilege.",
+      "■ Local data: The security of data stored on your device depends on your operating system's security features.",
+      "In the event of a data breach or unauthorized access, we will promptly investigate the scope of impact, notify affected users, and report to relevant authorities.",
+    ],
+  },
+  {
+    heading: "11. Your Rights",
+    paragraphs: [
+      "You have the following rights regarding your data:",
+      "- Request disclosure of your personal data",
+      "- Review and correct your account information",
+      "- Request deletion of data stored in the cloud",
+      "- Delete your account",
+      "- Opt out of usage data collection (can be disabled in the App's settings)",
+      "To exercise these rights, please contact us at the address below. We will respond within two weeks.",
+    ],
+  },
+  {
+    heading: "12. Changes to This Policy",
+    paragraphs: [
+      "We may update this policy in response to changes in law or our services. If we make significant changes, we will notify you through the App or on our website.",
+    ],
+  },
+  {
+    heading: "13. Revoking Google Calendar Access",
+    paragraphs: [
+      "If you have enabled Google Calendar integration, you can revoke access at any time by:",
+      "- Selecting \"Disconnect Google Calendar\" in the App's settings",
+      "- Removing Reki note's access in your Google Account settings (https://myaccount.google.com/permissions)",
+      "When you revoke access, cached calendar data on your device is immediately deleted.",
+    ],
+  },
+  {
+    heading: "14. Google API Services User Data Policy",
+    paragraphs: [
+      "Reki note's use and transfer of information received from Google APIs to any other app adheres to the Google API Services User Data Policy, including the Limited Use requirements.",
+      "For details, see https://developers.google.com/terms/api-services-user-data-policy.",
+    ],
+  },
+  {
+    heading: "15. Contact Us",
+    paragraphs: [
+      "For inquiries about this policy or the handling of personal information, please contact:",
+      "HIBACHI inc. — Privacy Inquiries",
+      "Email: contact@hibachi-inc.jp",
+    ],
+  },
+];
+
+const content = {
+  ja: { title: "プライバシーポリシー", lastUpdated: "最終更新日：2026年5月11日", sections: sectionsJa },
+  en: { title: "Privacy Policy", lastUpdated: "Last updated: May 11, 2026", sections: sectionsEn },
+};
+
+export default function PrivacyPolicyPage({
+  params,
+}: {
+  params: { lang: "ja" | "en" };
+}) {
+  const lang = params.lang === "en" ? "en" : "ja";
+  const { title, lastUpdated, sections } = content[lang];
+  const lpHref = lang === "ja" ? "/ja/lp/business/" : "/en/lp/business/";
+
   return (
     <div className="min-h-screen bg-[#0c0c10] text-[#ececef]">
       <header className="border-b border-line">
         <div className="container-x px-6 py-5 flex items-center gap-2.5">
-          <Link href="/ja/lp/business/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+          <Link href={lpHref} className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
             <Image src="/logo.png" alt="" width={24} height={24} className="rounded-md" />
             <span className="font-semibold tracking-tight">Reki note</span>
           </Link>
@@ -168,8 +323,8 @@ export default function PrivacyPolicyPage() {
       </header>
 
       <main className="container-x px-6 py-14 max-w-2xl">
-        <h1 className="text-2xl font-bold tracking-tight">プライバシーポリシー</h1>
-        <p className="mt-3 text-sm text-[#a0a0ad]">最終更新日：2026年5月11日</p>
+        <h1 className="text-2xl font-bold tracking-tight">{title}</h1>
+        <p className="mt-3 text-sm text-[#a0a0ad]">{lastUpdated}</p>
 
         <div className="mt-10 space-y-10">
           {sections.map((section) => (
