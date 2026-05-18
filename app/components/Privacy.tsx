@@ -1,4 +1,4 @@
-import type { DictPrivacy, DictComplianceBadge } from "@/dictionaries/types";
+import type { DictPrivacy } from "@/dictionaries/types";
 
 export function Privacy({ dict }: { dict: DictPrivacy }) {
   return (
