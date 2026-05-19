@@ -13,8 +13,8 @@
   "Hero": {
     "title1": "Your meeting history,",
     "title2": "finally in one place.",
-    "subtitle": "Capture every call on your Mac. Ask AI across the full record later.",
-    "desc": "Reki is a local-first meeting memory for people who live in Zoom, Meet, Teams, Slack huddles, and in-person conversations.",
+    "subtitle": "Free transcription, completely unlimited. No bot required.",
+    "desc": "Privacy-first design — your recordings never leave your device.",
     "downloadMac": "Download for Mac",
     "downloadWin": "Download for Windows",
     "mac": "Mac",
@@ -60,7 +60,7 @@
       "Capture calls and in-person discussions in one app",
       "Keep audio and notes on your Mac",
       "Ask AI across every transcript and summary",
-      "Free plan covers 3 hrs/month. Pro is just $9.99/month"
+      "Free unlimited transcription. Pro plan at $9.99/month"
     ],
     "afterTotal": "One place to recall",
     "afterTotalDesc": "Keep the record and query it later"
@@ -202,7 +202,7 @@
         "feature": "Pricing model",
         "reki": {
           "tone": "good",
-          "text": "Free plan available. Pro at $9.99/month"
+          "text": "Free unlimited transcription. Pro at $9.99/month"
         },
         "otherAi": {
           "tone": "bad",
