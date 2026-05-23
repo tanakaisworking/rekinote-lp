@@ -32,9 +32,10 @@ export type Blog = {
   category?: Category;
 } & MicroCMSListContent;
 
-const categoryMap: Record<string, string> = {
-  "更新情報": "Updates",
-  "お知らせ": "News",
+const categoryMapJa: Record<string, string> = {
+  "Updates": "更新情報",
+  "News": "お知らせ",
+  "Tips": "使い方",
 };
 
 export function localizeBlog(raw: BlogRaw, lang: "ja" | "en"): Blog | null {
@@ -51,7 +52,7 @@ export function localizeBlog(raw: BlogRaw, lang: "ja" | "en"): Blog | null {
     description: description || undefined,
     category: raw.category ? {
       ...raw.category,
-      name: lang === "en" ? (categoryMap[raw.category.name] || raw.category.name) : raw.category.name,
+      name: lang === "ja" ? (categoryMapJa[raw.category.name] || raw.category.name) : raw.category.name,
     } : undefined,
   };
 }
