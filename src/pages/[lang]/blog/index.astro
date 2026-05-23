@@ -1,0 +1,82 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getBlogs } from "../../../lib/microcms";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "ja" } }, { params: { lang: "en" } }];
+}
+
+const lang = Astro.params.lang as "ja" | "en";
+const isJa = lang === "ja";
+const { contents: blogs, totalCount } = await getBlogs(20);
+
+const title = isJa ? "ブログ — Reki note" : "Blog — Reki note";
+const description = isJa
+  ? "Reki noteの最新情報、使い方のヒント、開発の裏側をお届けします。"
+  : "Latest updates, tips, and behind-the-scenes from Reki note.";
+---
+
+<BaseLayout title={title} description={description} lang={lang} canonical={`https://rekinote.app/${lang}/blog/`}>
+  <div class="min-h-screen bg-[#0c0c10] text-[#ececef]">
+    <header class="border-b border-line">
+      <div class="container-x px-6 py-5 flex items-center gap-2.5">
+        <a href={`/${lang}/lp/business/`} class="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+          <img src="/logo.png" alt="" width="24" height="24" class="rounded-md" />
+          <span class="font-semibold tracking-tight">Reki note</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="container-x px-6 py-14 max-w-3xl">
+      <h1 class="text-3xl font-bold tracking-tight">{isJa ? "ブログ" : "Blog"}</h1>
+      <p class="mt-3 text-sm text-[#a0a0ad]">{totalCount} {isJa ? "件の記事" : "articles"}</p>
+
+      <div class="mt-10 space-y-8">
+        {blogs.map((blog) => (
+          <a href={`/${lang}/blog/${blog.id}/`} class="block group">
+            <article class="flex gap-6 items-start">
+              {blog.eyecatch && (
+                <img
+                  src={`${blog.eyecatch.url}?w=240&h=160&fit=crop`}
+                  alt=""
+                  width="240"
+                  height="160"
+                  class="rounded-lg object-cover shrink-0 hidden sm:block"
+                  loading="lazy"
+                />
+              )}
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-3 text-xs text-[#a0a0ad]">
+                  <time datetime={blog.publishedAt}>
+                    {new Date(blog.publishedAt!).toLocaleDateString(lang, { year: "numeric", month: "long", day: "numeric" })}
+                  </time>
+                  {blog.category && (
+                    <span class="px-2 py-0.5 rounded-full bg-[#a78bfa]/10 text-[#a78bfa] text-[11px] font-medium">
+                      {blog.category.name}
+                    </span>
+                  )}
+                </div>
+                <h2 class="mt-2 text-lg font-semibold tracking-tight group-hover:text-[#a78bfa] transition-colors leading-snug">
+                  {blog.title}
+                </h2>
+                {blog.description && (
+                  <p class="mt-2 text-sm text-[#a0a0ad] line-clamp-2 leading-relaxed">{blog.description}</p>
+                )}
+              </div>
+            </article>
+          </a>
+        ))}
+      </div>
+
+      {blogs.length === 0 && (
+        <p class="mt-10 text-[#a0a0ad]">{isJa ? "まだ記事がありません。" : "No articles yet."}</p>
+      )}
+    </main>
+
+    <footer class="border-t border-line">
+      <div class="container-x px-6 py-6 dim text-xs">
+        <span>&copy; 2026 HIBACHI inc.</span>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>
