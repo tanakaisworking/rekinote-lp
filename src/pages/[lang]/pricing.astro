@@ -18,7 +18,6 @@ type Plan = {
   period: string;
   desc: string;
   features: string[];
-  cta: string;
   highlight?: boolean;
 };
 
@@ -40,7 +39,6 @@ const ja = {
         "ローカル保存・プライバシー重視",
         "Markdown / Obsidian エクスポート",
       ],
-      cta: "無料で始める",
     },
     {
       name: "Pro",
@@ -55,8 +53,21 @@ const ja = {
         "Markdown / Obsidian エクスポート",
         "優先サポート",
       ],
-      cta: "Pro にアップグレード",
       highlight: true,
+    },
+    {
+      name: "Pro フルタイム",
+      price: "¥4,980",
+      period: "/月",
+      desc: "1日中会議が続くヘビーユーザー向け。",
+      features: [
+        "文字起こし 160時間/月",
+        "AIチャット 100回/月",
+        "全ての会議ツールに対応",
+        "ローカル保存・プライバシー重視",
+        "Markdown / Obsidian エクスポート",
+        "優先サポート",
+      ],
     },
   ] as Plan[],
   faq: [
@@ -97,7 +108,6 @@ const en = {
         "Local storage, privacy-first",
         "Markdown / Obsidian export",
       ],
-      cta: "Get started free",
     },
     {
       name: "Pro",
@@ -112,8 +122,21 @@ const en = {
         "Markdown / Obsidian export",
         "Priority support",
       ],
-      cta: "Upgrade to Pro",
       highlight: true,
+    },
+    {
+      name: "Pro Full-time",
+      price: "$34.99",
+      period: "/mo",
+      desc: "For heavy users with back-to-back meetings all day.",
+      features: [
+        "160 hours transcription / month",
+        "100 AI chats / month",
+        "Works with all meeting tools",
+        "Local storage, privacy-first",
+        "Markdown / Obsidian export",
+        "Priority support",
+      ],
     },
   ] as Plan[],
   faq: [
@@ -153,7 +176,7 @@ const t = isJa ? ja : en;
       </div>
     </header>
 
-    <main class="container-x px-6 py-20 max-w-4xl">
+    <main class="container-x px-6 py-20 max-w-5xl">
       <div class="text-center">
         <p class="eyebrow">{t.eyebrow}</p>
         <h1 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -162,7 +185,7 @@ const t = isJa ? ja : en;
         <p class="mt-4 text-base text-[#b6b6c2]">{t.subtitle}</p>
       </div>
 
-      <div class="mt-14 grid gap-6 md:grid-cols-2">
+      <div class="mt-14 grid gap-6 md:grid-cols-3">
         {t.plans.map((plan) => (
           <div
             class={`rounded-2xl p-8 ${
@@ -198,16 +221,6 @@ const t = isJa ? ja : en;
               ))}
             </ul>
 
-            <a
-              href={plan.highlight ? `/${lang}/lp/business/#final` : `/${lang}/lp/business/`}
-              class={`mt-8 block text-center rounded-lg py-3 text-sm font-medium transition-colors ${
-                plan.highlight
-                  ? "btn-primary"
-                  : "bg-white/5 hover:bg-white/10 border border-line"
-              }`}
-            >
-              {plan.cta}
-            </a>
           </div>
         ))}
       </div>

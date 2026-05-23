@@ -323,10 +323,8 @@ table.compare th.highlight { color: #a78bfa; }
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 999px;
-  border: 1px solid currentColor;
+  width: 20px;
+  height: 20px;
 }
 .compare-copy {
   display: inline-block;
