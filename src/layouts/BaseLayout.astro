@@ -1,0 +1,142 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  lang?: "ja" | "en";
+  canonical?: string;
+  noindex?: boolean;
+  singleLang?: boolean;
+}
+
+const {
+  title = "Reki note — 議事録ツール、1つで足りる。",
+  description = "システム音声に統合されたAI議事録アプリ。デバイス上の全ての音声を記録しよう。",
+  ogImage = "/ogp.jpg",
+  lang = "ja",
+  canonical,
+  noindex = false,
+  singleLang = false,
+} = Astro.props;
+
+const siteUrl = "https://rekinote.app";
+const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
+const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
+const ogLocale = lang === "ja" ? "ja_JP" : "en_US";
+const ogLocaleAlt = lang === "ja" ? "en_US" : "ja_JP";
+const altLang = lang === "ja" ? "en" : "ja";
+const altPathname = Astro.url.pathname.replace(`/${lang}/`, `/${altLang}/`);
+const altUrl = new URL(altPathname, siteUrl).href;
+
+const jsonLdOrganization = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "ヒバチ株式会社",
+  alternateName: "HIBACHI inc.",
+  url: "https://hibachi-inc.jp",
+  logo: `${siteUrl}/logo-transparent.png`,
+  foundingDate: "2025-11",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "神南1-11-4 FPGリンクス神南 5F",
+    addressLocality: "渋谷区",
+    addressRegion: "東京都",
+    postalCode: "150-0041",
+    addressCountry: "JP",
+  },
+};
+
+const jsonLdWebSite = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Reki note",
+  alternateName: "レキノート",
+  url: siteUrl,
+};
+
+const jsonLdSoftwareApp = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Reki note",
+  url: siteUrl,
+  operatingSystem: "macOS, Windows",
+  applicationCategory: "BusinessApplication",
+  description: "デバイス上で文字起こしが完結するAI議事録アプリ。無料・無制限。出力はMarkdown。",
+  screenshot: `${siteUrl}/ogp.jpg`,
+  offers: {
+    "@type": "Offer",
+    price: "0",
+    priceCurrency: "JPY",
+    availability: "https://schema.org/InStock",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "ヒバチ株式会社",
+    url: "https://hibachi-inc.jp",
+  },
+};
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href={canonicalUrl} />
+    {!singleLang && (
+      <>
+        <link rel="alternate" hreflang={lang} href={canonicalUrl} />
+        <link rel="alternate" hreflang={altLang} href={altUrl} />
+      </>
+    )}
+    {noindex ? (
+      <meta name="robots" content="noindex, nofollow" />
+    ) : (
+      <meta name="robots" content="index, follow" />
+    )}
+
+    {/* OGP */}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Reki note" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={ogLocale} />
+    {!singleLang && <meta property="og:locale:alternate" content={ogLocaleAlt} />}
+
+    {/* Twitter Card */}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    {/* Structured Data */}
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdOrganization)} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdWebSite)} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLdSoftwareApp)} />
+
+    {/* GA4 */}
+    <script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-BTSRXPSGCK"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BTSRXPSGCK');
+    </script>
+
+    <slot name="head" />
+  </head>
+  <body class="bg-[#0c0c10] text-[#ececef]">
+    <slot />
+  </body>
+</html>

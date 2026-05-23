@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { ThanksContent } from "../../components/react/ThanksContent";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "ja" } }, { params: { lang: "en" } }];
+}
+
+const lang = Astro.params.lang as "ja" | "en";
+const isJa = lang === "ja";
+const title = isJa ? "ダウンロードありがとうございます — Reki note" : "Thanks for downloading — Reki note";
+const description = isJa
+  ? "Reki noteをダウンロードいただきありがとうございます。"
+  : "Thanks for downloading Reki note.";
+---
+
+<BaseLayout title={title} description={description} lang={lang} noindex={true}>
+  <ThanksContent lang={lang} client:load />
+</BaseLayout>

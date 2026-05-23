@@ -1,0 +1,103 @@
+---
+import type { DictCompare } from "../../i18n/types";
+
+interface Props {
+  dict: DictCompare;
+}
+
+const { dict } = Astro.props;
+
+const palette = {
+  good: { face: "bg-emerald-100 text-emerald-700 border-emerald-200", stroke: "#047857", mouth: "M8 12c.9 1.1 2 1.6 4 1.6s3.1-.5 4-1.6" },
+  soso: { face: "bg-amber-100 text-amber-700 border-amber-200", stroke: "#b45309", mouth: "M8 12h8" },
+  bad:  { face: "bg-rose-100 text-rose-700 border-rose-200", stroke: "#be123c", mouth: "M8 13.4c.8-1.1 2-1.6 4-1.6s3.2.5 4 1.6" },
+} as const;
+---
+
+<section class="section" id="compare">
+  <div class="container-x">
+    <div class="mb-10">
+      <span class="eyebrow">{dict.eyebrow}</span>
+      <h2 class="mt-4 text-3xl md:text-[42px] font-bold tracking-tight leading-tight">
+        {dict.title1}<span class="gradient-text">{dict.title2}</span>
+      </h2>
+      <p class="mt-4 muted leading-[1.95]">{dict.desc}</p>
+    </div>
+
+    <div class="compare-card relative overflow-x-auto">
+      <table class="compare relative min-w-[760px]">
+        <colgroup>
+          <col style="width: 26%" />
+          <col style="width: 24.6667%" />
+          <col style="width: 24.6667%" />
+          <col style="width: 24.6667%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th class="w-[26%]">{dict.colFeature}</th>
+            <th class="highlight highlight-top">
+              <span class="inline-flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#a78bfa]" />
+                Reki note
+              </span>
+            </th>
+            <th>{dict.col2}</th>
+            <th>{dict.col3}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {dict.rows.map((r, index) => {
+            const rekiP = palette[r.reki.tone];
+            const otherP = palette[r.otherAi.tone];
+            const notesP = palette[r.notes.tone];
+            return (
+              <tr>
+                <td class="muted">{r.feature}</td>
+                <td class={index === dict.rows.length - 1 ? "highlight highlight-bottom" : "highlight"}>
+                  <div class="compare-cell">
+                    <span class={`compare-tone ${rekiP.face}`} aria-hidden="true">
+                      <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none">
+                        <circle cx="12" cy="12" r="8.5" stroke={rekiP.stroke} stroke-width="1.7" />
+                        <circle cx="9" cy="10" r="1" fill={rekiP.stroke} />
+                        <circle cx="15" cy="10" r="1" fill={rekiP.stroke} />
+                        <path d={rekiP.mouth} stroke={rekiP.stroke} stroke-width="1.7" stroke-linecap="round" />
+                      </svg>
+                    </span>
+                    <span class="compare-copy compare-copy--emphasized">{r.reki.text}</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="compare-cell">
+                    <span class={`compare-tone ${otherP.face}`} aria-hidden="true">
+                      <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none">
+                        <circle cx="12" cy="12" r="8.5" stroke={otherP.stroke} stroke-width="1.7" />
+                        <circle cx="9" cy="10" r="1" fill={otherP.stroke} />
+                        <circle cx="15" cy="10" r="1" fill={otherP.stroke} />
+                        <path d={otherP.mouth} stroke={otherP.stroke} stroke-width="1.7" stroke-linecap="round" />
+                      </svg>
+                    </span>
+                    <span class="compare-copy">{r.otherAi.text}</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="compare-cell">
+                    <span class={`compare-tone ${notesP.face}`} aria-hidden="true">
+                      <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none">
+                        <circle cx="12" cy="12" r="8.5" stroke={notesP.stroke} stroke-width="1.7" />
+                        <circle cx="9" cy="10" r="1" fill={notesP.stroke} />
+                        <circle cx="15" cy="10" r="1" fill={notesP.stroke} />
+                        <path d={notesP.mouth} stroke={notesP.stroke} stroke-width="1.7" stroke-linecap="round" />
+                      </svg>
+                    </span>
+                    <span class="compare-copy">{r.notes.text}</span>
+                  </div>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+    <p class="mt-5 dim text-xs">{dict.footnote}</p>
+  </div>
+</section>

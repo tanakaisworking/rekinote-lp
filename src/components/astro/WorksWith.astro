@@ -1,0 +1,49 @@
+---
+import type { DictWorksWith } from "../../i18n/types";
+
+interface Props {
+  dict: DictWorksWith;
+}
+
+const { dict } = Astro.props;
+---
+
+<section class="section" id="works-with">
+  <div class="container-x">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="eyebrow">{dict.eyebrow}</span>
+        <h2 class="mt-4 text-3xl md:text-[40px] font-bold tracking-tight leading-[1.3]">{dict.title}</h2>
+        <p class="mt-6 muted leading-[1.95] max-w-[440px]">{dict.desc}</p>
+      </div>
+      <div class="grid grid-cols-3 gap-3">
+        {dict.apps.map((a) => (
+          <div class="works-with-card p-4 flex flex-col items-center gap-2.5 transition-colors duration-180">
+            <div class="works-with-icon-shell w-10 h-10 rounded-lg flex items-center justify-center text-[#2a2d34] text-sm font-semibold">
+              {a.imgUrl ? (
+                <img src={a.imgUrl} alt="" width="20" height="20" class="opacity-90" />
+              ) : a.slug ? (
+                <img src={`https://cdn.simpleicons.org/${a.slug}/2a2d34`} alt="" width="20" height="20" class="opacity-90" />
+              ) : a.icon === "users" ? (
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-90">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              ) : a.icon === "messages" ? (
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-90">
+                  <path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4c0-1.1.9-2 2-2h8a2 2 0 0 1 2 2z" />
+                  <path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1" />
+                </svg>
+              ) : (
+                <span>{a.fallback ?? ""}</span>
+              )}
+            </div>
+            <div class="works-with-card__label text-[12px] text-center leading-tight">{a.name}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

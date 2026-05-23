@@ -1,0 +1,78 @@
+---
+import type { DictPrivacy } from "../../i18n/types";
+
+interface Props {
+  dict: DictPrivacy;
+}
+
+const { dict } = Astro.props;
+---
+
+<section class="section relative" id="privacy">
+  <div class="container-x">
+    <div class="grid md:grid-cols-12 gap-10 lg:gap-12 items-center">
+      <div class="md:col-span-5">
+        <span class="eyebrow">{dict.eyebrow}</span>
+        <h2 class="mt-4 text-3xl md:text-[42px] font-bold tracking-tight leading-tight">
+          {dict.title1}<br class="hidden md:block" /><span class="gradient-text">{dict.title2}</span>
+        </h2>
+        <ul class="mt-8 space-y-3.5">
+          {dict.facts.map((f) => (
+            <li class="flex items-start gap-3 text-[14.5px]">
+              <span class="mt-[7px] w-4 h-4 rounded-full flex items-center justify-center shrink-0" style="background: rgba(139,92,246,0.15); border: 1px solid rgba(139,92,246,0.5)">
+                <span class="text-[10px] text-[#a78bfa]">✓</span>
+              </span>
+              <span class="leading-[1.85]">{f}</span>
+            </li>
+          ))}
+        </ul>
+        {dict.compliance && dict.compliance.length > 0 && (
+          <div class="mt-8 space-y-3">
+            {dict.compliance.map((c) => (
+              <div class="flex items-start gap-3.5 p-4 rounded-xl panel-inset">
+                <span class="shrink-0 inline-flex items-center justify-center px-2.5 py-1 rounded-md text-[11px] font-bold tracking-wider" style="background: rgba(139,92,246,0.15); border: 1px solid rgba(139,92,246,0.4); color: #c4b5fd">
+                  {c.acronym}
+                </span>
+                <div class="min-w-0">
+                  <div class="text-[13px] font-medium leading-snug">{c.fullName}</div>
+                  <div class="mt-1 text-[12.5px] muted leading-[1.7]">{c.desc}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+      <div class="md:col-span-3 relative h-[320px] flex items-center justify-center">
+        <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(circle at 50% 50%, rgba(139,92,246,0.18), transparent 60%)" />
+        <div class="relative">
+          {[1, 2, 3].map((i) => (
+            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[rgba(139,92,246,0.18)]" style={`width: ${100 + i * 60}px; height: ${100 + i * 60}px`} />
+          ))}
+          <div class="relative w-28 h-28 rounded-2xl flex items-center justify-center" style="background: linear-gradient(180deg, rgba(139,92,246,0.18), rgba(139,92,246,0.04)); border: 1px solid rgba(139,92,246,0.5); box-shadow: 0 0 60px -10px rgba(139,92,246,0.6)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="1.5" class="w-11 h-11">
+              <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z" stroke-linejoin="round"/>
+              <path d="m9 12 2 2 4-4" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="md:col-span-4">
+        <div class="card p-6 relative overflow-hidden">
+          <div class="absolute inset-0 pointer-events-none opacity-50" style="background: radial-gradient(circle at 100% 0%, rgba(99,102,241,0.10), transparent 60%)" />
+          <div class="relative">
+            <div class="text-xs muted font-mono-num tracking-widest mb-1">{dict.providersLabel}</div>
+            <div class="text-[13px] muted mb-5 leading-relaxed">{dict.providersDesc}</div>
+            <div class="grid grid-cols-2 gap-2.5">
+              {dict.providers.map((p, i) => (
+                <div class={`flex items-center justify-between px-3.5 py-2.5 rounded-lg border text-[13px] ${i === 5 ? "border-dashed border-line text-[#5e5e6a]" : "panel-inset"}`}>
+                  <span>{p}</span>
+                  {i !== 5 && <span class="w-1.5 h-1.5 rounded-full bg-[#a78bfa]" />}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

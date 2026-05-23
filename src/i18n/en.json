@@ -1,0 +1,443 @@
+{
+  "Header": {
+    "benefits": "Problem",
+    "features": "Outcomes",
+    "integrations": "Coverage",
+    "compare": "Compare",
+    "privacy": "Privacy",
+    "howItWorks": "How it works",
+    "download": "Download",
+    "downloadWin": "Windows",
+    "pricing": "Pricing"
+  },
+  "Hero": {
+    "title1": "Your meeting history,",
+    "title2": "finally in one place.",
+    "subtitle": "Free transcription, completely unlimited. No bot required.",
+    "desc": "Privacy-first design — your recordings never leave your device.",
+    "downloadMac": "Download for Mac",
+    "downloadWin": "Download for Windows",
+    "mac": "Mac",
+    "macSub": "Apple Silicon (M1+)",
+    "win": "Windows",
+    "winSub": "Windows 10+ · Beta",
+    "winNote": "Mac is the stable release. Some features may be limited on Windows"
+  },
+  "Problem": {
+    "eyebrow": "The Problem",
+    "title1": "How many tools are you paying for",
+    "title2": "just to remember meetings",
+    "title3": "?",
+    "titleDivider": " ",
+    "desc": "High AI fees for every meeting tool. Your data ends up scattered across different servers, with no easy way to search across it.",
+    "before": "Before",
+    "beforeTitle": "Extra subscriptions, scattered context",
+    "beforeItems": [
+      {
+        "name": "Zoom or Meet AI add-on",
+        "price": "$10-20+/seat"
+      },
+      {
+        "name": "Copilot or workspace upgrade",
+        "price": "$20-30+/seat"
+      },
+      {
+        "name": "Standalone recorder",
+        "price": "$10-20/mo"
+      },
+      {
+        "name": "Export or storage workaround",
+        "price": "Another tool"
+      }
+    ],
+    "total": "Result",
+    "beforeTotal": "More tools, less recall",
+    "beforeTotalDesc": "You pay more and remember less",
+    "after": "After",
+    "afterTitle": "One local workspace for every conversation",
+    "afterDesc": "Across Zoom, Meet, Teams, Slack huddles, and in-person conversations",
+    "afterItems": [
+      "Capture calls and in-person discussions in one app",
+      "Keep audio and notes on your Mac",
+      "Ask AI across every transcript and summary",
+      "Free unlimited transcription. Pro plan at $9.99/month"
+    ],
+    "afterTotal": "One place to recall",
+    "afterTotalDesc": "Keep the record and query it later"
+  },
+  "Features": {
+    "eyebrow": "Outcomes",
+    "title1": "What changes ",
+    "title2": "once Reki is your memory layer",
+    "rows": [
+      {
+        "num": "01",
+        "phase": "Right away",
+        "title": "You stop paying per meeting surface.",
+        "body": "Across Zoom, Meet, Teams, Slack, and in-person conversations, Reki records everything on your device. Transcription, summaries, and meeting notes all happen in one place. No more paying high fees across multiple services or losing context across different servers."
+      },
+      {
+        "num": "02",
+        "phase": "Within a few weeks",
+        "title": "Scattered calls become searchable context.",
+        "body": "Every call on your device gets transcribed and summarized. Once everything lives in one archive, Reki AI can answer questions from your full conversation history."
+      },
+      {
+        "num": "03",
+        "phase": "Over time",
+        "title": "Your team gets recall it can actually use.",
+        "body": "Past 1:1s, customer calls, and decision reviews stop disappearing into separate silos. Reki turns them into a working memory you can query whenever the why behind a decision matters."
+      }
+    ],
+    "notificationTitle": "Call detected",
+    "notificationApp": "Source",
+    "notificationCalendar": "Event",
+    "notificationCalendarValue": "Pipeline Review",
+    "notificationBtn": "Start Recording",
+    "chatQuestion": "What did we commit to in the Acme QBR last Thursday?",
+    "chatAnswerLabel": "ANSWER",
+    "chatAnswer": "Here are the 3 commitments:\n1. Launch the pilot with the sales team first\n2. Finalize admin permissions by next Tuesday\n3. Send a redlined rollout plan after legal review",
+    "chatSource": "Source: Acme QBR 4/18 14:00",
+    "memoryLabel": "MEMORY",
+    "memoryItems": [
+      {
+        "date": "Today",
+        "title": "Pipeline Review",
+        "excerpt": "Shared rollout risks..."
+      },
+      {
+        "date": "2d ago",
+        "title": "Client Call / Acme",
+        "excerpt": "Pilot seats approved"
+      },
+      {
+        "date": "1w ago",
+        "title": "1:1 / Alex",
+        "excerpt": "Hiring trade-offs"
+      },
+      {
+        "date": "2w ago",
+        "title": "Product Review",
+        "excerpt": "Permission model locked"
+      },
+      {
+        "date": "6mo ago",
+        "title": "Q3 Kickoff",
+        "excerpt": "Why the GTM shifted"
+      }
+    ]
+  },
+  "WorksWith": {
+    "eyebrow": "Works Where You Work",
+    "title": "One recorder for the tools your team already uses.",
+    "desc": "Because Reki captures audio at the OS level, you can use it for every call.",
+    "apps": [
+      {
+        "name": "Zoom",
+        "slug": "zoom"
+      },
+      {
+        "name": "Google Meet",
+        "slug": "googlemeet"
+      },
+      {
+        "name": "Teams",
+        "slug": null,
+        "icon": "users"
+      },
+      {
+        "name": "Slack Huddles",
+        "slug": "slack"
+      },
+      {
+        "name": "Discord",
+        "slug": "discord"
+      },
+      {
+        "name": "Webex",
+        "slug": "webex"
+      },
+      {
+        "name": "Any Mac App",
+        "slug": "apple"
+      },
+      {
+        "name": "In-person",
+        "slug": null,
+        "icon": "messages"
+      },
+      {
+        "name": "Other Call Services",
+        "slug": null,
+        "fallback": "…"
+      }
+    ]
+  },
+  "Compare": {
+    "eyebrow": "Compare",
+    "title1": "Why teams pick a local-first recorder ",
+    "title2": "instead of another note-taking add-on",
+    "desc": "",
+    "colFeature": "Features",
+    "col2": "Zoom AI / Teams Copilot",
+    "col3": "Otter / tl;dv / Notta",
+    "footnote": "* Representative categories based on public pricing and product information",
+    "rows": [
+      {
+        "feature": "Coverage",
+        "reki": {
+          "tone": "good",
+          "text": "All apps and in-person in one flow"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "Locked to their own platform"
+        },
+        "notes": {
+          "tone": "soso",
+          "text": "Usually covers only major meeting apps"
+        }
+      },
+      {
+        "feature": "Pricing model",
+        "reki": {
+          "tone": "good",
+          "text": "Free unlimited transcription. Pro at $9.99/month"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "Extra platform upgrade"
+        },
+        "notes": {
+          "tone": "bad",
+          "text": "Separate subscription required"
+        }
+      },
+      {
+        "feature": "Data storage",
+        "reki": {
+          "tone": "good",
+          "text": "Stays on your device"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "Stored on their servers"
+        },
+        "notes": {
+          "tone": "bad",
+          "text": "Stored on their servers"
+        }
+      },
+      {
+        "feature": "Cross-meeting recall",
+        "reki": {
+          "tone": "good",
+          "text": "Ask across the full record"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "Usually limited to platform history"
+        },
+        "notes": {
+          "tone": "soso",
+          "text": "Often strong per meeting, weaker across all notes"
+        }
+      },
+      {
+        "feature": "Output format",
+        "reki": {
+          "tone": "good",
+          "text": "Markdown / Obsidian friendly"
+        },
+        "otherAi": {
+          "tone": "soso",
+          "text": "Mostly kept inside the platform"
+        },
+        "notes": {
+          "tone": "soso",
+          "text": "Export exists, but usually limited"
+        }
+      },
+      {
+        "feature": "In-person capture",
+        "reki": {
+          "tone": "good",
+          "text": "Supported directly"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "Not supported"
+        },
+        "notes": {
+          "tone": "soso",
+          "text": "Varies by product"
+        }
+      }
+    ]
+  },
+  "Privacy": {
+    "eyebrow": "Privacy by Design",
+    "title1": "Private by default.",
+    "title2": "Portable by design.",
+    "facts": [
+      "Audio files stay on your Mac",
+      "Transcription and summaries are processed by Reki's servers",
+      "Generated data is stored only on your Mac"
+    ],
+    "providersLabel": "DATA FLOW",
+    "providersDesc": "Your data leaves your device only for the moment of processing",
+    "providers": [
+      "Recording → Saved on Mac",
+      "Transcription → Discarded after processing",
+      "Meeting notes → Saved on Mac",
+      "Search & AI Q&A → Runs locally"
+    ]
+  },
+  "HowItWorks": {
+    "eyebrow": "How it Works",
+    "title1": "Simple capture, ",
+    "title2": "useful memory.",
+    "input01Label": "Input 01",
+    "input01Title": "Conversation Audio",
+    "transcript": [
+      {
+        "time": "00:03",
+        "speaker": "Alex",
+        "color": "#a78bfa",
+        "text": "We are over plan for the quarter. What actually moved the number?"
+      },
+      {
+        "time": "00:18",
+        "speaker": "Morgan",
+        "color": "#7c9cf0",
+        "text": "The biggest driver was conversion from the new outbound segment, especially after the onboarding change."
+      },
+      {
+        "time": "00:34",
+        "speaker": "Alex",
+        "color": "#a78bfa",
+        "text": "Good. Pull the exact numbers into the board prep doc before Friday."
+      }
+    ],
+    "input02Label": "Input 02",
+    "input02Title": "Calendar Context",
+    "calendarMeeting": "Board Prep Review",
+    "calendarDate": "Date",
+    "calendarDateValue": "2026/05/01 10:00",
+    "calendarParticipants": "People",
+    "calendarParticipantsValue": "Alex, Morgan, Taylor",
+    "calendarTool": "Tool",
+    "calendarNote": "Who joined, when it happened, and what it was about get linked to the recording automatically.",
+    "outputLabel": "Output",
+    "outputTitle": "Searchable Memory",
+    "outputCards": [
+      {
+        "title": "Full-text search",
+        "body": "Search across people, dates, and what was actually said."
+      },
+      {
+        "title": "AI Q&A",
+        "body": "Ask things like 'what did we decide last quarter?' in plain English."
+      },
+      {
+        "title": "Accumulated context",
+        "body": "The more you use it, the more your conversations turn into usable working memory."
+      }
+    ]
+  },
+  "FinalCTA": {
+    "title": "Own the record.\nQuery the past.",
+    "desc": "Start with the calls you already have today. Reki gives you one local archive, one search surface, and one cleaner way to remember what happened.",
+    "macSub": "Apple Silicon (M1+)",
+    "winSub": "Windows 10+ · Beta",
+    "btnDefault": "Download for Mac",
+    "btnWin": "Download for Windows",
+    "preview": {
+      "ariaLabel": "Reki note home preview",
+      "recordTitle": "Start Recording",
+      "recordSubtitle": "Capture from here forward",
+      "importAudio": "Import Audio",
+      "todaySchedule": "Today's Schedule",
+      "schedule": [
+        {
+          "time": "09:30",
+          "title": "Daily Standup",
+          "status": "Starting soon"
+        },
+        {
+          "time": "13:00",
+          "title": "Acme QBR",
+          "status": "Google Meet"
+        },
+        {
+          "time": "18:00",
+          "title": "Board Prep Review",
+          "status": "Zoom"
+        }
+      ],
+      "home": "Home",
+      "heading": "Home",
+      "subheading": "Every work conversation, in one place.",
+      "searchPlaceholder": "Search meetings and calls",
+      "filters": [
+        "Today",
+        "Newest",
+        "< 30 min"
+      ],
+      "sessions": [
+        {
+          "title": "Board Prep Review / HIBACHI inc.",
+          "time": "Today 18:02-18:47",
+          "app": "Zoom",
+          "attendees": "4",
+          "preview": "Board memo needs exact pipeline numbers by Friday. Legal redline follows the pricing update. Hiring ask stays out of this draft."
+        },
+        {
+          "title": "Acme QBR / ACME",
+          "time": "4/28 13:00-13:38",
+          "app": "Google Meet",
+          "attendees": "3",
+          "preview": "Pilot starts with sales in month one. Admin permissions finalize next Tuesday. Procurement asked for a security appendix."
+        },
+        {
+          "title": "1:1 / Alex",
+          "time": "4/25 11:00-11:31",
+          "app": "In-person",
+          "attendees": "2",
+          "preview": "Agreed to fix onboarding drop-off before expanding outbound hiring. Team bandwidth is the main constraint through June."
+        }
+      ],
+      "attendeesUnit": " attendees",
+      "aiLink": "Open Room",
+      "aiQuestion": "What did we decide with Acme about the pilot rollout?"
+    }
+  },
+  "ThankYou": {
+    "title": "Thanks for downloading!",
+    "desc": "We'd love to hear your thoughts on Reki note.",
+    "feedbackLabel": "Feedback",
+    "feedbackPlaceholder": "How's your experience? Any features you'd like to see?",
+    "bugLabel": "Bug / Request",
+    "bugPlaceholder": "Describe the issue or what you'd like improved",
+    "emailLabel": "Only if you'd like a reply. Optional.",
+    "emailPlaceholder": "Email (optional)",
+    "submit": "Send",
+    "sending": "Sending...",
+    "thanks": "Feedback sent. Thank you!",
+    "close": "Close"
+  },
+  "Footer": {
+    "tagline": "Reki note ・ Turn work conversations into searchable memory.",
+    "company": "Company",
+    "switchHeading": "Use Cases",
+    "businessLabel": "Business",
+    "businessDesc": "Meetings, customer calls, 1:1s, and team memory.",
+    "studentLabel": "Student",
+    "studentDesc": "Lectures, transcripts, and easier exam-season catch-up.",
+    "currentLabel": "Current",
+    "developerLabel": "Developer",
+    "developerDesc": "API integrations, audio processing, and plugin development.",
+    "otherLabel": "Other",
+    "otherDesc": "Not sure which fits? Browse all use cases."
+  }
+}

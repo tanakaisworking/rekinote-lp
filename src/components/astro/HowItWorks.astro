@@ -1,0 +1,258 @@
+---
+import type { DictHowItWorks } from "../../i18n/types";
+
+interface Props {
+  dict: DictHowItWorks;
+}
+
+const { dict } = Astro.props;
+---
+
+<section class="section relative" id="how">
+  <div class="absolute inset-0 pointer-events-none opacity-50" style="background: radial-gradient(ellipse 50% 40% at 50% 50%, rgba(139,92,246,0.07), transparent 70%)" />
+  <div class="container-x relative">
+    <div class="text-center mb-16">
+      <span class="eyebrow">{dict.eyebrow}</span>
+      <h2 class="mt-4 text-3xl md:text-[42px] font-bold tracking-tight leading-tight">
+        {dict.title1}<span class="gradient-text">{dict.title2}</span>
+      </h2>
+    </div>
+
+    <div class="max-w-[860px] mx-auto">
+      <!-- Desktop -->
+      <div class="hidden md:block">
+        <div class="flex items-center gap-0">
+          <!-- Transcript Card -->
+          <div class="card p-6 flex flex-col gap-4 flex-1">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl border border-line-strong bg-[rgba(139,92,246,0.06)] flex items-center justify-center text-[#a78bfa] shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4">
+                  <rect x="9" y="2" width="6" height="12" rx="3" />
+                  <path d="M5 10c0 3.87 3.13 7 7 7s7-3.13 7-7M12 19v3M8 22h8" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-[10px] font-mono-num tracking-widest text-[#a78bfa] uppercase">{dict.input01Label}</div>
+                <div class="text-[14px] font-semibold mt-0.5">{dict.input01Title}</div>
+              </div>
+            </div>
+            <div class="panel-inset rounded-xl p-4 space-y-3 text-[12.5px] leading-[1.75]">
+              {dict.transcript.map((line) => (
+                <div class="flex gap-2.5">
+                  <span class="font-mono-num text-[#5e5e6a] shrink-0 mt-px">{line.time}</span>
+                  <p class="text-[#ececef]/80">
+                    <span class="font-medium" style={`color: ${line.color}`}>{line.speaker}：</span>
+                    {line.text}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="shrink-0 px-4 flex items-center">
+            <svg viewBox="0 0 44 16" fill="none" class="w-11 h-4">
+              <path d="M0 8 H38" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.6"/>
+              <path d="M0 8 H38" stroke="#fff" stroke-width="2" stroke-linecap="round" pathLength="100" stroke-dasharray="10 160" opacity="0.9">
+                <animate attributeName="stroke-dashoffset" values="10; -160" dur="1.5s" repeatCount="indefinite" />
+              </path>
+              <path d="M32 3 L42 8 L32 13" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+
+          <!-- Calendar Card -->
+          <div class="card p-6 flex flex-col gap-4 flex-1">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-xl border border-line-strong bg-[rgba(139,92,246,0.06)] flex items-center justify-center text-[#a78bfa] shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4">
+                  <rect x="3.5" y="5" width="17" height="15" rx="2" />
+                  <path d="M3.5 9.5h17M8 3v4M16 3v4" stroke-linecap="round" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-[10px] font-mono-num tracking-widest text-[#a78bfa] uppercase">{dict.input02Label}</div>
+                <div class="text-[14px] font-semibold mt-0.5">{dict.input02Title}</div>
+              </div>
+            </div>
+            <div class="panel-inset rounded-xl p-4 flex flex-col gap-3">
+              <div class="flex items-center gap-2 pb-3 border-b border-line">
+                <div class="w-2.5 h-2.5 rounded-full bg-[#a78bfa]" />
+                <span class="text-[13px] font-semibold">{dict.calendarMeeting}</span>
+              </div>
+              <div class="space-y-2.5 text-[12.5px]">
+                <div class="flex justify-between">
+                  <span class="muted">{dict.calendarDate}</span>
+                  <span class="text-[#ececef]/90 font-mono-num">{dict.calendarDateValue}</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="muted">{dict.calendarParticipants}</span>
+                  <span class="text-[#ececef]/90">{dict.calendarParticipantsValue}</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="muted">{dict.calendarTool}</span>
+                  <span class="text-[#ececef]/90">Google Meet</span>
+                </div>
+              </div>
+              <p class="text-[11.5px] muted leading-[1.7] pt-1 border-t border-line">{dict.calendarNote}</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative h-16">
+          <svg viewBox="0 0 100 64" fill="none" preserveAspectRatio="none" class="w-full h-full">
+            <defs>
+              <linearGradient id="lg" x1="75" y1="0" x2="50" y2="64" gradientUnits="userSpaceOnUse">
+                <stop stop-color="rgba(139,92,246,0.4)" />
+                <stop offset="1" stop-color="#a78bfa" />
+              </linearGradient>
+            </defs>
+            <path d="M75 0 L75 32 L50 32 L50 60" stroke="url(#lg)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+            <path d="M75 0 L75 32 L50 32 L50 60" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke" pathLength="100" stroke-dasharray="10 160" opacity="0.9">
+              <animate attributeName="stroke-dashoffset" values="10; -160" dur="2.5s" repeatCount="indefinite" />
+            </path>
+            <path d="M47.5 54 L50 62 L52.5 54" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+          </svg>
+        </div>
+
+        <!-- Output Card -->
+        <div class="card-strong p-8 relative overflow-hidden">
+          <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(139,92,246,0.12), transparent 70%)" />
+          <div class="relative">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-xl border border-[rgba(139,92,246,0.5)] bg-[rgba(139,92,246,0.1)] flex items-center justify-center text-[#a78bfa] shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5">
+                  <ellipse cx="12" cy="6" rx="7.5" ry="2.5" />
+                  <path d="M4.5 6v12c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5V6M4.5 12c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-[11px] font-mono-num tracking-widest text-[#a78bfa] uppercase">{dict.outputLabel}</div>
+                <div class="text-[18px] font-bold mt-0.5">{dict.outputTitle}</div>
+              </div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-4">
+              {dict.outputCards.map((f) => (
+                <div class="panel-inset-soft rounded-xl p-5">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#a78bfa]" />
+                    <span class="text-[13px] font-semibold">{f.title}</span>
+                  </div>
+                  <p class="text-[12.5px] muted leading-[1.7]">{f.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile -->
+      <div class="md:hidden flex flex-col gap-0">
+        <div class="card p-6 flex flex-col gap-4 flex-1">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl border border-line-strong bg-[rgba(139,92,246,0.06)] flex items-center justify-center text-[#a78bfa] shrink-0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4">
+                <rect x="9" y="2" width="6" height="12" rx="3" />
+                <path d="M5 10c0 3.87 3.13 7 7 7s7-3.13 7-7M12 19v3M8 22h8" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div>
+              <div class="text-[10px] font-mono-num tracking-widest text-[#a78bfa] uppercase">{dict.input01Label}</div>
+              <div class="text-[14px] font-semibold mt-0.5">{dict.input01Title}</div>
+            </div>
+          </div>
+          <div class="panel-inset rounded-xl p-4 space-y-3 text-[12.5px] leading-[1.75]">
+            {dict.transcript.map((line) => (
+              <div class="flex gap-2.5">
+                <span class="font-mono-num text-[#5e5e6a] shrink-0 mt-px">{line.time}</span>
+                <p class="text-[#ececef]/80">
+                  <span class="font-medium" style={`color: ${line.color}`}>{line.speaker}：</span>
+                  {line.text}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div class="flex justify-center py-3">
+          <svg viewBox="0 0 16 32" fill="none" class="w-4 h-8">
+            <path d="M8 0 V26" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.6"/>
+            <path d="M8 0 V26" stroke="#fff" stroke-width="2" stroke-linecap="round" pathLength="100" stroke-dasharray="10 160" opacity="0.9">
+              <animate attributeName="stroke-dashoffset" values="10; -160" dur="1.5s" repeatCount="indefinite" />
+            </path>
+            <path d="M3 20 L8 28 L13 20" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="card p-6 flex flex-col gap-4 flex-1">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl border border-line-strong bg-[rgba(139,92,246,0.06)] flex items-center justify-center text-[#a78bfa] shrink-0">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-4 h-4">
+                <rect x="3.5" y="5" width="17" height="15" rx="2" />
+                <path d="M3.5 9.5h17M8 3v4M16 3v4" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div>
+              <div class="text-[10px] font-mono-num tracking-widest text-[#a78bfa] uppercase">{dict.input02Label}</div>
+              <div class="text-[14px] font-semibold mt-0.5">{dict.input02Title}</div>
+            </div>
+          </div>
+          <div class="panel-inset rounded-xl p-4 flex flex-col gap-3">
+            <div class="flex items-center gap-2 pb-3 border-b border-line">
+              <div class="w-2.5 h-2.5 rounded-full bg-[#a78bfa]" />
+              <span class="text-[13px] font-semibold">{dict.calendarMeeting}</span>
+            </div>
+            <div class="space-y-2.5 text-[12.5px]">
+              <div class="flex justify-between">
+                <span class="muted">{dict.calendarDate}</span>
+                <span class="text-[#ececef]/90 font-mono-num">{dict.calendarDateValue}</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="muted">{dict.calendarParticipants}</span>
+                <span class="text-[#ececef]/90">{dict.calendarParticipantsValue}</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="muted">{dict.calendarTool}</span>
+                <span class="text-[#ececef]/90">Google Meet</span>
+              </div>
+            </div>
+            <p class="text-[11.5px] muted leading-[1.7] pt-1 border-t border-line">{dict.calendarNote}</p>
+          </div>
+        </div>
+        <div class="flex justify-center py-3">
+          <svg viewBox="0 0 16 32" fill="none" class="w-4 h-8">
+            <path d="M8 0 V26" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-opacity="0.6"/>
+            <path d="M8 0 V26" stroke="#fff" stroke-width="2" stroke-linecap="round" pathLength="100" stroke-dasharray="10 160" opacity="0.9">
+              <animate attributeName="stroke-dashoffset" values="10; -160" dur="1.5s" repeatCount="indefinite" />
+            </path>
+            <path d="M3 20 L8 28 L13 20" stroke="#a78bfa" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="card-strong p-8 relative overflow-hidden">
+          <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(139,92,246,0.12), transparent 70%)" />
+          <div class="relative">
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-10 h-10 rounded-xl border border-[rgba(139,92,246,0.5)] bg-[rgba(139,92,246,0.1)] flex items-center justify-center text-[#a78bfa] shrink-0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="w-5 h-5">
+                  <ellipse cx="12" cy="6" rx="7.5" ry="2.5" />
+                  <path d="M4.5 6v12c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5V6M4.5 12c0 1.4 3.4 2.5 7.5 2.5s7.5-1.1 7.5-2.5" />
+                </svg>
+              </div>
+              <div>
+                <div class="text-[11px] font-mono-num tracking-widest text-[#a78bfa] uppercase">{dict.outputLabel}</div>
+                <div class="text-[18px] font-bold mt-0.5">{dict.outputTitle}</div>
+              </div>
+            </div>
+            <div class="grid grid-cols-1 gap-4">
+              {dict.outputCards.map((f) => (
+                <div class="panel-inset-soft rounded-xl p-5">
+                  <div class="flex items-center gap-2 mb-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#a78bfa]" />
+                    <span class="text-[13px] font-semibold">{f.title}</span>
+                  </div>
+                  <p class="text-[12.5px] muted leading-[1.7]">{f.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

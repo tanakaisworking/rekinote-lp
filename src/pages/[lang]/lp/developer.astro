@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { developerDictionaries } from "../../../i18n/developer";
+import Hero from "../../../components/astro/Hero.astro";
+import Problem from "../../../components/astro/Problem.astro";
+import WorksWith from "../../../components/astro/WorksWith.astro";
+import Compare from "../../../components/astro/Compare.astro";
+import Privacy from "../../../components/astro/Privacy.astro";
+import HowItWorks from "../../../components/astro/HowItWorks.astro";
+import Footer from "../../../components/astro/Footer.astro";
+import { Header } from "../../../components/react/Header";
+import { Features } from "../../../components/react/Features";
+import { FinalCTA } from "../../../components/react/FinalCTA";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "ja" } }, { params: { lang: "en" } }];
+}
+
+const lang = Astro.params.lang as "ja" | "en";
+const dict = developerDictionaries[lang];
+const pathname = Astro.url.pathname;
+
+const isJa = lang === "ja";
+const title = isJa
+  ? "Reki note for Developers — オフライン文字起こし、無料で無制限。"
+  : "Reki note for Developers — Offline transcription. Free. Unlimited.";
+const description = isJa
+  ? "PC上のオンデバイスモデルで文字起こし。無料・無制限・ネットワーク不要。出力はMarkdown、データはローカル保存。高精度が必要な時だけクラウド版。"
+  : "On-device transcription right on your PC. Free, unlimited, no network needed. Output is Markdown, data stays local. Switch to cloud only when you need top-tier accuracy.";
+---
+
+<BaseLayout title={title} description={description} lang={lang} canonical={`https://rekinote.app/${lang}/lp/developer/`}>
+  <Header dict={dict.Header} lang={lang} pathname={pathname} client:load />
+  <main>
+    <Hero dict={dict.Hero} lang={lang} audience="developer" />
+    <div class="light-section-scope bg-[#f0f0f0] text-[#0c0c10]">
+      <Problem dict={dict.Problem} />
+      <Features dict={dict.Features} client:visible />
+      <WorksWith dict={dict.WorksWith} />
+      <Compare dict={dict.Compare} />
+      <Privacy dict={dict.Privacy} />
+      <HowItWorks dict={dict.HowItWorks} />
+      <FinalCTA dict={dict.FinalCTA} lang={lang} client:visible />
+    </div>
+  </main>
+  <Footer dict={dict.Footer} lang={lang} audience="developer" pathname={pathname} />
+</BaseLayout>

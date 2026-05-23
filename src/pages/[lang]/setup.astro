@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { SetupDemo } from "../../components/react/SetupDemo";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "ja" } }, { params: { lang: "en" } }];
+}
+
+const lang = Astro.params.lang as "ja" | "en";
+const isJa = lang === "ja";
+const title = isJa ? "セットアップデモ — Reki note" : "Setup Demo — Reki note";
+const description = isJa
+  ? "スピーカーとマイクの動作を確認して、Reki noteを使い始める準備をしましょう。"
+  : "Verify your speaker and microphone setup before using Reki note.";
+---
+
+<BaseLayout title={title} description={description} lang={lang} noindex={true}>
+  <SetupDemo lang={lang} client:load />
+</BaseLayout>

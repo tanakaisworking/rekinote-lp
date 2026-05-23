@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { studentDictionaries } from "../../../i18n/student";
+import Hero from "../../../components/astro/Hero.astro";
+import Problem from "../../../components/astro/Problem.astro";
+import WorksWith from "../../../components/astro/WorksWith.astro";
+import Compare from "../../../components/astro/Compare.astro";
+import Privacy from "../../../components/astro/Privacy.astro";
+import HowItWorks from "../../../components/astro/HowItWorks.astro";
+import Footer from "../../../components/astro/Footer.astro";
+import { Header } from "../../../components/react/Header";
+import { Features } from "../../../components/react/Features";
+import { FinalCTA } from "../../../components/react/FinalCTA";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "ja" } }, { params: { lang: "en" } }];
+}
+
+const lang = Astro.params.lang as "ja" | "en";
+const dict = studentDictionaries[lang];
+const pathname = Astro.url.pathname;
+
+const isJa = lang === "ja";
+const title = isJa
+  ? "Reki note for Students — 講義ノート取るの、やめた。"
+  : "Reki note for Students — Stop trying to catch every word.";
+const description = isJa
+  ? "講義ノートはRekiに任せよう。マイク録音で文字起こし、講義まとめ、時間割保存、オンライン授業の自動検知まで。"
+  : "Let Reki handle the lecture record. Capture audio, get transcripts and summaries, and keep every class easier to come back to later.";
+---
+
+<BaseLayout title={title} description={description} lang={lang} canonical={`https://rekinote.app/${lang}/lp/student/`}>
+  <Header dict={dict.Header} lang={lang} pathname={pathname} client:load />
+  <main>
+    <Hero dict={dict.Hero} lang={lang} audience="student" />
+    <div class="light-section-scope bg-[#f0f0f0] text-[#0c0c10]">
+      <Problem dict={dict.Problem} />
+      <Features dict={dict.Features} client:visible />
+      <WorksWith dict={dict.WorksWith} />
+      <Compare dict={dict.Compare} />
+      <HowItWorks dict={dict.HowItWorks} />
+      <FinalCTA dict={dict.FinalCTA} lang={lang} client:visible />
+    </div>
+    <Privacy dict={dict.Privacy} />
+  </main>
+  <Footer dict={dict.Footer} lang={lang} audience="student" pathname={pathname} />
+</BaseLayout>

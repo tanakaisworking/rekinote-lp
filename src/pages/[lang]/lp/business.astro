@@ -1,0 +1,45 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getDictionary } from "../../../i18n/getDictionary";
+import Hero from "../../../components/astro/Hero.astro";
+import Problem from "../../../components/astro/Problem.astro";
+import WorksWith from "../../../components/astro/WorksWith.astro";
+import Compare from "../../../components/astro/Compare.astro";
+import HowItWorks from "../../../components/astro/HowItWorks.astro";
+import Footer from "../../../components/astro/Footer.astro";
+import { Header } from "../../../components/react/Header";
+import { Features } from "../../../components/react/Features";
+import { FinalCTA } from "../../../components/react/FinalCTA";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "ja" } }, { params: { lang: "en" } }];
+}
+
+const lang = Astro.params.lang as "ja" | "en";
+const dict = getDictionary(lang);
+const pathname = Astro.url.pathname;
+
+const isJa = lang === "ja";
+const title = isJa
+  ? "Reki note — 議事録ツール、1つで足りる。"
+  : "Reki note — One place for every conversation.";
+const description = isJa
+  ? "システム音声に統合されたAI議事録アプリ。デバイス上の全ての音声を記録しよう。"
+  : "An AI meeting recorder built into system audio. Capture every conversation on your device, then come back to it later.";
+---
+
+<BaseLayout title={title} description={description} lang={lang} canonical={`https://rekinote.app/${lang}/lp/business/`}>
+  <Header dict={dict.Header} lang={lang} pathname={pathname} client:load />
+  <main>
+    <Hero dict={dict.Hero} lang={lang} audience="business" />
+    <div class="light-section-scope bg-[#f0f0f0] text-[#0c0c10]">
+      <Problem dict={dict.Problem} />
+      <Features dict={dict.Features} client:visible />
+      <WorksWith dict={dict.WorksWith} />
+      <Compare dict={dict.Compare} />
+      <HowItWorks dict={dict.HowItWorks} />
+      <FinalCTA dict={dict.FinalCTA} lang={lang} client:visible />
+    </div>
+  </main>
+  <Footer dict={dict.Footer} lang={lang} audience="business" pathname={pathname} />
+</BaseLayout>
