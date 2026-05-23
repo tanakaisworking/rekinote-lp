@@ -1,13 +1,17 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-import { getAllBlogs, getBlogDetail } from "../../../lib/microcms";
+import { getAllBlogsRaw, localizeBlog } from "../../../lib/microcms";
 
 export async function getStaticPaths() {
-  const blogs = await getAllBlogs();
+  const rawBlogs = await getAllBlogsRaw();
   const paths = [];
-  for (const blog of blogs) {
-    paths.push({ params: { lang: "ja", slug: blog.id }, props: { blog } });
-    paths.push({ params: { lang: "en", slug: blog.id }, props: { blog } });
+  for (const raw of rawBlogs) {
+    for (const lang of ["ja", "en"] as const) {
+      const blog = localizeBlog(raw, lang);
+      if (blog) {
+        paths.push({ params: { lang, slug: raw.id }, props: { blog } });
+      }
+    }
   }
   return paths;
 }

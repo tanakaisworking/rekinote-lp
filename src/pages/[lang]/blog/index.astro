@@ -8,7 +8,7 @@ export function getStaticPaths() {
 
 const lang = Astro.params.lang as "ja" | "en";
 const isJa = lang === "ja";
-const { contents: blogs, totalCount } = await getBlogs(20);
+const { contents: blogs, totalCount } = await getBlogs(lang, 20);
 
 const title = isJa ? "ブログ — Reki note" : "Blog — Reki note";
 const description = isJa
