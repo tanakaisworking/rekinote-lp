@@ -12,13 +12,13 @@ export type Category = {
 
 export type BlogRaw = {
   title?: string;
-  title_ja?: string;
+  title_jp?: string;
   title_en?: string;
   description?: string;
-  description_ja?: string;
+  description_jp?: string;
   description_en?: string;
   body?: string;
-  body_ja?: string;
+  body_jp?: string;
   body_en?: string;
   eyecatch?: MicroCMSImage;
   category?: Category;
@@ -39,9 +39,9 @@ const categoryMapJa: Record<string, string> = {
 };
 
 export function localizeBlog(raw: BlogRaw, lang: "ja" | "en"): Blog | null {
-  const title = lang === "ja" ? (raw.title_ja || raw.title) : (raw.title_en || raw.title);
-  const body = lang === "ja" ? (raw.body_ja || raw.body) : (raw.body_en || raw.body);
-  const description = lang === "ja" ? (raw.description_ja || raw.description) : (raw.description_en || raw.description);
+  const title = lang === "ja" ? (raw.title_jp || raw.title) : (raw.title_en || raw.title);
+  const body = lang === "ja" ? (raw.body_jp || raw.body) : (raw.body_en || raw.body);
+  const description = lang === "ja" ? (raw.description_jp || raw.description) : (raw.description_en || raw.description);
 
   if (!title || !body) return null;
 
