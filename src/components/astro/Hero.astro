@@ -20,12 +20,12 @@ const { dict, lang, audience = "business" } = Astro.props;
   <div class="absolute left-1/2 -translate-x-1/2 top-[480px] w-[1200px] h-[420px] pointer-events-none opacity-60"
        style="background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(139,92,246,0.10), transparent 70%)" />
   <div class="container-x relative z-10 px-6 pt-20 pb-12 md:pt-28 md:pb-20 grid md:grid-cols-2 gap-12 items-center">
-    <div class="max-w-[640px]">
+    <div class="max-w-[640px] text-center md:text-left">
       <h1 class="text-4xl md:text-[60px] font-bold tracking-tight leading-[1.15]">
         {dict.title1}<br />
         <span class="gradient-text">{dict.title2}</span>
       </h1>
-      <p class="mt-7 text-lg md:text-[20px] text-[#ececef]/95 leading-[1.7] max-w-[560px]">{dict.subtitle}</p>
+      <p class="mt-7 text-lg md:text-[20px] text-[#ececef]/95 leading-[1.7] max-w-[560px] mx-auto md:mx-0">{dict.subtitle}</p>
 
       <div class="relative mt-12 mb-10 md:hidden flex justify-center overflow-visible">
         <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
@@ -44,8 +44,8 @@ const { dict, lang, audience = "business" } = Astro.props;
         </div>
       </div>
 
-      <p class="mt-5 muted text-[15px] max-w-[560px] leading-[1.85]">{dict.desc}</p>
-      <div class="mt-9">
+      <p class="mt-5 muted text-[15px] max-w-[560px] mx-auto md:mx-0 leading-[1.85]">{dict.desc}</p>
+      <div class="mt-9 flex justify-center md:justify-start">
         <HeroDownloadDropdown lang={lang} label={lang === "en" ? "Free Download" : "無料ダウンロード"} client:load />
       </div>
     </div>

@@ -115,7 +115,9 @@ export function FinalCTA({ dict, lang = "ja", showPreview = true }: { dict: Dict
                 </div>
               )}
 
-              <FinalCTADownload lang={lang} />
+              <div className="flex justify-center md:justify-start">
+                <FinalCTADownload lang={lang} />
+              </div>
             </div>
 
             {showPreview && dict.preview && (

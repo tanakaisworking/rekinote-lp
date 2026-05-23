@@ -23,7 +23,7 @@ const opacities = [1, 0.85, 0.65, 0.45, 0.28];
 
 export function Features({ dict }: { dict: DictFeatures }) {
   const NotificationMock = () => (
-    <div className="card-strong p-6 max-w-[420px] notification-pop">
+    <div className="card-strong p-6 max-w-[420px] mx-auto notification-pop">
       <div className="flex items-center gap-2 text-xs muted">
         <span className="w-2 h-2 rounded-full bg-[#a78bfa]" />
         <span>NOTIFICATION</span>
@@ -41,7 +41,7 @@ export function Features({ dict }: { dict: DictFeatures }) {
   );
 
   const ChatMock = () => (
-    <div className="card p-6 max-w-[460px] space-y-4">
+    <div className="card p-6 max-w-[460px] mx-auto space-y-4">
       <div className="flex justify-end">
         <div className="panel-inset-soft rounded-2xl rounded-tr-sm px-4 py-3 text-sm max-w-[78%]">
           {dict.chatQuestion}
@@ -83,7 +83,7 @@ export function Features({ dict }: { dict: DictFeatures }) {
     }, [baseRecords]);
 
     return (
-      <div className="card p-6 max-w-[460px] relative overflow-hidden">
+      <div className="card p-6 max-w-[460px] mx-auto relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none"
              style={{ background: "radial-gradient(circle at 100% 0%, rgba(139,92,246,0.10), transparent 60%)" }} />
         <div className="relative">
