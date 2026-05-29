@@ -38,6 +38,7 @@ const sectionsJa: Section[] = [
       "■ 文字起こし・議事録データ：音声から生成された文字起こしテキストおよび議事録。クラウド同期を有効にした場合、暗号化のうえ当社サーバーに保存されます。",
       "■ カレンダー情報：カレンダー連携を有効にした場合、Google Calendar API（calendar.readonlyスコープ）またはmacOS EventKitを通じて、会議の日時・タイトル・参加者名を取得します。取得したカレンダー情報はお客様のデバイス上にのみ保存され、当社サーバーには送信・保存されません。カレンダー情報は録音セッションへの会議情報の紐付けおよび文字起こし精度の向上（参加者名の辞書登録）にのみ使用し、広告・マーケティング・AIモデルの訓練には一切使用しません。",
       "■ 利用状況データ：アプリの改善を目的として、機能の使用状況（録音回数・議事録生成回数など）を匿名で収集します。文字起こし本文・議事録本文・会議タイトル・参加者名・ファイルパスなどの個人を特定しうる情報は収集しません。",
+      "■ 改善協力モード（macOS版のみ・任意・既定オフ）：本機能を有効にした場合に限り、会議検知の精度改善のため、会議中に開いているウィンドウのタイトルを送信します。タイトルには会議名や参加者名が含まれることがあります（メールアドレス・URLは送信前に除去します）。送信データは検知精度の改善のみに使用し、第三者には提供しません。本機能は既定で無効であり、アプリの設定画面からいつでも無効化できます。",
     ],
   },
   {
@@ -175,6 +176,7 @@ const sectionsEn: Section[] = [
       "■ Transcription and meeting notes: Text generated from audio, including transcriptions and meeting notes. If cloud sync is enabled, this data is encrypted and stored on our servers.",
       "■ Calendar information: If calendar integration is enabled, we retrieve meeting times, titles, and attendee names via the Google Calendar API (calendar.readonly scope) or macOS EventKit. Calendar data is stored only on your device and is not sent to or stored on our servers. Calendar data is used solely to associate meeting information with recording sessions and to improve transcription accuracy (e.g., registering attendee names as dictionary entries). It is never used for advertising, marketing, or AI model training.",
       "■ Usage data: We collect anonymous usage statistics (e.g., number of recordings, meeting notes generated) to improve the App. We do not collect personally identifiable information such as transcription text, meeting notes content, meeting titles, attendee names, or file paths.",
+      "■ Detection improvement mode (macOS only, optional, off by default): Only when you enable this feature, the App sends the titles of windows open during meetings to improve call-detection accuracy. Titles may include meeting or attendee names (email addresses and URLs are stripped before sending). This data is used only to improve detection accuracy and is never shared with third parties. The feature is disabled by default and can be turned off at any time in the App's settings.",
     ],
   },
   {
