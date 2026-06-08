@@ -1,0 +1,710 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Footer from "../../components/astro/Footer.astro";
+import { VisionHeader } from "../../components/react/VisionHeader";
+import type { DictFooter } from "../../i18n/types";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "ja" } }, { params: { lang: "en" } }];
+}
+
+const lang = Astro.params.lang as "ja" | "en";
+const pathname = Astro.url.pathname;
+const isJa = lang === "ja";
+
+type TranslateDict = {
+  header: { cta: string };
+  meta: { title: string; description: string };
+  hero: {
+    eyebrow: string;
+    headline: string;
+    sub: string;
+    cta: string;
+    ctaSub: string;
+  };
+  concept: {
+    eyebrow: string;
+    title: string;
+    body: string;
+  };
+  features: {
+    eyebrow: string;
+    title: string;
+    items: { icon: string; title: string; body: string }[];
+  };
+  howItWorks: {
+    eyebrow: string;
+    title: string;
+    steps: { num: string; title: string; body: string }[];
+  };
+  nuance: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    example: {
+      original: string;
+      translation: string;
+      nuanceLabel: string;
+      nuance: string;
+    };
+  };
+  privacy: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    facts: { icon: string; text: string }[];
+  };
+  family: {
+    eyebrow: string;
+    title: string;
+    body: string;
+    voiceTitle: string;
+    voiceDesc: string;
+    translateTitle: string;
+    translateDesc: string;
+  };
+  cta: {
+    title: string;
+    desc: string;
+    btn: string;
+    btnSub: string;
+    githubBtn: string;
+  };
+  footer: DictFooter;
+};
+
+const dictionaries: Record<"ja" | "en", TranslateDict> = {
+  ja: {
+    header: { cta: "ダウンロード" },
+    meta: {
+      title: "TransLatte — Apple Intelligence で完全ローカル翻訳",
+      description: "テキストを選んで ⌃T。Apple Intelligenceがデバイス上で翻訳＋ニュアンス解説。データは外に出ない。macOS 26+、無料。",
+    },
+    hero: {
+      eyebrow: "From the makers of VoiceLatte",
+      headline: "選んで、翻訳。\nそれだけ。",
+      sub: "テキストを選択して ⌃T。Apple Intelligence がデバイス上で翻訳する。データは一切外に出ない。",
+      cta: "Mac版を無料ダウンロード",
+      ctaSub: "macOS 26+ · Apple Silicon",
+    },
+    concept: {
+      eyebrow: "Concept",
+      title: "翻訳アプリを\n開かなくていい世界。",
+      body: "ブラウザ、メール、Slack、ドキュメント。\nどのアプリでも、テキストを選んでショートカットを押すだけ。\nコンテキストを切り替える必要はない。",
+    },
+    features: {
+      eyebrow: "Features",
+      title: "翻訳に必要なもの、全部入り。",
+      items: [
+        {
+          icon: "🔒",
+          title: "完全ローカル",
+          body: "Apple Intelligence Foundation Modelsで処理。サーバーに一切送信しない。",
+        },
+        {
+          icon: "⌨️",
+          title: "グローバルショートカット",
+          body: "⌃T でどのアプリからでも即座に翻訳。設定からキーは変更可能。",
+        },
+        {
+          icon: "💡",
+          title: "ニュアンス解説",
+          body: "直訳だけでなく、なぜその訳になるのかを母語で解説。語学学習にも。",
+        },
+        {
+          icon: "🌏",
+          title: "多言語対応",
+          body: "日本語⇄英語をはじめ、入力言語を自動検出して翻訳先を決定。",
+        },
+        {
+          icon: "📋",
+          title: "翻訳履歴",
+          body: "過去の翻訳をすべて保存。いつでも振り返れる。",
+        },
+        {
+          icon: "☕",
+          title: "Reki ファミリー",
+          body: "VoiceLatteの姉妹アプリ。同じコーヒーテーマのデザイン。",
+        },
+      ],
+    },
+    howItWorks: {
+      eyebrow: "How It Works",
+      title: "3ステップ、2秒。",
+      steps: [
+        {
+          num: "01",
+          title: "テキストを選択",
+          body: "ブラウザ、メール、エディタ、Slack。どのアプリでもOK。",
+        },
+        {
+          num: "02",
+          title: "⌃T を押す",
+          body: "グローバルショートカットでTransLatteが起動。",
+        },
+        {
+          num: "03",
+          title: "翻訳完了",
+          body: "Apple Intelligenceがデバイス上で即座に翻訳。ニュアンス解説付き。",
+        },
+      ],
+    },
+    nuance: {
+      eyebrow: "Nuance",
+      title: "「なぜその訳なのか」まで。",
+      body: "TransLatteは直訳を超える。文脈・ニュアンス・語彙の選択理由をネイティブ言語で解説。翻訳結果を深く理解できる。",
+      example: {
+        original: "It's not rocket science.",
+        translation: "そんなに難しいことじゃない。",
+        nuanceLabel: "ニュアンス解説",
+        nuance: "「rocket science」は英語の慣用表現で、「非常に複雑・難解なこと」を意味します。直訳は「ロケット科学」ですが、日常会話では「そんなに難しくない」と意訳するのが自然です。",
+      },
+    },
+    privacy: {
+      eyebrow: "Privacy",
+      title: "データは、デバイスの外に出ない。",
+      body: "TransLatteはApple Intelligence Foundation Modelsを使用。すべての処理がデバイス上で完結する。",
+      facts: [
+        { icon: "🖥️", text: "すべての翻訳はデバイス上で処理" },
+        { icon: "🚫", text: "外部サーバーへのデータ送信なし" },
+        { icon: "🔐", text: "翻訳履歴はローカルに保存" },
+        { icon: "📡", text: "インターネット接続不要で翻訳可能" },
+      ],
+    },
+    family: {
+      eyebrow: "Reki Family",
+      title: "Rekiファミリー、\n2つ目のアプリ。",
+      body: "VoiceLatteで声を記録し、TransLatteでテキストを翻訳する。どちらもApple Intelligenceをフル活用した、ローカル完結型のmacOSアプリ。",
+      voiceTitle: "VoiceLatte",
+      voiceDesc: "AI音声入力 — 話すだけで整形されたテキストに。",
+      translateTitle: "TransLatte",
+      translateDesc: "AI翻訳 — 選んで⌃Tで即座に翻訳＋ニュアンス解説。",
+    },
+    cta: {
+      title: "翻訳を、\nもっとシンプルに。",
+      desc: "macOS 26以降、Apple Silicon搭載Mac対応。完全無料。",
+      btn: "Mac版を無料ダウンロード",
+      btnSub: "macOS 26+ · Apple Silicon · 無料",
+      githubBtn: "GitHubで見る",
+    },
+    footer: {
+      tagline: "TransLatte · 選んで、翻訳。それだけ。",
+      company: "運営会社",
+      switchHeading: "ページ",
+      businessLabel: "Reki note",
+      businessDesc: "AI議事録アプリ。会議・商談・1on1を記録。",
+      studentLabel: "VoiceLatte",
+      studentDesc: "AI音声入力。話すだけで整形テキストに。",
+      developerLabel: "TransLatte",
+      developerDesc: "AI翻訳。選んでショートカットで即翻訳。",
+      visionLabel: "プロダクトビジョン",
+      visionDesc: "Rekiの名前の由来と、目指す世界。",
+      otherLabel: "トップ",
+      otherDesc: "Reki noteの概要ページ。",
+      currentLabel: "表示中",
+    },
+  },
+  en: {
+    header: { cta: "Download" },
+    meta: {
+      title: "TransLatte — Fully Local Translation with Apple Intelligence",
+      description: "Select text, press ⌃T. Apple Intelligence translates on-device with nuance explanations. Your data never leaves your Mac. macOS 26+, free.",
+    },
+    hero: {
+      eyebrow: "From the makers of VoiceLatte",
+      headline: "Select.\nTranslate.\nDone.",
+      sub: "Select text, press ⌃T. Apple Intelligence translates on your device. Your data never leaves your Mac.",
+      cta: "Download for Mac — Free",
+      ctaSub: "macOS 26+ · Apple Silicon",
+    },
+    concept: {
+      eyebrow: "Concept",
+      title: "No more switching\nto a translation app.",
+      body: "Browser, email, Slack, documents.\nSelect text in any app and press the shortcut.\nNo context switching needed.",
+    },
+    features: {
+      eyebrow: "Features",
+      title: "Everything you need to translate.",
+      items: [
+        {
+          icon: "🔒",
+          title: "Fully Local",
+          body: "Powered by Apple Intelligence Foundation Models. Nothing is sent to any server.",
+        },
+        {
+          icon: "⌨️",
+          title: "Global Shortcut",
+          body: "Press ⌃T to translate from any app, instantly. Customizable in Settings.",
+        },
+        {
+          icon: "💡",
+          title: "Nuance Explanations",
+          body: "Not just translation — understand why the translation works that way, in your native language.",
+        },
+        {
+          icon: "🌏",
+          title: "Multi-Language",
+          body: "Auto-detects input language and determines the translation target. Japanese ⇄ English and more.",
+        },
+        {
+          icon: "📋",
+          title: "Translation History",
+          body: "Every translation is saved. Come back to it anytime.",
+        },
+        {
+          icon: "☕",
+          title: "Reki Family",
+          body: "Sister app of VoiceLatte. Same coffee-themed design.",
+        },
+      ],
+    },
+    howItWorks: {
+      eyebrow: "How It Works",
+      title: "3 steps, 2 seconds.",
+      steps: [
+        {
+          num: "01",
+          title: "Select text",
+          body: "Browser, email, editor, Slack. Any app works.",
+        },
+        {
+          num: "02",
+          title: "Press ⌃T",
+          body: "The global shortcut activates TransLatte.",
+        },
+        {
+          num: "03",
+          title: "Translated",
+          body: "Apple Intelligence translates on-device instantly. With nuance explanations.",
+        },
+      ],
+    },
+    nuance: {
+      eyebrow: "Nuance",
+      title: "Beyond literal translation.",
+      body: "TransLatte goes deeper. It explains the context, nuance, and word choice — in your native language. Understand the why, not just the what.",
+      example: {
+        original: "空気を読む",
+        translation: "Read the room.",
+        nuanceLabel: "Nuance explanation",
+        nuance: "\"空気を読む\" literally means \"read the air\" in Japanese. It refers to the social skill of perceiving unspoken feelings and acting accordingly. \"Read the room\" captures this concept naturally in English.",
+      },
+    },
+    privacy: {
+      eyebrow: "Privacy",
+      title: "Your data never leaves your device.",
+      body: "TransLatte uses Apple Intelligence Foundation Models. All processing happens entirely on your Mac.",
+      facts: [
+        { icon: "🖥️", text: "All translations processed on-device" },
+        { icon: "🚫", text: "No data sent to external servers" },
+        { icon: "🔐", text: "Translation history stored locally" },
+        { icon: "📡", text: "Works offline — no internet needed" },
+      ],
+    },
+    family: {
+      eyebrow: "Reki Family",
+      title: "The second app\nin the Reki family.",
+      body: "VoiceLatte records your voice. TransLatte translates your text. Both are fully local macOS apps powered by Apple Intelligence.",
+      voiceTitle: "VoiceLatte",
+      voiceDesc: "AI voice input — speak and get polished text.",
+      translateTitle: "TransLatte",
+      translateDesc: "AI translation — select text, press ⌃T, get instant translation with nuance.",
+    },
+    cta: {
+      title: "Translation,\nmade simple.",
+      desc: "macOS 26 or later. Apple Silicon Mac. Completely free.",
+      btn: "Download for Mac — Free",
+      btnSub: "macOS 26+ · Apple Silicon · Free",
+      githubBtn: "View on GitHub",
+    },
+    footer: {
+      tagline: "TransLatte · Select. Translate. Done.",
+      company: "Company",
+      switchHeading: "Pages",
+      businessLabel: "Reki note",
+      businessDesc: "AI meeting recorder. Capture conversations.",
+      studentLabel: "VoiceLatte",
+      studentDesc: "AI voice input. Speak and get polished text.",
+      developerLabel: "TransLatte",
+      developerDesc: "AI translation. Select and translate instantly.",
+      visionLabel: "Product Vision",
+      visionDesc: "The story behind Reki's name and mission.",
+      otherLabel: "Top",
+      otherDesc: "Reki note overview page.",
+      currentLabel: "Current",
+    },
+  },
+};
+
+const dict = dictionaries[lang];
+const title = dict.meta.title;
+const description = dict.meta.description;
+
+const coffeeColors = {
+  espresso: "#5C3928",
+  darkCoffee: "#6F4C3E",
+  latte: "#C1A07B",
+  cream: "#E8D5A1",
+  milk: "#FDF2D2",
+};
+---
+
+<BaseLayout title={title} description={description} lang={lang} canonical={`https://latte.rekinote.app/${lang}/translate/`}>
+  <style>
+    .coffee-gradient-text {
+      background: linear-gradient(120deg, #C1A07B 0%, #E8D5A1 50%, #FDF2D2 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      display: inline-block;
+    }
+    .coffee-gradient-text-strong {
+      background: linear-gradient(120deg, #5C3928 0%, #6F4C3E 50%, #C1A07B 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      display: inline-block;
+    }
+    .coffee-orb {
+      position: absolute; pointer-events: none;
+      inset: 0;
+      background:
+        radial-gradient(ellipse farthest-side at 50% 50%, rgba(193,160,123,0.14), rgba(193,160,123,0.05) 50%, transparent 100%),
+        radial-gradient(ellipse farthest-side at 60% 45%, rgba(232,213,161,0.10), rgba(232,213,161,0.03) 55%, transparent 100%);
+      filter: blur(60px); z-index: 0;
+    }
+    .coffee-card {
+      background: linear-gradient(180deg, #2a2520 0%, #211d19 100%);
+      border: 1px solid rgba(193,160,123,0.15);
+      border-radius: 16px;
+      box-shadow: 0 18px 38px -32px rgba(92,57,40,0.72);
+    }
+    .coffee-card-strong {
+      background: linear-gradient(180deg, #302a24 0%, #272119 100%);
+      border: 1px solid rgba(193,160,123,0.22);
+      border-radius: 16px;
+      box-shadow: 0 22px 42px -34px rgba(92,57,40,0.8);
+    }
+    .coffee-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: linear-gradient(135deg, #C1A07B 0%, #E8D5A1 60%, #FDF2D2 100%); color: #3a2a1a; font-weight: 600;
+      padding: 16px 28px; border-radius: 12px;
+      transition: transform 180ms ease, box-shadow 180ms ease;
+      box-shadow: 0 1px 0 rgba(255,255,255,0.12) inset, 0 8px 24px -12px rgba(193,160,123,0.6);
+    }
+    .coffee-btn:hover {
+      transform: translateY(-1px); filter: brightness(1.05);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.16) inset, 0 14px 36px -12px rgba(193,160,123,0.8);
+    }
+    .coffee-eyebrow {
+      display: inline-block; font-family: 'JetBrains Mono', monospace;
+      font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+      background: linear-gradient(90deg, #C1A07B 0%, #E8D5A1 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .nuance-card {
+      background: linear-gradient(180deg, rgba(193,160,123,0.08) 0%, rgba(193,160,123,0.03) 100%);
+      border: 1px solid rgba(193,160,123,0.18);
+      border-radius: 20px;
+    }
+    .shortcut-key {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px; padding: 4px 12px; font-family: 'JetBrains Mono', monospace;
+      font-size: 18px; font-weight: 600; color: #E8D5A1;
+      box-shadow: 0 2px 0 rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+  </style>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 border-b border-[rgba(193,160,123,0.12)] bg-[rgba(12,12,16,0.85)] backdrop-blur-md">
+    <div class="container-x flex items-center justify-between h-16 px-6">
+      <a href={`/${lang}/translate/`} class="flex items-center gap-2.5">
+        <span class="text-2xl">☕</span>
+        <span class="font-semibold tracking-tight text-[15px] text-[#E8D5A1]">TransLatte</span>
+      </a>
+      <div class="flex items-center gap-3">
+        <a href={`/${lang === "ja" ? "en" : "ja"}/translate/`} class="text-sm text-[#8c8c97] hover:text-[#E8D5A1] transition-colors duration-180">
+          {isJa ? "English" : "日本語"}
+        </a>
+        <a href="https://github.com/hibachi-inc/LocalTranslate/releases" class="coffee-btn !py-2.5 !px-4 text-sm">
+          {dict.header.cta}
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+      <div class="coffee-orb" />
+      <div class="container-x relative z-10 px-6 py-32 md:py-48 text-center">
+        <div class="mb-6">
+          <p class="coffee-eyebrow">{dict.hero.eyebrow}</p>
+        </div>
+        <h1 class="vision-statement text-white coffee-gradient-text whitespace-pre-line">
+          {dict.hero.headline}
+        </h1>
+        <p class="mt-8 text-base md:text-lg text-[#9d9daa] max-w-[520px] mx-auto leading-relaxed">
+          {dict.hero.sub}
+        </p>
+
+        <!-- Shortcut demo -->
+        <div class="mt-10 flex items-center justify-center gap-3">
+          <span class="shortcut-key">⌃</span>
+          <span class="text-[#8c8c97] text-xl">+</span>
+          <span class="shortcut-key">T</span>
+        </div>
+
+        <div class="mt-10 flex flex-col items-center gap-3">
+          <a href="https://github.com/hibachi-inc/LocalTranslate/releases" class="coffee-btn text-base">
+            {dict.hero.cta}
+          </a>
+          <p class="text-xs text-[#8c8c97] font-mono-num">{dict.hero.ctaSub}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Concept -->
+    <section class="relative overflow-hidden py-28 md:py-40 px-6">
+      <div class="coffee-orb" style="top: -120px" />
+      <div class="container-x relative z-10 max-w-[760px] mx-auto text-center">
+        <div class="mb-5"><p class="coffee-eyebrow">{dict.concept.eyebrow}</p></div>
+        <h2 class="text-3xl md:text-[48px] font-bold tracking-tight leading-[1.25] text-white coffee-gradient-text whitespace-pre-line">
+          {dict.concept.title}
+        </h2>
+        <p class="mt-8 text-lg md:text-xl text-[#8c8c97] leading-[2] whitespace-pre-line max-w-[580px] mx-auto">
+          {dict.concept.body}
+        </p>
+      </div>
+    </section>
+
+    <!-- Transition to light -->
+    <div class="h-40 md:h-56 bg-gradient-to-b from-[#0c0c10] via-[#4a3d30] to-[#f5efe4]" />
+
+    <!-- Features (Light section) -->
+    <div class="bg-[#f5efe4] text-[#3a2a1a]">
+      <section class="section">
+        <div class="container-x">
+          <p class="coffee-eyebrow" style="background: linear-gradient(90deg, #5C3928, #C1A07B); -webkit-background-clip: text; background-clip: text;">
+            {dict.features.eyebrow}
+          </p>
+          <h2 class="mt-5 text-3xl md:text-[42px] font-bold tracking-tight leading-[1.35]">
+            {dict.features.title}
+          </h2>
+          <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {dict.features.items.map((item) => (
+              <div class="rounded-2xl border border-[rgba(92,57,40,0.1)] bg-white/80 p-6 md:p-8 shadow-[0_8px_24px_-16px_rgba(92,57,40,0.12)]">
+                <span class="text-3xl">{item.icon}</span>
+                <h3 class="mt-4 text-lg font-bold tracking-tight text-[#3a2a1a]">{item.title}</h3>
+                <p class="mt-3 text-[15px] leading-[1.85] text-[#6b5a4a]">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- How it works -->
+      <section class="section">
+        <div class="container-x">
+          <p class="coffee-eyebrow" style="background: linear-gradient(90deg, #5C3928, #C1A07B); -webkit-background-clip: text; background-clip: text;">
+            {dict.howItWorks.eyebrow}
+          </p>
+          <h2 class="mt-5 text-3xl md:text-[42px] font-bold tracking-tight leading-[1.35]">
+            {dict.howItWorks.title}
+          </h2>
+          <div class="mt-12 grid gap-0 lg:grid-cols-3 lg:gap-4">
+            {dict.howItWorks.steps.map((step, i) => (
+              <div class="relative">
+                <div class="rounded-2xl border border-[rgba(92,57,40,0.12)] bg-white/70 p-6 md:p-8 shadow-[0_8px_24px_-16px_rgba(92,57,40,0.10)]">
+                  <div class="flex items-center gap-3 mb-4">
+                    <span class="flex items-center justify-center w-10 h-10 rounded-full bg-[rgba(193,160,123,0.15)] text-[#5C3928] text-sm font-bold font-mono-num">
+                      {step.num}
+                    </span>
+                  </div>
+                  <h3 class="text-xl font-bold text-[#3a2a1a]">{step.title}</h3>
+                  <p class="mt-3 text-[15px] text-[#6b5a4a] leading-[1.85]">{step.body}</p>
+                </div>
+                {i < dict.howItWorks.steps.length - 1 && (
+                  <>
+                    <div class="flex justify-center lg:hidden py-1">
+                      <div class="h-6 w-0.5 bg-[rgba(193,160,123,0.3)]" />
+                    </div>
+                    <div class="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 z-10 w-6 h-6 items-center justify-center text-[#C1A07B]">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="w-4 h-4">
+                        <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </div>
+                  </>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Nuance -->
+      <section class="section">
+        <div class="container-x">
+          <p class="coffee-eyebrow" style="background: linear-gradient(90deg, #5C3928, #C1A07B); -webkit-background-clip: text; background-clip: text;">
+            {dict.nuance.eyebrow}
+          </p>
+          <h2 class="mt-5 text-3xl md:text-[42px] font-bold tracking-tight leading-[1.35]">
+            {dict.nuance.title}
+          </h2>
+          <p class="mt-5 text-[15px] text-[#6b5a4a] leading-[1.9] max-w-[640px]">
+            {dict.nuance.body}
+          </p>
+
+          <div class="mt-12 max-w-[640px] mx-auto rounded-3xl border border-[rgba(92,57,40,0.15)] bg-white shadow-[0_16px_40px_-20px_rgba(92,57,40,0.18)] overflow-hidden">
+            <!-- Original -->
+            <div class="p-6 md:p-8 border-b border-[rgba(92,57,40,0.08)]">
+              <p class="text-xs font-mono-num tracking-[0.12em] uppercase text-[#C1A07B] mb-2">Original</p>
+              <p class="text-lg md:text-xl font-medium text-[#3a2a1a]">{dict.nuance.example.original}</p>
+            </div>
+            <!-- Translation -->
+            <div class="p-6 md:p-8 border-b border-[rgba(92,57,40,0.08)] bg-[rgba(193,160,123,0.05)]">
+              <p class="text-xs font-mono-num tracking-[0.12em] uppercase text-[#C1A07B] mb-2">Translation</p>
+              <p class="text-lg md:text-xl font-medium text-[#3a2a1a]">{dict.nuance.example.translation}</p>
+            </div>
+            <!-- Nuance explanation -->
+            <div class="p-6 md:p-8 bg-[rgba(193,160,123,0.08)]">
+              <p class="text-xs font-mono-num tracking-[0.12em] uppercase text-[#5C3928] mb-3 flex items-center gap-2">
+                <span class="inline-block w-2 h-2 rounded-full bg-[#C1A07B]" />
+                {dict.nuance.example.nuanceLabel}
+              </p>
+              <p class="text-[15px] leading-[1.9] text-[#5a4a3a]">{dict.nuance.example.nuance}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Transition to dark -->
+    <div class="h-40 md:h-56 bg-gradient-to-b from-[#f5efe4] via-[#4a3d30] to-[#0c0c10]" />
+
+    <!-- Privacy -->
+    <section class="section">
+      <div class="container-x">
+        <div class="mb-5"><p class="coffee-eyebrow">{dict.privacy.eyebrow}</p></div>
+        <h2 class="text-3xl md:text-[42px] font-bold tracking-tight leading-[1.35] text-white coffee-gradient-text">
+          {dict.privacy.title}
+        </h2>
+        <p class="mt-5 text-[15px] text-[#8c8c97] leading-[1.9] max-w-[640px]">
+          {dict.privacy.body}
+        </p>
+        <div class="mt-12 grid gap-4 sm:grid-cols-2 max-w-[640px]">
+          {dict.privacy.facts.map((fact) => (
+            <div class="coffee-card p-5 flex items-start gap-4">
+              <span class="text-2xl flex-shrink-0 mt-0.5">{fact.icon}</span>
+              <p class="text-sm text-[#d0d0d8] leading-[1.75]">{fact.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Reki Family -->
+    <section class="py-16 md:py-24 px-6" style="background: rgba(193,160,123,0.04)">
+      <div class="container-x">
+        <div class="text-center mb-12">
+          <div class="mb-5"><p class="coffee-eyebrow">{dict.family.eyebrow}</p></div>
+          <h2 class="text-3xl md:text-[42px] font-bold tracking-tight leading-[1.35] text-white coffee-gradient-text whitespace-pre-line">
+            {dict.family.title}
+          </h2>
+          <p class="mt-5 text-[15px] text-[#8c8c97] leading-[1.9] max-w-[580px] mx-auto">
+            {dict.family.body}
+          </p>
+        </div>
+        <div class="max-w-[640px] mx-auto grid gap-4 sm:grid-cols-2">
+          <a href="https://rekinote.app/{lang}/lp/business/" class="coffee-card p-6 transition-transform duration-200 hover:-translate-y-1 group">
+            <div class="text-3xl mb-4">🎙️</div>
+            <h3 class="text-lg font-bold text-[#E8D5A1]">{dict.family.voiceTitle}</h3>
+            <p class="mt-2 text-sm text-[#8c8c97] leading-[1.75]">{dict.family.voiceDesc}</p>
+          </a>
+          <div class="coffee-card-strong p-6 border-[rgba(193,160,123,0.35)]">
+            <div class="text-3xl mb-4">☕</div>
+            <h3 class="text-lg font-bold text-[#E8D5A1]">{dict.family.translateTitle}</h3>
+            <p class="mt-2 text-sm text-[#8c8c97] leading-[1.75]">{dict.family.translateDesc}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="relative overflow-hidden pt-20 md:pt-32 pb-20 md:pb-32">
+      <div class="coffee-orb" />
+      <div class="container-x relative z-10 text-center px-6">
+        <h2 class="vision-statement text-white coffee-gradient-text leading-[1.3] whitespace-pre-line">
+          {dict.cta.title}
+        </h2>
+        <p class="mt-6 text-base text-[#8c8c97] max-w-[480px] mx-auto">
+          {dict.cta.desc}
+        </p>
+        <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="https://github.com/hibachi-inc/LocalTranslate/releases" class="coffee-btn text-base">
+            {dict.cta.btn}
+          </a>
+          <a href="https://github.com/hibachi-inc/LocalTranslate" class="btn-ghost !border-[rgba(193,160,123,0.25)] hover:!border-[rgba(193,160,123,0.45)] text-sm">
+            {dict.cta.githubBtn}
+          </a>
+        </div>
+        <p class="mt-4 text-xs text-[#8c8c97] font-mono-num">{dict.cta.btnSub}</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-[rgba(193,160,123,0.12)]">
+    <div class="container-x px-6 py-14">
+      <div class="text-xs font-mono-num tracking-[0.22em] uppercase text-[#8e8e98]">{dict.footer.switchHeading}</div>
+      <div class="mt-4 grid gap-3 grid-cols-2 lg:grid-cols-4">
+        <a href={`https://rekinote.app/${lang}/lp/business/`} class="rounded-2xl border border-line bg-[rgba(18,18,24,0.55)] hover:border-line-strong p-4 transition-colors duration-180">
+          <span class="text-sm font-semibold text-[#ececef]">{dict.footer.businessLabel}</span>
+          <p class="mt-2 text-xs leading-6 text-[#9d9daa]">{dict.footer.businessDesc}</p>
+        </a>
+        <a href={`https://latte.rekinote.app/${lang}/voice/`} class="rounded-2xl border border-line bg-[rgba(18,18,24,0.55)] hover:border-line-strong p-4 transition-colors duration-180">
+          <span class="text-sm font-semibold text-[#ececef]">{dict.footer.studentLabel}</span>
+          <p class="mt-2 text-xs leading-6 text-[#9d9daa]">{dict.footer.studentDesc}</p>
+        </a>
+        <div class="rounded-2xl border border-[rgba(193,160,123,0.45)] bg-[rgba(193,160,123,0.06)] p-4">
+          <div class="flex items-center justify-between gap-2">
+            <span class="text-sm font-semibold text-[#ececef]">{dict.footer.developerLabel}</span>
+            <span class="text-xs text-[#E8D5A1] shrink-0">{dict.footer.currentLabel}</span>
+          </div>
+          <p class="mt-2 text-xs leading-6 text-[#9d9daa]">{dict.footer.developerDesc}</p>
+        </div>
+        <a href={`https://rekinote.app/${lang}/product/vision/`} class="rounded-2xl border border-line bg-[rgba(18,18,24,0.55)] hover:border-line-strong p-4 transition-colors duration-180">
+          <span class="text-sm font-semibold text-[#ececef]">{dict.footer.visionLabel}</span>
+          <p class="mt-2 text-xs leading-6 text-[#9d9daa]">{dict.footer.visionDesc}</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="border-t border-[rgba(193,160,123,0.12)]">
+      <div class="container-x px-6 py-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div class="flex items-center gap-2.5">
+          <span class="text-lg">☕</span>
+          <span class="text-sm font-semibold tracking-tight text-[#E8D5A1]">{dict.footer.tagline}</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-4 text-xs text-[#8c8c97]">
+          <a href={`/${lang === "ja" ? "en" : "ja"}/translate/`} class="hover:text-[#E8D5A1] transition-colors duration-180">
+            {isJa ? "English" : "日本語"}
+          </a>
+          <span class="w-px h-3.5 bg-[rgba(255,255,255,0.12)]" aria-hidden="true" />
+          <a href="https://hibachi-inc.jp" class="hover:text-[#ececef] transition-colors duration-180">{dict.footer.company}</a>
+          <span class="w-px h-3.5 bg-[rgba(255,255,255,0.12)]" aria-hidden="true" />
+          <a href={`https://rekinote.app/${lang}/legal/privacy/`} class="hover:text-[#ececef] transition-colors duration-180">{isJa ? "プライバシーポリシー" : "Privacy Policy"}</a>
+          <span class="w-px h-3.5 bg-[rgba(255,255,255,0.12)]" aria-hidden="true" />
+          <a href={`https://rekinote.app/${lang}/legal/terms/`} class="hover:text-[#ececef] transition-colors duration-180">{isJa ? "利用規約" : "Terms of Service"}</a>
+          <span class="w-px h-3.5 bg-[rgba(255,255,255,0.12)]" aria-hidden="true" />
+          <span class="text-[#5e5e6a]">© 2026 HIBACHI inc.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+</BaseLayout>
