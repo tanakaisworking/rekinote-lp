@@ -13,6 +13,12 @@
 /ja/lp/student   /ja/lp/student/   301
 /en/lp/student   /en/lp/student/   301
 
+# TransLatte → latte.rekinote.app に移動済み
+/ja/translate/  https://latte.rekinote.app/ja/translate/  301
+/en/translate/  https://latte.rekinote.app/en/translate/  301
+/ja/product/translate/  https://latte.rekinote.app/ja/translate/  301
+/en/product/translate/  https://latte.rekinote.app/en/translate/  301
+
 # マーケ用QRコード
 /qr1/       /ja/lp/business/   301
 /qr1        /ja/lp/business/   301
