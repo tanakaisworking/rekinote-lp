@@ -23,7 +23,7 @@ export const developerDictionaries: Record<"ja" | "en", Dictionary> = {
       mac: "Mac",
       macSub: "Apple Silicon（M1以降）",
       win: "Win",
-      winSub: "Windows 10以降・ベータ版",
+      winSub: "Windows 10以降",
       winNote: "Mac版が安定版です。Windows版は一部機能に制限があります",
     },
     Problem: {
@@ -188,7 +188,7 @@ export const developerDictionaries: Record<"ja" | "en", Dictionary> = {
       title: "文字起こし、無料で無制限。\n快適に使いたい時だけPro。",
       desc: "データは手元に残る。出力はMarkdown。",
       macSub: "Apple Silicon（M1以降）",
-      winSub: "Windows 10以降・ベータ版",
+      winSub: "Windows 10以降",
       btnDefault: "Mac版を無料ダウンロード",
       btnWin: "Windows版を無料ダウンロード",
       preview: {
@@ -272,7 +272,7 @@ export const developerDictionaries: Record<"ja" | "en", Dictionary> = {
       mac: "Mac",
       macSub: "Apple Silicon (M1+)",
       win: "Windows",
-      winSub: "Windows 10+ · Beta",
+      winSub: "Windows 10+",
       winNote: "Mac is the stable release. Some features may be limited on Windows",
     },
     Problem: {
@@ -437,7 +437,7 @@ export const developerDictionaries: Record<"ja" | "en", Dictionary> = {
       title: "Free unlimited transcription.\nGo Pro only when you want to.",
       desc: "Data stays on your machine. Output is Markdown.",
       macSub: "Apple Silicon (M1+)",
-      winSub: "Windows 10+ · Beta",
+      winSub: "Windows 10+",
       btnDefault: "Download for Mac",
       btnWin: "Download for Windows",
       preview: {

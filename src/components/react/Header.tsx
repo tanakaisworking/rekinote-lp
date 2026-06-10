@@ -78,9 +78,6 @@ function DownloadDropdown({ lang, lightMode, dict }: { lang: "ja" | "en"; lightM
                 <div className="font-medium">Windows</div>
                 <div className={`text-xs ${lightMode ? "text-[#5f6472]" : "text-white/50"}`}>{lang === "ja" ? "Windows 10以降" : "Windows 10+"}</div>
               </div>
-              <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold tracking-wide uppercase leading-none bg-amber-400/15 text-amber-500 border border-amber-400/25">
-                {lang === "ja" ? "ベータ" : "Beta"}
-              </span>
             </div>
           </button>
         </div>

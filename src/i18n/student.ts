@@ -23,7 +23,7 @@ export const studentDictionaries: Record<"ja" | "en", Dictionary> = {
       mac: "Mac",
       macSub: "Apple Silicon（M1以降）",
       win: "Win",
-      winSub: "Windows 10以降・ベータ版",
+      winSub: "Windows 10以降",
       winNote: "Mac版が安定版です。Windows版は一部機能に制限があります",
     },
     Problem: {
@@ -200,7 +200,7 @@ export const studentDictionaries: Record<"ja" | "en", Dictionary> = {
       title: "ノートは、“録る”時代へ。",
       desc: "まずは無料で始めて、講義の記録がどれだけラクになるか体感してみてください。",
       macSub: "Apple Silicon（M1以降）",
-      winSub: "Windows 10以降・ベータ版",
+      winSub: "Windows 10以降",
       btnDefault: "Mac版を無料ダウンロード",
       btnWin: "Windows版を無料ダウンロード",
       preview: {
@@ -284,7 +284,7 @@ export const studentDictionaries: Record<"ja" | "en", Dictionary> = {
       mac: "Mac",
       macSub: "Apple Silicon (M1+)",
       win: "Windows",
-      winSub: "Windows 10+ · Beta",
+      winSub: "Windows 10+",
       winNote: "Mac is the stable release. Some features may be limited on Windows",
     },
     Problem: {
@@ -474,7 +474,7 @@ export const studentDictionaries: Record<"ja" | "en", Dictionary> = {
       title: "Put less pressure on each lecture.\nKeep a clearer way back later.",
       desc: "Leave yourself a searchable class record without changing your campus workflow. Try Reki early and build a lighter backup before exam week hits.",
       macSub: "Apple Silicon (M1+)",
-      winSub: "Windows 10+ · Beta",
+      winSub: "Windows 10+",
       btnDefault: "Download for Mac",
       btnWin: "Download for Windows",
       preview: {

@@ -18,12 +18,6 @@ const WindowsIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const BetaBadge = ({ className }: { className?: string }) => (
-  <span className={`inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold tracking-wide uppercase leading-none ${className ?? "bg-amber-400/15 text-amber-300 border border-amber-400/25"}`}>
-    Beta
-  </span>
-);
-
 export function DownloadButton({
   children,
   className,
@@ -66,7 +60,6 @@ export function WindowsDownloadButton({
     <a href={WIN_DOWNLOAD_URL} onClick={handleClick} className={className}>
       <WindowsIcon className="w-5 h-5" />
       {children}
-      <BetaBadge />
     </a>
   );
 }
@@ -90,7 +83,6 @@ export function WindowsDownloadButtonSmall({
     <a href={WIN_DOWNLOAD_URL} onClick={handleClick} className={className}>
       <WindowsIcon className="w-4 h-4" />
       {children}
-      <BetaBadge />
     </a>
   );
 }

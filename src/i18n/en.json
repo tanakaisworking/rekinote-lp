@@ -20,7 +20,7 @@
     "mac": "Mac",
     "macSub": "Apple Silicon (M1+)",
     "win": "Windows",
-    "winSub": "Windows 10+ · Beta",
+    "winSub": "Windows 10+",
     "winNote": "Mac is the stable release. Some features may be limited on Windows"
   },
   "Problem": {
@@ -349,7 +349,7 @@
     "title": "Own the record.\nQuery the past.",
     "desc": "Start with the calls you already have today. Reki gives you one local archive, one search surface, and one cleaner way to remember what happened.",
     "macSub": "Apple Silicon (M1+)",
-    "winSub": "Windows 10+ · Beta",
+    "winSub": "Windows 10+",
     "btnDefault": "Download for Mac",
     "btnWin": "Download for Windows",
     "preview": {
