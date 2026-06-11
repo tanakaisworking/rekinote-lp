@@ -37,7 +37,7 @@ function FinalCTADownload({ lang }: { lang: string }) {
           <path d="M10.75 2.75a.75.75 0 0 0-1.5 0v8.614L6.295 8.235a.75.75 0 1 0-1.09 1.03l4.25 4.5a.75.75 0 0 0 1.09 0l4.25-4.5a.75.75 0 0 0-1.09-1.03l-2.955 3.129V2.75Z" />
           <path d="M3.5 12.75a.75.75 0 0 0-1.5 0v2.5A2.75 2.75 0 0 0 4.75 18h10.5A2.75 2.75 0 0 0 18 15.25v-2.5a.75.75 0 0 0-1.5 0v2.5c0 .69-.56 1.25-1.25 1.25H4.75c-.69 0-1.25-.56-1.25-1.25v-2.5Z" />
         </svg>
-        {lang === "en" ? "Free Download" : "無料ダウンロード"}
+        {{ ja: "無料ダウンロード", ko: "무료 다운로드", "zh-tw": "免費下載" }[lang] ?? "Free Download"}
         <svg viewBox="0 0 20 20" fill="currentColor" className={`w-4 h-4 transition-transform duration-150 ${open ? "rotate-180" : ""}`}>
           <path fillRule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
         </svg>
@@ -78,7 +78,7 @@ function FinalCTADownload({ lang }: { lang: string }) {
   );
 }
 
-export function FinalCTA({ dict, lang = "ja", showPreview = true }: { dict: DictFinalCTA; lang?: "ja" | "en"; showPreview?: boolean }) {
+export function FinalCTA({ dict, lang = "ja", showPreview = true }: { dict: DictFinalCTA; lang?: string; showPreview?: boolean }) {
   const titleLines = dict.title.split('\n');
 
   return (

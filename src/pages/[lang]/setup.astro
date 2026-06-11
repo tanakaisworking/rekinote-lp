@@ -1,17 +1,20 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { locales, type Locale } from "../../i18n/getDictionary";
 import { SetupDemo } from "../../components/react/SetupDemo";
 
 export function getStaticPaths() {
-  return [{ params: { lang: "ja" } }, { params: { lang: "en" } }];
+  return locales.map((lang) => ({ params: { lang } }));
 }
 
-const lang = Astro.params.lang as "ja" | "en";
-const isJa = lang === "ja";
-const title = isJa ? "セットアップデモ — Reki note" : "Setup Demo — Reki note";
-const description = isJa
-  ? "スピーカーとマイクの動作を確認して、Reki noteを使い始める準備をしましょう。"
-  : "Verify your speaker and microphone setup before using Reki note.";
+const lang = Astro.params.lang as Locale;
+const meta: Record<string, { title: string; description: string }> = {
+  ja: { title: "セットアップデモ — Reki note", description: "スピーカーとマイクの動作を確認して、Reki noteを使い始める準備をしましょう。" },
+  en: { title: "Setup Demo — Reki note", description: "Verify your speaker and microphone setup before using Reki note." },
+  ko: { title: "설정 데모 — Reki note", description: "스피커와 마이크 작동을 확인하고 Reki note 사용 준비를 해보세요." },
+  "zh-tw": { title: "設定示範 — Reki note", description: "確認揚聲器與麥克風是否正常運作，準備開始使用 Reki note。" },
+};
+const { title, description } = meta[lang] ?? meta.ja;
 ---
 
 <BaseLayout title={title} description={description} lang={lang} noindex={true}>

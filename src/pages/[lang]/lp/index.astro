@@ -1,59 +1,74 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { locales, type Locale } from "../../../i18n/getDictionary";
 
 export function getStaticPaths() {
-  return [{ params: { lang: "ja" } }, { params: { lang: "en" } }];
+  return locales.map((lang) => ({ params: { lang } }));
 }
 
-const lang = Astro.params.lang as "ja" | "en";
-const isJa = lang === "ja";
+const lang = Astro.params.lang as Locale;
 
-const title = isJa
-  ? "Reki note — あなたはどれ？"
-  : "Reki note — Choose your setup.";
-const description = isJa
-  ? "仕事・講義・開発、あなたに合うReki noteのLPを選べます。"
-  : "Choose the Reki note experience that fits your workflow: work, classes, or development.";
+type Copy = {
+  title: string; description: string; eyebrow: string; heading: string; body: string;
+  businessLabel: string; businessTitle: string; businessBody: string; businessCta: string;
+  studentLabel: string; studentTitle: string; studentBody: string; studentCta: string;
+  developerLabel: string; developerTitle: string; developerBody: string; developerCta: string;
+  otherText: string; otherCta: string;
+};
 
-const copy = isJa
-  ? {
-      eyebrow: "Choose Your Route",
-      title: "あなたは、どれ？",
-      body: "Reki noteは、会話を記録したい人のためのプロダクト。仕事・講義・開発、使い方に合わせてLPを分けました。",
-      businessLabel: "Business",
-      businessTitle: "仕事で使いたい",
-      businessBody: "会議、商談、1on1、対面MTG。議事録を1本に集約したい人向け。",
-      businessCta: "Business LPを見る",
-      studentLabel: "Student",
-      studentTitle: "講義で使いたい",
-      studentBody: "講義ノート、文字起こし、時間割保存。理解に集中したい学生向け。",
-      studentCta: "Student LPを見る",
-      developerLabel: "Developer",
-      developerTitle: "開発に組み込みたい",
-      developerBody: "API連携、音声処理、プラグイン開発。技術者向けの詳細情報。",
-      developerCta: "Developer LPを見る",
-      otherText: "当てはまらない？",
-      otherCta: "使いたいシーンを教えてください",
-    }
-  : {
-      eyebrow: "Choose Your Route",
-      title: "Choose your setup.",
-      body: "Reki note works across work calls and class recordings, but the value is different in each context. Pick the version built for how you use it.",
-      businessLabel: "Business",
-      businessTitle: "I want it for work",
-      businessBody: "For meetings, customer calls, 1:1s, and in-person discussions that should become searchable team memory.",
-      businessCta: "Explore Business",
-      studentLabel: "Student",
-      studentTitle: "I want it for classes",
-      studentBody: "For lectures, transcripts, and exam-season catch-up when you want a steadier way to keep the record.",
-      studentCta: "Explore Student",
-      developerLabel: "Developer",
-      developerTitle: "I want to build with it",
-      developerBody: "For API integrations, audio processing pipelines, and plugin development with technical details.",
-      developerCta: "Explore Developer",
-      otherText: "None of these?",
-      otherCta: "Tell us how you'd use it",
-    };
+const copies: Record<string, Copy> = {
+  ja: {
+    title: "Reki note — あなたはどれ？", description: "仕事・講義・開発、あなたに合うReki noteのLPを選べます。",
+    eyebrow: "Choose Your Route", heading: "あなたは、どれ？",
+    body: "Reki noteは、会話を記録したい人のためのプロダクト。仕事・講義・開発、使い方に合わせてLPを分けました。",
+    businessLabel: "Business", businessTitle: "仕事で使いたい",
+    businessBody: "会議、商談、1on1、対面MTG。議事録を1本に集約したい人向け。", businessCta: "Business LPを見る",
+    studentLabel: "Student", studentTitle: "講義で使いたい",
+    studentBody: "講義ノート、文字起こし、時間割保存。理解に集中したい学生向け。", studentCta: "Student LPを見る",
+    developerLabel: "Developer", developerTitle: "開発に組み込みたい",
+    developerBody: "API連携、音声処理、プラグイン開発。技術者向けの詳細情報。", developerCta: "Developer LPを見る",
+    otherText: "当てはまらない？", otherCta: "使いたいシーンを教えてください",
+  },
+  en: {
+    title: "Reki note — Choose your setup.", description: "Choose the Reki note experience that fits your workflow: work, classes, or development.",
+    eyebrow: "Choose Your Route", heading: "Choose your setup.",
+    body: "Reki note works across work calls and class recordings, but the value is different in each context. Pick the version built for how you use it.",
+    businessLabel: "Business", businessTitle: "I want it for work",
+    businessBody: "For meetings, customer calls, 1:1s, and in-person discussions that should become searchable team memory.", businessCta: "Explore Business",
+    studentLabel: "Student", studentTitle: "I want it for classes",
+    studentBody: "For lectures, transcripts, and exam-season catch-up when you want a steadier way to keep the record.", studentCta: "Explore Student",
+    developerLabel: "Developer", developerTitle: "I want to build with it",
+    developerBody: "For API integrations, audio processing pipelines, and plugin development with technical details.", developerCta: "Explore Developer",
+    otherText: "None of these?", otherCta: "Tell us how you'd use it",
+  },
+  ko: {
+    title: "Reki note — 어떤 용도로 쓸 건가요?", description: "업무, 강의, 개발 — 당신에게 맞는 Reki note를 선택하세요.",
+    eyebrow: "Choose Your Route", heading: "어떤 용도로 쓸 건가요?",
+    body: "Reki note는 대화를 기록하고 싶은 사람을 위한 프로덕트예요. 업무, 강의, 개발 — 용도에 맞는 페이지를 골라보세요.",
+    businessLabel: "Business", businessTitle: "업무에 쓰고 싶어요",
+    businessBody: "회의, 상담, 1on1, 대면 미팅. 회의록을 하나로 통합하고 싶은 분을 위해.", businessCta: "Business LP 보기",
+    studentLabel: "Student", studentTitle: "강의에 쓰고 싶어요",
+    studentBody: "강의 노트, 음성 인식, 시간표 저장. 이해에 집중하고 싶은 학생을 위해.", studentCta: "Student LP 보기",
+    developerLabel: "Developer", developerTitle: "개발에 활용하고 싶어요",
+    developerBody: "API 연동, 음성 처리, 플러그인 개발. 기술자를 위한 상세 정보.", developerCta: "Developer LP 보기",
+    otherText: "해당되지 않나요?", otherCta: "어떤 장면에서 쓰고 싶은지 알려주세요",
+  },
+  "zh-tw": {
+    title: "Reki note — 你想怎麼用？", description: "工作、課堂、開發 — 選擇最適合你的 Reki note。",
+    eyebrow: "Choose Your Route", heading: "你想怎麼用？",
+    body: "Reki note 是為想記錄對話的人打造的產品。我們依據工作、課堂、開發等不同用途，準備了不同的介紹頁面。",
+    businessLabel: "Business", businessTitle: "工作上想用",
+    businessBody: "會議、商談、1on1、面對面會議。想把會議記錄統一在一處的人適用。", businessCta: "查看 Business LP",
+    studentLabel: "Student", studentTitle: "上課時想用",
+    studentBody: "講義筆記、語音轉文字、課表儲存。想專心理解課堂內容的學生適用。", studentCta: "查看 Student LP",
+    developerLabel: "Developer", developerTitle: "想整合進開發",
+    developerBody: "API 串接、音訊處理、外掛開發。技術人員的詳細資訊。", developerCta: "查看 Developer LP",
+    otherText: "都不太符合？", otherCta: "告訴我們你想用在什麼場景",
+  },
+};
+
+const copy = copies[lang] ?? copies.ja;
+const { title, description } = copy;
 ---
 
 <BaseLayout title={title} description={description} lang={lang} canonical={`https://rekinote.app/${lang}/lp/`}>
@@ -68,7 +83,7 @@ const copy = isJa
         <div class="mx-auto max-w-2xl text-center">
           <p class="eyebrow">{copy.eyebrow}</p>
           <h1 class="mt-5 text-4xl font-semibold tracking-tight text-[#f5f5f7] sm:text-5xl md:text-6xl">
-            {copy.title}
+            {copy.heading}
           </h1>
           <p class="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#b6b6c2] sm:text-base">
             {copy.body}
@@ -141,7 +156,7 @@ const copy = isJa
         <p class="text-sm text-[#8e8e98]">
           {copy.otherText}{" "}
           <a
-            href={`mailto:contact@hibachi-inc.jp?subject=${encodeURIComponent(isJa ? "Reki note へのご要望" : "Reki note feature request")}`}
+            href={`mailto:contact@hibachi-inc.jp?subject=${encodeURIComponent(lang === "ja" ? "Reki note へのご要望" : "Reki note feature request")}`}
             class="text-[#a78bfa] underline underline-offset-4 decoration-[rgba(167,139,250,0.4)] hover:text-white transition-colors duration-180"
           >
             {copy.otherCta}

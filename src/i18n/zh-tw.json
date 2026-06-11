@@ -1,0 +1,442 @@
+{
+  "Header": {
+    "benefits": "痛點",
+    "features": "效果",
+    "integrations": "支援範圍",
+    "compare": "比較",
+    "privacy": "隱私",
+    "howItWorks": "運作方式",
+    "download": "下載",
+    "downloadWin": "Windows 版",
+    "pricing": "方案"
+  },
+  "Hero": {
+    "title1": "所有會議紀錄，",
+    "title2": "一個 Reki 搞定。",
+    "subtitle": "語音轉文字免費，完全無限制。不需要 bot。",
+    "desc": "隱私優先設計 — 錄音資料不會離開你的裝置。",
+    "downloadMac": "Mac 版免費下載",
+    "downloadWin": "Windows 版免費下載",
+    "mac": "Mac",
+    "macSub": "Apple Silicon（M1 以上）",
+    "win": "Win",
+    "winSub": "Windows 10 以上",
+    "winNote": "Mac 版為穩定版。Windows 版部分功能可能受限"
+  },
+  "Problem": {
+    "eyebrow": "The Problem",
+    "title1": "為了會議紀錄",
+    "title2": "你訂了多少個",
+    "title3": "AI 服務？",
+    "desc": "每套會議工具都要額外付費開啟 AI。資料分散在不同伺服器，連跨工具搜尋都做不到。",
+    "before": "Before",
+    "beforeTitle": "分散訂閱，資料四散",
+    "beforeItems": [
+      {
+        "name": "Zoom 或 Meet AI 附加功能",
+        "price": "$10-20+/人"
+      },
+      {
+        "name": "Copilot 或工作區升級",
+        "price": "$20-30+/人"
+      },
+      {
+        "name": "獨立錄音工具",
+        "price": "$10-20/月"
+      },
+      {
+        "name": "匯出或儲存的替代方案",
+        "price": "又一個工具"
+      }
+    ],
+    "total": "結果",
+    "beforeTotal": "工具越多，記得越少",
+    "beforeTotalDesc": "花得更多，卻什麼都找不到",
+    "after": "After",
+    "afterTitle": "一個本機工作區，涵蓋所有對話",
+    "afterDesc": "Zoom / Meet / Teams / Slack Huddles / 面對面對話，全部對應",
+    "afterItems": [
+      "一個 App 錄下所有通話與面對面對話",
+      "音訊和筆記留在你的 Mac 上",
+      "跨所有逐字稿和摘要向 AI 提問",
+      "免費無限語音轉文字。Pro 方案每月 $9.99"
+    ],
+    "afterTotal": "一個地方回顧一切",
+    "afterTotalDesc": "留下紀錄，隨時回查"
+  },
+  "Features": {
+    "eyebrow": "Benefits",
+    "title1": "用了 Reki，",
+    "title2": "會有什麼不同",
+    "rows": [
+      {
+        "num": "01",
+        "phase": "馬上 ・ Soon",
+        "title": "不再為每個會議工具分開付費。",
+        "body": "Zoom / Meet / Teams / Slack / 面對面對話，Reki 在裝置端錄下一切。語音轉文字、摘要、會議紀錄一站完成。不用再為多個服務付高額費用，也不必擔心資料散落在各家伺服器。"
+      },
+      {
+        "num": "02",
+        "phase": "幾週後 ・ 中期",
+        "title": "所有筆記，交給 Reki 就好。",
+        "body": "裝置上的每通電話都會自動轉文字並摘要。所有對話集中在一個地方，Reki AI 隨時回答你的問題。"
+      },
+      {
+        "num": "03",
+        "phase": "持續使用後 ・ 長期",
+        "title": "你專屬的「第二個大腦」誕生。",
+        "body": "半年前的決策原因、三年前會議的細節，問 AI 就能馬上調出來。工作的判斷速度和精準度，從根本改變。"
+      }
+    ],
+    "notificationTitle": "偵測到通話",
+    "notificationApp": "來源",
+    "notificationCalendar": "行事曆",
+    "notificationCalendarValue": "每週例會",
+    "notificationBtn": "開始錄音",
+    "chatQuestion": "上週跟陳志明確認的決議事項是什麼？",
+    "chatAnswerLabel": "ANSWER",
+    "chatAnswer": "以下是 3 項決議事項：\n① 原型在 4/15 前交付\n② 審查在 Slack 上非同步進行\n③ 預算已獲內部核准",
+    "chatSource": "來源：每週例會 4/8 18:02",
+    "memoryLabel": "MEMORY",
+    "memoryItems": [
+      {
+        "date": "今天",
+        "title": "每週例會",
+        "excerpt": "下次之前完成原型..."
+      },
+      {
+        "date": "3 天前",
+        "title": "客戶會議 / HIBACHI inc.",
+        "excerpt": "預算大致 OK"
+      },
+      {
+        "date": "上週",
+        "title": "1on1 / 陳志明",
+        "excerpt": "職涯面談的後續"
+      },
+      {
+        "date": "2 週前",
+        "title": "產品審查",
+        "excerpt": "設計方向確定"
+      },
+      {
+        "date": "半年前",
+        "title": "Q3 啟動會議",
+        "excerpt": "目標設定的依據"
+      }
+    ]
+  },
+  "WorksWith": {
+    "eyebrow": "Works Where You Work",
+    "title": "你日常使用的裝置，所有通話都對應。",
+    "desc": "Reki 從系統層級擷取音訊，安裝啟動後，所有通話都能用。",
+    "apps": [
+      {
+        "name": "Zoom",
+        "slug": "zoom"
+      },
+      {
+        "name": "Google Meet",
+        "slug": "googlemeet"
+      },
+      {
+        "name": "Teams",
+        "slug": null,
+        "icon": "users"
+      },
+      {
+        "name": "LINE",
+        "slug": "line"
+      },
+      {
+        "name": "Discord",
+        "slug": "discord"
+      },
+      {
+        "name": "Messenger",
+        "slug": "messenger"
+      },
+      {
+        "name": "所有 Mac 應用程式",
+        "slug": "apple"
+      },
+      {
+        "name": "面對面對話",
+        "slug": null,
+        "icon": "messages"
+      },
+      {
+        "name": "其他通話服務",
+        "slug": null,
+        "fallback": "…"
+      }
+    ]
+  },
+  "Compare": {
+    "eyebrow": "Compare",
+    "title1": "跟其他 AI 會議紀錄工具",
+    "title2": "有什麼不同？",
+    "desc": "",
+    "colFeature": "比較項目",
+    "col2": "Zoom AI / Teams Copilot",
+    "col3": "Otter / tl;dv / Notta",
+    "footnote": "※ 各服務規格以 2026 年 4 月公開資訊為準",
+    "rows": [
+      {
+        "feature": "支援的會議工具",
+        "reki": {
+          "tone": "good",
+          "text": "一個 App 涵蓋所有應用程式與面對面對話"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "只限自家平台"
+        },
+        "notes": {
+          "tone": "soso",
+          "text": "以主要會議 App 為主，部分支援"
+        }
+      },
+      {
+        "feature": "收費模式",
+        "reki": {
+          "tone": "good",
+          "text": "免費無限轉文字。Pro 每月 $9.99"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "各平台分別加價"
+        },
+        "notes": {
+          "tone": "bad",
+          "text": "需要另外訂閱"
+        }
+      },
+      {
+        "feature": "資料儲存位置",
+        "reki": {
+          "tone": "good",
+          "text": "留在你的裝置上"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "存在各家伺服器"
+        },
+        "notes": {
+          "tone": "bad",
+          "text": "存在各家伺服器"
+        }
+      },
+      {
+        "feature": "跨會議紀錄查詢",
+        "reki": {
+          "tone": "good",
+          "text": "跨所有紀錄提問"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "不支援或非常有限"
+        },
+        "notes": {
+          "tone": "soso",
+          "text": "單次摘要為主，跨紀錄能力弱"
+        }
+      },
+      {
+        "feature": "輸出格式",
+        "reki": {
+          "tone": "good",
+          "text": "Markdown / Obsidian 友善"
+        },
+        "otherAi": {
+          "tone": "soso",
+          "text": "基本只能在平台內瀏覽"
+        },
+        "notes": {
+          "tone": "soso",
+          "text": "部分可匯出"
+        }
+      },
+      {
+        "feature": "面對面對話錄音",
+        "reki": {
+          "tone": "good",
+          "text": "直接支援"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "基本不支援"
+        },
+        "notes": {
+          "tone": "soso",
+          "text": "部分支援"
+        }
+      }
+    ]
+  },
+  "Privacy": {
+    "eyebrow": "Privacy by Design",
+    "title1": "預設就是隱私。",
+    "title2": "設計就能帶走。",
+    "facts": [
+      "音訊檔案保存在你的 Mac 上",
+      "語音轉文字和摘要由 Reki 伺服器處理",
+      "處理完成後的資料只保存在你的 Mac 上"
+    ],
+    "providersLabel": "DATA FLOW",
+    "providersDesc": "你的資料只在處理的瞬間離開裝置",
+    "providers": [
+      "錄音 → 保存在 Mac",
+      "語音轉文字 → 處理後立即刪除",
+      "會議紀錄 → 保存在 Mac",
+      "搜尋・AI 問答 → 在 Mac 上完成"
+    ]
+  },
+  "HowItWorks": {
+    "eyebrow": "How it Works",
+    "title1": "簡單錄下，",
+    "title2": "強大回憶。",
+    "input01Label": "Input 01",
+    "input01Title": "語音逐字稿",
+    "transcript": [
+      {
+        "time": "00:03",
+        "speaker": "陳志明",
+        "color": "#a78bfa",
+        "text": "上個月營收超標了，你覺得最大的原因是什麼？"
+      },
+      {
+        "time": "00:18",
+        "speaker": "林雅婷",
+        "color": "#7c9cf0",
+        "text": "主要是新通路的轉換率提升了。尤其是潛在客戶的品質明顯變好——"
+      },
+      {
+        "time": "00:34",
+        "speaker": "陳志明",
+        "color": "#a78bfa",
+        "text": "具體數字麻煩在下次會議前整理好分享。"
+      }
+    ],
+    "input02Label": "Input 02",
+    "input02Title": "行事曆資訊",
+    "calendarMeeting": "每週例會",
+    "calendarDate": "日期",
+    "calendarDateValue": "2026/05/01　10:00",
+    "calendarParticipants": "參與者",
+    "calendarParticipantsValue": "陳志明、林雅婷、王建宏",
+    "calendarTool": "工具",
+    "calendarNote": "自動將「誰參加、什麼時間、什麼會議」連結到錄音",
+    "outputLabel": "Output",
+    "outputTitle": "知識資料庫",
+    "outputCards": [
+      {
+        "title": "全文搜尋",
+        "body": "依參與者、日期、發言內容跨紀錄搜尋"
+      },
+      {
+        "title": "AI 問答",
+        "body": "用自然語言問「上週的決議事項是什麼？」"
+      },
+      {
+        "title": "持續累積的資產",
+        "body": "越用脈絡越深，打造你專屬的第二個大腦"
+      }
+    ]
+  },
+  "FinalCTA": {
+    "title": "用過之後，\n就離不開了。",
+    "desc": "先從整合分散的訂閱開始。等你習慣之後，筆記、搜尋、AI 通通幫你搞定，每天都輕鬆得令人驚訝。",
+    "macSub": "Apple Silicon（M1 以上）",
+    "winSub": "Windows 10 以上",
+    "btnDefault": "Mac 版免費下載",
+    "btnWin": "Windows 版免費下載",
+    "preview": {
+      "ariaLabel": "Reki note 首頁預覽",
+      "recordTitle": "開始錄音",
+      "recordSubtitle": "從現在這一刻開始記錄",
+      "importAudio": "匯入音訊",
+      "todaySchedule": "今天的行程",
+      "schedule": [
+        {
+          "time": "09:30",
+          "title": "每日站會",
+          "status": "即將開始"
+        },
+        {
+          "time": "13:00",
+          "title": "客戶會議",
+          "status": "Google Meet"
+        },
+        {
+          "time": "18:00",
+          "title": "每週例會",
+          "status": "Zoom"
+        }
+      ],
+      "home": "首頁",
+      "heading": "首頁",
+      "subheading": "Mac 上所有對話，全部集中在這裡。",
+      "searchPlaceholder": "搜尋會議紀錄",
+      "filters": [
+        "今天",
+        "最新",
+        "30 分鐘內"
+      ],
+      "sessions": [
+        {
+          "title": "每週例會 / HIBACHI inc.",
+          "time": "今天 18:02〜18:47",
+          "app": "Zoom",
+          "attendees": "4",
+          "preview": "原型交付期限為 4/15。審查在 Slack 上非同步進行。預算已獲內部核准。"
+        },
+        {
+          "title": "客戶會議 / ACME",
+          "time": "4/28 13:00〜13:38",
+          "app": "Google Meet",
+          "attendees": "3",
+          "preview": "導入首月從業務團隊開始。管理員權限設計下次會議再敲定。"
+        },
+        {
+          "title": "1on1 / 陳志明",
+          "time": "4/25 11:00〜11:31",
+          "app": "面對面",
+          "attendees": "2",
+          "preview": "達成共識：先優化新人上手流程，再擴大招募。"
+        }
+      ],
+      "attendeesUnit": " 人",
+      "aiLink": "進入 Room",
+      "aiQuestion": "上週跟陳志明確認的決議事項是什麼？"
+    }
+  },
+  "ThankYou": {
+    "title": "感謝你的下載！",
+    "desc": "歡迎告訴我們你對 Reki note 的想法和建議。",
+    "feedbackLabel": "使用感想",
+    "feedbackPlaceholder": "用起來感覺如何？希望有什麼功能？歡迎自由分享",
+    "bugLabel": "Bug / 建議",
+    "bugPlaceholder": "問題描述、重現步驟，或你希望改善的地方",
+    "emailLabel": "需要回覆時才填。非必填。",
+    "emailPlaceholder": "電子信箱（非必填）",
+    "submit": "送出",
+    "sending": "送出中...",
+    "thanks": "已收到你的回饋，謝謝！",
+    "close": "關閉"
+  },
+  "Footer": {
+    "tagline": "Reki note ・ 裝置上所有對話，都變成你的記憶。",
+    "company": "營運公司",
+    "switchHeading": "使用情境",
+    "businessLabel": "商務用途",
+    "businessDesc": "會議、商談、1on1、面對面會議的紀錄一次搞定。",
+    "studentLabel": "學生用途",
+    "studentDesc": "課堂錄音、逐字稿、考前複習更輕鬆。",
+    "currentLabel": "目前顯示",
+    "developerLabel": "開發者",
+    "developerDesc": "API 串接、音訊處理、外掛開發的技術資訊。",
+    "otherLabel": "其他",
+    "otherDesc": "不確定哪個適合？看看所有使用情境。"
+  }
+}

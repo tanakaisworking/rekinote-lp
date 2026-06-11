@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { studentDictionaries } from "../../../i18n/student";
+import { locales, type Locale } from "../../../i18n/getDictionary";
 import Hero from "../../../components/astro/Hero.astro";
 import Problem from "../../../components/astro/Problem.astro";
 import WorksWith from "../../../components/astro/WorksWith.astro";
@@ -13,20 +14,20 @@ import { Features } from "../../../components/react/Features";
 import { FinalCTA } from "../../../components/react/FinalCTA";
 
 export function getStaticPaths() {
-  return [{ params: { lang: "ja" } }, { params: { lang: "en" } }];
+  return locales.map((lang) => ({ params: { lang } }));
 }
 
-const lang = Astro.params.lang as "ja" | "en";
+const lang = Astro.params.lang as Locale;
 const dict = studentDictionaries[lang];
 const pathname = Astro.url.pathname;
 
-const isJa = lang === "ja";
-const title = isJa
-  ? "Reki note for Students — 講義ノート取るの、やめた。"
-  : "Reki note for Students — Stop trying to catch every word.";
-const description = isJa
-  ? "講義ノートはRekiに任せよう。マイク録音で文字起こし、講義まとめ、時間割保存、オンライン授業の自動検知まで。"
-  : "Let Reki handle the lecture record. Capture audio, get transcripts and summaries, and keep every class easier to come back to later.";
+const meta: Record<string, { title: string; description: string }> = {
+  ja: { title: "Reki note for Students — 講義ノート取るの、やめた。", description: "講義ノートはRekiに任せよう。マイク録音で文字起こし、講義まとめ、時間割保存、オンライン授業の自動検知まで。" },
+  en: { title: "Reki note for Students — Stop trying to catch every word.", description: "Let Reki handle the lecture record. Capture audio, get transcripts and summaries, and keep every class easier to come back to later." },
+  ko: { title: "Reki note for Students — 강의 노트 쓰는 거, 그만뒀어.", description: "강의 기록은 Reki에게 맡기세요. 마이크 녹음으로 음성 인식, 강의 요약, 시간표 저장, 온라인 수업 자동 감지까지." },
+  "zh-tw": { title: "Reki note for Students — 不再手抄講義筆記。", description: "把講義記錄交給 Reki。麥克風錄音、語音轉文字、講義摘要、課表儲存、線上課程自動偵測，一次搞定。" },
+};
+const { title, description } = meta[lang] ?? meta.ja;
 ---
 
 <BaseLayout title={title} description={description} lang={lang} canonical={`https://rekinote.app/${lang}/lp/student/`}>

@@ -1,6 +1,6 @@
 import * as React from "react";
 
-type Lang = "ja" | "en";
+type Lang = "ja" | "en" | "ko" | "zh-tw";
 
 const SCRIPT: Record<Lang, string[]> = {
   ja: [
@@ -17,6 +17,155 @@ const SCRIPT: Record<Lang, string[]> = {
     "Speak into your mic and watch the audio level respond.",
     "If both work, your setup is complete.",
   ],
+  ko: [
+    "이 음성은 Reki note 설정 데모입니다.",
+    "이 음성이 들리면 스피커가 정상적으로 작동하고 있습니다.",
+    "다음으로 아래 버튼을 눌러 마이크를 켜주세요.",
+    "마이크에 대고 말하면 오디오 레벨이 반응합니다.",
+    "둘 다 확인되면 설정이 완료됩니다.",
+  ],
+  "zh-tw": [
+    "這是 Reki note 的設定示範。",
+    "如果你聽得到這段語音，表示喇叭運作正常。",
+    "接下來，請點擊下方按鈕開啟麥克風。",
+    "對著麥克風說話，觀察音量指示的反應。",
+    "兩項都確認完成後，設定就完成了。",
+  ],
+};
+
+const UI: Record<
+  Lang,
+  {
+    backToLP: string;
+    setupDemo: string;
+    setupDesc: string;
+    rekiSetup: string;
+    ttsUnsupported: string;
+    play: string;
+    playing: string;
+    replay: string;
+    scriptLabel: string;
+    micTest: string;
+    listening: string;
+    turnOnMic: string;
+    micDenied: string;
+    inputLevel: string;
+    transcriptionPreview: string;
+    speakIntoMic: string;
+    speakersOK: string;
+    micOK: string;
+    setupComplete: string;
+    readyToStart: string;
+    privacyNote: string;
+  }
+> = {
+  ja: {
+    backToLP: "LPに戻る",
+    setupDemo: "セットアップデモ",
+    setupDesc:
+      "スピーカーとマイクの動作を確認して、Reki noteを使い始める準備をしましょう。",
+    rekiSetup: "Reki note セットアップ",
+    ttsUnsupported: "このブラウザは音声合成に対応していません",
+    play: "▶  再生する",
+    playing: "再生中…",
+    replay: "↻  もう一度",
+    scriptLabel: "読み上げテキスト",
+    micTest: "マイクテスト",
+    listening: "検出中",
+    turnOnMic: "マイクをオンにする",
+    micDenied:
+      "マイクの権限が拒否されました。ブラウザ設定から許可してください。",
+    inputLevel: "入力レベル",
+    transcriptionPreview: "文字起こしプレビュー",
+    speakIntoMic:
+      "マイクに向かって話すと、ここに文字起こしが表示されます",
+    speakersOK: "スピーカー OK",
+    micOK: "マイク OK",
+    setupComplete: "セットアップ完了",
+    readyToStart: "Reki noteを使い始める準備が整いました。",
+    privacyNote:
+      "このページは音声データを保存しません。文字起こしプレビューにはブラウザの音声認識APIを使用しています。",
+  },
+  en: {
+    backToLP: "Back to LP",
+    setupDemo: "Setup Demo",
+    setupDesc: "Verify your speakers and microphone before using Reki note.",
+    rekiSetup: "Reki note Setup",
+    ttsUnsupported: "Speech synthesis not supported",
+    play: "▶  Play",
+    playing: "Playing…",
+    replay: "↻  Replay",
+    scriptLabel: "Script",
+    micTest: "Microphone Test",
+    listening: "Listening",
+    turnOnMic: "Turn on microphone",
+    micDenied:
+      "Microphone permission denied. Please allow it in browser settings.",
+    inputLevel: "Input Level",
+    transcriptionPreview: "Transcription Preview",
+    speakIntoMic:
+      "Speak into your mic and the transcript will appear here",
+    speakersOK: "Speakers OK",
+    micOK: "Mic OK",
+    setupComplete: "Setup Complete",
+    readyToStart: "You're ready to start using Reki note.",
+    privacyNote:
+      "This page does not store audio data. Transcription preview uses your browser's speech recognition API.",
+  },
+  ko: {
+    backToLP: "LP로 돌아가기",
+    setupDemo: "설정 데모",
+    setupDesc:
+      "스피커와 마이크가 정상적으로 작동하는지 확인하고, Reki note를 사용할 준비를 해요.",
+    rekiSetup: "Reki note 설정",
+    ttsUnsupported: "이 브라우저는 음성 합성을 지원하지 않아요",
+    play: "▶  재생하기",
+    playing: "재생 중…",
+    replay: "↻  다시 재생",
+    scriptLabel: "읽어주는 텍스트",
+    micTest: "마이크 테스트",
+    listening: "감지 중",
+    turnOnMic: "마이크 켜기",
+    micDenied:
+      "마이크 권한이 거부되었어요. 브라우저 설정에서 허용해 주세요.",
+    inputLevel: "입력 레벨",
+    transcriptionPreview: "받아쓰기 미리보기",
+    speakIntoMic:
+      "마이크에 대고 말하면 여기에 받아쓰기가 표시돼요",
+    speakersOK: "스피커 OK",
+    micOK: "마이크 OK",
+    setupComplete: "설정 완료",
+    readyToStart: "Reki note를 사용할 준비가 되었어요.",
+    privacyNote:
+      "이 페이지는 음성 데이터를 저장하지 않아요. 받아쓰기 미리보기에는 브라우저의 음성 인식 API를 사용해요.",
+  },
+  "zh-tw": {
+    backToLP: "返回 LP",
+    setupDemo: "設定示範",
+    setupDesc:
+      "確認喇叭和麥克風是否正常運作，準備好開始使用 Reki note。",
+    rekiSetup: "Reki note 設定",
+    ttsUnsupported: "此瀏覽器不支援語音合成",
+    play: "▶  播放",
+    playing: "播放中…",
+    replay: "↻  重新播放",
+    scriptLabel: "朗讀文字",
+    micTest: "麥克風測試",
+    listening: "偵測中",
+    turnOnMic: "開啟麥克風",
+    micDenied:
+      "麥克風權限被拒絕了。請在瀏覽器設定中允許使用。",
+    inputLevel: "輸入音量",
+    transcriptionPreview: "語音轉文字預覽",
+    speakIntoMic:
+      "對著麥克風說話，轉錄文字會顯示在這裡",
+    speakersOK: "喇叭 OK",
+    micOK: "麥克風 OK",
+    setupComplete: "設定完成",
+    readyToStart: "你已經準備好開始使用 Reki note 了。",
+    privacyNote:
+      "本頁面不會儲存音訊資料。語音轉文字預覽使用瀏覽器的語音辨識 API。",
+  },
 };
 
 function EqBars({ active }: { active: boolean }) {
@@ -77,9 +226,16 @@ function EqBars({ active }: { active: boolean }) {
   );
 }
 
+const ttsLangMap: Record<Lang, string> = {
+  ja: "ja-JP",
+  en: "en-US",
+  ko: "ko-KR",
+  "zh-tw": "zh-TW",
+};
+
 export function SetupDemo({ lang }: { lang: Lang }) {
-  const isJa = lang === "ja";
   const script = SCRIPT[lang];
+  const ui = UI[lang];
 
   const [ttsState, setTtsState] = React.useState<
     "idle" | "playing" | "done"
@@ -125,7 +281,7 @@ export function SetupDemo({ lang }: { lang: Lang }) {
     speechSynthesis.cancel();
 
     const voices = speechSynthesis.getVoices();
-    const prefix = isJa ? "ja" : "en";
+    const prefix = lang.startsWith("zh") ? "zh" : lang.substring(0, 2);
     const voice =
       voices.find((v) => v.lang.startsWith(prefix)) ?? null;
 
@@ -140,8 +296,8 @@ export function SetupDemo({ lang }: { lang: Lang }) {
       }
       const u = new SpeechSynthesisUtterance(script[idx]);
       if (voice) u.voice = voice;
-      u.lang = isJa ? "ja-JP" : "en-US";
-      u.rate = isJa ? 0.9 : 1.0;
+      u.lang = ttsLangMap[lang];
+      u.rate = lang === "ja" ? 0.9 : 1.0;
       const ci = idx;
       u.onstart = () => setSentenceIdx(ci);
       u.onend = () => {
@@ -155,7 +311,7 @@ export function SetupDemo({ lang }: { lang: Lang }) {
       speechSynthesis.speak(u);
     };
     speakNext();
-  }, [ttsSupported, isJa, script]);
+  }, [ttsSupported, lang, script]);
 
   const enableMic = React.useCallback(async () => {
     try {
@@ -191,7 +347,7 @@ export function SetupDemo({ lang }: { lang: Lang }) {
         const recognition = new SR();
         recognition.continuous = true;
         recognition.interimResults = true;
-        recognition.lang = isJa ? "ja-JP" : "en-US";
+        recognition.lang = ttsLangMap[lang];
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         recognition.onresult = (event: any) => {
@@ -221,7 +377,7 @@ export function SetupDemo({ lang }: { lang: Lang }) {
     } catch {
       setMicState("denied");
     }
-  }, [isJa]);
+  }, [lang]);
 
   React.useEffect(() => {
     return () => {
@@ -251,7 +407,7 @@ export function SetupDemo({ lang }: { lang: Lang }) {
             className="flex items-center gap-2 text-sm text-[#8c8c97] transition-colors hover:text-[#ececef]"
           >
             <span>←</span>
-            <span>{isJa ? "LPに戻る" : "Back to LP"}</span>
+            <span>{ui.backToLP}</span>
           </a>
           <span className="text-sm font-semibold tracking-tight">
             Reki note
@@ -264,12 +420,10 @@ export function SetupDemo({ lang }: { lang: Lang }) {
           <div className="mb-10 text-center">
             <p className="eyebrow">Setup</p>
             <h1 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-              {isJa ? "セットアップデモ" : "Setup Demo"}
+              {ui.setupDemo}
             </h1>
             <p className="mt-3 text-sm text-[#8c8c97] sm:text-base">
-              {isJa
-                ? "スピーカーとマイクの動作を確認して、Reki noteを使い始める準備をしましょう。"
-                : "Verify your speakers and microphone before using Reki note."}
+              {ui.setupDesc}
             </p>
           </div>
 
@@ -286,7 +440,7 @@ export function SetupDemo({ lang }: { lang: Lang }) {
               <div className="absolute left-5 top-4 flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-[#a78bfa]" />
                 <span className="text-xs font-medium text-[rgba(236,236,239,0.5)]">
-                  {isJa ? "Reki note セットアップ" : "Reki note Setup"}
+                  {ui.rekiSetup}
                 </span>
               </div>
 
@@ -327,9 +481,7 @@ export function SetupDemo({ lang }: { lang: Lang }) {
               <div className="mt-6 flex justify-center">
                 {!ttsSupported ? (
                   <p className="text-sm text-red-400">
-                    {isJa
-                      ? "このブラウザは音声合成に対応していません"
-                      : "Speech synthesis not supported"}
+                    {ui.ttsUnsupported}
                   </p>
                 ) : (
                   <button
@@ -341,12 +493,9 @@ export function SetupDemo({ lang }: { lang: Lang }) {
                         : "bg-[#8b5cf6] text-white hover:bg-[#7c3aed]"
                     }`}
                   >
-                    {ttsState === "idle" &&
-                      (isJa ? "▶  再生する" : "▶  Play")}
-                    {ttsState === "playing" &&
-                      (isJa ? "再生中…" : "Playing…")}
-                    {ttsState === "done" &&
-                      (isJa ? "↻  もう一度" : "↻  Replay")}
+                    {ttsState === "idle" && ui.play}
+                    {ttsState === "playing" && ui.playing}
+                    {ttsState === "done" && ui.replay}
                   </button>
                 )}
               </div>
@@ -371,7 +520,7 @@ export function SetupDemo({ lang }: { lang: Lang }) {
 
             <div className="border-t border-[rgba(255,255,255,0.06)] p-5">
               <p className="mb-3 text-xs font-medium uppercase tracking-wider text-[#8c8c97]">
-                {isJa ? "読み上げテキスト" : "Script"}
+                {ui.scriptLabel}
               </p>
               <div className="space-y-2">
                 {script.map((s, i) => (
@@ -420,12 +569,12 @@ export function SetupDemo({ lang }: { lang: Lang }) {
                 </svg>
               </div>
               <h3 className="text-lg font-semibold">
-                {isJa ? "マイクテスト" : "Microphone Test"}
+                {ui.micTest}
               </h3>
               {micState === "active" && (
                 <span className="ml-auto flex items-center gap-1.5 text-xs font-medium text-[#34d399]">
                   <span className="h-2 w-2 animate-pulse rounded-full bg-[#34d399]" />
-                  {isJa ? "検出中" : "Listening"}
+                  {ui.listening}
                 </span>
               )}
             </div>
@@ -446,16 +595,14 @@ export function SetupDemo({ lang }: { lang: Lang }) {
                   <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
                   <line x1="12" y1="19" x2="12" y2="22" />
                 </svg>
-                {isJa ? "マイクをオンにする" : "Turn on microphone"}
+                {ui.turnOnMic}
               </button>
             )}
 
             {micState === "denied" && (
               <div className="rounded-xl border border-[rgba(239,68,68,0.2)] bg-[rgba(239,68,68,0.08)] p-4">
                 <p className="text-sm text-red-400">
-                  {isJa
-                    ? "マイクの権限が拒否されました。ブラウザ設定から許可してください。"
-                    : "Microphone permission denied. Please allow it in browser settings."}
+                  {ui.micDenied}
                 </p>
               </div>
             )}
@@ -464,7 +611,7 @@ export function SetupDemo({ lang }: { lang: Lang }) {
               <>
                 <div className="mb-5">
                   <p className="mb-2 text-xs text-[#8c8c97]">
-                    {isJa ? "入力レベル" : "Input Level"}
+                    {ui.inputLevel}
                   </p>
                   <div className="h-3 overflow-hidden rounded-full bg-[rgba(255,255,255,0.06)]">
                     <div
@@ -484,9 +631,7 @@ export function SetupDemo({ lang }: { lang: Lang }) {
                 {recognitionSupported && (
                   <div className="panel-inset rounded-xl p-4">
                     <p className="mb-2 text-xs text-[#8c8c97]">
-                      {isJa
-                        ? "文字起こしプレビュー"
-                        : "Transcription Preview"}
+                      {ui.transcriptionPreview}
                     </p>
                     {transcript || interim ? (
                       <p className="text-sm leading-relaxed">
@@ -497,9 +642,7 @@ export function SetupDemo({ lang }: { lang: Lang }) {
                       </p>
                     ) : (
                       <p className="text-sm text-[#4a4a57]">
-                        {isJa
-                          ? "マイクに向かって話すと、ここに文字起こしが表示されます"
-                          : "Speak into your mic and the transcript will appear here"}
+                        {ui.speakIntoMic}
                       </p>
                     )}
                   </div>
@@ -523,7 +666,7 @@ export function SetupDemo({ lang }: { lang: Lang }) {
                 >
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
-                {isJa ? "スピーカー OK" : "Speakers OK"}
+                {ui.speakersOK}
               </span>
             )}
             {micActive && (
@@ -540,7 +683,7 @@ export function SetupDemo({ lang }: { lang: Lang }) {
                 >
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
-                {isJa ? "マイク OK" : "Mic OK"}
+                {ui.micOK}
               </span>
             )}
           </div>
@@ -548,20 +691,16 @@ export function SetupDemo({ lang }: { lang: Lang }) {
           {setupComplete && (
             <div className="mt-4 text-center">
               <p className="text-lg font-semibold text-[#34d399]">
-                {isJa ? "セットアップ完了" : "Setup Complete"}
+                {ui.setupComplete}
               </p>
               <p className="mt-1 text-sm text-[#8c8c97]">
-                {isJa
-                  ? "Reki noteを使い始める準備が整いました。"
-                  : "You're ready to start using Reki note."}
+                {ui.readyToStart}
               </p>
             </div>
           )}
 
           <p className="mt-8 text-center text-xs text-[#5e5e6a]">
-            {isJa
-              ? "このページは音声データを保存しません。文字起こしプレビューにはブラウザの音声認識APIを使用しています。"
-              : "This page does not store audio data. Transcription preview uses your browser's speech recognition API."}
+            {ui.privacyNote}
           </p>
         </div>
       </main>

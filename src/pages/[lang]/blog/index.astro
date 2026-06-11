@@ -1,19 +1,23 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { locales, type Locale } from "../../../i18n/getDictionary";
 import { getBlogs } from "../../../lib/microcms";
 
 export function getStaticPaths() {
-  return [{ params: { lang: "ja" } }, { params: { lang: "en" } }];
+  return locales.map((lang) => ({ params: { lang } }));
 }
 
-const lang = Astro.params.lang as "ja" | "en";
-const isJa = lang === "ja";
-const { contents: blogs, totalCount } = await getBlogs(lang, 20);
+const lang = Astro.params.lang as Locale;
+const blogLang = (lang === "ko" || lang === "zh-tw") ? "en" : lang;
+const { contents: blogs, totalCount } = await getBlogs(blogLang, 20);
 
-const title = isJa ? "ブログ — Reki note" : "Blog — Reki note";
-const description = isJa
-  ? "Reki noteの最新情報、使い方のヒント、開発の裏側をお届けします。"
-  : "Latest updates, tips, and behind-the-scenes from Reki note.";
+const meta: Record<string, { title: string; description: string }> = {
+  ja: { title: "ブログ — Reki note", description: "Reki noteの最新情報、使い方のヒント、開発の裏側をお届けします。" },
+  en: { title: "Blog — Reki note", description: "Latest updates, tips, and behind-the-scenes from Reki note." },
+  ko: { title: "블로그 — Reki note", description: "Reki note의 최신 소식, 사용 팁, 개발 비하인드를 전해드려요." },
+  "zh-tw": { title: "部落格 — Reki note", description: "Reki note 的最新消息、使用技巧與開發幕後。" },
+};
+const { title, description } = meta[lang] ?? meta.ja;
 ---
 
 <BaseLayout title={title} description={description} lang={lang} canonical={`https://rekinote.app/${lang}/blog/`}>
@@ -28,8 +32,8 @@ const description = isJa
     </header>
 
     <main class="container-x px-6 py-14 max-w-3xl">
-      <h1 class="text-3xl font-bold tracking-tight">{isJa ? "ブログ" : "Blog"}</h1>
-      <p class="mt-3 text-sm text-[#a0a0ad]">{totalCount} {isJa ? "件の記事" : "articles"}</p>
+      <h1 class="text-3xl font-bold tracking-tight">{lang === "ja" ? "ブログ" : lang === "ko" ? "블로그" : lang === "zh-tw" ? "部落格" : "Blog"}</h1>
+      <p class="mt-3 text-sm text-[#a0a0ad]">{totalCount} {lang === "ja" ? "件の記事" : lang === "ko" ? "개의 글" : lang === "zh-tw" ? "篇文章" : "articles"}</p>
 
       <div class="mt-10 space-y-8">
         {blogs.map((blog) => (
@@ -69,7 +73,7 @@ const description = isJa
       </div>
 
       {blogs.length === 0 && (
-        <p class="mt-10 text-[#a0a0ad]">{isJa ? "まだ記事がありません。" : "No articles yet."}</p>
+        <p class="mt-10 text-[#a0a0ad]">{lang === "ja" ? "まだ記事がありません。" : lang === "ko" ? "아직 글이 없어요." : lang === "zh-tw" ? "目前還沒有文章。" : "No articles yet."}</p>
       )}
     </main>
 

@@ -1,17 +1,20 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { locales, type Locale } from "../../i18n/getDictionary";
 import { ThanksContent } from "../../components/react/ThanksContent";
 
 export function getStaticPaths() {
-  return [{ params: { lang: "ja" } }, { params: { lang: "en" } }];
+  return locales.map((lang) => ({ params: { lang } }));
 }
 
-const lang = Astro.params.lang as "ja" | "en";
-const isJa = lang === "ja";
-const title = isJa ? "ダウンロードありがとうございます — Reki note" : "Thanks for downloading — Reki note";
-const description = isJa
-  ? "Reki noteをダウンロードいただきありがとうございます。"
-  : "Thanks for downloading Reki note.";
+const lang = Astro.params.lang as Locale;
+const meta: Record<string, { title: string; description: string }> = {
+  ja: { title: "ダウンロードありがとうございます — Reki note", description: "Reki noteをダウンロードいただきありがとうございます。" },
+  en: { title: "Thanks for downloading — Reki note", description: "Thanks for downloading Reki note." },
+  ko: { title: "다운로드해 주셔서 감사합니다 — Reki note", description: "Reki note를 다운로드해 주셔서 감사합니다." },
+  "zh-tw": { title: "感謝下載 — Reki note", description: "感謝你下載 Reki note。" },
+};
+const { title, description } = meta[lang] ?? meta.ja;
 ---
 
 <BaseLayout title={title} description={description} lang={lang} noindex={true}>

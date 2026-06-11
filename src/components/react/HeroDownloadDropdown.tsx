@@ -9,7 +9,7 @@ export function HeroDownloadDropdown({
   lang = "ja",
   label,
 }: {
-  lang?: "ja" | "en";
+  lang?: string;
   label: string;
 }) {
   const [open, setOpen] = React.useState(false);

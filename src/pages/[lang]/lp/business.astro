@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-import { getDictionary } from "../../../i18n/getDictionary";
+import { getDictionary, locales, type Locale } from "../../../i18n/getDictionary";
 import Hero from "../../../components/astro/Hero.astro";
 import Problem from "../../../components/astro/Problem.astro";
 import WorksWith from "../../../components/astro/WorksWith.astro";
@@ -12,20 +12,20 @@ import { Features } from "../../../components/react/Features";
 import { FinalCTA } from "../../../components/react/FinalCTA";
 
 export function getStaticPaths() {
-  return [{ params: { lang: "ja" } }, { params: { lang: "en" } }];
+  return locales.map((lang) => ({ params: { lang } }));
 }
 
-const lang = Astro.params.lang as "ja" | "en";
+const lang = Astro.params.lang as Locale;
 const dict = getDictionary(lang);
 const pathname = Astro.url.pathname;
 
-const isJa = lang === "ja";
-const title = isJa
-  ? "Reki note — 議事録ツール、1つで足りる。"
-  : "Reki note — One place for every conversation.";
-const description = isJa
-  ? "システム音声に統合されたAI議事録アプリ。デバイス上の全ての音声を記録しよう。"
-  : "An AI meeting recorder built into system audio. Capture every conversation on your device, then come back to it later.";
+const meta: Record<string, { title: string; description: string }> = {
+  ja: { title: "Reki note — 議事録ツール、1つで足りる。", description: "システム音声に統合されたAI議事録アプリ。デバイス上の全ての音声を記録しよう。" },
+  en: { title: "Reki note — One place for every conversation.", description: "An AI meeting recorder built into system audio. Capture every conversation on your device, then come back to it later." },
+  ko: { title: "Reki note — 회의록 도구, 하나로 충분합니다.", description: "시스템 오디오에 통합된 AI 회의 녹음 앱. 기기의 모든 대화를 기록하세요." },
+  "zh-tw": { title: "Reki note — 會議記錄工具，一個就夠。", description: "整合系統音訊的 AI 會議記錄應用程式。記錄裝置上的所有對話。" },
+};
+const { title, description } = meta[lang] ?? meta.ja;
 ---
 
 <BaseLayout title={title} description={description} lang={lang} canonical={`https://rekinote.app/${lang}/lp/business/`}>

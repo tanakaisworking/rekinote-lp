@@ -1,13 +1,15 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { locales, type Locale } from "../../../i18n/getDictionary";
 import { getAllBlogsRaw, localizeBlog } from "../../../lib/microcms";
 
 export async function getStaticPaths() {
   const rawBlogs = await getAllBlogsRaw();
   const paths = [];
   for (const raw of rawBlogs) {
-    for (const lang of ["ja", "en"] as const) {
-      const blog = localizeBlog(raw, lang);
+    for (const lang of locales) {
+      const blogLang = (lang === "ko" || lang === "zh-tw") ? "en" : lang;
+      const blog = localizeBlog(raw, blogLang);
       if (blog) {
         paths.push({ params: { lang, slug: raw.id }, props: { blog } });
       }
@@ -16,7 +18,7 @@ export async function getStaticPaths() {
   return paths;
 }
 
-const lang = Astro.params.lang as "ja" | "en";
+const lang = Astro.params.lang as Locale;
 const { blog } = Astro.props;
 
 const publishedDate = new Date(blog.publishedAt!).toLocaleDateString(lang, {
@@ -72,7 +74,7 @@ const jsonLdArticle = {
     <main class="container-x px-6 py-14 max-w-2xl">
       <a href={`/${lang}/blog/`} class="inline-flex items-center gap-1.5 text-sm text-[#a0a0ad] hover:text-[#a78bfa] transition-colors mb-8">
         <svg viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4"><path fill-rule="evenodd" d="M17 10a.75.75 0 01-.75.75H5.612l4.158 3.96a.75.75 0 11-1.04 1.08l-5.5-5.25a.75.75 0 010-1.08l5.5-5.25a.75.75 0 111.04 1.08L5.612 9.25H16.25A.75.75 0 0117 10z" clip-rule="evenodd" /></svg>
-        {lang === "ja" ? "ブログ一覧" : "Back to blog"}
+        {lang === "ja" ? "ブログ一覧" : lang === "ko" ? "블로그 목록" : lang === "zh-tw" ? "返回部落格" : "Back to blog"}
       </a>
 
       <article>

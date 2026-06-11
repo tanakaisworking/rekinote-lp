@@ -25,7 +25,7 @@ export function DownloadButton({
 }: {
   children: React.ReactNode;
   className?: string;
-  lang?: "ja" | "en";
+  lang?: string;
 }) {
   const handleClick = () => {
     setTimeout(() => {
@@ -48,7 +48,7 @@ export function WindowsDownloadButton({
 }: {
   children: React.ReactNode;
   className?: string;
-  lang?: "ja" | "en";
+  lang?: string;
 }) {
   const handleClick = () => {
     setTimeout(() => {
@@ -71,7 +71,7 @@ export function WindowsDownloadButtonSmall({
 }: {
   children: React.ReactNode;
   className?: string;
-  lang?: "ja" | "en";
+  lang?: string;
 }) {
   const handleClick = () => {
     setTimeout(() => {
@@ -94,7 +94,7 @@ export function DownloadButtonSmall({
 }: {
   children: React.ReactNode;
   className?: string;
-  lang?: "ja" | "en";
+  lang?: string;
 }) {
   const handleClick = () => {
     setTimeout(() => {

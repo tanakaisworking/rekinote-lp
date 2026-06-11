@@ -7,7 +7,7 @@ const MAC_DOWNLOAD_URL =
 const WIN_DOWNLOAD_URL =
   "https://github.com/hibachi-inc/reki-note-releases/releases/latest/download/reki-note-setup.exe";
 
-function DownloadDropdown({ lang, lightMode, dict }: { lang: "ja" | "en"; lightMode: boolean; dict: DictHeader }) {
+function DownloadDropdown({ lang, lightMode, dict }: { lang: string; lightMode: boolean; dict: DictHeader }) {
   const [open, setOpen] = React.useState(false);
   const ref = React.useRef<HTMLDivElement>(null);
 
@@ -86,7 +86,7 @@ function DownloadDropdown({ lang, lightMode, dict }: { lang: "ja" | "en"; lightM
   );
 }
 
-export function Header({ dict, lang, pathname }: { dict: DictHeader; lang: "ja" | "en"; pathname: string }) {
+export function Header({ dict, lang, pathname }: { dict: DictHeader; lang: string; pathname: string }) {
   const [isLightMode, setIsLightMode] = React.useState(false);
 
   React.useEffect(() => {

@@ -1,11 +1,14 @@
 ---
 import "../styles/global.css";
 
+import type { Locale } from "../i18n/getDictionary";
+import { locales } from "../i18n/getDictionary";
+
 interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
-  lang?: "ja" | "en";
+  lang?: Locale;
   canonical?: string;
   noindex?: boolean;
   singleLang?: boolean;
@@ -24,11 +27,14 @@ const {
 const siteUrl = "https://rekinote.app";
 const canonicalUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
 const ogImageUrl = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
-const ogLocale = lang === "ja" ? "ja_JP" : "en_US";
-const ogLocaleAlt = lang === "ja" ? "en_US" : "ja_JP";
-const altLang = lang === "ja" ? "en" : "ja";
-const altPathname = Astro.url.pathname.replace(`/${lang}/`, `/${altLang}/`);
-const altUrl = new URL(altPathname, siteUrl).href;
+const ogLocaleMap: Record<string, string> = { ja: "ja_JP", en: "en_US", ko: "ko_KR", "zh-tw": "zh_TW" };
+const ogLocale = ogLocaleMap[lang] ?? "ja_JP";
+const altLocales = locales.filter((l) => l !== lang);
+const altUrls = altLocales.map((l) => ({
+  lang: l,
+  url: new URL(Astro.url.pathname.replace(`/${lang}/`, `/${l}/`), siteUrl).href,
+  ogLocale: ogLocaleMap[l],
+}));
 
 const jsonLdOrganization = {
   "@context": "https://schema.org",
@@ -93,7 +99,9 @@ const jsonLdSoftwareApp = {
     {!singleLang && (
       <>
         <link rel="alternate" hreflang={lang} href={canonicalUrl} />
-        <link rel="alternate" hreflang={altLang} href={altUrl} />
+        {altUrls.map(({ lang: l, url }) => (
+          <link rel="alternate" hreflang={l} href={url} />
+        ))}
       </>
     )}
     {noindex ? (
@@ -112,7 +120,9 @@ const jsonLdSoftwareApp = {
     <meta property="og:image:alt" content="Reki note" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:locale" content={ogLocale} />
-    {!singleLang && <meta property="og:locale:alternate" content={ogLocaleAlt} />}
+    {!singleLang && altUrls.map(({ ogLocale: alt }) => (
+      <meta property="og:locale:alternate" content={alt} />
+    ))}
 
     {/* Twitter Card */}
     <meta name="twitter:card" content="summary_large_image" />

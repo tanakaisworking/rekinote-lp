@@ -1,7 +1,7 @@
 import * as React from "react";
 import { LanguageSelect } from "./LanguageSelect";
 
-export function VisionHeader({ lang, cta, pathname }: { lang: "ja" | "en"; cta: string; pathname: string }) {
+export function VisionHeader({ lang, cta, pathname }: { lang: string; cta: string; pathname: string }) {
   const [isLightMode, setIsLightMode] = React.useState(false);
 
   React.useEffect(() => {

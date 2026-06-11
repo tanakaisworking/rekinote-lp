@@ -1,0 +1,442 @@
+{
+  "Header": {
+    "benefits": "문제",
+    "features": "효과",
+    "integrations": "지원 범위",
+    "compare": "비교",
+    "privacy": "프라이버시",
+    "howItWorks": "작동 방식",
+    "download": "다운로드",
+    "downloadWin": "Windows",
+    "pricing": "요금"
+  },
+  "Hero": {
+    "title1": "모든 회의록을,",
+    "title2": "Reki 하나로 통합하세요.",
+    "subtitle": "음성 인식이 무료, 완전 무제한. 봇 불필요.",
+    "desc": "녹음 데이터를 수집하지 않는 프라이버시 설계",
+    "downloadMac": "Mac용 무료 다운로드",
+    "downloadWin": "Windows용 무료 다운로드",
+    "mac": "Mac",
+    "macSub": "Apple Silicon (M1 이상)",
+    "win": "Win",
+    "winSub": "Windows 10 이상",
+    "winNote": "Mac 버전이 안정 버전이에요. Windows 버전은 일부 기능에 제한이 있어요"
+  },
+  "Problem": {
+    "eyebrow": "The Problem",
+    "title1": "회의록 하나 때문에",
+    "title2": "AI 구독을 몇 개나",
+    "title3": "하고 계세요?",
+    "desc": "회의 도구마다 비싼 AI 요금. 데이터는 각각의 서버에 흩어져 있고, 통합 검색은 꿈도 못 꿔요.",
+    "before": "Before",
+    "beforeTitle": "흩어진 구독과 데이터",
+    "beforeItems": [
+      {
+        "name": "Zoom AI Companion",
+        "price": "+ $13/월"
+      },
+      {
+        "name": "Microsoft Teams Copilot",
+        "price": "+ $30/월"
+      },
+      {
+        "name": "Google Meet AI",
+        "price": "+ $10/월"
+      },
+      {
+        "name": "Notta / Plaud 등",
+        "price": "+ $13/월"
+      }
+    ],
+    "total": "합계",
+    "beforeTotal": "$66+/월",
+    "beforeTotalDesc": "여러 서비스에 분산 결제",
+    "after": "After",
+    "afterTitle": "Reki note 하나로 통합",
+    "afterDesc": "Zoom / Meet / Teams / 대면 전부 대응",
+    "afterItems": [
+      "하나의 앱으로 모든 통화와 대면을 녹음",
+      "데이터는 내 Mac에 보관",
+      "모든 회의록을 넘나들며 AI에게 질문",
+      "무료로 음성 인식 무제한. 더 강력한 Pro 플랜은 월 $9.99"
+    ],
+    "afterTotal": "무료~$9.99/월",
+    "afterTotalDesc": "음성 인식은 무제한 무료"
+  },
+  "Features": {
+    "eyebrow": "Benefits",
+    "title1": "Reki를 쓰면",
+    "title2": "뭐가 달라지나요",
+    "rows": [
+      {
+        "num": "01",
+        "phase": "지금 당장 ・ Soon",
+        "title": "회의록을 하나로 모으고, 구독료를 줄여요.",
+        "body": "Zoom / Meet / Teams / Slack / 대면, 기기 위의 대화를 전부 녹음해요. 음성 인식부터 회의록 생성까지, Reki 하나로 끝. 여러 서비스에 비싼 돈을 낼 필요도, 데이터가 여기저기 흩어지는 고민도 바로 해결돼요."
+      },
+      {
+        "num": "02",
+        "phase": "몇 주 뒤 ・ 중기",
+        "title": "모든 메모는 Reki에게 맡기세요",
+        "body": "기기 위의 모든 통화를 음성 인식하고 요약해요. 한곳에 모인 대화 메모에서 Reki AI가 질문에 답해 드려요."
+      },
+      {
+        "num": "03",
+        "phase": "꾸준히 쓴 그 끝에 ・ 장기",
+        "title": "나만의 '제2의 뇌'가 탄생해요",
+        "body": "반년 전 결정 이유도, 3년 전 미팅의 세부 내용도, AI에게 물으면 바로 나와요. 업무 판단의 속도와 정확도가 근본적으로 달라져요."
+      }
+    ],
+    "notificationTitle": "회의가 감지되었어요",
+    "notificationApp": "앱",
+    "notificationCalendar": "캘린더",
+    "notificationCalendarValue": "주간 정례회의",
+    "notificationBtn": "녹음 시작",
+    "chatQuestion": "지난주 김민수 님과의 결정 사항은?",
+    "chatAnswerLabel": "ANSWER",
+    "chatAnswer": "다음 3가지가 결정 사항이에요.\n① 프로토타입을 4/15까지 납품\n② 리뷰는 Slack에서 비동기로\n③ 예산은 사내 승인 완료",
+    "chatSource": "출처: 주간 정례 4/8 18:02",
+    "memoryLabel": "MEMORY",
+    "memoryItems": [
+      {
+        "date": "오늘",
+        "title": "주간 정례회의",
+        "excerpt": "다음까지 프로토..."
+      },
+      {
+        "date": "3일 전",
+        "title": "고객 미팅 / HIBACHI inc.",
+        "excerpt": "예산은 대체로 OK"
+      },
+      {
+        "date": "지난주",
+        "title": "1on1 / 김민수 님",
+        "excerpt": "커리어 면담 이어서"
+      },
+      {
+        "date": "2주 전",
+        "title": "프로덕트 리뷰",
+        "excerpt": "디자인 방향 결정"
+      },
+      {
+        "date": "6개월 전",
+        "title": "Q3 킥오프",
+        "excerpt": "목표 설정의 근거"
+      }
+    ]
+  },
+  "WorksWith": {
+    "eyebrow": "Works Where You Work",
+    "title": "평소 쓰는 기기의, 모든 통화에.",
+    "desc": "OS 레벨에서 오디오를 잡아내기 때문에, 설치하고 실행하기만 하면 모든 통화에 사용할 수 있어요",
+    "apps": [
+      {
+        "name": "Zoom",
+        "slug": "zoom"
+      },
+      {
+        "name": "Google Meet",
+        "slug": "googlemeet"
+      },
+      {
+        "name": "Teams",
+        "slug": null,
+        "icon": "users"
+      },
+      {
+        "name": "LINE",
+        "slug": "line"
+      },
+      {
+        "name": "Discord",
+        "slug": "discord"
+      },
+      {
+        "name": "Messenger",
+        "slug": "messenger"
+      },
+      {
+        "name": "모든 Mac 앱",
+        "slug": "apple"
+      },
+      {
+        "name": "대면 대화",
+        "slug": null,
+        "icon": "messages"
+      },
+      {
+        "name": "기타 통화 서비스",
+        "slug": null,
+        "fallback": "…"
+      }
+    ]
+  },
+  "Compare": {
+    "eyebrow": "Compare",
+    "title1": "다른 AI 회의록 도구와",
+    "title2": "뭐가 다른 건가요.",
+    "desc": "",
+    "colFeature": "비교 항목",
+    "col2": "Zoom AI / Teams Copilot",
+    "col3": "Otter / tl;dv / Notta",
+    "footnote": "※각 서비스 사양은 2026년 4월 시점의 공개 정보를 기준으로 해요",
+    "rows": [
+      {
+        "feature": "지원하는 회의 도구",
+        "reki": {
+          "tone": "good",
+          "text": "모든 앱과 대면을 하나로 커버"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "해당 플랫폼 안에서만 사용 가능"
+        },
+        "notes": {
+          "tone": "soso",
+          "text": "주요 회의 앱 중심으로 일부 지원"
+        }
+      },
+      {
+        "feature": "과금 모델",
+        "reki": {
+          "tone": "good",
+          "text": "무료로 음성 인식 무제한. Pro는 월 $9.99"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "플랫폼마다 추가 과금"
+        },
+        "notes": {
+          "tone": "bad",
+          "text": "별도 구독이 따로 필요"
+        }
+      },
+      {
+        "feature": "데이터 저장 위치",
+        "reki": {
+          "tone": "good",
+          "text": "내 기기에 보관돼요"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "각 회사 서버에 저장"
+        },
+        "notes": {
+          "tone": "bad",
+          "text": "각 회사 서버에 저장"
+        }
+      },
+      {
+        "feature": "과거 회의록 통합 질문",
+        "reki": {
+          "tone": "good",
+          "text": "모든 회의록을 넘나들며 질문 가능"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "불가하거나 매우 제한적"
+        },
+        "notes": {
+          "tone": "soso",
+          "text": "개별 요약 중심이라 통합 검색은 약해요"
+        }
+      },
+      {
+        "feature": "출력 형식",
+        "reki": {
+          "tone": "good",
+          "text": "Markdown / Obsidian에서 쓰기 편해요"
+        },
+        "otherAi": {
+          "tone": "soso",
+          "text": "기본적으로 플랫폼 내 열람"
+        },
+        "notes": {
+          "tone": "soso",
+          "text": "일부만 내보내기 가능"
+        }
+      },
+      {
+        "feature": "대면 대화 녹음",
+        "reki": {
+          "tone": "good",
+          "text": "바로 지원"
+        },
+        "otherAi": {
+          "tone": "bad",
+          "text": "기본적으로 불가"
+        },
+        "notes": {
+          "tone": "soso",
+          "text": "일부만 지원"
+        }
+      }
+    ]
+  },
+  "Privacy": {
+    "eyebrow": "Privacy by Design",
+    "title1": "비밀을 지킬 것인가,",
+    "title2": "비용을 줄일 것인가",
+    "facts": [
+      "음성 파일은 내 Mac 안에 저장돼요",
+      "음성 인식과 회의록 생성은 Reki 서버에서 처리해요",
+      "생성된 데이터는 내 Mac에만 저장돼요"
+    ],
+    "providersLabel": "DATA FLOW",
+    "providersDesc": "내 기기를 벗어나는 건 음성 처리 순간뿐이에요",
+    "providers": [
+      "녹음 → Mac 내에 저장",
+      "음성 인식 → 처리 후 즉시 삭제",
+      "회의록 → Mac 내에 저장",
+      "검색・AI 질문 → Mac 내에서 완결"
+    ]
+  },
+  "HowItWorks": {
+    "eyebrow": "How it Works",
+    "title1": "심플하게,",
+    "title2": "파워풀하게.",
+    "input01Label": "Input 01",
+    "input01Title": "음성 기록",
+    "transcript": [
+      {
+        "time": "00:03",
+        "speaker": "김민수",
+        "color": "#a78bfa",
+        "text": "지난달 매출을 넘었다고 하던데, 가장 큰 원인이 뭐라고 보세요?"
+      },
+      {
+        "time": "00:18",
+        "speaker": "이지연",
+        "color": "#7c9cf0",
+        "text": "신규 채널의 전환율이 개선된 게 주요 원인이에요. 특히 리드 품질이 올라가면서——"
+      },
+      {
+        "time": "00:34",
+        "speaker": "김민수",
+        "color": "#a78bfa",
+        "text": "구체적인 수치는 다음 회의까지 공유 부탁드려요."
+      }
+    ],
+    "input02Label": "Input 02",
+    "input02Title": "캘린더 정보",
+    "calendarMeeting": "주간 정례회의",
+    "calendarDate": "일시",
+    "calendarDateValue": "2026/05/01　10:00",
+    "calendarParticipants": "참석자",
+    "calendarParticipantsValue": "김민수, 이지연, 박현우",
+    "calendarTool": "도구",
+    "calendarNote": "음성에 '누가, 언제, 어떤 회의인지'를 자동으로 연결해요",
+    "outputLabel": "Output",
+    "outputTitle": "지식 데이터베이스",
+    "outputCards": [
+      {
+        "title": "전체 텍스트 검색",
+        "body": "참석자・날짜・발언 내용으로 통합 검색"
+      },
+      {
+        "title": "AI 질의응답",
+        "body": "'지난주 결정 사항은?'이라고 자연어로 질문하세요"
+      },
+      {
+        "title": "쌓이는 자산",
+        "body": "쓸수록 맥락이 깊어지는, 나만의 제2의 뇌"
+      }
+    ]
+  },
+  "FinalCTA": {
+    "title": "이거 없이는\n못 살게 될 거예요.",
+    "desc": "먼저 분산된 구독을 정리하고, 하나로 모으는 것부터 시작하세요. 익숙해질 무렵이면, 메모도 검색도 AI에 맡기고 매일이 놀라울 만큼 편해져요.",
+    "macSub": "Apple Silicon (M1 이상)",
+    "winSub": "Windows 10 이상",
+    "btnDefault": "Mac용 무료 다운로드",
+    "btnWin": "Windows용 무료 다운로드",
+    "preview": {
+      "ariaLabel": "Reki note 홈 프리뷰",
+      "recordTitle": "녹음 시작",
+      "recordSubtitle": "지금 이 순간부터 기록",
+      "importAudio": "음성 파일 가져오기",
+      "todaySchedule": "오늘 일정",
+      "schedule": [
+        {
+          "time": "09:30",
+          "title": "데일리",
+          "status": "곧 시작"
+        },
+        {
+          "time": "13:00",
+          "title": "고객 미팅",
+          "status": "Google Meet"
+        },
+        {
+          "time": "18:00",
+          "title": "주간 정례회의",
+          "status": "Zoom"
+        }
+      ],
+      "home": "홈",
+      "heading": "홈",
+      "subheading": "Mac 위의 대화를, 전부 여기에.",
+      "searchPlaceholder": "회의록 검색",
+      "filters": [
+        "오늘",
+        "최신순",
+        "30분 이내"
+      ],
+      "sessions": [
+        {
+          "title": "주간 정례 / HIBACHI inc.",
+          "time": "오늘 18:02~18:47",
+          "app": "Zoom",
+          "attendees": "4",
+          "preview": "프로토타입 납기는 4/15. 리뷰는 Slack에서 비동기 진행. 예산은 사내 승인 완료."
+        },
+        {
+          "title": "고객 미팅 / ACME",
+          "time": "4/28 13:00~13:38",
+          "app": "Google Meet",
+          "attendees": "3",
+          "preview": "도입 첫 달은 영업팀부터 시작. 관리자 권한 설계는 다음에 확정."
+        },
+        {
+          "title": "1on1 / 김민수 님",
+          "time": "4/25 11:00~11:31",
+          "app": "대면",
+          "attendees": "2",
+          "preview": "채용 홍보보다 우선 온보딩 개선을 먼저 하기로 합의."
+        }
+      ],
+      "attendeesUnit": "명",
+      "aiLink": "룸 입장",
+      "aiQuestion": "지난주 김민수 님과의 결정 사항은?"
+    }
+  },
+  "ThankYou": {
+    "title": "다운로드해 주셔서 감사해요!",
+    "desc": "Reki note에 대한 감상이나 의견을 들려주세요.",
+    "feedbackLabel": "감상・의견",
+    "feedbackPlaceholder": "써본 소감, 이런 기능이 있으면 좋겠다 등 자유롭게 적어 주세요",
+    "bugLabel": "버그・요청",
+    "bugPlaceholder": "오류 내용이나 재현 순서, 개선해 주셨으면 하는 점 등",
+    "emailLabel": "답변이 필요할 때만. 선택 사항이에요.",
+    "emailPlaceholder": "이메일 주소 (선택)",
+    "submit": "보내기",
+    "sending": "보내는 중...",
+    "thanks": "피드백을 보냈어요. 감사합니다!",
+    "close": "닫기"
+  },
+  "Footer": {
+    "tagline": "Reki note ・ 기기에서 일어나는 모든 대화를, 당신의 기억으로.",
+    "company": "운영 회사",
+    "switchHeading": "유스 케이스",
+    "businessLabel": "비즈니스",
+    "businessDesc": "회의, 상담, 1on1, 대면 미팅 기록을 하나로.",
+    "studentLabel": "학생",
+    "studentDesc": "강의, 음성 인식, 시험 전 복습을 편하게.",
+    "currentLabel": "현재 보기",
+    "developerLabel": "개발자",
+    "developerDesc": "API 연동, 음성 처리, 플러그인 개발 기술 정보.",
+    "otherLabel": "기타",
+    "otherDesc": "어떤 유스 케이스가 맞는지 모르겠다면 여기로."
+  }
+}

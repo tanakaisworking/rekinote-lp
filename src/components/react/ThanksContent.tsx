@@ -5,7 +5,11 @@ const GAS_URL =
 
 type FeedbackType = "impression" | "bug";
 
-const dict = {
+const dict: Record<string, {
+  title: string; desc: string; feedbackLabel: string; feedbackPlaceholder: string;
+  bugLabel: string; bugPlaceholder: string; emailLabel: string; emailPlaceholder: string;
+  submit: string; sending: string; thanks: string; backToTop: string; error: string;
+}> = {
   ja: {
     title: "ダウンロードありがとうございます！",
     desc: "Reki noteについてのご感想・ご要望をお聞かせください。今後の開発の参考にさせていただきます。",
@@ -36,10 +40,40 @@ const dict = {
     backToTop: "Back to top",
     error: "Failed to send. Please try again later.",
   },
+  ko: {
+    title: "다운로드해 주셔서 감사합니다!",
+    desc: "Reki note에 대한 의견이나 요청 사항을 알려주세요. 향후 개발에 참고하겠습니다.",
+    feedbackLabel: "의견·감상",
+    feedbackPlaceholder: "사용 후기, 원하는 기능 등 자유롭게 작성해 주세요",
+    bugLabel: "버그·요청",
+    bugPlaceholder: "문제 내용이나 재현 방법, 개선 사항 등을 알려주세요",
+    emailLabel: "답변이 필요한 경우에만 입력해 주세요. 선택 사항입니다.",
+    emailPlaceholder: "이메일 (선택)",
+    submit: "보내기",
+    sending: "전송 중...",
+    thanks: "피드백을 보내주셔서 감사합니다!",
+    backToTop: "메인으로 돌아가기",
+    error: "전송에 실패했습니다. 잠시 후 다시 시도해 주세요.",
+  },
+  "zh-tw": {
+    title: "感謝你的下載！",
+    desc: "歡迎告訴我們你對 Reki note 的想法和建議，我們會作為未來開發的參考。",
+    feedbackLabel: "意見·感想",
+    feedbackPlaceholder: "使用心得、希望新增的功能等，請自由填寫",
+    bugLabel: "錯誤·建議",
+    bugPlaceholder: "請描述問題內容、重現步驟或希望改善的地方",
+    emailLabel: "僅在需要回覆時填寫，非必填。",
+    emailPlaceholder: "電子郵件（選填）",
+    submit: "送出",
+    sending: "傳送中...",
+    thanks: "已收到你的回饋，非常感謝！",
+    backToTop: "返回首頁",
+    error: "傳送失敗，請稍後再試。",
+  },
 };
 
-export function ThanksContent({ lang }: { lang: "ja" | "en" }) {
-  const t = dict[lang];
+export function ThanksContent({ lang }: { lang: string }) {
+  const t = dict[lang] ?? dict.en;
 
   const [type, setType] = React.useState<FeedbackType>("impression");
   const [message, setMessage] = React.useState("");

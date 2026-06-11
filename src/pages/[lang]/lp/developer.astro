@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { developerDictionaries } from "../../../i18n/developer";
+import { locales, type Locale } from "../../../i18n/getDictionary";
 import Hero from "../../../components/astro/Hero.astro";
 import Problem from "../../../components/astro/Problem.astro";
 import WorksWith from "../../../components/astro/WorksWith.astro";
@@ -13,20 +14,20 @@ import { Features } from "../../../components/react/Features";
 import { FinalCTA } from "../../../components/react/FinalCTA";
 
 export function getStaticPaths() {
-  return [{ params: { lang: "ja" } }, { params: { lang: "en" } }];
+  return locales.map((lang) => ({ params: { lang } }));
 }
 
-const lang = Astro.params.lang as "ja" | "en";
+const lang = Astro.params.lang as Locale;
 const dict = developerDictionaries[lang];
 const pathname = Astro.url.pathname;
 
-const isJa = lang === "ja";
-const title = isJa
-  ? "Reki note for Developers — オフライン文字起こし、無料で無制限。"
-  : "Reki note for Developers — Offline transcription. Free. Unlimited.";
-const description = isJa
-  ? "PC上のオンデバイスモデルで文字起こし。無料・無制限・ネットワーク不要。出力はMarkdown、データはローカル保存。高精度が必要な時だけクラウド版。"
-  : "On-device transcription right on your PC. Free, unlimited, no network needed. Output is Markdown, data stays local. Switch to cloud only when you need top-tier accuracy.";
+const meta: Record<string, { title: string; description: string }> = {
+  ja: { title: "Reki note for Developers — オフライン文字起こし、無料で無制限。", description: "PC上のオンデバイスモデルで文字起こし。無料・無制限・ネットワーク不要。出力はMarkdown、データはローカル保存。高精度が必要な時だけクラウド版。" },
+  en: { title: "Reki note for Developers — Offline transcription. Free. Unlimited.", description: "On-device transcription right on your PC. Free, unlimited, no network needed. Output is Markdown, data stays local. Switch to cloud only when you need top-tier accuracy." },
+  ko: { title: "Reki note for Developers — 오프라인 음성 인식, 무료·무제한.", description: "PC의 온디바이스 모델로 음성 인식. 무료·무제한·네트워크 불필요. 출력은 Markdown, 데이터는 로컬 저장. 고정밀도가 필요할 때만 클라우드 버전." },
+  "zh-tw": { title: "Reki note for Developers — 離線語音轉文字，免費且無限制。", description: "在 PC 上使用本機模型進行語音轉文字。免費、無限制、無需網路。輸出為 Markdown，資料儲存在本機。需要高精度時才切換至雲端版本。" },
+};
+const { title, description } = meta[lang] ?? meta.ja;
 ---
 
 <BaseLayout title={title} description={description} lang={lang} canonical={`https://rekinote.app/${lang}/lp/developer/`}>

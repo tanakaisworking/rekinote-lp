@@ -1,11 +1,13 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 
+import { locales, type Locale } from "../../../i18n/getDictionary";
+
 export function getStaticPaths() {
-  return [{ params: { lang: "ja" } }, { params: { lang: "en" } }];
+  return locales.map((lang) => ({ params: { lang } }));
 }
 
-const lang = Astro.params.lang as "ja" | "en";
+const lang = Astro.params.lang as Locale;
 
 type Section = {
   heading: string;
@@ -288,13 +290,15 @@ const sectionsEn: Section[] = [
   },
 ];
 
-const content = {
+const content: Record<string, { title: string; lastUpdated: string; sections: Section[] }> = {
   ja: { title: "プライバシーポリシー", lastUpdated: "最終更新日：2026年5月11日", sections: sectionsJa },
   en: { title: "Privacy Policy", lastUpdated: "Last updated: May 11, 2026", sections: sectionsEn },
+  ko: { title: "개인정보 처리방침", lastUpdated: "Last updated: May 11, 2026", sections: sectionsEn },
+  "zh-tw": { title: "隱私權政策", lastUpdated: "Last updated: May 11, 2026", sections: sectionsEn },
 };
 
-const { title, lastUpdated, sections } = content[lang];
-const lpHref = lang === "ja" ? "/ja/lp/business/" : "/en/lp/business/";
+const { title, lastUpdated, sections } = content[lang] ?? content.ja;
+const lpHref = `/${lang}/lp/business/`;
 ---
 
 <BaseLayout title={`${title} — Reki note`} description={lang === "ja" ? "Reki noteのプライバシーポリシー。取得データ・利用目的・安全管理措置について。" : "Reki note Privacy Policy. Data collection, usage, and security measures."} lang={lang} canonical={`https://rekinote.app/${lang}/legal/privacy/`}>

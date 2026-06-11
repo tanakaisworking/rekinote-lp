@@ -5,13 +5,14 @@ import { VisionHeader } from "../../../components/react/VisionHeader";
 import { FinalCTA } from "../../../components/react/FinalCTA";
 import type { DictFinalCTA, DictFooter } from "../../../i18n/types";
 
+import { locales, type Locale } from "../../../i18n/getDictionary";
+
 export function getStaticPaths() {
-  return [{ params: { lang: "ja" } }, { params: { lang: "en" } }];
+  return locales.map((lang) => ({ params: { lang } }));
 }
 
-const lang = Astro.params.lang as "ja" | "en";
+const lang = Astro.params.lang as Locale;
 const pathname = Astro.url.pathname;
-const isJa = lang === "ja";
 
 type VisionDict = {
   header: { cta: string };
@@ -44,7 +45,7 @@ type VisionDict = {
   footer: DictFooter;
 };
 
-const visionDictionaries: Record<"ja" | "en", VisionDict> = {
+const visionDictionaries: Record<string, VisionDict> = {
   ja: {
     header: { cta: "Reki note を試す" },
     meta: {
@@ -277,9 +278,241 @@ const visionDictionaries: Record<"ja" | "en", VisionDict> = {
       currentLabel: "Current",
     },
   },
+  ko: {
+    header: { cta: "Reki note 시작하기" },
+    meta: {
+      title: "Reki note — 프로덕트 비전",
+      description: "Reki는 도쿄 시부야에서 탄생했어요. '歴'라는 한자에 담긴 의미와, AI 라이프의 든든한 조력자를 지향하는 프로덕트 비전.",
+    },
+    origin: {
+      eyebrow: "Origin",
+      headline: "Reki는,\n시부야에서 태어났어요.",
+      sub: "2025년, 진난의 오피스에서.",
+    },
+    name: {
+      eyebrow: "The Name",
+      intro: "이름의 유래는,",
+      kanji: "歴",
+      sub: "단 하나의 한자.",
+    },
+    meaning: {
+      eyebrow: "Meaning",
+      title: "'歴'가 가진 의미는 하나가 아니에요.",
+      items: [
+        { compound: "歴史", reading: "레키시", meaning: "일어난 일의 기록. 당신의 하루하루도 쌓이면 역사가 돼요." },
+        { compound: "暦", reading: "코요미", meaning: "시간에 구분을 짓는 것. 캘린더의 원형." },
+        { compound: "経歴", reading: "케이레키", meaning: "걸어온 길. 일과 경험의 겹겹이." },
+        { compound: "来歴", reading: "라이레키", meaning: "어디서 왔고, 어디로 가는지. 사물의 유래." },
+      ],
+    },
+    historyCalendar: {
+      eyebrow: "Definition",
+      title: "Reki note는,\n당신의 History Calendar.",
+      sub: "당신이 기록하고, AI가 활용해요.",
+    },
+    transformation: {
+      eyebrow: "Philosophy",
+      title: "AI가, 뭔가 대단한 것으로 바꿔줘요.",
+      body: "Reki에 남긴 기록은 AI에게 전달되고, 가공되어 당신에게 의미 있는 형태로 바뀌어요.\n변환은 AI의 몫.\nReki는, 그저 기록할 뿐.",
+    },
+    aiReady: {
+      eyebrow: "How It Works",
+      title: "Reki는, AI에 바로 넘길 수 있는 데이터를 만들어요.",
+      body: "캘린더에서 지금 하고 있는 일을 가져오고, 음성을 녹음해요. 나중에 AI에 넘기고 싶을 때, 그대로 전달할 수 있어요.",
+      steps: [
+        { label: "Calendar", desc: "일정을 가져와서, 맥락을 만들어요" },
+        { label: "Record", desc: "회의·강의·대화의 음성을, 그대로 남겨요" },
+        { label: "Structure", desc: "음성과 캘린더를 연결해서, 구조화해요" },
+        { label: "AI Ready", desc: "AI에 넘길 수 있는 형태로, 계속 곁에 둬요" },
+      ],
+    },
+    layer: {
+      eyebrow: "Architecture",
+      title: "Reki가 있는 위치는 여기예요.",
+      layers: [
+        { label: "Hardware", sub: "마이크·스피커·카메라" },
+        { label: "OS", sub: "macOS / Windows" },
+        { label: "Reki note", sub: "음성과 캘린더를 구조화하여 기록" },
+        { label: "LLM / AI", sub: "음성 인식·요약·질의응답" },
+        { label: "Apps", sub: "문서·채팅·CRM·회의록" },
+      ],
+      rekiIndex: 2,
+      otherAppsLabel: "일반적인 앱",
+      feedsAiLabel: "AI로 전달",
+    },
+    tagline: {
+      line1: "당신의 AI 라이프의,",
+      line2: "든든한 조력자.",
+    },
+    cta: {
+      title: "이것이, Reki note.\n한번 써보세요.",
+      desc: "준비되는 대로 바로 전해드릴게요. 이메일만 남겨주세요.",
+      macSub: "Apple Silicon (M1 이상)",
+      winSub: "Windows 10 이상",
+      btnDefault: "Mac 버전 무료 다운로드",
+      btnWin: "Windows 버전 무료 다운로드",
+      preview: {
+        ariaLabel: "Reki note 홈 화면 미리보기",
+        recordTitle: "녹음 시작",
+        recordSubtitle: "다음 미팅을 기록하세요",
+        importAudio: "녹음 불러오기",
+        todaySchedule: "오늘의 일정",
+        schedule: [
+          { time: "10:00", title: "주간 정례", status: "곧 시작" },
+          { time: "13:00", title: "클라이언트 미팅", status: "Google Meet" },
+          { time: "16:00", title: "1on1 / 김민수", status: "대면" },
+        ],
+        home: "홈",
+        heading: "홈",
+        subheading: "당신의 기록을, 전부 여기에.",
+        searchPlaceholder: "기록 검색",
+        filters: ["오늘", "최신순", "전체"],
+        sessions: [
+          { title: "주간 정례 / 프로덕트팀", time: "오늘 10:00~10:45", app: "Google Meet", attendees: "6", preview: "릴리스일을 5/15로 확정. QA는 다음 주 수요일까지. 디자인 리뷰 완료." },
+          { title: "클라이언트 미팅 / A사", time: "5/7 13:00~14:00", app: "Zoom", attendees: "4", preview: "추가 요건 히어링. API 연동 범위 확인. 다음 미팅에서 견적 제시." },
+          { title: "1on1 / 김민수", time: "5/6 16:00~16:30", app: "대면", attendees: "2", preview: "커리어 방향성에 대해. 다음 달 목표 설정을 다음 미팅까지 준비." },
+        ],
+        attendeesUnit: "명",
+        aiLink: "기록 열기",
+        aiQuestion: "이번 주 클라이언트 미팅에서 정해진 액션 아이템은?",
+      },
+    },
+    footer: {
+      tagline: "Reki note · 당신의 기록을, 가치로 바꾸다.",
+      company: "운영 회사",
+      switchHeading: "페이지",
+      businessLabel: "비즈니스",
+      businessDesc: "회의, 상담, 1on1, 대면 미팅 기록을 하나로.",
+      studentLabel: "학생",
+      studentDesc: "강의, 음성 인식, 시험 전 복습을 쉽게.",
+      developerLabel: "개발자",
+      developerDesc: "API 연동, 음성 처리, 플러그인 개발 기술 정보.",
+      visionLabel: "프로덕트 비전",
+      visionDesc: "Reki의 이름의 유래와, 지향하는 세계.",
+      otherLabel: "톱",
+      otherDesc: "Reki note 개요 페이지.",
+      currentLabel: "표시 중",
+    },
+  },
+  "zh-tw": {
+    header: { cta: "試用 Reki note" },
+    meta: {
+      title: "Reki note — 產品願景",
+      description: "Reki 誕生於東京澀谷。「歴」這個漢字背後的故事，以及立志成為你 AI 生活幕後推手的產品願景。",
+    },
+    origin: {
+      eyebrow: "Origin",
+      headline: "Reki，\n在澀谷誕生。",
+      sub: "2025 年，神南的辦公室。",
+    },
+    name: {
+      eyebrow: "The Name",
+      intro: "名字的由來是，",
+      kanji: "歴",
+      sub: "僅僅一個漢字。",
+    },
+    meaning: {
+      eyebrow: "Meaning",
+      title: "「歴」的意思，不只一個。",
+      items: [
+        { compound: "歴史", reading: "rekishi", meaning: "發生過的事的紀錄。你的每一天，累積起來就是歷史。" },
+        { compound: "暦", reading: "koyomi", meaning: "為時間劃分段落的方式。日曆的原型。" },
+        { compound: "経歴", reading: "keireki", meaning: "走過的路。工作與經驗的層層疊疊。" },
+        { compound: "来歴", reading: "raireki", meaning: "從哪裡來，往哪裡去。事物的來龍去脈。" },
+      ],
+    },
+    historyCalendar: {
+      eyebrow: "Definition",
+      title: "Reki note，\n是你的 History Calendar。",
+      sub: "你負責記錄，AI 負責活用。",
+    },
+    transformation: {
+      eyebrow: "Philosophy",
+      title: "AI 會把它變成很厲害的東西。",
+      body: "留在 Reki 的紀錄會交給 AI，經過加工，變成對你有意義的形式。\n轉換是 AI 的工作。\nReki 只負責記錄。",
+    },
+    aiReady: {
+      eyebrow: "How It Works",
+      title: "Reki 會做出 AI 能直接用的資料。",
+      body: "從行事曆擷取你正在做的事，錄下語音。之後想交給 AI 處理時，直接丟過去就好。",
+      steps: [
+        { label: "Calendar", desc: "匯入行程，建立脈絡" },
+        { label: "Record", desc: "會議、課堂、對話的語音，原樣保留" },
+        { label: "Structure", desc: "把語音和行事曆串在一起，結構化" },
+        { label: "AI Ready", desc: "以 AI 可用的格式，一直留在手邊" },
+      ],
+    },
+    layer: {
+      eyebrow: "Architecture",
+      title: "Reki 所在的位置，就在這裡。",
+      layers: [
+        { label: "Hardware", sub: "麥克風、喇叭、鏡頭" },
+        { label: "OS", sub: "macOS / Windows" },
+        { label: "Reki note", sub: "將語音與行事曆結構化並記錄" },
+        { label: "LLM / AI", sub: "語音辨識、摘要、問答" },
+        { label: "Apps", sub: "文件、聊天、CRM、會議紀錄" },
+      ],
+      rekiIndex: 2,
+      otherAppsLabel: "一般的軟體",
+      feedsAiLabel: "餵給 AI",
+    },
+    tagline: {
+      line1: "你的 AI 生活的，",
+      line2: "幕後推手。",
+    },
+    cta: {
+      title: "這就是 Reki note。\n先試試看吧。",
+      desc: "準備好了馬上通知你。只要留下 email 就完成。",
+      macSub: "Apple Silicon（M1 以上）",
+      winSub: "Windows 10 以上",
+      btnDefault: "免費下載 Mac 版",
+      btnWin: "免費下載 Windows 版",
+      preview: {
+        ariaLabel: "Reki note 首頁畫面預覽",
+        recordTitle: "開始錄音",
+        recordSubtitle: "記錄下一場會議",
+        importAudio: "匯入錄音",
+        todaySchedule: "今天的行程",
+        schedule: [
+          { time: "10:00", title: "週會", status: "即將開始" },
+          { time: "13:00", title: "客戶會議", status: "Google Meet" },
+          { time: "16:00", title: "1on1 / 陳志明", status: "面對面" },
+        ],
+        home: "首頁",
+        heading: "首頁",
+        subheading: "你的紀錄，全部在這裡。",
+        searchPlaceholder: "搜尋紀錄",
+        filters: ["今天", "最新", "全部"],
+        sessions: [
+          { title: "週會 / 產品團隊", time: "今天 10:00〜10:45", app: "Google Meet", attendees: "6", preview: "發布日定為 5/15。QA 在下週三前完成。設計審查已結束。" },
+          { title: "客戶會議 / A 公司", time: "5/7 13:00〜14:00", app: "Zoom", attendees: "4", preview: "補充需求訪談。確認 API 串接範圍。下次提出報價。" },
+          { title: "1on1 / 陳志明", time: "5/6 16:00〜16:30", app: "面對面", attendees: "2", preview: "討論職涯方向。下個月的目標設定在下次前準備好。" },
+        ],
+        attendeesUnit: "人",
+        aiLink: "開啟紀錄",
+        aiQuestion: "這週客戶會議決定的待辦事項有哪些？",
+      },
+    },
+    footer: {
+      tagline: "Reki note · 把你的紀錄，變成價值。",
+      company: "營運公司",
+      switchHeading: "頁面",
+      businessLabel: "商務",
+      businessDesc: "會議、業務洽談、1on1、面對面會議的紀錄一次搞定。",
+      studentLabel: "學生",
+      studentDesc: "課堂、語音辨識、考前複習變得輕鬆。",
+      developerLabel: "開發者",
+      developerDesc: "API 串接、語音處理、外掛開發技術資訊。",
+      visionLabel: "產品願景",
+      visionDesc: "Reki 名字的由來與所追求的世界。",
+      otherLabel: "首頁",
+      otherDesc: "Reki note 概覽頁面。",
+      currentLabel: "目前瀏覽",
+    },
+  },
 };
 
-const dict = visionDictionaries[lang];
+const dict = visionDictionaries[lang] ?? visionDictionaries.ja;
 const title = dict.meta.title;
 const description = dict.meta.description;
 ---

@@ -1,16 +1,19 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { locales, type Locale } from "../../i18n/getDictionary";
 
 export function getStaticPaths() {
-  return [{ params: { lang: "ja" } }, { params: { lang: "en" } }];
+  return locales.map((lang) => ({ params: { lang } }));
 }
 
-const lang = Astro.params.lang as "ja" | "en";
-const isJa = lang === "ja";
-const title = isJa ? "料金プラン — Reki note" : "Pricing — Reki note";
-const description = isJa
-  ? "Reki noteの料金プラン。無料で始めて、必要に応じてProにアップグレード。"
-  : "Reki note pricing plans. Start free, upgrade to Pro when you need more.";
+const lang = Astro.params.lang as Locale;
+const pageMeta: Record<string, { title: string; description: string }> = {
+  ja: { title: "料金プラン — Reki note", description: "Reki noteの料金プラン。無料で始めて、必要に応じてProにアップグレード。" },
+  en: { title: "Pricing — Reki note", description: "Reki note pricing plans. Start free, upgrade to Pro when you need more." },
+  ko: { title: "요금제 — Reki note", description: "Reki note 요금제. 무료로 시작하고 필요할 때 Pro로 업그레이드하세요." },
+  "zh-tw": { title: "方案與價格 — Reki note", description: "Reki note 方案與價格。免費開始，需要時再升級至 Pro。" },
+};
+const { title, description } = pageMeta[lang] ?? pageMeta.ja;
 
 type Plan = {
   name: string;
@@ -159,7 +162,122 @@ const en = {
   ],
 };
 
-const t = isJa ? ja : en;
+const ko = {
+  eyebrow: "PRICING",
+  title: "심플한 요금 체계",
+  subtitle: "무료로 시작하세요. 필요할 때 업그레이드.",
+  plans: [
+    {
+      name: "Free",
+      price: "$0",
+      period: "",
+      desc: "가입하면 바로 사용할 수 있어요.",
+      features: [
+        "가입 시 20시간 음성 인식 제공",
+        "매월 3시간 자동 복구",
+        "AI 채팅 (무료 할당량 내)",
+        "모든 회의 도구 지원",
+        "로컬 저장, 프라이버시 우선",
+        "Markdown / Obsidian 내보내기",
+      ],
+    },
+    {
+      name: "Pro",
+      price: "$9.99",
+      period: "/월",
+      desc: "매일 회의가 있는 비즈니스 사용자를 위해.",
+      features: [
+        "음성 인식 30시간/월",
+        "AI 채팅 50시간/월",
+        "모든 회의 도구 지원",
+        "로컬 저장, 프라이버시 우선",
+        "Markdown / Obsidian 내보내기",
+        "우선 지원",
+      ],
+      highlight: true,
+    },
+    {
+      name: "Pro Full-time",
+      price: "$34.99",
+      period: "/월",
+      desc: "하루 종일 회의가 이어지는 헤비 유저를 위해.",
+      features: [
+        "음성 인식 160시간/월",
+        "AI 채팅 100회/월",
+        "모든 회의 도구 지원",
+        "로컬 저장, 프라이버시 우선",
+        "Markdown / Obsidian 내보내기",
+        "우선 지원",
+      ],
+    },
+  ] as Plan[],
+  faq: [
+    { q: "무료 시간을 다 쓰면 어떻게 되나요?", a: "음성 인식이 일시 중지돼요. 다음 달에 3시간이 자동 복구되거나, 언제든 Pro로 업그레이드할 수 있어요." },
+    { q: "어떤 결제 수단을 지원하나요?", a: "Visa, Mastercard, JCB, American Express를 지원해요." },
+    { q: "언제든 해지할 수 있나요?", a: "네. 앱 설정에서 언제든 해지 가능해요. 해지 후에도 결제 기간 종료일까지 이용할 수 있어요." },
+    { q: "연간 요금제가 있나요?", a: "현재는 월간 요금제만 있어요. 연간 요금제는 추가 예정이에요." },
+  ],
+};
+
+const zhTw = {
+  eyebrow: "PRICING",
+  title: "簡單的價格方案",
+  subtitle: "免費開始。需要更多功能時再升級。",
+  plans: [
+    {
+      name: "Free",
+      price: "$0",
+      period: "",
+      desc: "註冊後馬上就能使用。",
+      features: [
+        "註冊時獲得 20 小時語音轉文字",
+        "每月自動恢復 3 小時",
+        "AI 聊天（免費額度內）",
+        "支援所有會議工具",
+        "本機儲存，隱私優先",
+        "Markdown / Obsidian 匯出",
+      ],
+    },
+    {
+      name: "Pro",
+      price: "$9.99",
+      period: "/月",
+      desc: "每天都有會議的商務使用者適用。",
+      features: [
+        "語音轉文字 30 小時/月",
+        "AI 聊天 50 小時/月",
+        "支援所有會議工具",
+        "本機儲存，隱私優先",
+        "Markdown / Obsidian 匯出",
+        "優先客服",
+      ],
+      highlight: true,
+    },
+    {
+      name: "Pro Full-time",
+      price: "$34.99",
+      period: "/月",
+      desc: "整天都在開會的重度使用者適用。",
+      features: [
+        "語音轉文字 160 小時/月",
+        "AI 聊天 100 次/月",
+        "支援所有會議工具",
+        "本機儲存，隱私優先",
+        "Markdown / Obsidian 匯出",
+        "優先客服",
+      ],
+    },
+  ] as Plan[],
+  faq: [
+    { q: "免費時數用完後會怎樣？", a: "語音轉文字會暫停。下個月會自動恢復 3 小時，或者你可以隨時升級至 Pro。" },
+    { q: "支援哪些付款方式？", a: "支援 Visa、Mastercard、JCB 及 American Express。" },
+    { q: "可以隨時取消嗎？", a: "可以。隨時在應用程式設定中取消。取消後仍可使用至計費期結束。" },
+    { q: "有年繳方案嗎？", a: "目前只有月繳方案。年繳方案即將推出。" },
+  ],
+};
+
+const allPricing: Record<string, typeof ja> = { ja, en, ko, "zh-tw": zhTw };
+const t = allPricing[lang] ?? en;
 ---
 
 <BaseLayout title={title} description={description} lang={lang} canonical={`https://rekinote.app/${lang}/pricing/`}>
@@ -227,7 +345,7 @@ const t = isJa ? ja : en;
 
       <section class="mt-24 max-w-2xl mx-auto">
         <h2 class="text-xl font-semibold tracking-tight text-center">
-          {isJa ? "よくある質問" : "FAQ"}
+          {lang === "ja" ? "よくある質問" : lang === "ko" ? "자주 묻는 질문" : lang === "zh-tw" ? "常見問題" : "FAQ"}
         </h2>
         <dl class="mt-10 divide-y divide-line">
           {t.faq.map((item) => (
@@ -249,7 +367,7 @@ const t = isJa ? ja : en;
           href={`/${lang}/legal/tokushoho/`}
           class="hover:text-[#ececef] transition-colors"
         >
-          {isJa ? "特定商取引法に基づく表記" : "Legal"}
+          {lang === "ja" ? "特定商取引法に基づく表記" : "Legal"}
         </a>
       </div>
     </footer>

@@ -1,6 +1,6 @@
 import type { Dictionary } from "./types";
 
-export const studentDictionaries: Record<"ja" | "en", Dictionary> = {
+export const studentDictionaries: Record<string, Dictionary> = {
   ja: {
     Header: {
       benefits: "変化",
@@ -534,6 +534,528 @@ export const studentDictionaries: Record<"ja" | "en", Dictionary> = {
       otherLabel: "Other",
       otherDesc: "Not sure which fits? Browse all use cases.",
       currentLabel: "Current",
+    },
+  },
+  ko: {
+    Header: {
+      benefits: "변화",
+      features: "기능",
+      integrations: "수업 환경",
+      compare: "비교",
+      privacy: "프라이버시",
+      howItWorks: "작동 방식",
+      pricing: "요금",
+      download: "다운로드",
+      downloadWin: "Win 버전",
+    },
+    Hero: {
+      title1: "강의 노트 정리,",
+      title2: "그만뒀어요.",
+      subtitle: "Bot 불필요, 모든 서비스 대응 AI 강의록 앱",
+      desc: "Zoom이든, 학교 자체 스트리밍이든, 대면 강의든. 기기 소리와 마이크를 그대로 녹음하고, 나중에 찾아보기 쉬운 강의 노트로 정리해줘요.",
+      downloadMac: "Mac 무료 다운로드",
+      downloadWin: "Windows 무료 다운로드",
+      mac: "Mac",
+      macSub: "Apple Silicon (M1 이상)",
+      win: "Windows",
+      winSub: "Windows 10 이상",
+      winNote: "Mac 버전이 안정 버전이에요. Windows 버전은 일부 기능이 제한될 수 있어요",
+    },
+    Problem: {
+      eyebrow: "The Problem",
+      title1: "매번 꼼꼼하게는",
+      title2: "못 하잖아요.",
+      title3: "그래도 나중에 곤란하긴 싫으니까.",
+      desc: "수업 중에 필기하느라 정작 내용이 머리에 안 들어오고. 강의 녹화는 어느새 기한 만료. 대면 강의는 애초에 기록이 안 남아요. 시험 전에 '그 수업에서 교수님이 뭐라고 했더라' — 결국 처음부터 다시 해야 돼요.",
+      before: "Before",
+      beforeTitle: "노트, 대부분 따라가지 못하고 있어요.",
+      beforeItems: [
+        { name: "필기에 집중하느라 수업 내용이 안 들려요", price: "뭐 하러 수업 온 거지" },
+        { name: "강의 녹화, 어느새 열람 기한이 지남", price: "나중에 보려고 했는데" },
+        { name: "친구한테 '노트 좀 보여줘' 카톡", price: "매번 부탁하기 미안해요" },
+        { name: "시험 전, 뭐가 몇 주차였는지 모르겠음", price: "결국 처음부터 찾아봐요" }
+      ],
+      total: "결과",
+      beforeTotal: "결국, 시험 전에 전부 다시 해야 돼요",
+      beforeTotalDesc: "매번 뭔가 불안하고, 직전에 몰아서 허둥대요",
+      after: "After",
+      afterTitle: "녹음 버튼만 누르면, 나중이 편해져요",
+      afterDesc: "온라인이든 대면이든, 같은 방법으로 기록이 남아요",
+      afterItems: [
+        "Zoom이든 대면이든, 방법을 바꿀 필요 없어요",
+        "교수님이나 학교에 뭔가 요청할 필요 없어요",
+        "문자 변환과 요점이 자동으로 정리돼요",
+        "시험 전에 '그 수업 어디더라'를 바로 찾을 수 있어요"
+      ],
+      afterTotal: "시험 전, 조금 여유가 생겨요",
+      afterTotalDesc: "완벽하지 않아도, 돌아갈 곳이 있어요",
+    },
+    Features: {
+      eyebrow: "Benefits",
+      title1: "Reki로",
+      title2: "수업이 좀 더 가벼워져요",
+      rows: [
+        {
+          num: "01",
+          phase: "바로 지금",
+          title: "수업 시작하면, 녹음 버튼만 누르면 돼요.",
+          body: "시간표에 맞춰 알림이 와요. 버튼 하나만 누르면 돼요. 기록은 Reki에 맡기고, 수업 내용 듣는 데만 집중할 수 있어요."
+        },
+        {
+          num: "02",
+          phase: "며칠 후",
+          title: "'그거 뭐였더라'가, 바로 찾아져요.",
+          body: "리포트 쓰다가 기억 안 날 때, 강의 내용을 검색할 수 있어요. 친구한테 물어보지 않아도, 내 기록에서 답이 나와요."
+        },
+        {
+          num: "03",
+          phase: "시험 전",
+          title: "빠진 수업도, 만회할 수 있어요.",
+          body: "못 들은 강의도, 문자 변환과 요점이 남아 있어요. 시험 전에 처음부터 다시 안 해도, 핵심만 다시 훑어볼 수 있어요."
+        }
+      ],
+      notificationTitle: "수업이 감지되었어요",
+      notificationApp: "App",
+      notificationCalendar: "시간표",
+      notificationCalendarValue: "경제학 입문",
+      notificationBtn: "녹음 시작",
+      chatQuestion: "지난주 미시경제학에서 교수님이 강조한 포인트가 뭐였어?",
+      chatAnswerLabel: "ANSWER",
+      chatAnswer: "다음 3가지가 강조되었어요.\n① 한계효용 체감\n② 수요곡선의 이동 조건\n③ 중간고사에서 그래프 설명도 출제",
+      chatSource: "출처: 미시경제학 5/1 10:40",
+      memoryLabel: "LECTURES",
+      memoryItems: [
+        { date: "오늘", title: "경제학 입문", excerpt: "한계비용과 가격..." },
+        { date: "3일 전", title: "영어 토론", excerpt: "발표 주제 수정" },
+        { date: "지난주", title: "세미나 / 소비자 행동", excerpt: "참고 논문 추가" },
+        { date: "2주 전", title: "통계학", excerpt: "분산분석 보충" },
+        { date: "6개월 전", title: "봄학기 오리엔테이션", excerpt: "평가 배점 설명" }
+      ],
+    },
+    WorksWith: {
+      eyebrow: "Works Where You Learn",
+      title: "학교마다 다른 수업 환경, 그대로 쓰면 돼요.",
+      desc: "Zoom, Google Meet, 학교 자체 스트리밍, 실시간 강의, 대면 강의까지. Bot 초대나 권한 설정 없이, 그대로 기록할 수 있어요.",
+      apps: [
+        { name: "Zoom", slug: "zoom" },
+        { name: "Google Meet", slug: "googlemeet" },
+        { name: "Teams", icon: "users" },
+        { name: "Discord", slug: "discord" },
+        { name: "YouTube Live", slug: "youtube" },
+        { name: "LMS 스트리밍", fallback: "LMS" },
+        { name: "기기 내 다른 앱", slug: "apple" },
+        { name: "대면 강의", icon: "messages" },
+        { name: "기타 수업 환경", fallback: "…" }
+      ],
+    },
+    Compare: {
+      eyebrow: "Compare",
+      title1: "학생한테 중요한 건,",
+      title2: "무리 없이 계속할 수 있는 거예요.",
+      desc: "학교마다 다른 수업 환경에 휘둘리지 않고, 나중에 다시 볼 수 있는 기록을 남겨요.",
+      colFeature: "비교 항목",
+      col2: "AI 문자 변환 도구 (Notta / CLOVA Note 등)",
+      col3: "수기 / 노트 앱",
+      footnote: "※ 예상 기능 비교",
+      rows: [
+        {
+          feature: "학교 강의 환경",
+          reki: { tone: "good", text: "환경을 가리지 않고, 그대로 기록" },
+          otherAi: { tone: "bad", text: "강의 환경에 따라 사용법이 달라요" },
+          notes: { tone: "soso", text: "환경은 상관없지만 기록은 직접 해야 해요" },
+        },
+        {
+          feature: "Bot 초대 / 권한 설정",
+          reki: { tone: "good", text: "필요 없음" },
+          otherAi: { tone: "bad", text: "필요" },
+          notes: { tone: "good", text: "필요 없음" },
+        },
+        {
+          feature: "대면 강의",
+          reki: { tone: "good", text: "그대로 녹음해서 남길 수 있어요" },
+          otherAi: { tone: "soso", text: "별도 기기로 녹음이 필요해요" },
+          notes: { tone: "bad", text: "전부 직접 써야 해요" },
+        },
+        {
+          feature: "나중에 다시 보기",
+          reki: { tone: "good", text: "검색도 질문도 바로 할 수 있어요" },
+          otherAi: { tone: "soso", text: "문자 변환 검색은 가능해요" },
+          notes: { tone: "bad", text: "찾아서 다시 읽는 데 시간이 걸려요" },
+        },
+        {
+          feature: "강의별 정리",
+          reki: { tone: "good", text: "시간표와 자동으로 연결돼요" },
+          otherAi: { tone: "soso", text: "수동으로 폴더 분류" },
+          notes: { tone: "bad", text: "직접 계속 관리해야 해요" },
+        },
+      ],
+    },
+    Privacy: {
+      eyebrow: "Privacy by Design",
+      title1: "공부 기록을,",
+      title2: "내 손 안에.",
+      facts: [
+        "음성 파일은 내 Mac에 저장돼요",
+        "문자 변환과 요약은 Reki 서버에서 처리해요",
+        "생성된 데이터는 내 Mac에만 저장돼요"
+      ],
+      providersLabel: "DATA FLOW",
+      providersDesc: "기기 밖으로 나가는 건 음성 처리 순간뿐이에요",
+      providers: ["녹음 → Mac 내 저장", "문자 변환 → 처리 후 즉시 삭제", "강의 정리 → Mac 내 저장", "검색 · AI 질문 → Mac 내에서 완결"],
+    },
+    HowItWorks: {
+      eyebrow: "How it Works",
+      title1: "그냥 녹음하면 돼요.",
+      title2: "시간표에 강의가 연결돼요",
+      input01Label: "Input 01",
+      input01Title: "강의 음성",
+      transcript: [
+        { time: "00:03", speaker: "교수님", color: "#a78bfa", text: "오늘은 수요곡선이 이동하는 조건을 세 가지로 나눠서 확인할게요." },
+        { time: "00:18", speaker: "교수님", color: "#a78bfa", text: "가격 변화와 수요 자체의 변화는 별개로 생각해주세요." },
+        { time: "00:34", speaker: "학생", color: "#7c9cf0", text: "중간고사에서 그래프로 설명하는 것도 나오나요?" }
+      ],
+      input02Label: "Input 02",
+      input02Title: "시간표 정보",
+      calendarMeeting: "미시경제학",
+      calendarDate: "일시",
+      calendarDateValue: "2026/05/08 10:40",
+      calendarParticipants: "형식",
+      calendarParticipantsValue: "대면 강의 / 120명",
+      calendarTool: "도구",
+      calendarNote: "강의명·시간·형식을 연결해서, 나중에 찾기 쉽게 정리해줘요",
+      outputLabel: "Output",
+      outputTitle: "강의 지식 베이스",
+      outputCards: [
+        { title: "전체 검색", body: "정의, 용어, 교수님의 보충 설명을 강의 전체에서 검색" },
+        { title: "AI 질문 응답", body: "'지난번 과제 조건이 뭐였어?'를 자연어로 확인" },
+        { title: "시험 전 자산화", body: "학기를 넘어 쌓여가는, 나만의 강의 아카이브" }
+      ],
+    },
+    FinalCTA: {
+      title: "노트는, '녹음'하는 시대로.",
+      desc: "일단 무료로 시작해서, 강의 기록이 얼마나 편해지는지 직접 체험해보세요.",
+      macSub: "Apple Silicon (M1 이상)",
+      winSub: "Windows 10 이상",
+      btnDefault: "Mac 무료 다운로드",
+      btnWin: "Windows 무료 다운로드",
+      preview: {
+        ariaLabel: "Reki note student home preview",
+        recordTitle: "녹음 시작",
+        recordSubtitle: "다음 강의를 기록",
+        importAudio: "녹음 불러오기",
+        todaySchedule: "오늘의 수업",
+        schedule: [
+          { time: "09:00", title: "영어 토론", status: "곧 시작" },
+          { time: "10:40", title: "미시경제학", status: "대면 강의" },
+          { time: "16:00", title: "마케팅 기초", status: "Google Meet" }
+        ],
+        home: "홈",
+        heading: "홈",
+        subheading: "강의 기록을, 전부 여기에.",
+        searchPlaceholder: "강의 노트 검색",
+        filters: ["오늘", "최신순", "90분 강의"],
+        sessions: [
+          {
+            title: "미시경제학 / 5주차",
+            time: "오늘 10:40〜12:10",
+            app: "대면",
+            attendees: "120",
+            preview: "수요곡선 이동 요인을 3가지로 분류. 중간고사에서 그래프 설명 출제. 참고문헌은 3장."
+          },
+          {
+            title: "영어 토론 / Week 4",
+            time: "5/6 09:00〜10:20",
+            app: "Zoom",
+            attendees: "18",
+            preview: "발표 주제 변경. 다음 수업까지 인트로 부분 제출. 발음 교정 포인트 기록."
+          },
+          {
+            title: "세미나 / 소비자 행동",
+            time: "5/2 14:00〜15:30",
+            app: "대면",
+            attendees: "12",
+            preview: "선행 연구 비교 정리 필요. 다음 시간에는 가설의 근거를 숫자로 보강."
+          }
+        ],
+        attendeesUnit: "명",
+        aiLink: "강의 들어가기",
+        aiQuestion: "지난주 미시경제학에서 교수님이 강조한 포인트가 뭐였어?"
+      },
+    },
+    Footer: {
+      tagline: "Reki note · 강의 기록을, 이해의 동반자로.",
+      company: "운영사",
+      switchHeading: "유즈케이스",
+      businessLabel: "비즈니스용",
+      businessDesc: "회의, 상담, 1on1, 대면 미팅의 기록을 하나로.",
+      studentLabel: "학생용",
+      studentDesc: "강의, 문자 변환, 시험 전 복습을 편하게.",
+      developerLabel: "개발자용",
+      developerDesc: "API 연동, 음성 처리, 플러그인 개발 기술 정보.",
+      otherLabel: "기타",
+      otherDesc: "어떤 유즈케이스가 맞는지 고민된다면 여기로.",
+      currentLabel: "현재 보는 중",
+    },
+  },
+  "zh-tw": {
+    Header: {
+      benefits: "改變",
+      features: "功能",
+      integrations: "上課環境",
+      compare: "比較",
+      privacy: "隱私",
+      howItWorks: "運作方式",
+      pricing: "方案",
+      download: "下載",
+      downloadWin: "Win 版",
+    },
+    Hero: {
+      title1: "上課做筆記這件事，",
+      title2: "我放棄了。",
+      subtitle: "不需要 Bot，支援所有平台的 AI 課堂筆記 App",
+      desc: "不管是 Zoom、學校自建的直播平台，還是實體課。直接錄下裝置音訊和麥克風，自動整理成方便複習的課堂筆記。",
+      downloadMac: "Mac 免費下載",
+      downloadWin: "Windows 免費下載",
+      mac: "Mac",
+      macSub: "Apple Silicon（M1 以上）",
+      win: "Windows",
+      winSub: "Windows 10 以上",
+      winNote: "Mac 版為穩定版。Windows 版部分功能可能受限",
+    },
+    Problem: {
+      eyebrow: "The Problem",
+      title1: "每堂課都認真做筆記，",
+      title2: "根本做不到。",
+      title3: "但也不想考前才崩潰。",
+      desc: "上課拼命抄筆記，結果根本沒在聽。錄影回放不知不覺就過期了。實體課更是什麼都沒留下。考前想著「那堂課教授講了什麼來著」——又得從頭來過。",
+      before: "Before",
+      beforeTitle: "筆記，大部分都跟不上。",
+      beforeItems: [
+        { name: "忙著抄筆記，根本沒聽進去", price: "這堂課到底來幹嘛的" },
+        { name: "課堂錄影，不知不覺就過期了", price: "本來想之後再看的" },
+        { name: "傳 LINE 問同學「筆記借我看」", price: "每次都開口好尷尬" },
+        { name: "考前，搞不清楚哪週講了什麼", price: "結果從頭找起" }
+      ],
+      total: "結果",
+      beforeTotal: "最後，考前全部重來一遍",
+      beforeTotalDesc: "每次都有點不安，到最後才臨時抱佛腳",
+      after: "After",
+      afterTitle: "按下錄音，之後就輕鬆了",
+      afterDesc: "不管是線上還是實體課，都用同一個方法留下記錄",
+      afterItems: [
+        "Zoom 還是面對面，方法都不用換",
+        "不需要拜託教授或學校做任何事",
+        "逐字稿和重點自動整理好了",
+        "考前想找「那堂課在哪」馬上就能找到"
+      ],
+      afterTotal: "考前，多了一點從容",
+      afterTotalDesc: "不用做到完美，至少有個地方可以回來看",
+    },
+    Features: {
+      eyebrow: "Benefits",
+      title1: "用 Reki，",
+      title2: "面對課業變得更輕鬆",
+      rows: [
+        {
+          num: "01",
+          phase: "馬上",
+          title: "上課開始，按下錄音就好。",
+          body: "根據課表自動發通知。只要按一個按鈕。記錄交給 Reki，你只需要專心聽課就好。"
+        },
+        {
+          num: "02",
+          phase: "幾天後",
+          title: "「那個是什麼來著」，馬上就能查。",
+          body: "寫報告想不起來的時候，可以直接搜尋課堂內容。不用問同學，自己的記錄就有答案。"
+        },
+        {
+          num: "03",
+          phase: "考前",
+          title: "翹掉的課，也能補回來。",
+          body: "沒去上的課，逐字稿和重點都還在。考前不用從頭再來，只要把重點掃過一遍就好。"
+        }
+      ],
+      notificationTitle: "偵測到課程了",
+      notificationApp: "App",
+      notificationCalendar: "課表",
+      notificationCalendarValue: "經濟學導論",
+      notificationBtn: "開始錄音",
+      chatQuestion: "上週個體經濟學教授強調的重點是什麼？",
+      chatAnswerLabel: "ANSWER",
+      chatAnswer: "以下 3 點被特別強調：\n① 邊際效用遞減\n② 需求曲線移動的條件\n③ 期中考會考圖形說明",
+      chatSource: "來源：個體經濟學 5/1 10:40",
+      memoryLabel: "LECTURES",
+      memoryItems: [
+        { date: "今天", title: "經濟學導論", excerpt: "邊際成本與價格..." },
+        { date: "3 天前", title: "英語討論課", excerpt: "報告主題修改" },
+        { date: "上週", title: "研討課 / 消費者行為", excerpt: "補充參考論文" },
+        { date: "2 週前", title: "統計學", excerpt: "變異數分析補充" },
+        { date: "半年前", title: "春季學期說明會", excerpt: "評分配比說明" }
+      ],
+    },
+    WorksWith: {
+      eyebrow: "Works Where You Learn",
+      title: "每間學校的上課環境，直接用就好。",
+      desc: "Zoom、Google Meet、學校自建平台、直播課、實體課通通都行。不用邀請 Bot，不用設定權限，直接錄。",
+      apps: [
+        { name: "Zoom", slug: "zoom" },
+        { name: "Google Meet", slug: "googlemeet" },
+        { name: "Teams", icon: "users" },
+        { name: "Discord", slug: "discord" },
+        { name: "YouTube Live", slug: "youtube" },
+        { name: "LMS 串流", fallback: "LMS" },
+        { name: "裝置上的其他 App", slug: "apple" },
+        { name: "實體課", icon: "messages" },
+        { name: "其他上課環境", fallback: "…" }
+      ],
+    },
+    Compare: {
+      eyebrow: "Compare",
+      title1: "對學生來說重要的是，",
+      title2: "能不費力地持續下去。",
+      desc: "不被各校不同的上課環境牽著走，留下之後可以回頭看的記錄。",
+      colFeature: "比較項目",
+      col2: "AI 語音轉文字工具（Notta / CLOVA Note 等）",
+      col3: "手寫 / 筆記 App",
+      footnote: "※ 預估功能比較",
+      rows: [
+        {
+          feature: "學校上課環境",
+          reki: { tone: "good", text: "不挑環境，直接記錄" },
+          otherAi: { tone: "bad", text: "根據上課環境需要切換工具" },
+          notes: { tone: "soso", text: "不限環境，但記錄要自己來" },
+        },
+        {
+          feature: "Bot 邀請 / 權限設定",
+          reki: { tone: "good", text: "不需要" },
+          otherAi: { tone: "bad", text: "需要" },
+          notes: { tone: "good", text: "不需要" },
+        },
+        {
+          feature: "實體課",
+          reki: { tone: "good", text: "直接錄音就能留下來" },
+          otherAi: { tone: "soso", text: "需要另外用裝置錄音" },
+          notes: { tone: "bad", text: "全部都要自己寫" },
+        },
+        {
+          feature: "之後回頭看",
+          reki: { tone: "good", text: "搜尋和提問都能馬上做到" },
+          otherAi: { tone: "soso", text: "可以搜尋逐字稿" },
+          notes: { tone: "bad", text: "找資料、重新看要花很多時間" },
+        },
+        {
+          feature: "按課程整理",
+          reki: { tone: "good", text: "自動跟課表連動" },
+          otherAi: { tone: "soso", text: "要手動分資料夾" },
+          notes: { tone: "bad", text: "需要自己持續整理" },
+        },
+      ],
+    },
+    Privacy: {
+      eyebrow: "Privacy by Design",
+      title1: "學習記錄，",
+      title2: "留在自己手邊。",
+      facts: [
+        "音訊檔案儲存在你的 Mac 上",
+        "逐字稿和摘要由 Reki 伺服器處理",
+        "產生的資料只儲存在你的 Mac 上"
+      ],
+      providersLabel: "DATA FLOW",
+      providersDesc: "資料離開你的裝置，只有語音處理的那一瞬間",
+      providers: ["錄音 → 儲存在 Mac", "逐字稿 → 處理後立即刪除", "課堂整理 → 儲存在 Mac", "搜尋・AI 問答 → 在 Mac 內完成"],
+    },
+    HowItWorks: {
+      eyebrow: "How it Works",
+      title1: "只要錄音就好。",
+      title2: "課表會自動連結課程",
+      input01Label: "Input 01",
+      input01Title: "課堂音訊",
+      transcript: [
+        { time: "00:03", speaker: "教授", color: "#a78bfa", text: "今天我們把需求曲線移動的條件分成三種來看。" },
+        { time: "00:18", speaker: "教授", color: "#a78bfa", text: "價格變動跟需求本身的變動，要分開思考。" },
+        { time: "00:34", speaker: "同學", color: "#7c9cf0", text: "期中考需要用圖形來說明嗎？" }
+      ],
+      input02Label: "Input 02",
+      input02Title: "課表資訊",
+      calendarMeeting: "個體經濟學",
+      calendarDate: "日期",
+      calendarDateValue: "2026/05/08 10:40",
+      calendarParticipants: "形式",
+      calendarParticipantsValue: "實體課 / 120 人",
+      calendarTool: "工具",
+      calendarNote: "課程名稱、時間、形式自動連結，之後找起來更方便",
+      outputLabel: "Output",
+      outputTitle: "課堂知識庫",
+      outputCards: [
+        { title: "全文搜尋", body: "跨課程搜尋定義、術語、教授的補充說明" },
+        { title: "AI 問答", body: "用自然語言問「上次的作業條件是什麼？」" },
+        { title: "考前資產化", body: "跨學期累積起來的，只屬於你的課堂資料庫" }
+      ],
+    },
+    FinalCTA: {
+      title: "筆記，進入「用錄的」時代。",
+      desc: "先免費試試看，感受一下課堂記錄可以變得多輕鬆。",
+      macSub: "Apple Silicon（M1 以上）",
+      winSub: "Windows 10 以上",
+      btnDefault: "Mac 免費下載",
+      btnWin: "Windows 免費下載",
+      preview: {
+        ariaLabel: "Reki note student home preview",
+        recordTitle: "開始錄音",
+        recordSubtitle: "記錄下一堂課",
+        importAudio: "匯入錄音",
+        todaySchedule: "今天的課",
+        schedule: [
+          { time: "09:00", title: "英語討論課", status: "即將開始" },
+          { time: "10:40", title: "個體經濟學", status: "實體課" },
+          { time: "16:00", title: "行銷學基礎", status: "Google Meet" }
+        ],
+        home: "首頁",
+        heading: "首頁",
+        subheading: "所有課堂記錄，都在這裡。",
+        searchPlaceholder: "搜尋課堂筆記",
+        filters: ["今天", "最新", "90 分鐘課"],
+        sessions: [
+          {
+            title: "個體經濟學 / 第 5 週",
+            time: "今天 10:40〜12:10",
+            app: "實體",
+            attendees: "120",
+            preview: "需求曲線移動因素分為 3 類。期中考會考圖形說明。參考文獻為第 3 章。"
+          },
+          {
+            title: "英語討論課 / Week 4",
+            time: "5/6 09:00〜10:20",
+            app: "Zoom",
+            attendees: "18",
+            preview: "報告主題更改。下次上課前繳交開頭部分。發音矯正重點已記錄。"
+          },
+          {
+            title: "研討課 / 消費者行為",
+            time: "5/2 14:00〜15:30",
+            app: "實體",
+            attendees: "12",
+            preview: "需要整理先行研究的比較。下次要用數據強化假說的根據。"
+          }
+        ],
+        attendeesUnit: " 人",
+        aiLink: "進入課堂",
+        aiQuestion: "上週個體經濟學教授強調的重點是什麼？"
+      },
+    },
+    Footer: {
+      tagline: "Reki note · 把課堂記錄，變成理解的助力。",
+      company: "營運公司",
+      switchHeading: "使用情境",
+      businessLabel: "商務用",
+      businessDesc: "會議、業務洽談、1on1、面對面會議的記錄一站搞定。",
+      studentLabel: "學生用",
+      studentDesc: "課堂、逐字稿、考前複習變得更輕鬆。",
+      developerLabel: "開發者用",
+      developerDesc: "API 整合、語音處理、外掛開發的技術資訊。",
+      otherLabel: "其他",
+      otherDesc: "不確定哪個適合你？來這裡看看。",
+      currentLabel: "目前瀏覽",
     },
   },
 };

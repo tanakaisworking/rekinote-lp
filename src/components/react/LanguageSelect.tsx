@@ -1,9 +1,11 @@
 const LANGUAGE_OPTIONS = [
   { value: "en", label: "English" },
   { value: "ja", label: "日本語" },
+  { value: "ko", label: "한국어" },
+  { value: "zh-tw", label: "繁體中文" },
 ] as const;
 
-export function LanguageSelect({ lang, lightMode = false, pathname }: { lang: "ja" | "en"; lightMode?: boolean; pathname: string }) {
+export function LanguageSelect({ lang, lightMode = false, pathname }: { lang: string; lightMode?: boolean; pathname: string }) {
   return (
     <div className="relative">
       <select
@@ -16,7 +18,7 @@ export function LanguageSelect({ lang, lightMode = false, pathname }: { lang: "j
         value={lang}
         onChange={(event) => {
           const newLang = event.target.value;
-          const newPath = pathname.replace(/^\/(ja|en)(\/|$)/, `/${newLang}$2`) || `/${newLang}/`;
+          const newPath = pathname.replace(/^\/(ja|en|ko|zh-tw)(\/|$)/, `/${newLang}$2`) || `/${newLang}/`;
           window.location.href = newPath;
         }}
       >
