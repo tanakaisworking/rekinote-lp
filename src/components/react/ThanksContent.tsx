@@ -1,7 +1,7 @@
 import * as React from "react";
 
 const GAS_URL =
-  "https://script.google.com/macros/s/AKfycby0wvCXbGvQfawC8mHKmWDq6f0q0L1V973XTwyaSZOzeJFUGS97PvRlGIyRk60Rcm71IA/exec";
+  "https://script.google.com/macros/s/AKfycbxoT6-2ZlVUtvhG9Nee-FdH8LYVy0nc80Ya_n2rTkN2xw_HAaP3N8mOhe_XrwMhyub4ew/exec";
 
 type FeedbackType = "impression" | "bug";
 
