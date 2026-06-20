@@ -2,109 +2,34 @@
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { TeamPlanApplicationForm } from "../../../components/react/TeamPlanApplicationForm";
 
+const tools = [
+  { name: "Google Meet", icon: "/lp/team/tool-google-meet.svg" },
+  { name: "Zoom", icon: "/lp/team/tool-zoom.svg" },
+  { name: "Teams", icon: "/lp/team/tool-teams.svg" },
+  { name: "Slack", icon: "/lp/team/tool-slack.svg" },
+  { name: "1on1", icon: "/lp/team/tool-1on1.svg" },
+];
+
 const pipeline = [
-  { title: "Capture", label: "録る", body: "Zoom / Meet / Teams / Slack / 対面まで。会議ツールをまたいで会話を取り込む。" },
-  { title: "Local", label: "起こす", body: "PC上で文字起こし。秘密度の高い会話はローカル運用を選べる。" },
-  { title: "Summary", label: "要約", body: "全文ではなく、共有に必要な要約・決定事項・メタデータに変換。" },
-  { title: "Dashboard", label: "見る", body: "部門別の進捗、関心ごと、アクションを組織で可視化。" },
-  { title: "AI", label: "つなぐ", body: "社内会話を検索・分析・生成AI活用に接続できる状態へ。" },
+  { label: "会話", icon: "/lp/team/icon-capture.svg", text: "会議・通話・1on1" },
+  { label: "ローカル 文字起こし", icon: "/lp/team/icon-local.svg", text: "PC内で処理" },
+  { label: "要約承認", icon: "/lp/team/icon-summary.svg", text: "共有範囲を選ぶ" },
+  { label: "ダッシュボード", icon: "/lp/team/icon-dashboard.svg", text: "論点と進捗を見る" },
+  { label: "生成AI", icon: "/lp/team/icon-ai.svg", text: "承認済みデータを接続" },
 ];
 
-const supportedTools = ["Google Meet", "Zoom", "Microsoft Teams", "Slack", "対面会議", "1on1"];
-
-const features = [
-  {
-    title: "全ツール対応",
-    body: "Google Meet、Zoom、Teams、Slack、対面会議まで。会議ツールごとのAI契約ではなく、PC上の会話をまとめて扱います。",
-    points: ["Bot招待不要", "会議ツールをまたいで記録", "対面・1on1にも対応"],
-  },
-  {
-    title: "会話を業務データ化",
-    body: "議事録を溜めるだけでなく、決定事項、論点、関心ごと、アクションを組織で検索・共有できる形にします。",
-    points: ["進捗率を可視化", "アクションを一覧管理", "部門・トピック別に集計"],
-  },
-  {
-    title: "監視ではなく要約共有",
-    body: "社員の一言一句を監視するのではなく、業務に必要な要約・議事録・タスクを提出する設計です。",
-    points: ["個人原本と組織提出を分離", "1on1ポリシーに対応", "心理的安全性を守る"],
-  },
+const proofs = [
+  { title: "ツールを選ばない", body: "Meet、Zoom、Teams、Slack、対面まで。会議ツールごとの制約から離れます。", icon: "/lp/team/feature-tools.svg" },
+  { title: "秘密情報に強い", body: "録音・文字起こしをローカルに残し、必要な要約だけを組織へ提出できます。", icon: "/lp/team/feature-privacy.svg" },
+  { title: "経営が見える", body: "未決論点、担当未設定、KPI遅れを、会話から経営の確認対象に変えます。", icon: "/lp/team/feature-data.svg" },
 ];
 
-const meetings = [
-  { date: "5/31", app: "Teams", title: "週次プロダクト会議", dept: "開発", topic: "リリース計画", actions: "5 / 7", privacy: "マスキング済み" },
-  { date: "5/30", app: "Meet", title: "営業戦略MTG", dept: "営業", topic: "商談優先度", actions: "3 / 6", privacy: "マスキング済み" },
-  { date: "5/30", app: "Slack", title: "顧客オンボーディング改善", dept: "CS", topic: "定着支援", actions: "4 / 5", privacy: "マスキング済み" },
-  { date: "5/29", app: "1on1", title: "キャリアレビュー", dept: "人事", topic: "人材育成", actions: "-", privacy: "1on1保護" },
-];
-
-const functionBlocks = [
-  {
-    title: "組織ダッシュボード",
-    body: "会話量、未完了アクション、関心ごとの推移を部署別に確認。報告を待たずに、組織の状態を把握できます。",
-    items: ["会話量・進捗率", "部署別トピック", "アクション完了率"],
-  },
-  {
-    title: "会話タイムライン",
-    body: "会議・通話・1on1を時系列で整理。誰が参加し、何が決まり、次に何をするかを追えます。",
-    items: ["会議メタデータ", "要約と出典", "参加者ベース共有"],
-  },
-  {
-    title: "セキュリティ設定",
-    body: "ローカル運用、クラウド提出、NDA、監査ログ、アクセス権限を導入ポリシーに合わせて設計します。",
-    items: ["ローカル/クラウド境界", "監査ログ", "権限・提出範囲"],
-  },
-];
-
-const localItems = [
-  "録音・文字起こしをPCローカルに保持",
-  "必要な会議だけユーザー操作で提出",
-  "秘密度の高い会話はクラウドに送らない運用が可能",
-];
-
-const cloudItems = [
-  "提出された要約・議事録・メタデータを組織で検索",
-  "アクション項目、期限、担当者をチームで管理",
-  "NDA締結、権限管理、監査ログを契約・運用で担保",
-];
-
-const useCases = [
-  { team: "営業", title: "商談の温度感と宿題を残す", body: "顧客との会話から、検討理由、懸念、次回アクションをチームで共有。" },
-  { team: "CS", title: "顧客の困りごとを横断で見る", body: "オンボーディングや定例会の会話を集約し、解約リスクや要望を早く拾う。" },
-  { team: "人事・1on1", title: "守る会話と共有する情報を分ける", body: "センシティブな原本は守り、組織に必要なアクションだけ扱う。" },
-  { team: "経営会議", title: "決定理由を後から追える", body: "なぜ決めたか、何が未決か、誰が次に動くかを会話から残す。" },
-];
-
-const faqs = [
-  {
-    q: "音声データはクラウドに送られますか？",
-    a: "ローカル運用では、録音・文字起こし・要約をPC内に残す設計が可能です。チームクラウド機能を使う場合は、提出された要約・議事録・メタデータを組織で扱います。",
-  },
-  {
-    q: "ローカル運用とチームクラウド運用の違いは？",
-    a: "ローカル運用は個人PC内で完結する使い方です。チームクラウド運用は、組織で検索・共有・レポート化するために、提出範囲を決めてクラウド側で扱います。",
-  },
-  {
-    q: "社員の会話をすべて監視するツールですか？",
-    a: "いいえ。Reki note Teamは全文監視ではなく、業務に必要な要約・議事録・アクションを共有する設計です。1on1や人事面談などは提出しないポリシーも設計できます。",
-  },
-  {
-    q: "NDAは締結できますか？",
-    a: "はい。チームプラン契約時に秘密保持契約を締結し、クラウド機能利用時のデータ取り扱いを契約と運用ポリシーで明確にします。",
-  },
-  {
-    q: "Google MeetやZoom以外でも使えますか？",
-    a: "PC上の音声を扱うため、Google Meet、Zoom、Teams、Slack、対面会議など、特定の会議プラットフォームに依存しない運用が可能です。",
-  },
-  {
-    q: "料金は席課金ですか？",
-    a: "Teamは ¥5,000 / 席 / 月 を基準にしています。Enterpriseは専用環境や個別要件に応じて、初期1,000万円〜で個別見積もりです。",
-  },
-];
+const pricingBullets = ["文字起こし・要約", "未決論点・アクション管理", "KPIモニタリング", "権限管理・監査ログ", "ローカル運用・NDA対応"];
 ---
 
 <BaseLayout
-  title="Reki note Team — 会話から、業務の進捗が見える。"
-  description="Reki note Teamは、会議・通話・1on1を要約し、決定事項・関心ごと・アクションを組織で扱えるデータに変換するチーム向けサービスです。"
+  title="Reki note Team — 社内の会話を、AIが使える経営資産に。"
+  description="Reki note Teamは、会議・通話・1on1を要約し、経営と生成AIにつながる会話データ基盤をつくるチーム向けサービスです。"
   lang="ja"
   canonical="https://rekinote.app/ja/lp/team/"
   singleLang
@@ -117,287 +42,112 @@ const faqs = [
         <strong>Team</strong>
       </a>
       <nav aria-label="ページ内ナビゲーション">
-        <a href="#features">特長</a>
         <a href="#product">機能</a>
         <a href="#security">セキュリティ</a>
         <a href="#pricing">料金</a>
-        <a href="#faq">FAQ</a>
       </nav>
-      <a href="#apply" class="team-header-cta">チームプランを申し込む</a>
+      <a href="#apply" class="team-header-cta">チーム導入を相談する</a>
     </header>
 
     <section class="team-hero">
-      <div class="team-hero-inner">
-        <div class="team-hero-copy">
-          <p class="team-kicker">Reki note Team</p>
-          <h1>会話から、<br />業務の進捗が見える。</h1>
-          <p class="team-lead">
-            Google MeetやZoomに依存せず、会議・通話・1on1を要約。
-            決定事項、関心ごと、アクションを組織で扱えるデータに変換します。
-          </p>
-          <div class="team-hero-actions">
-            <a href="#apply" class="team-primary">チームプランを申し込む</a>
-            <a href="#security" class="team-secondary">NDA・セキュリティについて</a>
-          </div>
-          <div class="team-trust-row" aria-label="導入対応">
-            <span>NDA締結</span>
-            <span>ローカル運用</span>
-            <span>権限管理</span>
-            <span>監査ログ</span>
-          </div>
+      <div class="team-hero-copy">
+        <p class="team-kicker">Reki note Team</p>
+        <h1>
+          <span>社内の会話を、</span>
+          <em>AIが使える</em>
+          <span>経営資産に。</span>
+        </h1>
+        <p class="team-lead">会議・通話・1on1を要約し、経営と生成AIにつながるデータ基盤をつくる。</p>
+        <div class="team-actions">
+          <a href="#apply" class="team-primary">チーム導入を相談する</a>
+          <a href="#security" class="team-secondary">セキュリティを見る</a>
         </div>
-
-        <div class="team-hero-product" aria-label="Reki note Team ダッシュボードのプレビュー">
-          <div class="team-product-window dark">
-            <div class="team-product-sidebar">
-              <div class="team-product-brand">
-                <img src="/logo.png" alt="" width="20" height="20" />
-                <span>Reki note</span>
-              </div>
-              <span class="active">ダッシュボード</span>
-              <span>会話タイムライン</span>
-              <span>トピック</span>
-              <span>アクション</span>
-              <span>セキュリティ</span>
-            </div>
-            <div class="team-product-main">
-              <div class="team-product-head">
-                <div>
-                  <p>Organization Intelligence</p>
-                  <h2>ダッシュボード</h2>
-                </div>
-                <span>2026/05/01 - 05/31</span>
-              </div>
-              <div class="team-hero-metrics">
-                <article><span>会話数</span><b>682</b><small>+12.4%</small></article>
-                <article><span>完了率</span><b>65%</b><small>+8.7pt</small></article>
-                <article><span>未解決</span><b>24</b><small>-6件</small></article>
-              </div>
-              <div class="team-hero-panel-grid">
-                <article class="team-mini-bars">
-                  <h3>部署別の会話量</h3>
-                  {[92, 68, 44, 24].map((width) => <i style={`width:${width}%`} />)}
-                </article>
-                <article>
-                  <h3>今週の論点</h3>
-                  <ul>
-                    <li>リリース計画</li>
-                    <li>顧客オンボーディング</li>
-                    <li>セキュリティ要件</li>
-                  </ul>
-                </article>
-              </div>
-              <div class="team-hero-table">
-                {meetings.slice(0, 3).map((meeting) => (
-                  <div>
-                    <span>{meeting.app}</span>
-                    <b>{meeting.title}</b>
-                    <small>{meeting.actions}</small>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+        <div class="team-trust" aria-label="導入時の安心材料">
+          <span>ローカル運用</span>
+          <span>NDA締結</span>
+          <span>権限管理</span>
+        </div>
+        <div class="team-tools" aria-label="対応ツール">
+          {tools.map((tool) => (
+            <span>
+              <img src={tool.icon} alt="" width="24" height="24" loading="eager" />
+              {tool.name}
+            </span>
+          ))}
         </div>
       </div>
 
-      <div class="team-assurance-strip" aria-label="企業導入の対応範囲">
-        <div><b>エンタープライズセキュリティ</b><span>NDA締結・契約条件に対応</span></div>
-        <div><b>データはお客様のもの</b><span>提出範囲を組織ポリシーで制御</span></div>
-        <div><b>ビジネス要件に対応</b><span>SAML SSO / SCIM は個別相談</span></div>
-      </div>
-    </section>
-
-    <section class="team-tools" aria-label="対応ツール">
-      <p>主要な会議・通話・対面コミュニケーションに対応</p>
-      <div>
-        {supportedTools.map((tool) => <span>{tool}</span>)}
-      </div>
-    </section>
-
-    <section class="team-flow" id="flow" aria-labelledby="flow-title">
-      <div class="team-section-heading compact">
-        <p>OPERATING MODEL</p>
-        <h2 id="flow-title">会話が業務データになるまで</h2>
-      </div>
-      <div class="team-flow-band">
-        {pipeline.map((item, index) => (
+      <div class="team-pipeline-hero" aria-label="会話から生成AIまでの流れ">
+        {pipeline.map((step, index) => (
           <article>
-            <span class="team-step-number">{String(index + 1).padStart(2, "0")}</span>
-            <strong>{item.label}</strong>
-            <h3>{item.title}</h3>
-            <p>{item.body}</p>
+            <img src={step.icon} alt="" width="48" height="48" loading="eager" />
+            <b>{step.label}</b>
+            <p>{step.text}</p>
+            {index < pipeline.length - 1 && <span class="team-arrow">→</span>}
           </article>
         ))}
       </div>
-      <p class="team-flow-note">エンドツーエンドの暗号化、提出範囲の制御、監査ログを前提に、組織ごとの運用ポリシーに合わせて設計します。</p>
     </section>
 
-    <section class="team-features" id="features" aria-labelledby="features-title">
+    <section class="team-proof" id="product" aria-labelledby="proof-title">
       <div class="team-section-heading">
-        <p>FEATURES</p>
-        <h2 id="features-title">チーム導入で変わる3つのこと</h2>
+        <p>VALUE</p>
+        <h2 id="proof-title">見るべき価値は、3つだけ。</h2>
       </div>
-      <div class="team-feature-grid">
-        {features.map((feature, index) => (
+      <div class="team-proof-grid">
+        {proofs.map((proof) => (
           <article>
-            <span>{String(index + 1).padStart(2, "0")}</span>
-            <h3>{feature.title}</h3>
-            <p>{feature.body}</p>
-            <ul>
-              {feature.points.map((point) => <li>{point}</li>)}
-            </ul>
+            <img src={proof.icon} alt="" width="360" height="180" loading="eager" />
+            <h3>{proof.title}</h3>
+            <p>{proof.body}</p>
           </article>
         ))}
       </div>
-      <div class="team-mid-cta">
-        <a href="#apply" class="team-primary">チームプランを申し込む</a>
-        <a href="#product" class="team-secondary">機能の詳細を見る</a>
-      </div>
     </section>
 
-    <section class="team-product-section" id="product" aria-labelledby="product-title">
-      <div class="team-section-heading dark">
-        <p>PRODUCT</p>
-        <h2 id="product-title">会話DXを進める機能</h2>
-        <span>記録する、共有する、進捗を見る。社内会話を生成AIに渡せるデータへ変換します。</span>
-      </div>
-      <div class="team-function-stack">
-        {functionBlocks.map((block, index) => (
-          <article>
-            <div>
-              <span>0{index + 1}</span>
-              <h3>{block.title}</h3>
-              <p>{block.body}</p>
-              <ul>{block.items.map((item) => <li>{item}</li>)}</ul>
-            </div>
-            <div class="team-function-visual" aria-hidden="true">
-              <div class="team-mini-window">
-                <b>{block.title}</b>
-                <i />
-                <i />
-                <i />
-                <small>{block.items[0]}</small>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-      <div class="team-dark-cta">
-        <a href="#apply" class="team-primary">導入について相談する</a>
-        <a href="#security" class="team-outline-light">セキュリティを見る</a>
-      </div>
-    </section>
-
-    <section class="team-boundary" id="security" aria-labelledby="boundary-title">
-      <div class="team-section-heading align-left">
-        <p>SECURITY & COMPLIANCE</p>
-        <h2 id="boundary-title">ローカル完結とクラウド機能の境界</h2>
-        <span>秘密度の高い会話をPC内に残す運用と、組織で使う要約データをクラウドに提出する運用を分けて設計します。</span>
-      </div>
-      <div class="team-boundary-grid">
-        <article>
-          <p>ローカル完結モード</p>
-          <h3>機密性の高い会話は、PC内で扱う。</h3>
-          <ul>{localItems.map((item) => <li>{item}</li>)}</ul>
-          <strong>このモードでは、音声・全文文字起こし・要約のいずれもクラウドに送信しない運用が可能です。</strong>
-        </article>
-        <div class="team-submit-column" aria-hidden="true">
-          <span>ユーザー操作で提出</span>
-          <b>要約・メタデータのみ</b>
-        </div>
-        <article>
-          <p>チームクラウドモード</p>
-          <h3>共有すべき情報だけを、組織で活用する。</h3>
-          <ul>{cloudItems.map((item) => <li>{item}</li>)}</ul>
-          <strong>クラウド機能はローカル完結ではありません。秘密保持契約と運用ポリシーで取り扱いを明確にします。</strong>
-        </article>
-      </div>
-      <div class="team-compliance-row">
-        <span>NDA締結対応</span>
-        <span>DPA締結相談</span>
-        <span>通信・保存の暗号化</span>
-        <span>監査ログ保持</span>
-        <span>IP制限相談</span>
-        <span>事業継続計画に準拠</span>
-      </div>
-      <div class="team-mid-cta">
-        <a href="#apply" class="team-primary">セキュリティ要件を相談する</a>
-      </div>
-    </section>
-
-    <section class="team-usecases" aria-labelledby="usecases-title">
+    <section class="team-security" id="security" aria-labelledby="security-title">
       <div class="team-section-heading">
-        <p>USE CASES</p>
-        <h2 id="usecases-title">最初に導入しやすい部門</h2>
+        <p>SECURITY</p>
+        <h2 id="security-title">データは、必要なときだけ組織へ。</h2>
+        <span>ローカル処理とクラウド共有の境界を分け、秘密情報とAI活用を両立します。</span>
       </div>
-      <div class="team-usecase-grid">
-        {useCases.map((useCase) => (
-          <article>
-            <span>{useCase.team}</span>
-            <h3>{useCase.title}</h3>
-            <p>{useCase.body}</p>
-          </article>
-        ))}
+      <div class="team-security-flow">
+        <img src="/lp/team/security-boundary.svg" alt="" width="1120" height="280" loading="eager" />
+      </div>
+      <div class="team-security-points">
+        <span>音声はローカル保持</span>
+        <span>要約を承認して共有</span>
+        <span>AI連携は承認済みデータのみ</span>
       </div>
     </section>
 
     <section class="team-pricing" id="pricing" aria-labelledby="pricing-title">
-      <div class="team-section-heading">
+      <div class="team-section-heading align-left">
         <p>PRICING</p>
-        <h2 id="pricing-title">チームの規模と要件に合わせて導入できます。</h2>
+        <h2 id="pricing-title">AI Readyな組織へ。</h2>
       </div>
-      <div class="team-price-grid">
-        <article>
+      <div class="team-price-panel">
+        <article class="team-price-card">
           <span>Team</span>
           <h3><b>¥5,000</b> / 席 / 月</h3>
-          <p>中小〜中堅企業向けの標準プラン。</p>
           <ul>
-            <li>文字起こし・要約・検索</li>
-            <li>会話の自動要約・共有</li>
-            <li>プロジェクト、タグ、権限管理</li>
-            <li>監査ログ・アクセス制御</li>
+            {pricingBullets.map((item) => <li>{item}</li>)}
           </ul>
-          <a href="#apply">チームプランを申し込む</a>
         </article>
-        <article>
-          <span>Enterprise</span>
-          <h3><b>初期1,000万円〜</b></h3>
-          <p>大企業・官公庁・厳格な要件を持つ組織向け。</p>
-          <ul>
-            <li>専用環境、個別要件、運用設計</li>
-            <li>高度なセキュリティ・コンプライアンス対応</li>
-            <li>データ保持ポリシーのカスタマイズ</li>
-            <li>専任カスタマーサクセス・サポート</li>
-          </ul>
-          <a href="#apply" class="secondary">導入について相談する</a>
+        <article class="team-consult-card">
+          <span>オンラインで実施</span>
+          <h3>まずは30分相談</h3>
+          <p>貴社の会議・セキュリティ要件に合わせて、導入方法をご提案します。</p>
+          <a href="#apply" class="team-primary">まずは30分相談</a>
         </article>
       </div>
     </section>
 
-    <section class="team-faq" id="faq" aria-labelledby="faq-title">
-      <div class="team-section-heading dark">
-        <p>FAQ</p>
-        <h2 id="faq-title">よくある質問</h2>
-      </div>
-      <div class="team-faq-list">
-        {faqs.map((faq) => (
-          <details>
-            <summary>{faq.q}</summary>
-            <p>{faq.a}</p>
-          </details>
-        ))}
-      </div>
-      <div class="team-dark-cta">
-        <a href="#apply" class="team-primary">チームプランを申し込む</a>
-      </div>
-    </section>
-
-    <section class="team-application" aria-labelledby="apply-title">
+    <section class="team-application" id="apply" aria-labelledby="apply-title">
       <div class="team-application-copy">
         <p class="team-kicker">APPLICATION</p>
-        <h2 id="apply-title">チームプランを<br />申し込む</h2>
-        <p>想定利用人数、NDAの希望、導入目的をお送りください。要件を確認し、導入方法と契約条件をご案内します。</p>
+        <h2 id="apply-title">チーム導入を相談する</h2>
+        <p>想定人数と導入目的だけお送りください。必要な契約・運用条件を整理してご案内します。</p>
       </div>
       <TeamPlanApplicationForm client:load />
     </section>
@@ -406,17 +156,14 @@ const faqs = [
 
 <style>
   .team-page {
-    --team-ink: #111218;
-    --team-muted: #5b6472;
-    --team-line: rgba(17, 18, 24, 0.12);
-    --team-purple: #7c3aed;
-    --team-purple-dark: #4c1d95;
-    --team-purple-soft: #ede9fe;
+    --ink: #0b0d14;
+    --muted: #5d6675;
+    --line: rgba(11, 13, 20, 0.12);
+    --purple: #7c3aed;
+    --purple-dark: #4c1d95;
     min-height: 100vh;
-    background: #f7f7f8;
-    color: var(--team-ink);
-    word-break: normal;
-    overflow-wrap: normal;
+    background: #fafafa;
+    color: var(--ink);
     line-break: strict;
   }
 
@@ -426,14 +173,6 @@ const faqs = [
     box-sizing: border-box;
   }
 
-  .team-page p,
-  .team-page li,
-  .team-page span,
-  .team-page small,
-  .team-page summary {
-    overflow-wrap: break-word;
-  }
-
   .team-header {
     position: sticky;
     top: 0;
@@ -441,11 +180,11 @@ const faqs = [
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 28px;
+    gap: 24px;
     height: 64px;
-    padding: 0 40px;
-    border-bottom: 1px solid var(--team-line);
-    background: rgba(247, 247, 248, 0.9);
+    padding: 0 44px;
+    border-bottom: 1px solid var(--line);
+    background: rgba(250, 250, 250, 0.9);
     backdrop-filter: blur(16px);
   }
 
@@ -453,15 +192,14 @@ const faqs = [
   .team-header nav,
   .team-header-cta,
   .team-primary,
-  .team-secondary,
-  .team-outline-light {
+  .team-secondary {
     display: inline-flex;
     align-items: center;
   }
 
   .team-logo {
     gap: 10px;
-    color: var(--team-ink);
+    color: var(--ink);
     font-weight: 800;
     text-decoration: none;
   }
@@ -473,20 +211,20 @@ const faqs = [
   .team-logo strong {
     padding: 2px 8px;
     border-radius: 6px;
-    background: var(--team-purple);
+    background: var(--purple);
     color: #fff;
     font-size: 12px;
   }
 
   .team-header nav {
-    gap: 26px;
-    font-size: 13px;
-    font-weight: 700;
+    gap: 32px;
+    font-size: 14px;
+    font-weight: 800;
   }
 
   .team-header nav a,
   .team-secondary {
-    color: #3f4652;
+    color: #293241;
     text-decoration: none;
   }
 
@@ -494,23 +232,24 @@ const faqs = [
   .team-primary {
     justify-content: center;
     border-radius: 8px;
-    background: var(--team-purple);
+    background: var(--purple);
     color: #fff;
     font-weight: 800;
     text-decoration: none;
-    box-shadow: 0 16px 34px -22px rgba(124, 58, 237, 0.9);
+    box-shadow: 0 18px 38px -24px rgba(124, 58, 237, 0.9);
   }
 
   .team-header-cta {
-    padding: 10px 16px;
-    font-size: 13px;
+    min-height: 42px;
+    padding: 0 18px;
+    font-size: 14px;
   }
 
   .team-primary,
-  .team-secondary,
-  .team-outline-light {
-    min-height: 48px;
-    padding: 0 20px;
+  .team-secondary {
+    min-height: 56px;
+    padding: 0 26px;
+    font-size: 16px;
   }
 
   .team-secondary {
@@ -518,378 +257,181 @@ const faqs = [
     font-weight: 800;
   }
 
-  .team-outline-light {
-    border: 1px solid rgba(255, 255, 255, 0.24);
-    border-radius: 8px;
-    color: #fff;
-    font-weight: 800;
-    text-decoration: none;
-  }
-
   .team-hero {
-    padding: 66px 24px 28px;
-    background: radial-gradient(circle at 78% 18%, rgba(124, 58, 237, 0.12), transparent 34%), #f7f7f8;
-  }
-
-  .team-hero-inner {
     display: grid;
-    grid-template-columns: minmax(0, 0.8fr) minmax(560px, 1fr);
-    gap: 46px;
-    max-width: 1240px;
-    margin: 0 auto;
+    grid-template-columns: minmax(0, 0.72fr) minmax(580px, 1fr);
+    gap: 48px;
     align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 92px 40px 72px;
   }
 
   .team-kicker,
   .team-section-heading p {
     margin: 0;
-    color: var(--team-purple);
+    color: var(--purple);
     font-family: "JetBrains Mono", ui-monospace, monospace;
     font-size: 12px;
     font-weight: 800;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.13em;
     text-transform: uppercase;
   }
 
   .team-hero h1 {
-    margin: 18px 0 0;
-    color: #07080d;
-    font-size: clamp(42px, 4.8vw, 64px);
-    letter-spacing: -0.035em;
-    line-height: 1.12;
+    margin: 22px 0 0;
+    font-size: clamp(48px, 5.5vw, 76px);
+    letter-spacing: -0.045em;
+    line-height: 1.04;
+  }
+
+  .team-hero h1 em {
+    display: block;
+    color: var(--purple);
+    font-style: normal;
+  }
+
+  .team-hero h1 span {
+    display: block;
+    white-space: nowrap;
   }
 
   .team-lead {
-    max-width: 590px;
-    margin: 24px 0 0;
-    color: #303642;
-    font-size: 16px;
+    max-width: 520px;
+    margin: 26px 0 0;
+    color: #333b49;
+    font-size: 19px;
+    font-weight: 600;
     line-height: 1.9;
   }
 
-  .team-hero-actions,
-  .team-trust-row,
-  .team-mid-cta,
-  .team-dark-cta {
+  .team-actions,
+  .team-trust,
+  .team-tools,
+  .team-security-points {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
   }
 
-  .team-hero-actions {
-    margin-top: 30px;
+  .team-actions {
+    margin-top: 34px;
+    gap: 18px;
   }
 
-  .team-trust-row {
-    margin-top: 22px;
-    gap: 8px;
+  .team-trust {
+    margin-top: 26px;
   }
 
-  .team-trust-row span,
-  .team-compliance-row span {
+  .team-trust span,
+  .team-security-points span {
     display: inline-flex;
     align-items: center;
-    min-height: 32px;
-    padding: 0 12px;
+    min-height: 36px;
+    padding: 0 14px;
     border: 1px solid rgba(22, 101, 52, 0.18);
     border-radius: 8px;
     background: rgba(22, 163, 74, 0.06);
     color: #166534;
-    font-size: 12px;
-    font-weight: 800;
-  }
-
-  .team-product-window {
-    display: grid;
-    grid-template-columns: 168px minmax(0, 1fr);
-    overflow: hidden;
-    border: 1px solid rgba(17, 18, 24, 0.28);
-    border-radius: 10px;
-    box-shadow: 0 34px 78px -50px rgba(15, 23, 42, 0.78);
-  }
-
-  .team-product-window.dark {
-    background: #0d111a;
-    color: #e8edf6;
-  }
-
-  .team-product-sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding: 18px 14px;
-    border-right: 1px solid rgba(255, 255, 255, 0.08);
-    background: #090d15;
-  }
-
-  .team-product-brand {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 12px;
     font-size: 13px;
     font-weight: 800;
-  }
-
-  .team-product-brand img {
-    border-radius: 6px;
-  }
-
-  .team-product-sidebar > span {
-    padding: 9px 10px;
-    border-radius: 7px;
-    color: #9aa5b5;
-    font-size: 12px;
-  }
-
-  .team-product-sidebar > span.active {
-    background: rgba(124, 58, 237, 0.34);
-    color: #fff;
-  }
-
-  .team-product-main {
-    padding: 22px;
-  }
-
-  .team-product-head,
-  .team-product-head > div,
-  .team-hero-metrics,
-  .team-hero-panel-grid,
-  .team-hero-table {
-    display: grid;
-    gap: 12px;
-  }
-
-  .team-product-head {
-    grid-template-columns: 1fr auto;
-    align-items: start;
-  }
-
-  .team-product-head p,
-  .team-product-head h2 {
-    margin: 0;
-  }
-
-  .team-product-head p {
-    color: #8b95a6;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  .team-product-head h2 {
-    color: #fff;
-    font-size: 22px;
-  }
-
-  .team-product-head > span {
-    padding: 7px 10px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 7px;
-    color: #c8d0dc;
-    font-size: 11px;
-  }
-
-  .team-hero-metrics {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    margin-top: 16px;
-  }
-
-  .team-hero-metrics article,
-  .team-hero-panel-grid article,
-  .team-hero-table {
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.045);
-  }
-
-  .team-hero-metrics article {
-    padding: 14px;
-  }
-
-  .team-hero-metrics span,
-  .team-hero-metrics small {
-    display: block;
-    color: #93a0b1;
-    font-size: 11px;
-  }
-
-  .team-hero-metrics b {
-    display: block;
-    margin-top: 8px;
-    color: #fff;
-    font-size: 30px;
-    line-height: 1;
-  }
-
-  .team-hero-metrics small {
-    margin-top: 8px;
-    color: #34d399;
-    font-weight: 800;
-  }
-
-  .team-hero-panel-grid {
-    grid-template-columns: 1fr 1fr;
-    margin-top: 12px;
-  }
-
-  .team-hero-panel-grid article {
-    padding: 14px;
-  }
-
-  .team-hero-panel-grid h3 {
-    margin: 0 0 12px;
-    color: #e8edf6;
-    font-size: 13px;
-  }
-
-  .team-mini-bars i {
-    display: block;
-    height: 8px;
-    margin-top: 10px;
-    border-radius: 999px;
-    background: linear-gradient(90deg, #7c3aed, #a78bfa);
-  }
-
-  .team-hero-panel-grid ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-  }
-
-  .team-hero-panel-grid li {
-    margin-top: 8px;
-    color: #c8d0dc;
-    font-size: 12px;
-  }
-
-  .team-hero-table {
-    margin-top: 12px;
-    padding: 6px 0;
-  }
-
-  .team-hero-table div {
-    display: grid;
-    grid-template-columns: 52px 1fr auto;
-    gap: 10px;
-    align-items: center;
-    padding: 9px 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
-  }
-
-  .team-hero-table div:last-child {
-    border-bottom: 0;
-  }
-
-  .team-hero-table span {
-    padding: 3px 6px;
-    border-radius: 5px;
-    background: rgba(167, 139, 250, 0.18);
-    color: #c4b5fd;
-    font-size: 10px;
-    font-weight: 800;
-  }
-
-  .team-hero-table b,
-  .team-hero-table small {
-    font-size: 11px;
-  }
-
-  .team-hero-table small {
-    color: #34d399;
-  }
-
-  .team-assurance-strip {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 14px;
-    max-width: 1240px;
-    margin: 28px auto 0;
-  }
-
-  .team-assurance-strip div {
-    min-height: 82px;
-    padding: 18px;
-    border: 1px solid rgba(22, 101, 52, 0.22);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.78);
-  }
-
-  .team-assurance-strip b,
-  .team-assurance-strip span {
-    display: block;
-  }
-
-  .team-assurance-strip b {
-    color: #123824;
-    font-size: 14px;
-  }
-
-  .team-assurance-strip span {
-    margin-top: 8px;
-    color: #536071;
-    font-size: 12px;
   }
 
   .team-tools {
-    display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: 22px;
-    align-items: center;
-    max-width: 1120px;
-    margin: 0 auto;
-    padding: 24px 24px 10px;
-  }
-
-  .team-tools p {
-    margin: 0;
-    color: #596273;
-    font-size: 12px;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-  }
-
-  .team-tools div {
-    display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    gap: 10px;
+    margin-top: 28px;
   }
 
   .team-tools span {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 42px;
-    border: 1px solid rgba(17, 18, 24, 0.1);
+    gap: 8px;
+    min-height: 48px;
+    padding: 0 14px;
+    border: 1px solid var(--line);
     border-radius: 8px;
-    background: rgba(255, 255, 255, 0.74);
-    color: #293140;
-    font-size: 12px;
+    background: #fff;
+    color: #2f3847;
+    font-size: 13px;
     font-weight: 800;
-    text-align: center;
   }
 
-  .team-flow,
-  .team-features,
-  .team-boundary,
-  .team-usecases,
+  .team-tools img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+  }
+
+  .team-pipeline-hero {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    min-height: 560px;
+    border: 1px solid rgba(124, 58, 237, 0.12);
+    border-radius: 10px;
+    background: linear-gradient(90deg, rgba(124, 58, 237, 0.04), #fff 22%, rgba(124, 58, 237, 0.045));
+    overflow: hidden;
+  }
+
+  .team-pipeline-hero article {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 18px;
+    padding: 30px 22px;
+    border-right: 1px solid rgba(124, 58, 237, 0.1);
+  }
+
+  .team-pipeline-hero article:last-child {
+    border-right: 0;
+  }
+
+  .team-pipeline-hero img {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+  }
+
+  .team-pipeline-hero b {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+
+  .team-pipeline-hero p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.75;
+  }
+
+  .team-arrow {
+    position: absolute;
+    right: -14px;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(124, 58, 237, 0.18);
+    border-radius: 99px;
+    background: #fff;
+    color: var(--purple);
+    font-weight: 900;
+  }
+
+  .team-proof,
+  .team-security,
   .team-pricing,
   .team-application {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 62px 24px;
+    padding: 74px max(32px, calc((100vw - 1180px) / 2 + 32px));
   }
 
   .team-section-heading {
     max-width: 760px;
-    margin: 0 auto 32px;
+    margin: 0 auto 34px;
     text-align: center;
-  }
-
-  .team-section-heading.compact {
-    margin-bottom: 24px;
   }
 
   .team-section-heading.align-left {
@@ -897,446 +439,187 @@ const faqs = [
     text-align: left;
   }
 
-  .team-section-heading.dark {
-    color: #fff;
-  }
-
   .team-section-heading h2,
-  .team-boundary h2,
   .team-application h2 {
-    margin: 10px 0 0;
-    color: #0b0c11;
-    font-size: clamp(30px, 4vw, 44px);
-    letter-spacing: -0.025em;
-    line-height: 1.35;
-  }
-
-  .team-section-heading.dark h2 {
-    color: #fff;
+    margin: 12px 0 0;
+    font-size: clamp(36px, 4.2vw, 58px);
+    letter-spacing: -0.035em;
+    line-height: 1.18;
+    text-wrap: balance;
   }
 
   .team-section-heading span,
   .team-application-copy p {
     display: block;
-    margin-top: 14px;
-    color: var(--team-muted);
+    margin-top: 16px;
+    color: var(--muted);
+    font-size: 16px;
     line-height: 1.9;
   }
 
-  .team-section-heading.dark span {
-    color: rgba(255, 255, 255, 0.72);
+  .team-proof {
+    background: #fff;
   }
 
-  .team-flow {
-    padding-top: 44px;
-  }
-
-  .team-flow-band {
+  .team-proof-grid {
     display: grid;
-    grid-template-columns: repeat(5, minmax(0, 1fr));
-    border: 1px solid var(--team-line);
-    border-radius: 8px;
-    background: #fff;
-    overflow: hidden;
-  }
-
-  .team-flow-band article {
-    position: relative;
-    padding: 20px 18px;
-    border-right: 1px solid var(--team-line);
-  }
-
-  .team-flow-band article:not(:last-child)::after {
-    content: ">";
-    position: absolute;
-    top: 26px;
-    right: -8px;
-    z-index: 1;
-    width: 16px;
-    height: 16px;
-    border-radius: 99px;
-    background: #fff;
-    color: var(--team-purple);
-    font-family: "JetBrains Mono", ui-monospace, monospace;
-    font-size: 12px;
-    font-weight: 800;
-    line-height: 16px;
-    text-align: center;
-  }
-
-  .team-flow-band article:last-child {
-    border-right: 0;
-  }
-
-  .team-step-number {
-    color: var(--team-purple);
-    font-family: "JetBrains Mono", ui-monospace, monospace;
-    font-size: 11px;
-    font-weight: 800;
-  }
-
-  .team-flow-band strong {
-    display: block;
-    margin-top: 10px;
-    color: #111827;
-    font-size: 18px;
-  }
-
-  .team-flow-band h3 {
-    margin: 10px 0 0;
-    color: #4b5563;
-    font-size: 13px;
-  }
-
-  .team-flow-band p,
-  .team-flow-note {
-    color: var(--team-muted);
-    font-size: 13px;
-    line-height: 1.75;
-  }
-
-  .team-flow-note {
-    margin: 14px 0 0;
-    text-align: center;
-  }
-
-  .team-features {
-    background: #fff;
-    max-width: none;
-    padding-left: max(24px, calc((100vw - 1180px) / 2 + 24px));
-    padding-right: max(24px, calc((100vw - 1180px) / 2 + 24px));
-  }
-
-  .team-feature-grid,
-  .team-function-stack,
-  .team-boundary-grid,
-  .team-compliance-row,
-  .team-usecase-grid,
-  .team-price-grid,
-  .team-application {
-    display: grid;
-    gap: 16px;
-  }
-
-  .team-feature-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
   }
 
-  .team-feature-grid article,
-  .team-boundary-grid article,
-  .team-usecase-grid article,
-  .team-price-grid article,
-  :global(.team-form) {
-    border: 1px solid var(--team-line);
+  .team-proof-grid article {
+    padding: 30px;
+    border: 1px solid var(--line);
     border-radius: 8px;
     background: #fff;
   }
 
-  .team-feature-grid article,
-  .team-usecase-grid article {
-    padding: 24px;
-  }
-
-  .team-feature-grid article > span,
-  .team-function-stack article > div:first-child > span,
-  .team-price-grid article > span,
-  .team-usecase-grid article > span {
-    color: var(--team-purple);
-    font-family: "JetBrains Mono", ui-monospace, monospace;
-    font-size: 12px;
-    font-weight: 800;
-  }
-
-  .team-feature-grid h3,
-  .team-usecase-grid h3,
-  .team-boundary h3 {
-    margin: 12px 0 0;
-    color: #171923;
-    font-size: 20px;
-    line-height: 1.5;
-  }
-
-  .team-feature-grid p,
-  .team-usecase-grid p {
-    color: #4b5563;
-    line-height: 1.8;
-  }
-
-  .team-feature-grid ul,
-  .team-function-stack ul,
-  .team-boundary-grid ul,
-  .team-price-grid ul {
-    padding: 0;
-    margin: 18px 0 0;
-    list-style: none;
-  }
-
-  .team-feature-grid li,
-  .team-function-stack li,
-  .team-boundary-grid li,
-  .team-price-grid li {
-    position: relative;
-    padding-left: 18px;
-    margin-top: 10px;
-    color: #374151;
-    line-height: 1.7;
-  }
-
-  .team-feature-grid li::before,
-  .team-function-stack li::before,
-  .team-boundary-grid li::before,
-  .team-price-grid li::before {
-    content: "";
-    position: absolute;
-    top: 0.78em;
-    left: 0;
-    width: 7px;
-    height: 7px;
-    border-radius: 99px;
-    background: var(--team-purple);
-  }
-
-  .team-mid-cta {
-    justify-content: center;
-    margin-top: 28px;
-  }
-
-  .team-product-section,
-  .team-faq {
-    padding: 70px 24px;
-    background: linear-gradient(180deg, #5a31a2 0%, #432477 100%);
-    color: #fff;
-  }
-
-  .team-function-stack {
-    max-width: 980px;
-    margin: 0 auto;
-  }
-
-  .team-function-stack article {
-    display: grid;
-    grid-template-columns: 1fr 310px;
-    gap: 28px;
-    align-items: center;
-    padding: 28px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
+  .team-proof-grid img {
+    display: block;
+    width: 100%;
+    height: 160px;
+    border: 1px solid rgba(11, 13, 20, 0.08);
     border-radius: 8px;
-    background: rgba(16, 12, 32, 0.58);
+    object-fit: cover;
+    background: #f8fafc;
   }
 
-  .team-function-stack h3 {
-    margin: 10px 0 0;
-    color: #fff;
-    font-size: 24px;
+  .team-proof-grid h3 {
+    margin: 26px 0 0;
+    font-size: 28px;
+    line-height: 1.35;
   }
 
-  .team-function-stack p {
-    color: rgba(255, 255, 255, 0.78);
+  .team-proof-grid p {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 15px;
     line-height: 1.85;
   }
 
-  .team-function-stack li {
-    color: rgba(255, 255, 255, 0.82);
+  .team-security {
+    background: linear-gradient(180deg, #f4f0ff 0%, #fff 100%);
   }
 
-  .team-mini-window {
-    min-height: 190px;
-    padding: 18px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 8px;
-    background: #0e111a;
+  .team-security-flow {
+    max-width: 1120px;
+    margin: 0 auto;
+    border: 1px solid rgba(124, 58, 237, 0.14);
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.76);
+    overflow: hidden;
   }
 
-  .team-mini-window b,
-  .team-mini-window small {
+  .team-security-flow img {
     display: block;
+    width: 100%;
+    height: auto;
   }
 
-  .team-mini-window i {
-    display: block;
-    height: 16px;
-    margin-top: 14px;
-    border-radius: 6px;
-    background: linear-gradient(90deg, rgba(124, 58, 237, 0.82), rgba(167, 139, 250, 0.24));
-  }
-
-  .team-mini-window i:nth-of-type(2) {
-    width: 78%;
-  }
-
-  .team-mini-window i:nth-of-type(3) {
-    width: 52%;
-  }
-
-  .team-mini-window small {
-    margin-top: 18px;
-    color: #34d399;
-    font-weight: 800;
-  }
-
-  .team-dark-cta {
+  .team-security-points {
     justify-content: center;
-    margin-top: 30px;
-  }
-
-  .team-boundary {
-    border-bottom: 1px solid var(--team-line);
-  }
-
-  .team-boundary-grid {
-    grid-template-columns: minmax(0, 1fr) 160px minmax(0, 1fr);
-    align-items: stretch;
-    margin-top: 34px;
-  }
-
-  .team-boundary-grid article {
-    padding: 28px;
-  }
-
-  .team-boundary-grid article p {
-    margin: 0;
-    color: var(--team-purple);
-    font-size: 13px;
-    font-weight: 800;
-  }
-
-  .team-boundary-grid strong {
-    display: block;
     margin-top: 22px;
-    padding: 14px;
-    border-radius: 7px;
-    background: #f3f4f6;
-    color: #1f2937;
-    font-size: 13px;
-    line-height: 1.8;
-  }
-
-  .team-submit-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    color: var(--team-muted);
-    font-size: 12px;
-    text-align: center;
-  }
-
-  .team-submit-column b {
-    color: #111827;
-  }
-
-  .team-compliance-row {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-    margin-top: 16px;
-  }
-
-  .team-compliance-row span {
-    justify-content: center;
-    min-height: 54px;
-    text-align: center;
-  }
-
-  .team-usecases {
-    background: #f0f1f5;
-    max-width: none;
-    padding-left: max(24px, calc((100vw - 1180px) / 2 + 24px));
-    padding-right: max(24px, calc((100vw - 1180px) / 2 + 24px));
-  }
-
-  .team-usecase-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .team-usecase-grid article {
-    min-height: 230px;
   }
 
   .team-pricing {
     background: #fff;
-    max-width: none;
-    padding-left: max(24px, calc((100vw - 1180px) / 2 + 24px));
-    padding-right: max(24px, calc((100vw - 1180px) / 2 + 24px));
   }
 
-  .team-price-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .team-price-grid article {
-    padding: 32px;
-  }
-
-  .team-price-grid h3 {
-    margin: 12px 0 0;
-    font-size: 20px;
-  }
-
-  .team-price-grid h3 b {
-    font-size: clamp(34px, 4vw, 52px);
-    letter-spacing: -0.03em;
-  }
-
-  .team-price-grid p {
-    color: var(--team-muted);
-  }
-
-  .team-price-grid a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    margin-top: 26px;
-    border-radius: 8px;
-    background: var(--team-purple);
-    color: #fff;
-    font-weight: 800;
-    text-decoration: none;
-  }
-
-  .team-price-grid a.secondary {
-    border: 1px solid var(--team-line);
-    background: #fff;
-    color: #111827;
-  }
-
-  .team-faq-list {
-    max-width: 820px;
+  .team-price-panel {
+    display: grid;
+    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+    max-width: 980px;
     margin: 0 auto;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: #fff;
+    overflow: hidden;
+    box-shadow: 0 30px 80px -60px rgba(15, 23, 42, 0.8);
   }
 
-  .team-faq-list details {
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 8px;
-    background: rgba(255, 255, 255, 0.96);
-    color: #111827;
+  .team-price-card,
+  .team-consult-card {
+    padding: 42px;
   }
 
-  .team-faq-list details + details {
-    margin-top: 10px;
+  .team-price-card {
+    border-right: 1px solid var(--line);
   }
 
-  .team-faq-list summary {
-    cursor: pointer;
-    padding: 16px 18px;
+  .team-price-card > span,
+  .team-consult-card > span {
+    color: var(--purple);
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 12px;
     font-weight: 800;
   }
 
-  .team-faq-list p {
-    margin: 0;
-    padding: 0 18px 18px;
-    color: #4b5563;
-    line-height: 1.8;
+  .team-price-card h3,
+  .team-consult-card h3 {
+    margin: 14px 0 0;
+    font-size: 30px;
+    letter-spacing: -0.02em;
+  }
+
+  .team-price-card h3 b {
+    color: var(--purple);
+    font-size: clamp(48px, 5vw, 70px);
+  }
+
+  .team-price-card ul {
+    padding: 0;
+    margin: 28px 0 0;
+    list-style: none;
+  }
+
+  .team-price-card li {
+    position: relative;
+    padding-left: 24px;
+    margin-top: 14px;
+    color: #333b49;
+    font-weight: 700;
+  }
+
+  .team-price-card li::before {
+    content: "";
+    position: absolute;
+    top: 0.65em;
+    left: 2px;
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--purple);
+  }
+
+  .team-consult-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .team-consult-card p {
+    max-width: 460px;
+    margin: 18px 0 30px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.9;
   }
 
   .team-application {
-    grid-template-columns: 0.78fr 1.22fr;
+    display: grid;
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+    gap: 36px;
     align-items: start;
+    background: #f7f7f8;
     padding-bottom: 96px;
   }
 
   :global(.team-form) {
     padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
   }
 
   :global(.team-form-grid) {
@@ -1412,7 +695,7 @@ const faqs = [
 
   :global(.team-form-actions p) {
     margin: 0;
-    color: var(--team-muted);
+    color: var(--muted);
     font-size: 13px;
     line-height: 1.8;
   }
@@ -1422,7 +705,7 @@ const faqs = [
     min-height: 48px;
     border: 0;
     border-radius: 8px;
-    background: var(--team-purple);
+    background: var(--purple);
     color: #fff;
     cursor: pointer;
     font: inherit;
@@ -1456,59 +739,52 @@ const faqs = [
 
   @media (max-width: 1080px) {
     .team-header {
-      padding: 0 20px;
+      padding: 0 22px;
     }
 
     .team-header nav {
       display: none;
     }
 
-    .team-hero-inner,
-    .team-application,
-    .team-function-stack article {
+    .team-hero,
+    .team-price-panel,
+    .team-application {
       grid-template-columns: 1fr;
     }
 
-    .team-hero-product {
-      min-width: 0;
+    .team-hero {
+      padding-left: 24px;
+      padding-right: 24px;
     }
 
-    .team-assurance-strip,
-    .team-tools,
-    .team-feature-grid,
-    .team-boundary-grid,
-    .team-usecase-grid,
-    .team-price-grid {
+    .team-pipeline-hero {
       grid-template-columns: 1fr;
+      min-height: auto;
     }
 
-    .team-tools {
-      padding-top: 22px;
-    }
-
-    .team-tools div {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .team-flow-band {
-      grid-template-columns: 1fr;
-    }
-
-    .team-flow-band article {
+    .team-pipeline-hero article {
+      min-height: 150px;
       border-right: 0;
-      border-bottom: 1px solid var(--team-line);
+      border-bottom: 1px solid rgba(124, 58, 237, 0.1);
     }
 
-    .team-flow-band article:not(:last-child)::after {
-      content: none;
-    }
-
-    .team-flow-band article:last-child {
+    .team-pipeline-hero article:last-child {
       border-bottom: 0;
     }
 
-    .team-compliance-row {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .team-arrow {
+      right: 50%;
+      bottom: -14px;
+      transform: translateX(50%) rotate(90deg);
+    }
+
+    .team-proof-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .team-price-card {
+      border-right: 0;
+      border-bottom: 1px solid var(--line);
     }
   }
 
@@ -1518,37 +794,19 @@ const faqs = [
     }
 
     .team-hero {
-      padding-top: 54px;
+      padding-top: 58px;
+      padding-bottom: 54px;
     }
 
     .team-hero h1 {
-      font-size: 42px;
+      font-size: 48px;
     }
 
-    .team-product-window {
-      grid-template-columns: 1fr;
+    .team-lead {
+      font-size: 17px;
     }
 
-    .team-product-sidebar {
-      display: none;
-    }
-
-    .team-product-main {
-      padding: 16px;
-    }
-
-    .team-product-head,
-    .team-hero-metrics,
-    .team-hero-panel-grid,
-    .team-hero-table div,
-    :global(.team-form-grid),
-    :global(.team-form-actions) {
-      grid-template-columns: 1fr;
-    }
-
-    .team-hero-actions,
-    .team-mid-cta,
-    .team-dark-cta,
+    .team-actions,
     :global(.team-form-actions) {
       align-items: stretch;
       flex-direction: column;
@@ -1556,39 +814,40 @@ const faqs = [
 
     .team-primary,
     .team-secondary,
-    .team-outline-light {
+    :global(.team-form-actions button) {
       width: 100%;
       justify-content: center;
       text-align: center;
     }
 
-    .team-flow,
-    .team-features,
-    .team-tools,
-    .team-boundary,
-    .team-usecases,
+    .team-proof,
+    .team-security,
     .team-pricing,
-    .team-product-section,
-    .team-faq,
     .team-application {
-      padding-top: 56px;
-      padding-bottom: 56px;
+      padding: 56px 24px;
     }
 
-    .team-tools {
-      padding-bottom: 12px;
+    .team-section-heading h2,
+    .team-application h2 {
+      font-size: 34px;
     }
 
-    .team-tools div {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+    .team-proof-grid h3 {
+      font-size: 24px;
     }
 
-    :global(.team-form-actions button) {
-      width: 100%;
+    .team-proof-grid img {
+      height: 136px;
     }
 
-    :global(.team-form-actions p) {
-      width: 100%;
+    .team-price-card,
+    .team-consult-card {
+      padding: 28px;
+    }
+
+    :global(.team-form-grid),
+    :global(.team-form-actions) {
+      grid-template-columns: 1fr;
     }
   }
 </style>
