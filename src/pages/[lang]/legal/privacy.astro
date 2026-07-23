@@ -35,10 +35,10 @@ const sectionsJa: Section[] = [
     heading: "3. 取得するデータ",
     paragraphs: [
       "本アプリは、以下のデータを取得します。",
-      "■ アカウント情報：ログインに使用するメールアドレス。",
+      "■ アカウント情報：ログインに使用するメールアドレス。Googleカレンダー連携を有効にした場合、接続したGoogleアカウントのメールアドレス、表示名、およびGoogleが割り当てる不変のアカウント識別子（OpenID Connect subject）を取得し、Reki noteアカウントとの連携を管理するため当社サーバーに保存します。",
       "■ 音声データ：会議録音時にデバイス上で一時的に生成される音声ファイル。文字起こし処理のため、当社サーバーを経由してAIサービスプロバイダーに送信されます。当社サーバーでは音声データを保存せず、処理完了後に破棄されます。",
-      "■ 文字起こし・議事録データ：音声から生成された文字起こしテキストおよび議事録。クラウド同期を有効にした場合、暗号化のうえ当社サーバーに保存されます。",
-      "■ カレンダー情報：カレンダー連携を有効にした場合、Google Calendar API（calendar.readonlyスコープ）またはmacOS EventKitを通じて、会議の日時・タイトル・参加者名を取得します。取得したカレンダー情報はお客様のデバイス上にのみ保存され、当社サーバーには送信・保存されません。カレンダー情報は録音セッションへの会議情報の紐付けおよび文字起こし精度の向上（参加者名の辞書登録）にのみ使用し、広告・マーケティング・AIモデルの訓練には一切使用しません。",
+      "■ 文字起こし・議事録データ：音声から生成された文字起こしテキストおよび議事録。クラウド同期を有効にした場合、関連する会議メタデータとともに暗号化のうえ当社サーバーに保存されます。",
+      "■ カレンダー情報：カレンダー連携を有効にした場合、Google Calendar API（calendar.events.readonlyスコープ）またはmacOS EventKitを通じて、会議の日時、タイトル、会議リンク、場所、参加者の氏名・メールアドレスを取得します。予定情報およびOAuthトークンはお客様のデバイス上に保存されます。録音または議事録生成時には、関連する会議メタデータが、文字起こし・議事録生成の文脈として当社サーバーを経由してAIサービスプロバイダーに送信される場合があります。クラウド同期を有効にした場合、録音に関連付けられた会議メタデータは暗号化のうえ当社サーバーに保存されます。カレンダー情報は本アプリの機能提供および文字起こし精度の向上のためにのみ使用し、広告・マーケティング・AIモデルの訓練には使用しません。",
       "■ 利用状況データ：アプリの改善を目的として、機能の使用状況（録音回数・議事録生成回数など）を匿名で収集します。文字起こし本文・議事録本文・会議タイトル・参加者名・ファイルパスなどの個人を特定しうる情報は収集しません。",
       "■ 改善協力モード（macOS版のみ・任意・既定オフ）：本機能を有効にした場合に限り、会議検知の精度改善のため、会議中に開いているウィンドウのタイトルを送信します。タイトルには会議名や参加者名が含まれることがあります（メールアドレス・URLは送信前に除去します）。送信データは検知精度の改善のみに使用し、第三者には提供しません。本機能は既定で無効であり、アプリの設定画面からいつでも無効化できます。",
     ],
@@ -62,7 +62,7 @@ const sectionsJa: Section[] = [
   {
     heading: "6. クラウド同期",
     paragraphs: [
-      "クラウド同期を有効にした場合、文字起こしおよび議事録データが当社のサーバーに暗号化のうえ保存されます。クラウド同期はお客様の任意で有効・無効を切り替えることができます。無効の場合、データはお客様のデバイス上にのみ保存されます。",
+      "クラウド同期を有効にした場合、文字起こし、議事録、および関連する会議メタデータが当社のサーバーに暗号化のうえ保存されます。クラウド同期はお客様の任意で有効・無効を切り替えることができます。無効の場合、これらのデータはお客様のデバイス上にのみ保存されます。",
       "クラウドに保存されたデータは、お客様がアカウントを削除した場合、またはデータの削除を依頼した場合に完全に削除されます。",
     ],
   },
@@ -78,11 +78,11 @@ const sectionsJa: Section[] = [
   {
     heading: "8. 外部サービスの利用と外国への送信",
     paragraphs: [
-      "本アプリでは、文字起こしおよび議事録生成のために、外部のAIサービスプロバイダーのAPIを利用します。音声データおよびテキストデータは当社サーバーを経由してプロバイダーに送信されます。",
+      "本アプリでは、文字起こしおよび議事録生成のために、外部のAIサービスプロバイダーのAPIを利用します。音声データ、テキストデータ、および処理に必要な会議メタデータは当社サーバーを経由してプロバイダーに送信されます。",
       "これらのプロバイダーのサーバーは主に米国に所在しており、お客様のデータは個人情報保護法第28条に基づき外国の第三者に提供されます。米国には日本の個人情報保護法と同等の包括的なデータ保護法制はありませんが、各プロバイダーは自社のプライバシーポリシーに基づきデータを保護しています。",
       "■ 文字起こし処理：米国所在の音声認識サービス — 音声データを送信",
       "■ 議事録生成・チャット：米国所在のAIサービス — テキストデータを送信",
-      "■ クラウド同期：米国所在のクラウドデータベースサービス — 文字起こし・議事録データを保存",
+      "■ クラウド同期：米国所在のクラウドデータベースサービス — 文字起こし・議事録・関連する会議メタデータを保存",
       "■ 決済：米国所在の決済サービス — メールアドレス・決済情報を処理",
       "■ 利用状況分析：米国所在の分析サービス — 匿名の利用データを送信",
       "送信されるデータの取り扱いについては、各プロバイダーのプライバシーポリシーもあわせてご確認ください。",
@@ -92,7 +92,7 @@ const sectionsJa: Section[] = [
     heading: "9. データの保持期間",
     paragraphs: [
       "■ 音声データ：文字起こし処理の完了後、当社サーバーからは即時破棄されます。お客様のデバイス上の録音ファイルは、お客様が手動で削除するまで保持されます。",
-      "■ 文字起こし・議事録データ：お客様のデバイス上にはアプリをアンインストールするまで保持されます。クラウド同期を有効にしている場合、アカウント削除またはデータ削除の依頼から30日以内にサーバーから完全に削除されます。",
+      "■ 文字起こし・議事録・関連する会議メタデータ：お客様のデバイス上にはアプリをアンインストールするまで保持されます。クラウド同期を有効にしている場合、アカウント削除またはデータ削除の依頼から30日以内にサーバーから完全に削除されます。",
       "■ アカウント情報：アカウント削除の依頼から30日以内に完全に削除されます。",
       "■ 利用状況データ：匿名化された状態で最大24ヶ月間保持されます。",
     ],
@@ -173,10 +173,10 @@ const sectionsEn: Section[] = [
     heading: "3. Data We Collect",
     paragraphs: [
       "The App collects the following data:",
-      "■ Account information: The email address used to sign in.",
+      "■ Account information: The email address used to sign in. If Google Calendar integration is enabled, we also collect the connected Google Account's email address, display name, and immutable identifier assigned by Google (OpenID Connect subject), and store them on our servers to manage the connection with the user's Reki note account.",
       "■ Audio data: Audio files temporarily generated on your device during meeting recordings. These are sent through our servers to AI service providers for transcription. Our servers do not store audio data and discard it after processing.",
-      "■ Transcription and meeting notes: Text generated from audio, including transcriptions and meeting notes. If cloud sync is enabled, this data is encrypted and stored on our servers.",
-      "■ Calendar information: If calendar integration is enabled, we retrieve meeting times, titles, and attendee names via the Google Calendar API (calendar.readonly scope) or macOS EventKit. Calendar data is stored only on your device and is not sent to or stored on our servers. Calendar data is used solely to associate meeting information with recording sessions and to improve transcription accuracy (e.g., registering attendee names as dictionary entries). It is never used for advertising, marketing, or AI model training.",
+      "■ Transcription and meeting notes: Text generated from audio, including transcriptions and meeting notes. If cloud sync is enabled, this data and related meeting metadata are encrypted and stored on our servers.",
+      "■ Calendar information: If calendar integration is enabled, we retrieve meeting times, titles, meeting links, locations, and attendee names and email addresses via the Google Calendar API (calendar.events.readonly scope) or macOS EventKit. Event data and OAuth tokens are stored on the user's device. When the user records a meeting or generates meeting notes, relevant meeting metadata may be sent through our servers to AI service providers as context for transcription and meeting note generation. If cloud sync is enabled, meeting metadata associated with recordings is encrypted and stored on our servers. Calendar information is used only to provide the App's features and improve transcription accuracy. It is not used for advertising, marketing, or AI model training.",
       "■ Usage data: We collect anonymous usage statistics (e.g., number of recordings, meeting notes generated) to improve the App. We do not collect personally identifiable information such as transcription text, meeting notes content, meeting titles, attendee names, or file paths.",
       "■ Detection improvement mode (macOS only, optional, off by default): Only when you enable this feature, the App sends the titles of windows open during meetings to improve call-detection accuracy. Titles may include meeting or attendee names (email addresses and URLs are stripped before sending). This data is used only to improve detection accuracy and is never shared with third parties. The feature is disabled by default and can be turned off at any time in the App's settings.",
     ],
@@ -200,7 +200,7 @@ const sectionsEn: Section[] = [
   {
     heading: "6. Cloud Sync",
     paragraphs: [
-      "When cloud sync is enabled, transcription and meeting notes data is encrypted and stored on our servers. You may enable or disable cloud sync at any time. When disabled, data is stored only on your device.",
+      "When cloud sync is enabled, transcription, meeting notes, and related meeting metadata are encrypted and stored on our servers. You may enable or disable cloud sync at any time. When disabled, this data is stored only on your device.",
       "Data stored in the cloud is permanently deleted when you delete your account or request data deletion.",
     ],
   },
@@ -216,11 +216,11 @@ const sectionsEn: Section[] = [
   {
     heading: "8. Use of External Services and International Data Transfers",
     paragraphs: [
-      "The App uses APIs from external AI service providers for transcription and meeting notes generation. Audio and text data is sent through our servers to these providers.",
+      "The App uses APIs from external AI service providers for transcription and meeting notes generation. Audio data, text data, and meeting metadata required for processing are sent through our servers to these providers.",
       "These providers' servers are primarily located in the United States. While the United States does not have comprehensive data protection laws equivalent to Japan's Act on the Protection of Personal Information, each provider protects data in accordance with its own privacy policy.",
       "■ Transcription: Speech recognition services located in the US — audio data is transmitted",
       "■ Meeting notes and chat: AI services located in the US — text data is transmitted",
-      "■ Cloud sync: Cloud database services located in the US — transcription and meeting notes data is stored",
+      "■ Cloud sync: Cloud database services located in the US — transcription, meeting notes, and related meeting metadata are stored",
       "■ Payments: Payment services located in the US — email addresses and payment information is processed",
       "■ Analytics: Analytics services located in the US — anonymous usage data is transmitted",
       "Please refer to each provider's privacy policy for details on how transmitted data is handled.",
@@ -230,7 +230,7 @@ const sectionsEn: Section[] = [
     heading: "9. Data Retention",
     paragraphs: [
       "■ Audio data: Immediately discarded from our servers after transcription processing is complete. Recording files on your device are retained until you manually delete them.",
-      "■ Transcription and meeting notes: Retained on your device until the App is uninstalled. If cloud sync is enabled, data is permanently deleted from our servers within 30 days of account deletion or a data deletion request.",
+      "■ Transcription, meeting notes, and related meeting metadata: Retained on your device until the App is uninstalled. If cloud sync is enabled, data is permanently deleted from our servers within 30 days of account deletion or a data deletion request.",
       "■ Account information: Permanently deleted within 30 days of an account deletion request.",
       "■ Usage data: Retained in anonymized form for up to 24 months.",
     ],
@@ -291,10 +291,10 @@ const sectionsEn: Section[] = [
 ];
 
 const content: Record<string, { title: string; lastUpdated: string; sections: Section[] }> = {
-  ja: { title: "プライバシーポリシー", lastUpdated: "最終更新日：2026年5月11日", sections: sectionsJa },
-  en: { title: "Privacy Policy", lastUpdated: "Last updated: May 11, 2026", sections: sectionsEn },
-  ko: { title: "개인정보 처리방침", lastUpdated: "Last updated: May 11, 2026", sections: sectionsEn },
-  "zh-tw": { title: "隱私權政策", lastUpdated: "Last updated: May 11, 2026", sections: sectionsEn },
+  ja: { title: "プライバシーポリシー", lastUpdated: "最終更新日：2026年7月24日", sections: sectionsJa },
+  en: { title: "Privacy Policy", lastUpdated: "Last updated: July 24, 2026", sections: sectionsEn },
+  ko: { title: "개인정보 처리방침", lastUpdated: "Last updated: July 24, 2026", sections: sectionsEn },
+  "zh-tw": { title: "隱私權政策", lastUpdated: "Last updated: July 24, 2026", sections: sectionsEn },
 };
 
 const { title, lastUpdated, sections } = content[lang] ?? content.ja;
