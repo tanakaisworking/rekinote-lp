@@ -162,7 +162,7 @@ export const studentDictionaries: Record<string, Dictionary> = {
       facts: [
         "音声ファイルはあなたのMacに保存",
         "文字起こしと要約はRekiのサーバーで処理",
-        "生成後のデータはあなたのMacだけに保存"
+        "生成後のデータは、クラウド同期を有効にしない限りMacだけに保存"
       ],
       providersLabel: "DATA FLOW",
       providersDesc: "あなたのデバイスから出るのは音声処理の瞬間だけ",
@@ -424,18 +424,18 @@ export const studentDictionaries: Record<string, Dictionary> = {
       facts: [
         "Audio files stay on your Mac",
         "Transcription and summaries are processed by Reki's servers",
-        "Generated data is stored only on your Mac"
+        "Generated data stays on your Mac unless you enable cloud sync"
       ],
       compliance: [
         {
           acronym: "FERPA",
           fullName: "Family Educational Rights and Privacy Act",
-          desc: "Student education records never leave your device. No cloud storage means no third-party data sharing to worry about.",
+          desc: "Recording files stay on your device. Audio sent for transcription is discarded by our servers after processing.",
         },
         {
           acronym: "CCPA",
           fullName: "California Consumer Privacy Act",
-          desc: "Your data lives only on your Mac — not on our servers, not sold to anyone. The strongest privacy answer is the simplest one.",
+          desc: "Generated data stays on your Mac unless you enable cloud sync, and it is never sold to anyone.",
         },
       ],
       providersLabel: "DATA FLOW",
@@ -697,7 +697,7 @@ export const studentDictionaries: Record<string, Dictionary> = {
       facts: [
         "음성 파일은 내 Mac에 저장돼요",
         "문자 변환과 요약은 Reki 서버에서 처리해요",
-        "생성된 데이터는 내 Mac에만 저장돼요"
+        "생성된 데이터는 클라우드 동기화를 켜지 않는 한 내 Mac에만 저장돼요"
       ],
       providersLabel: "DATA FLOW",
       providersDesc: "기기 밖으로 나가는 건 음성 처리 순간뿐이에요",
@@ -958,7 +958,7 @@ export const studentDictionaries: Record<string, Dictionary> = {
       facts: [
         "音訊檔案儲存在你的 Mac 上",
         "逐字稿和摘要由 Reki 伺服器處理",
-        "產生的資料只儲存在你的 Mac 上"
+        "除非你啟用雲端同步，產生的資料只儲存在你的 Mac 上"
       ],
       providersLabel: "DATA FLOW",
       providersDesc: "資料離開你的裝置，只有語音處理的那一瞬間",
