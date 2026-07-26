@@ -112,6 +112,7 @@ const jsonLdSoftwareApp = {
 
     {/* OGP */}
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Reki note" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageUrl} />
@@ -126,9 +127,11 @@ const jsonLdSoftwareApp = {
 
     {/* Twitter Card */}
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageUrl} />
+    <meta name="twitter:image:alt" content="Reki note" />
 
     {/* Structured Data */}
     <script type="application/ld+json" set:html={JSON.stringify(jsonLdOrganization)} />
