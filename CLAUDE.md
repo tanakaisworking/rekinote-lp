@@ -60,6 +60,7 @@ MICROCMS_API_KEY=$(security find-generic-password -s "MICROCMS_REKINOTE_mackeych
 
 - 一覧: `/ja/blog/` `/en/blog/`
 - 詳細: `/ja/blog/{contentId}/` `/en/blog/{contentId}/`
+- 最新アップデート: `/ja/updates/` `/en/updates/`
 
 ## デプロイ
 

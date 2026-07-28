@@ -1,0 +1,97 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { locales, type Locale } from "../../i18n/getDictionary";
+import { RELEASE_NOTES } from "../../data/releaseNotes";
+
+export function getStaticPaths() {
+  return locales.map((lang) => ({ params: { lang } }));
+}
+
+const lang = Astro.params.lang as Locale;
+const noteLang = lang === "ja" ? "ja" : "en";
+
+const copy: Record<Locale, { title: string; description: string; heading: string; lead: string; back: string; latest: string }> = {
+  ja: {
+    title: "最新アップデート — Reki note",
+    description: "Reki noteの最新アップデート情報とリリースノート。",
+    heading: "最新アップデート",
+    lead: "Reki noteの最近の変更点をまとめています。",
+    back: "LPへ戻る",
+    latest: "最新",
+  },
+  en: {
+    title: "Latest updates — Reki note",
+    description: "Latest Reki note updates and release notes.",
+    heading: "Latest updates",
+    lead: "Recent changes and improvements in Reki note.",
+    back: "Back to LP",
+    latest: "Latest",
+  },
+  ko: {
+    title: "최신 업데이트 — Reki note",
+    description: "Reki note의 최신 업데이트와 릴리스 노트.",
+    heading: "최신 업데이트",
+    lead: "Reki note의 최근 변경 사항을 정리했습니다.",
+    back: "LP로 돌아가기",
+    latest: "Latest",
+  },
+  "zh-tw": {
+    title: "最新更新 — Reki note",
+    description: "Reki note 的最新更新與版本資訊。",
+    heading: "最新更新",
+    lead: "整理 Reki note 最近的變更與改善。",
+    back: "返回 LP",
+    latest: "Latest",
+  },
+};
+
+const t = copy[lang] ?? copy.ja;
+---
+
+<BaseLayout title={t.title} description={t.description} lang={lang} canonical={`https://rekinote.app/${lang}/updates/`}>
+  <div class="min-h-screen bg-[#0c0c10] text-[#ececef]">
+    <header class="border-b border-line">
+      <div class="container-x px-6 py-5 flex items-center justify-between gap-4">
+        <a href={`/${lang}/lp/business/`} class="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
+          <img src="/logo.png" alt="" width="24" height="24" class="rounded-md" />
+          <span class="font-semibold tracking-tight">Reki note</span>
+        </a>
+        <a href={`/${lang}/lp/business/`} class="text-sm text-[#a78bfa] hover:text-white transition-colors">{t.back}</a>
+      </div>
+    </header>
+
+    <main class="container-x max-w-3xl px-6 py-14 md:py-20">
+      <p class="eyebrow">Updates</p>
+      <h1 class="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">{t.heading}</h1>
+      <p class="mt-4 text-sm leading-7 text-[#a0a0ad] sm:text-base">{t.lead}</p>
+
+      <div class="mt-12 space-y-10">
+        {RELEASE_NOTES.map((note, index) => (
+          <article class="border-t border-line pt-8">
+            <div class="flex flex-wrap items-center gap-3">
+              <h2 class="text-xl font-semibold tracking-tight">v{note.version}</h2>
+              {index === 0 && (
+                <span class="rounded-full bg-[#a78bfa]/10 px-2.5 py-1 text-xs font-medium text-[#cdbdff]">{t.latest}</span>
+              )}
+              <time class="text-sm text-[#8e8e98]" datetime={note.date}>{note.date}</time>
+            </div>
+            <ul class="mt-5 space-y-3 text-sm leading-7 text-[#d6d6dd] sm:text-[15px]">
+              {note[noteLang].map((item) => (
+                <li class="flex gap-3">
+                  <span class="mt-[0.75em] h-1.5 w-1.5 shrink-0 rounded-full bg-[#a78bfa]"></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </main>
+
+    <footer class="border-t border-line">
+      <div class="container-x px-6 py-6 dim text-xs">
+        <span>&copy; 2026 HIBACHI inc.</span>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>
