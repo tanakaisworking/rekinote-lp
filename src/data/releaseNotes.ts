@@ -7,6 +7,22 @@ export interface ReleaseNoteEntry {
 
 export const RELEASE_NOTES: ReleaseNoteEntry[] = [
   {
+    version: "0.2.44",
+    date: "2026-07-30",
+    ja: [
+      "録音中のアップデート処理を避け、待機中に自動ダウンロードするよう改善しました",
+      "アプリ終了や通信エラー後の録音・文字起こし・メモの復旧性を改善しました",
+      "長時間録音で「このまま使う」を選んだ確認を記憶するようにしました",
+      "Macでアプリ起動中にDockアイコンが表示されない問題を修正しました",
+    ],
+    en: [
+      "Improved updates so downloads happen while idle without interrupting active recordings",
+      "Improved recovery of recordings, transcripts, and notes after app exits or network errors",
+      "Long recording confirmation is now remembered after choosing “Keep as is”",
+      "Fixed an issue where the Dock icon could disappear while the app was running on Mac",
+    ],
+  },
+  {
     version: "0.2.43",
     date: "2026-07-28",
     ja: [
