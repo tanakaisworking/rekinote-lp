@@ -1,11 +1,12 @@
 import * as React from "react";
 import type { DictHeader } from "../../i18n/types";
+import {
+  MAC_DOWNLOAD_URL,
+  WIN_DOWNLOAD_URL,
+  redirectToThanks,
+  trackDownload,
+} from "../../lib/downloadAnalytics";
 import { LanguageSelect } from "./LanguageSelect";
-
-const MAC_DOWNLOAD_URL =
-  "https://github.com/hibachi-inc/reki-note-releases/releases/latest/download/reki-note.dmg";
-const WIN_DOWNLOAD_URL =
-  "https://github.com/hibachi-inc/reki-note-releases/releases/latest/download/reki-note-setup.exe";
 
 function DownloadDropdown({ lang, lightMode, dict }: { lang: string; lightMode: boolean; dict: DictHeader }) {
   const [open, setOpen] = React.useState(false);
@@ -19,12 +20,11 @@ function DownloadDropdown({ lang, lightMode, dict }: { lang: string; lightMode: 
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleDownload = (url: string) => {
+  const handleDownload = (platform: "mac" | "windows", url: string) => {
     setOpen(false);
+    trackDownload(platform, lang, "header");
     window.location.href = url;
-    setTimeout(() => {
-      window.location.href = `/${lang}/thanks/`;
-    }, 5000);
+    redirectToThanks(lang);
   };
 
   return (
@@ -50,7 +50,7 @@ function DownloadDropdown({ lang, lightMode, dict }: { lang: string; lightMode: 
             : "bg-[#1a1a22]/95 border-white/10 shadow-black/30"
         }`}>
           <button
-            onClick={() => handleDownload(MAC_DOWNLOAD_URL)}
+            onClick={() => handleDownload("mac", MAC_DOWNLOAD_URL)}
             className={`w-full flex items-center gap-3 px-4 py-3 text-sm text-left transition-colors ${
               lightMode ? "hover:bg-[#0c0c10]/5" : "hover:bg-white/5"
             }`}
@@ -65,7 +65,7 @@ function DownloadDropdown({ lang, lightMode, dict }: { lang: string; lightMode: 
           </button>
           <div className={`mx-3 border-t ${lightMode ? "border-[#0c0c10]/8" : "border-white/8"}`} />
           <button
-            onClick={() => handleDownload(WIN_DOWNLOAD_URL)}
+            onClick={() => handleDownload("windows", WIN_DOWNLOAD_URL)}
             className={`w-full flex items-center gap-3 px-4 py-3 text-sm text-left transition-colors ${
               lightMode ? "hover:bg-[#0c0c10]/5" : "hover:bg-white/5"
             }`}

@@ -1,11 +1,12 @@
 import * as React from "react";
 import type { DictFinalCTA } from "../../i18n/types";
+import {
+  MAC_DOWNLOAD_URL,
+  WIN_DOWNLOAD_URL,
+  redirectToThanks,
+  trackDownload,
+} from "../../lib/downloadAnalytics";
 import { MeetingHomePreview } from "./MeetingHomePreview";
-
-const MAC_DOWNLOAD_URL =
-  "https://github.com/hibachi-inc/reki-note-releases/releases/latest/download/reki-note.dmg";
-const WIN_DOWNLOAD_URL =
-  "https://github.com/hibachi-inc/reki-note-releases/releases/latest/download/reki-note-setup.exe";
 
 function FinalCTADownload({ lang }: { lang: string }) {
   const [open, setOpen] = React.useState(false);
@@ -19,12 +20,11 @@ function FinalCTADownload({ lang }: { lang: string }) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const handleDownload = (url: string) => {
+  const handleDownload = (platform: "mac" | "windows", url: string) => {
     setOpen(false);
+    trackDownload(platform, lang, "final_cta");
     window.location.href = url;
-    setTimeout(() => {
-      window.location.href = `/${lang}/thanks/`;
-    }, 5000);
+    redirectToThanks(lang);
   };
 
   return (
@@ -46,7 +46,7 @@ function FinalCTADownload({ lang }: { lang: string }) {
       {open && (
         <div className="absolute left-0 bottom-full mb-2 w-64 rounded-xl border border-white/20 bg-[#2a1560]/95 shadow-xl shadow-black/30 backdrop-blur-xl overflow-hidden z-50">
           <button
-            onClick={() => handleDownload(MAC_DOWNLOAD_URL)}
+            onClick={() => handleDownload("mac", MAC_DOWNLOAD_URL)}
             className="w-full flex items-center gap-3 px-5 py-3.5 text-sm text-left text-white transition-colors hover:bg-white/10"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 shrink-0">
@@ -59,7 +59,7 @@ function FinalCTADownload({ lang }: { lang: string }) {
           </button>
           <div className="mx-4 border-t border-white/10" />
           <button
-            onClick={() => handleDownload(WIN_DOWNLOAD_URL)}
+            onClick={() => handleDownload("windows", WIN_DOWNLOAD_URL)}
             className="w-full flex items-center gap-3 px-5 py-3.5 text-sm text-left text-white transition-colors hover:bg-white/10"
           >
             <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 shrink-0">

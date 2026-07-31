@@ -1,10 +1,10 @@
 import * as React from "react";
-
-const MAC_DOWNLOAD_URL =
-  "https://github.com/hibachi-inc/reki-note-releases/releases/latest/download/reki-note.dmg";
-
-const WIN_DOWNLOAD_URL =
-  "https://github.com/hibachi-inc/reki-note-releases/releases/latest/download/reki-note-setup.exe";
+import {
+  MAC_DOWNLOAD_URL,
+  WIN_DOWNLOAD_URL,
+  redirectToThanks,
+  trackDownload,
+} from "../../lib/downloadAnalytics";
 
 const AppleIcon = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
@@ -28,9 +28,8 @@ export function DownloadButton({
   lang?: string;
 }) {
   const handleClick = () => {
-    setTimeout(() => {
-      window.location.href = `/${lang}/thanks/`;
-    }, 5000);
+    trackDownload("mac", lang, "download_button");
+    redirectToThanks(lang);
   };
 
   return (
@@ -51,9 +50,8 @@ export function WindowsDownloadButton({
   lang?: string;
 }) {
   const handleClick = () => {
-    setTimeout(() => {
-      window.location.href = `/${lang}/thanks/`;
-    }, 5000);
+    trackDownload("windows", lang, "download_button");
+    redirectToThanks(lang);
   };
 
   return (
@@ -74,9 +72,8 @@ export function WindowsDownloadButtonSmall({
   lang?: string;
 }) {
   const handleClick = () => {
-    setTimeout(() => {
-      window.location.href = `/${lang}/thanks/`;
-    }, 5000);
+    trackDownload("windows", lang, "download_button_small");
+    redirectToThanks(lang);
   };
 
   return (
@@ -97,9 +94,8 @@ export function DownloadButtonSmall({
   lang?: string;
 }) {
   const handleClick = () => {
-    setTimeout(() => {
-      window.location.href = `/${lang}/thanks/`;
-    }, 5000);
+    trackDownload("mac", lang, "download_button_small");
+    redirectToThanks(lang);
   };
 
   return (
