@@ -7,6 +7,20 @@ export interface ReleaseNoteEntry {
 
 export const RELEASE_NOTES: ReleaseNoteEntry[] = [
   {
+    version: "0.2.45",
+    date: "2026-08-02",
+    ja: [
+      "メモ欄をリッチエディターにし、見出し・箇条書き・番号付きリストを使いやすくしました",
+      "プラン状況の確認と利用状況の集計を改善しました",
+      "品質確認の自動テスト環境を見直し、リリース前チェックの安定性を改善しました",
+    ],
+    en: [
+      "Improved the memo field with a rich editor for headings, bullet lists, and numbered lists",
+      "Improved plan status handling and usage analytics",
+      "Improved the release quality gate for more reliable pre-release checks",
+    ],
+  },
+  {
     version: "0.2.44",
     date: "2026-07-30",
     ja: [
