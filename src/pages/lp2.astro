@@ -1,0 +1,483 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getDictionary } from "../i18n/getDictionary";
+import { MAC_DOWNLOAD_URL, WIN_DOWNLOAD_URL } from "../lib/downloadAnalytics";
+
+const lang = "ja" as const;
+const dict = getDictionary(lang);
+const compareRows = dict.Compare.rows.slice(0, 4);
+const apps = [
+  { name: "Zoom", mark: "Z" },
+  { name: "Google Meet", mark: "M" },
+  { name: "Microsoft Teams", mark: "T" },
+  { name: "Slack ハドル", mark: "S" },
+  { name: "Discord", mark: "D" },
+  { name: "対面の会話", mark: "対" },
+];
+const issues = [
+  {
+    number: "01",
+    title: "会議ツールごとに、AI課金が増える",
+    body: "Zoom、Meet、Teams。使うツールが増えるほど、議事録のための契約も増えていきます。",
+  },
+  {
+    number: "02",
+    title: "記録が、それぞれのサービスに閉じる",
+    body: "過去の会話を探したいとき、どのツールで話したかを思い出すところから始まります。",
+  },
+  {
+    number: "03",
+    title: "メモを取りながら、会話に集中する",
+    body: "すべてを書き残そうとすると、目の前の議論から意識が離れてしまいます。",
+  },
+];
+const solutions = [
+  {
+    number: "01",
+    label: "Capture",
+    title: "いつもの通話を、そのまま記録",
+    body: "OSレベルで音声を拾うから、botを会議に招待する必要はありません。Zoom、Meet、Teams、Slack、対面まで同じ流れで使えます。",
+    points: ["会議ツールを選ばない", "bot招待や権限設定が不要"],
+  },
+  {
+    number: "02",
+    label: "Understand",
+    title: "文字起こしから議事録まで、自動で",
+    body: "録音した会話は、文字起こしと要約へ。会話中は目の前の議論に集中し、終わったあとに必要な情報を確認できます。",
+    points: ["文字起こしは無料・無制限", "会話の要点をあとから確認"],
+  },
+  {
+    number: "03",
+    label: "Recall",
+    title: "過去の会話を、横断して探す",
+    body: "会議ごとに分かれていた記録を一箇所に集約。人、日付、発言内容を手がかりに、必要な文脈へ戻れます。",
+    points: ["全議事録を横断検索", "Markdown / Obsidianへ出力"],
+  },
+];
+---
+
+<BaseLayout
+  title="Reki note — 会議を、あとから使える記憶に。"
+  description="会議・通話・対面の会話を、ひとつの場所に。Reki noteはbot不要で録音し、文字起こしと議事録をあとから検索できるアプリです。"
+  lang={lang}
+  canonical="https://rekinote.app/lp2/"
+  noindex
+  singleLang
+>
+  <div class="lp2-page">
+    <header class="l-header">
+      <div class="l-container l-header__inner">
+        <a href="#top" class="c-brand" aria-label="Reki note ホーム">
+          <img src="/logo.png" alt="" width="28" height="28" />
+          <span>Reki note</span>
+        </a>
+        <nav class="c-nav" aria-label="メインナビゲーション">
+          <a href="#solution">できること</a>
+          <a href="#works-with">対応範囲</a>
+          <a href="#privacy">プライバシー</a>
+          <a href="/ja/pricing/">料金</a>
+        </nav>
+        <a href="#download" class="c-button c-button--primary c-button--sm l-header__cta">無料ダウンロード</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="p-hero" aria-labelledby="hero-title">
+        <div class="l-container p-hero__inner">
+          <div class="p-hero__copy">
+            <p class="p-hero__eyebrow">Meeting Memory, Reimagined.</p>
+            <h1 id="hero-title" class="p-hero__title">
+              すべての会話を、<br />
+              <span>あとから使える</span><br />
+              記憶に。
+            </h1>
+            <p class="p-hero__lead">
+              文字起こしが無料で、完全無制限。bot不要。<br />
+              会議・通話・対面の会話を、Reki noteにひとつに。
+            </p>
+            <div class="p-hero__actions">
+              <a href={MAC_DOWNLOAD_URL} class="c-button c-button--primary">Mac版を無料ダウンロード</a>
+              <a href={WIN_DOWNLOAD_URL} class="c-button c-button--ghost">Windows版をダウンロード</a>
+            </div>
+            <p class="p-hero__note">Mac版はApple Silicon（M1以降）対応。Windows版は一部機能に制限があります。</p>
+          </div>
+          <div class="p-hero__visual">
+            <div class="p-hero__visual-glow" aria-hidden="true"></div>
+            <figure class="p-product-shot">
+              <img
+                src="/dashboard-hero.png"
+                alt="Reki noteの議事録一覧画面"
+                width="1563"
+                height="1006"
+                loading="eager"
+                decoding="async"
+              />
+              <figcaption>会話の記録を、検索できる場所へ。</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="p-facts" aria-label="Reki noteの特徴">
+        <div class="l-container p-facts__grid">
+          <div class="p-facts__item">
+            <span class="p-facts__number">01</span>
+            <div><strong>無料・無制限</strong><span>文字起こし</span></div>
+          </div>
+          <div class="p-facts__item">
+            <span class="p-facts__number">02</span>
+            <div><strong>bot不要</strong><span>すべての通話に</span></div>
+          </div>
+          <div class="p-facts__item">
+            <span class="p-facts__number">03</span>
+            <div><strong>ローカル保存</strong><span>記録を手元に</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="problem" class="l-section l-section--soft p-issues" aria-labelledby="issues-title">
+        <div class="l-container">
+          <header class="c-section-head">
+            <p class="c-section-head__eyebrow">The Problem</p>
+            <h2 id="issues-title" class="c-section-head__title">議事録のために、<br />いくつのサービスを使っていますか。</h2>
+            <p class="c-section-head__lead">会議の数だけ記録の場所が増えると、あとから振り返るための手間も増えていきます。</p>
+          </header>
+          <ul class="p-issues__list">
+            {issues.map((issue) => (
+              <li class="p-issues__item">
+                <span class="p-issues__number">{issue.number}</span>
+                <h3>{issue.title}</h3>
+                <p>{issue.body}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section id="solution" class="l-section p-solutions" aria-labelledby="solution-title">
+        <div class="l-container">
+          <header class="c-section-head c-section-head--center">
+            <p class="c-section-head__eyebrow">Solution</p>
+            <h2 id="solution-title" class="c-section-head__title">会話を、記録して、<br />あとから使える形に。</h2>
+            <p class="c-section-head__lead">Reki noteは、録音から検索までをひとつの流れに整えます。</p>
+          </header>
+          <ol class="p-solutions__list">
+            {solutions.map((solution) => (
+              <li class="p-solutions__item">
+                <div class="p-solutions__top">
+                  <span class="p-solutions__number">{solution.number}</span>
+                  <span class="p-solutions__label">{solution.label}</span>
+                </div>
+                <h3>{solution.title}</h3>
+                <p>{solution.body}</p>
+                <ul>
+                  {solution.points.map((point) => <li><span aria-hidden="true">✓</span>{point}</li>)}
+                </ul>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section id="works-with" class="l-section l-section--soft p-works" aria-labelledby="works-title">
+        <div class="l-container">
+          <div class="p-works__layout">
+            <header class="c-section-head">
+              <p class="c-section-head__eyebrow">Works Where You Work</p>
+              <h2 id="works-title" class="c-section-head__title">いつものデバイスの、<br />すべての会話に。</h2>
+              <p class="c-section-head__lead">OSレベルから音声を拾うので、インストールして起動するだけ。会議ツールを変えても、記録の流れは変わりません。</p>
+            </header>
+            <ul class="p-works__grid">
+              {apps.map((app) => (
+                <li class="p-works__item">
+                  <span class="p-works__mark" aria-hidden="true">{app.mark}</span>
+                  <span>{app.name}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="how" class="l-section p-flow" aria-labelledby="flow-title">
+        <div class="l-container">
+          <header class="c-section-head c-section-head--center">
+            <p class="c-section-head__eyebrow">How It Works</p>
+            <h2 id="flow-title" class="c-section-head__title">使い方は、3ステップ。</h2>
+            <p class="c-section-head__lead">会話を残すことに、特別な準備はいりません。</p>
+          </header>
+          <ol class="p-flow__list">
+            <li class="p-flow__item"><span>01</span><div><h3>録音する</h3><p>Reki noteを起動して、いつもの会話を記録します。</p></div></li>
+            <li class="p-flow__item"><span>02</span><div><h3>文字起こし・要約を待つ</h3><p>音声から、あとで読み返せる議事録ができあがります。</p></div></li>
+            <li class="p-flow__item"><span>03</span><div><h3>検索して、質問する</h3><p>過去の会議を探したり、決定事項をAIにたずねたりできます。</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="privacy" class="l-section l-section--cool p-privacy" aria-labelledby="privacy-title">
+        <div class="l-container p-privacy__layout">
+          <div>
+            <header class="c-section-head">
+              <p class="c-section-head__eyebrow">Privacy by Design</p>
+              <h2 id="privacy-title" class="c-section-head__title">記録は、<br />あなたの手元に。</h2>
+              <p class="c-section-head__lead">音声と生成データの保存場所を分け、必要な処理だけをサーバーで行います。</p>
+            </header>
+            <ul class="p-privacy__facts">
+              {dict.Privacy.facts.map((fact) => <li><span aria-hidden="true">✓</span>{fact}</li>)}
+            </ul>
+          </div>
+          <div class="p-privacy__flow">
+            <p class="p-privacy__flow-label">{dict.Privacy.providersLabel}</p>
+            <p>{dict.Privacy.providersDesc}</p>
+            <ol>
+              {dict.Privacy.providers.map((provider, index) => <li><span>{String(index + 1).padStart(2, "0")}</span>{provider}</li>)}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="l-section p-compare" aria-labelledby="compare-title">
+        <div class="l-container">
+          <header class="c-section-head c-section-head--center">
+            <p class="c-section-head__eyebrow">Compare</p>
+            <h2 id="compare-title" class="c-section-head__title">プラットフォームに閉じない、<br />会話の記録。</h2>
+          </header>
+          <div class="p-compare__table-wrap">
+            <table>
+              <thead><tr><th>{dict.Compare.colFeature}</th><th>Reki note</th><th>{dict.Compare.col2}</th><th>{dict.Compare.col3}</th></tr></thead>
+              <tbody>
+                {compareRows.map((row) => (
+                  <tr><th scope="row">{row.feature}</th><td class="is-good">{row.reki.text}</td><td>{row.otherAi.text}</td><td>{row.notes.text}</td></tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p class="p-compare__note">{dict.Compare.footnote}</p>
+        </div>
+      </section>
+
+      <section id="download" class="p-final-cta" aria-labelledby="final-title">
+        <div class="l-container p-final-cta__inner">
+          <p class="p-final-cta__eyebrow">Start Remembering</p>
+          <h2 id="final-title" class="p-final-cta__title">次の会話から、<br />あとで戻れる場所を。</h2>
+          <p class="p-final-cta__text">まずは無料で、文字起こし無制限。Reki noteを一度の会話から試してみてください。</p>
+          <div class="p-final-cta__actions">
+            <a href={MAC_DOWNLOAD_URL} class="c-button c-button--light">Mac版を無料ダウンロード</a>
+            <a href={WIN_DOWNLOAD_URL} class="c-button c-button--ghost">Windows版をダウンロード</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="p-footer">
+      <div class="l-container p-footer__inner">
+        <div class="p-footer__top">
+          <a href="#top" class="c-brand c-brand--footer"><img src="/logo.png" alt="" width="24" height="24" /><span>Reki note</span></a>
+          <p>デバイスで起きる全ての会話を、あなたの記憶に。</p>
+        </div>
+        <div class="p-footer__bottom">
+          <span>© 2026 HIBACHI inc.</span>
+          <nav aria-label="フッターナビゲーション">
+            <a href="https://hibachi-inc.jp">運営会社</a>
+            <a href="/ja/legal/privacy/">プライバシーポリシー</a>
+            <a href="/ja/legal/terms/">利用規約</a>
+            <a href="/ja/legal/tokushoho/">特定商取引法に基づく表記</a>
+          </nav>
+        </div>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>
+
+<style>
+  :global(html) { scroll-behavior: smooth; }
+  :global(body) { background: #ffffff !important; color: #0f1b3d !important; }
+
+  .lp2-page {
+    --primary: #18408a;
+    --primary-hover: #102d63;
+    --primary-deep: #0a2456;
+    --brand-blue: #4578d8;
+    --brand-aqua: #2aaadd;
+    --gradient-brand: linear-gradient(115deg, #18408a 0%, #4578d8 52%, #2aaadd 100%);
+    --text: #0f1b3d;
+    --muted: #5b6478;
+    --soft: #f5f8fc;
+    --cool: #eef3fa;
+    --border: #dce4f0;
+    --shadow: 0 3px 10px rgba(69, 120, 216, 0.14), 0 20px 44px rgba(42, 170, 221, 0.1);
+    --shadow-strong: 0 8px 20px rgba(69, 120, 216, 0.2), 0 28px 60px rgba(42, 170, 221, 0.14);
+    min-height: 100vh;
+    overflow: hidden;
+    color: var(--text);
+    background: #fff;
+    font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', sans-serif;
+    font-size: 16px;
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+    word-break: normal;
+    overflow-wrap: anywhere;
+    font-feature-settings: normal;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .lp2-page *, .lp2-page *::before, .lp2-page *::after { box-sizing: border-box; }
+  .lp2-page img, .lp2-page svg { display: block; max-width: 100%; }
+  .lp2-page a { color: inherit; text-decoration: none; }
+  .lp2-page ul, .lp2-page ol { list-style: none; margin: 0; padding: 0; }
+  .lp2-page h1, .lp2-page h2, .lp2-page h3, .lp2-page p, .lp2-page figure { margin: 0; }
+  .lp2-page h1, .lp2-page h2, .lp2-page h3 { font-feature-settings: "palt" 1; font-kerning: normal; letter-spacing: 0.02em; }
+  .lp2-page :focus-visible { outline: 3px solid var(--brand-aqua); outline-offset: 4px; }
+
+  .l-container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .l-header { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.94); border-bottom: 1px solid var(--border); backdrop-filter: saturate(160%) blur(10px); }
+  .l-header__inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 72px; }
+  .c-brand { display: inline-flex; align-items: center; gap: 10px; color: var(--primary); font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 20px; font-weight: 700; letter-spacing: .02em; }
+  .c-brand img { border-radius: 7px; }
+  .c-nav { display: none; align-items: center; gap: 28px; margin-left: auto; margin-right: 8px; color: var(--muted); font-size: 14px; font-weight: 500; }
+  .c-nav a { transition: color .2s ease; }
+  .c-nav a:hover { color: var(--primary); }
+
+  .c-button { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 12px 22px; border-radius: 8px; font-weight: 500; line-height: 1.4; text-align: center; transition: background-color .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease, transform .15s ease; }
+  .c-button:hover { transform: translateY(-1px); }
+  .c-button--primary { background: var(--primary); color: #fff !important; box-shadow: 0 8px 22px rgba(24,64,138,.18); }
+  .c-button--primary:hover { background: var(--primary-hover); box-shadow: 0 10px 24px rgba(24,64,138,.28); }
+  .c-button--ghost { border: 1px solid rgba(255,255,255,.7); color: #fff; background: transparent; }
+  .c-button--ghost:hover { border-color: #fff; background: rgba(255,255,255,.12); }
+  .c-button--light { background: #fff; color: var(--primary) !important; box-shadow: 0 8px 22px rgba(10,36,86,.18); }
+  .c-button--light:hover { background: #eef3fa; }
+  .c-button--sm { min-height: 40px; padding: 9px 16px; font-size: 14px; }
+
+  .p-hero { position: relative; isolation: isolate; overflow: hidden; padding: 72px 0 88px; color: #fff; background: var(--gradient-brand); }
+  .p-hero::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: .22; background-image: linear-gradient(rgba(255,255,255,.32) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.32) 1px, transparent 1px); background-size: 56px 56px; mask-image: linear-gradient(90deg, #000, transparent 80%); }
+  .p-hero__inner { display: grid; align-items: center; gap: 48px; }
+  .p-hero__copy { max-width: 620px; }
+  .p-hero__eyebrow, .c-section-head__eyebrow, .p-solutions__label, .p-privacy__flow-label, .p-final-cta__eyebrow { color: var(--primary); font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+  .p-hero__eyebrow, .p-final-cta__eyebrow { color: rgba(255,255,255,.76); }
+  .p-hero__title { margin-top: 14px; color: #fff; font-size: clamp(2.4rem, 7vw, 4.25rem); font-weight: 900; line-height: 1.28; text-shadow: 0 4px 18px rgba(10,36,86,.18); }
+  .p-hero__title span { color: #dff7ff; }
+  .p-hero__lead { max-width: 560px; margin-top: 20px; color: rgba(255,255,255,.9); font-size: 18px; line-height: 1.9; }
+  .p-hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .p-hero__note { margin-top: 14px; color: rgba(255,255,255,.72); font-size: 12px; line-height: 1.7; }
+  .p-hero__visual { position: relative; min-width: 0; }
+  .p-hero__visual-glow { position: absolute; inset: 14% 4% 4%; border-radius: 50%; background: rgba(255,255,255,.22); filter: blur(44px); }
+  .p-product-shot { position: relative; margin: 0; overflow: hidden; border: 8px solid rgba(255,255,255,.82); border-radius: 16px; background: #0d1734; box-shadow: 0 30px 70px rgba(10,36,86,.3); transform: rotate(1deg); }
+  .p-product-shot img { width: 100%; height: auto; }
+  .p-product-shot figcaption { position: absolute; right: 16px; bottom: 14px; padding: 6px 10px; border-radius: 5px; color: #fff; background: rgba(10,36,86,.76); font-size: 12px; line-height: 1.4; }
+
+  .p-facts { background: #fff; border-bottom: 1px solid var(--border); }
+  .p-facts__grid { display: grid; grid-template-columns: 1fr; }
+  .p-facts__item { display: flex; align-items: baseline; gap: 14px; padding: 24px 0; border-bottom: 1px solid var(--border); }
+  .p-facts__item:last-child { border-bottom: 0; }
+  .p-facts__number, .p-flow__item > span, .p-solutions__number { color: var(--brand-blue); font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-weight: 700; letter-spacing: -.02em; }
+  .p-facts__number { font-size: 20px; }
+  .p-facts__item strong, .p-facts__item span:last-child { display: block; }
+  .p-facts__item strong { color: var(--primary); font-size: 17px; }
+  .p-facts__item span:last-child { color: var(--muted); font-size: 13px; }
+
+  .l-section { padding: 80px 0; }
+  .l-section--soft { background: var(--soft); }
+  .l-section--cool { background: var(--cool); }
+  .c-section-head { max-width: 720px; margin-bottom: 44px; }
+  .c-section-head--center { margin-right: auto; margin-left: auto; text-align: center; }
+  .c-section-head__title { margin-top: 12px; color: var(--primary); font-size: clamp(2rem, 5vw, 2.75rem); font-weight: 700; line-height: 1.4; }
+  .c-section-head__lead { margin-top: 18px; color: var(--muted); font-size: 16px; line-height: 1.9; }
+
+  .p-issues__list { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  .p-issues__item, .p-solutions__item { background: #fff; border-radius: 16px; box-shadow: var(--shadow); }
+  .p-issues__item { padding: 28px; }
+  .p-issues__number { color: var(--brand-aqua); font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 30px; font-weight: 700; }
+  .p-issues__item h3 { margin-top: 14px; color: var(--primary); font-size: 20px; line-height: 1.5; }
+  .p-issues__item p { margin-top: 12px; color: var(--muted); font-size: 15px; line-height: 1.85; }
+
+  .p-solutions__list { display: grid; grid-template-columns: 1fr; gap: 16px; counter-reset: solution; }
+  .p-solutions__item { padding: 28px; }
+  .p-solutions__top { display: flex; align-items: center; gap: 12px; }
+  .p-solutions__number { font-size: 36px; line-height: 1; }
+  .p-solutions__label { color: var(--brand-blue); }
+  .p-solutions__item h3 { margin-top: 20px; color: var(--primary); font-size: 21px; line-height: 1.45; }
+  .p-solutions__item > p { margin-top: 12px; color: var(--muted); font-size: 15px; line-height: 1.85; }
+  .p-solutions__item ul { display: grid; gap: 8px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--border); }
+  .p-solutions__item li { display: flex; gap: 8px; align-items: flex-start; color: var(--text); font-size: 14px; line-height: 1.7; }
+  .p-solutions__item li span { color: var(--brand-aqua); font-weight: 700; }
+
+  .p-works__layout { display: grid; align-items: center; gap: 40px; }
+  .p-works__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .p-works__item { display: flex; align-items: center; gap: 10px; min-height: 72px; padding: 14px; border: 1px solid var(--border); border-radius: 12px; background: #fff; color: var(--text); font-size: 13px; box-shadow: var(--shadow); }
+  .p-works__mark { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; flex: 0 0 34px; border-radius: 8px; color: #fff; background: var(--primary); font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 14px; font-weight: 700; }
+
+  .p-flow__list { display: grid; grid-template-columns: 1fr; gap: 12px; max-width: 820px; margin: 0 auto; }
+  .p-flow__item { display: flex; align-items: flex-start; gap: 22px; padding: 24px; border-left: 3px solid var(--brand-aqua); background: #fff; box-shadow: var(--shadow); }
+  .p-flow__item > span { min-width: 48px; font-size: 28px; line-height: 1; }
+  .p-flow__item h3 { color: var(--primary); font-size: 19px; line-height: 1.5; }
+  .p-flow__item p { margin-top: 6px; color: var(--muted); font-size: 15px; line-height: 1.8; }
+
+  .p-privacy__layout { display: grid; align-items: center; gap: 36px; }
+  .p-privacy__facts { display: grid; gap: 12px; }
+  .p-privacy__facts li { display: flex; gap: 10px; align-items: flex-start; color: var(--text); font-size: 15px; line-height: 1.8; }
+  .p-privacy__facts li span { color: var(--brand-blue); font-weight: 700; }
+  .p-privacy__flow { padding: 28px; border-radius: 16px; background: #fff; box-shadow: var(--shadow); }
+  .p-privacy__flow-label { color: var(--brand-blue); }
+  .p-privacy__flow > p:nth-child(2) { margin-top: 8px; color: var(--muted); font-size: 14px; line-height: 1.75; }
+  .p-privacy__flow ol { display: grid; gap: 10px; margin-top: 22px; }
+  .p-privacy__flow li { display: flex; gap: 14px; align-items: center; padding: 12px; border: 1px solid var(--border); color: var(--text); font-size: 14px; line-height: 1.6; }
+  .p-privacy__flow li span { color: var(--brand-blue); font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-weight: 700; }
+
+  .p-compare__table-wrap { overflow-x: auto; border-radius: 14px; box-shadow: var(--shadow); }
+  .p-compare table { width: 100%; min-width: 760px; border-collapse: collapse; background: #fff; font-size: 13px; }
+  .p-compare th, .p-compare td { padding: 16px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; line-height: 1.7; }
+  .p-compare thead th { color: var(--muted); background: var(--soft); font-size: 12px; font-weight: 700; }
+  .p-compare tbody th { width: 18%; color: var(--primary); font-weight: 700; }
+  .p-compare td { color: var(--muted); }
+  .p-compare td.is-good { color: var(--primary); background: #f5fbff; font-weight: 600; }
+  .p-compare__note { margin-top: 12px; color: var(--muted); font-size: 12px; text-align: right; }
+
+  .p-final-cta { position: relative; isolation: isolate; overflow: hidden; padding: 88px 0; color: #fff; background: var(--gradient-brand); text-align: center; }
+  .p-final-cta::before { content: ''; position: absolute; inset: 0; z-index: -1; background: radial-gradient(circle at 12% 18%, rgba(255,255,255,.18), transparent 38%), radial-gradient(circle at 88% 82%, rgba(255,255,255,.13), transparent 42%); }
+  .p-final-cta__inner { max-width: 760px; }
+  .p-final-cta__title { margin-top: 12px; color: #fff; font-size: clamp(2.2rem, 6vw, 3.5rem); font-weight: 700; line-height: 1.35; }
+  .p-final-cta__text { margin: 18px auto 0; max-width: 560px; color: rgba(255,255,255,.88); font-size: 17px; line-height: 1.9; }
+  .p-final-cta__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
+
+  .p-footer { padding: 44px 0 24px; color: rgba(255,255,255,.75); background: var(--primary-deep); }
+  .p-footer__top { display: flex; flex-direction: column; gap: 10px; }
+  .c-brand--footer { color: #fff; }
+  .p-footer__top p { color: rgba(255,255,255,.58); font-size: 13px; }
+  .p-footer__bottom { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.48); font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 12px; }
+  .p-footer__bottom nav { display: flex; flex-wrap: wrap; gap: 14px; font-family: 'Noto Sans JP', sans-serif; }
+  .p-footer__bottom a:hover { color: #fff; }
+
+  @media (min-width: 700px) {
+    .l-section { padding: 104px 0; }
+    .p-facts__grid { grid-template-columns: repeat(3, 1fr); }
+    .p-facts__item { justify-content: center; border-right: 1px solid var(--border); border-bottom: 0; }
+    .p-facts__item:last-child { border-right: 0; }
+    .p-issues__list, .p-solutions__list { grid-template-columns: repeat(3, 1fr); }
+    .p-issues__item, .p-solutions__item { padding: 32px; }
+    .p-flow__item { padding: 28px 32px; }
+    .p-privacy__layout { grid-template-columns: 1fr 1fr; }
+    .p-footer__bottom { flex-direction: row; align-items: center; justify-content: space-between; }
+  }
+
+  @media (min-width: 1024px) {
+    .c-nav { display: flex; }
+    .l-header__cta { display: inline-flex; }
+    .p-hero { padding: 112px 0 128px; }
+    .p-hero__inner { grid-template-columns: 1.02fr .98fr; gap: 64px; }
+    .p-hero__title { font-size: 4rem; }
+    .p-hero__visual { margin-right: -40px; }
+    .p-works__layout { grid-template-columns: .9fr 1.1fr; gap: 80px; }
+    .p-works__grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lp2-page *, .lp2-page *::before, .lp2-page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+  }
+
+  @media (max-width: 699px) {
+    .l-container { padding-right: 20px; padding-left: 20px; }
+    .p-hero__actions .c-button, .p-final-cta__actions .c-button { width: 100%; }
+    .p-product-shot { border-width: 5px; }
+    .p-product-shot figcaption { right: 8px; bottom: 8px; font-size: 10px; }
+  }
+</style>

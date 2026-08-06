@@ -20,6 +20,7 @@ export default defineConfig({
     sitemap({
       filter: (page) =>
         page !== "https://rekinote.app/" &&
+        !page.includes("/lp2/") &&
         !page.includes("/setup/") &&
         !page.includes("/thanks/"),
     }),
