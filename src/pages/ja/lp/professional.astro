@@ -1,0 +1,352 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { MAC_DOWNLOAD_URL, WIN_DOWNLOAD_URL } from "../../../lib/downloadAnalytics";
+
+const professions = ["弁護士", "税理士", "社会保険労務士", "行政書士", "司法書士", "弁理士"];
+const workflow = [
+  { label: "相談・面談", text: "守秘義務がある会話", icon: "/lp/team/icon-capture.svg" },
+  { label: "PC内で処理", text: "音声・文字起こし", icon: "/lp/team/icon-local.svg" },
+  { label: "案件記録", text: "あとから探せる", icon: "/lp/team/icon-dashboard.svg" },
+];
+const concerns = [
+  { number: "01", title: "相談内容を、外部サービスに預けづらい", body: "顧客情報、契約内容、相続・税務・労務の相談。便利さだけで、外部に置く判断はできません。" },
+  { number: "02", title: "面談後に、決定事項を確認しづらい", body: "記憶と手書きのメモだけでは、案件の経緯や次にやることをチームで揃えにくくなります。" },
+  { number: "03", title: "議事録をつくる時間が、相談時間を削る", body: "話す・聴く・考えることに集中しながら、記録まで残す負担が担当者に集まります。" },
+];
+const points = [
+  { label: "Local first", title: "音声と文字起こしを、PC内で扱う", body: "ローカル処理モードなら、外部に出せない会話をPC内に置いたまま、あとから読み返せる記録に整えられます。", icon: "/lp/team/feature-privacy.svg" },
+  { label: "Case memory", title: "案件ごとの文脈へ、すぐ戻れる", body: "相談日、顧客、決定事項。会話を記録として残すことで、次回の面談や引き継ぎに必要な文脈を探しやすくします。", icon: "/lp/team/feature-data.svg" },
+  { label: "Quiet workflow", title: "記録に追われず、目の前の相談へ", body: "会議ツールへbotを招待せず、いつもの面談や打ち合わせをそのまま記録します。", icon: "/lp/team/feature-tools.svg" },
+];
+---
+
+<BaseLayout
+  title="Reki note for Professionals — 士業の会話を、ローカルで記録。"
+  description="弁護士・税理士・社労士など、外部に出せない相談情報を扱う士業のための議事録ツール。ローカル処理モードで、会話をPC内の記録に整えます。"
+  lang="ja"
+  canonical="https://rekinote.app/ja/lp/professional/"
+  noindex
+  singleLang
+>
+  <div class="professional-page">
+    <header class="professional-header">
+      <a href="#top" class="professional-brand" aria-label="Reki note ホーム">
+        <img src="/logo.png" alt="" width="28" height="28" />
+        <span>Reki note</span>
+      </a>
+      <nav aria-label="ページ内ナビゲーション">
+        <a href="#local">ローカル処理</a>
+        <a href="#usecases">使える職種</a>
+        <a href="#security">情報の境界</a>
+      </nav>
+      <a href={MAC_DOWNLOAD_URL} class="professional-header-cta">無料で試す</a>
+    </header>
+
+    <main id="top">
+      <section class="professional-hero" aria-labelledby="professional-hero-title">
+        <picture class="professional-hero-background" aria-hidden="true">
+          <source media="(max-width: 699px)" srcset="/images/reki-macbook-notes-real-ui-hero-640w.webp" type="image/webp" />
+          <source media="(max-width: 1023px)" srcset="/images/reki-macbook-notes-real-ui-hero-960w.webp" type="image/webp" />
+          <source srcset="/images/reki-macbook-notes-real-ui-hero-1536w.webp" type="image/webp" />
+          <img src="/images/reki-macbook-notes-real-ui-hero-1536w.jpg" alt="" width="1536" height="1024" loading="eager" fetchpriority="high" decoding="async" />
+        </picture>
+        <div class="professional-hero-overlay" aria-hidden="true"></div>
+        <div class="professional-container professional-hero-inner">
+          <div class="professional-hero-copy">
+            <p class="professional-kicker">For Japanese Professionals</p>
+            <h1 id="professional-hero-title"><span>外部に出せない</span><span>会話を、</span><em>ローカルで記録。</em></h1>
+            <p class="professional-lead">法律・税務・労務・登記。守秘義務が求められる現場の会話を、PC内で扱える議事録へ。</p>
+            <div class="professional-actions">
+              <a href={MAC_DOWNLOAD_URL} class="professional-primary">Mac版を無料で試す</a>
+              <a href="#security" class="professional-secondary">情報の境界を見る</a>
+            </div>
+            <p class="professional-note">ローカル処理モード対応。Windows版も利用できます。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="professional-proof" aria-label="士業向けReki noteの特徴">
+        <div class="professional-proof-inner">
+          <span><b>✓</b> 外部に出せない情報に</span>
+          <span><b>✓</b> PC内でローカル処理</span>
+          <span><b>✓</b> Mac / Windows対応</span>
+        </div>
+      </section>
+
+      <section class="professional-section professional-concerns" aria-labelledby="concerns-title">
+        <div class="professional-container">
+          <header class="professional-section-heading">
+            <p>CONCERNS</p>
+            <h2 id="concerns-title">士業の記録には、<br />「外に出さない」選択がある。</h2>
+            <span>便利な議事録ツールを選ぶ前に、情報をどこで扱うかを決める。</span>
+          </header>
+          <div class="professional-concerns-grid">
+            {concerns.map((concern) => (
+              <article>
+                <span class="professional-number">{concern.number}</span>
+                <h3>{concern.title}</h3>
+                <p>{concern.body}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="professional-section professional-local" id="local" aria-labelledby="local-title">
+        <div class="professional-container">
+          <header class="professional-section-heading">
+            <p>LOCAL FIRST</p>
+            <h2 id="local-title">会話を、PC内の仕事道具に。</h2>
+            <span>ローカル処理を中心に、相談・記録・引き継ぎの流れを整えます。</span>
+          </header>
+          <div class="professional-workflow" aria-label="士業の会話を記録する流れ">
+            {workflow.map((step, index) => (
+              <article>
+                <span class="professional-step">0{index + 1}</span>
+                <img src={step.icon} alt="" width="48" height="48" loading="lazy" />
+                <h3>{step.label}</h3>
+                <p>{step.text}</p>
+                {index < workflow.length - 1 && <span class="professional-arrow" aria-hidden="true">→</span>}
+              </article>
+            ))}
+          </div>
+          <div class="professional-local-note"><b>ローカル処理モード</b><span>音声・文字起こしをPC内で扱い、必要な範囲だけを次の業務へつなげます。</span></div>
+        </div>
+      </section>
+
+      <section class="professional-section professional-points" id="usecases" aria-labelledby="points-title">
+        <div class="professional-container">
+          <header class="professional-section-heading">
+            <p>FOR YOUR PRACTICE</p>
+            <h2 id="points-title">案件の文脈を、<br />次の担当者へ。</h2>
+          </header>
+          <div class="professional-points-grid">
+            {points.map((point) => (
+              <article>
+                <img src={point.icon} alt="" width="64" height="64" loading="lazy" />
+                <p>{point.label}</p>
+                <h3>{point.title}</h3>
+                <span>{point.body}</span>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="professional-section professional-usecases" aria-labelledby="usecases-title">
+        <div class="professional-container professional-usecases-inner">
+          <div>
+            <header class="professional-section-heading align-left">
+              <p>WHO IT IS FOR</p>
+              <h2 id="usecases-title">守秘義務のある、<br />いろいろな現場で。</h2>
+            </header>
+            <div class="professional-professions">
+              {professions.map((profession) => <span>{profession}</span>)}
+            </div>
+          </div>
+          <div class="professional-case-card">
+            <p>CASE MEMORY</p>
+            <h3>面談のあとに、<br />「何を決めたか」へ戻れる。</h3>
+            <span>顧客との相談、所内の検討、引き継ぎの会話を、案件の文脈と一緒に残します。</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="professional-section professional-security" id="security" aria-labelledby="security-title">
+        <div class="professional-container">
+          <header class="professional-section-heading">
+            <p>INFORMATION BOUNDARY</p>
+            <h2 id="security-title">情報の境界を、<br />自分たちで決める。</h2>
+            <span>外部に出せない情報はローカルに。共有が必要な要約だけを、運用に合わせて扱います。</span>
+          </header>
+          <div class="professional-security-flow">
+            <img src="/lp/team/security-boundary.svg" alt="ローカル処理と共有データの境界を示す図" width="1120" height="280" loading="lazy" />
+          </div>
+          <div class="professional-security-points"><span>音声はPC内に保持</span><span>文字起こしをローカル処理</span><span>必要な範囲だけ共有</span></div>
+          <p class="professional-disclaimer">※利用できる処理モードや保存先は、アプリの設定・契約プラン・環境によって異なります。</p>
+        </div>
+      </section>
+
+      <section class="professional-final" id="download" aria-labelledby="professional-final-title">
+        <div class="professional-container professional-final-inner">
+          <p class="professional-kicker">START LOCAL</p>
+          <h2 id="professional-final-title">外部に出せない会話から、<br />ローカルで試してみる。</h2>
+          <p>まずは一つの面談、一つの案件から。Reki noteを無料で試せます。</p>
+          <div class="professional-actions">
+            <a href={MAC_DOWNLOAD_URL} class="professional-primary">Mac版を無料で試す</a>
+            <a href={WIN_DOWNLOAD_URL} class="professional-secondary">Windows版をダウンロード</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="professional-footer">
+      <div class="professional-container professional-footer-inner">
+        <a href="#top" class="professional-brand"><img src="/logo.png" alt="" width="24" height="24" /><span>Reki note</span></a>
+        <nav aria-label="フッターナビゲーション"><a href="https://hibachi-inc.jp">運営会社</a><a href="/ja/legal/privacy/">プライバシーポリシー</a><a href="/ja/legal/terms/">利用規約</a></nav>
+      </div>
+    </footer>
+  </div>
+</BaseLayout>
+
+<style>
+  .professional-page {
+    --ink: #0e2240;
+    --ink-deep: #07172c;
+    --muted: #5b6b80;
+    --line: #d6e1ec;
+    --soft: #f3f6f9;
+    --cool: #eaf2f8;
+    --aqua: #167a93;
+    --blue: #3e6f9d;
+    min-height: 100vh;
+    color: var(--ink);
+    background: #fff;
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", sans-serif;
+    line-height: 1.8;
+    letter-spacing: .01em;
+    line-break: strict;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .professional-page *, .professional-page *::before, .professional-page *::after { box-sizing: border-box; }
+  .professional-page img { display: block; max-width: 100%; }
+  .professional-page a { color: inherit; text-decoration: none; }
+  .professional-page h1, .professional-page h2, .professional-page h3, .professional-page p { margin: 0; }
+  .professional-page :focus-visible { outline: 3px solid #42b7c9; outline-offset: 4px; }
+  .professional-container { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+  .professional-header { position: sticky; top: 0; z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 28px; min-height: 72px; padding: 0 44px; border-bottom: 1px solid rgba(14,34,64,.12); background: rgba(255,255,255,.94); backdrop-filter: blur(12px); }
+  .professional-brand { display: inline-flex; align-items: center; gap: 10px; font-size: 20px; font-weight: 800; }
+  .professional-brand img { border-radius: 7px; }
+  .professional-header nav { display: flex; gap: 28px; margin-left: auto; color: var(--muted); font-size: 14px; font-weight: 600; }
+  .professional-header nav a:hover { color: var(--ink); }
+  .professional-header-cta, .professional-primary, .professional-secondary { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border-radius: 10px; font-weight: 700; text-align: center; transition: transform .15s ease, background-color .2s ease, border-color .2s ease; }
+  .professional-header-cta, .professional-primary { color: #fff !important; background: var(--ink); box-shadow: 0 12px 28px rgba(14,34,64,.18); }
+  .professional-page .professional-header .professional-header-cta { color: #fff !important; -webkit-text-fill-color: #fff !important; }
+  .professional-header-cta:hover, .professional-primary:hover { transform: translateY(-1px); background: #091a31; }
+  .professional-secondary { border: 1px solid rgba(216,241,244,.72); color: #fff; background: transparent; }
+  .professional-secondary:hover { border-color: #fff; background: rgba(255,255,255,.1); }
+
+  .professional-hero { position: relative; isolation: isolate; min-height: 760px; overflow: hidden; color: #fff; background: var(--ink-deep); }
+  .professional-hero-background { position: absolute; inset: 0; z-index: -2; }
+  .professional-hero-background img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .professional-hero-overlay { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(7,23,44,.95) 0%, rgba(7,23,44,.8) 38%, rgba(7,23,44,.2) 78%, rgba(7,23,44,.1) 100%); }
+  .professional-hero-inner { display: flex; align-items: center; min-height: 760px; }
+  .professional-hero-copy { max-width: 620px; }
+  .professional-kicker, .professional-section-heading > p, .professional-case-card > p { color: #a7dce3; font-family: Inter, "Helvetica Neue", Arial, sans-serif; font-size: 12px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+  .professional-hero h1 { margin-top: 18px; font-size: clamp(2.5rem, 4.8vw, 4rem); font-weight: 900; line-height: 1.22; letter-spacing: -.02em; text-wrap: balance; }
+  .professional-hero h1 > span { display: block; white-space: nowrap; }
+  .professional-hero h1 em { display: block; color: #d8f1f4; font-style: normal; }
+  .professional-lead { max-width: 560px; margin-top: 22px; color: rgba(255,255,255,.9); font-size: 18px; line-height: 1.9; }
+  .professional-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+  .professional-note { margin-top: 14px; color: rgba(255,255,255,.7); font-size: 12px; }
+
+  .professional-proof { border-bottom: 1px solid var(--line); background: #fff; }
+  .professional-proof-inner { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 980px; margin: 0 auto; }
+  .professional-proof-inner span { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 84px; border-right: 1px solid var(--line); color: var(--ink); font-size: 14px; font-weight: 700; }
+  .professional-proof-inner span:last-child { border-right: 0; }
+  .professional-proof-inner b { display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; color: #fff; background: var(--aqua); font-family: Inter, sans-serif; font-size: 13px; }
+
+  .professional-section { padding: 96px 0; border-bottom: 1px solid var(--line); }
+  .professional-concerns { background: var(--soft); }
+  .professional-section-heading { max-width: 760px; margin: 0 auto 44px; text-align: center; }
+  .professional-section-heading.align-left { margin-left: 0; text-align: left; }
+  .professional-section-heading > p { color: var(--aqua); }
+  .professional-section-heading h2 { margin-top: 12px; font-size: clamp(2rem, 4.2vw, 3.3rem); font-weight: 800; line-height: 1.35; letter-spacing: -.02em; text-wrap: balance; }
+  .professional-section-heading span { display: block; margin-top: 16px; color: var(--muted); font-size: 16px; line-height: 1.9; }
+  .professional-concerns-grid, .professional-points-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .professional-concerns-grid article { padding: 30px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+  .professional-number { color: var(--aqua); font-family: Inter, sans-serif; font-size: 30px; font-weight: 800; }
+  .professional-concerns-grid h3 { margin-top: 18px; font-size: 20px; line-height: 1.55; }
+  .professional-concerns-grid p { margin-top: 12px; color: var(--muted); font-size: 15px; line-height: 1.85; }
+
+  .professional-local { background: #fff; }
+  .professional-workflow { display: grid; grid-template-columns: repeat(3, 1fr); max-width: 980px; margin: 0 auto; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 24px 60px rgba(14,34,64,.08); }
+  .professional-workflow article { position: relative; min-height: 250px; padding: 28px; border-right: 1px solid var(--line); }
+  .professional-workflow article:last-child { border-right: 0; }
+  .professional-step { color: var(--blue); font-family: Inter, sans-serif; font-size: 14px; font-weight: 800; }
+  .professional-workflow img { width: 48px; height: 48px; margin-top: 26px; border-radius: 12px; }
+  .professional-workflow h3 { margin-top: 18px; font-size: 20px; line-height: 1.45; }
+  .professional-workflow p { margin-top: 6px; color: var(--muted); font-size: 14px; }
+  .professional-arrow { position: absolute; top: 50%; right: -15px; z-index: 1; display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid var(--line); border-radius: 50%; color: var(--aqua); background: #fff; font-weight: 800; }
+  .professional-local-note { display: flex; gap: 14px; align-items: center; max-width: 980px; margin: 22px auto 0; padding: 16px 18px; border: 1px solid rgba(22,122,147,.22); border-radius: 10px; color: var(--muted); background: var(--cool); font-size: 14px; }
+  .professional-local-note b { color: var(--ink); white-space: nowrap; }
+
+  .professional-points { background: var(--soft); }
+  .professional-points-grid article { padding: 28px; border: 1px solid var(--line); border-radius: 14px; background: #fff; }
+  .professional-points-grid img { width: 64px; height: 64px; padding: 10px; border-radius: 14px; background: var(--cool); }
+  .professional-points-grid article > p { margin-top: 22px; color: var(--aqua); font-family: Inter, sans-serif; font-size: 12px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+  .professional-points-grid h3 { margin-top: 8px; font-size: 21px; line-height: 1.5; }
+  .professional-points-grid span { display: block; margin-top: 12px; color: var(--muted); font-size: 15px; line-height: 1.85; }
+
+  .professional-usecases { background: #fff; }
+  .professional-usecases-inner { display: grid; grid-template-columns: 1fr .78fr; gap: 80px; align-items: center; }
+  .professional-professions { display: flex; flex-wrap: wrap; gap: 10px; max-width: 600px; }
+  .professional-professions span { padding: 10px 14px; border: 1px solid var(--line); border-radius: 8px; color: var(--ink); background: var(--soft); font-size: 14px; font-weight: 700; }
+  .professional-case-card { padding: 34px; border-radius: 16px; color: #fff; background: var(--ink); box-shadow: 0 26px 60px rgba(14,34,64,.16); }
+  .professional-case-card > p { color: #a7dce3; }
+  .professional-case-card h3 { margin-top: 18px; font-size: 28px; line-height: 1.45; }
+  .professional-case-card span { display: block; margin-top: 16px; color: rgba(255,255,255,.75); font-size: 14px; line-height: 1.85; }
+
+  .professional-security { background: var(--cool); }
+  .professional-security-flow { max-width: 1120px; margin: 0 auto; padding: 12px; border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.72); }
+  .professional-security-flow img { width: 100%; height: auto; border-radius: 10px; }
+  .professional-security-points { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 22px; }
+  .professional-security-points span { padding: 9px 14px; border: 1px solid rgba(22,122,147,.25); border-radius: 8px; color: var(--ink); background: #fff; font-size: 13px; font-weight: 700; }
+  .professional-disclaimer { margin-top: 18px; color: var(--muted); font-size: 12px; text-align: center; }
+
+  .professional-final { color: #fff; background: linear-gradient(115deg, #0e2240 0%, #163d69 54%, #267a92 100%); text-align: center; }
+  .professional-final-inner { padding-top: 112px; padding-bottom: 112px; }
+  .professional-final h2 { margin-top: 14px; font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.35; }
+  .professional-final p:not(.professional-kicker) { max-width: 560px; margin: 18px auto 0; color: rgba(255,255,255,.82); font-size: 16px; line-height: 1.9; }
+  .professional-final .professional-primary { color: var(--ink); background: #fff; }
+  .professional-final .professional-primary:hover { background: #eaf2f8; }
+  .professional-final .professional-secondary { border-color: rgba(255,255,255,.7); }
+  .professional-footer { color: rgba(255,255,255,.72); background: var(--ink-deep); }
+  .professional-footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 100px; }
+  .professional-footer .professional-brand { color: #fff; font-size: 18px; }
+  .professional-footer nav { display: flex; flex-wrap: wrap; gap: 18px; font-size: 13px; }
+
+  @media (max-width: 1023px) {
+    .professional-header { padding: 0 24px; }
+    .professional-header nav { display: none; }
+    .professional-hero { min-height: 720px; }
+    .professional-hero-inner { min-height: 720px; align-items: flex-start; padding-top: 86px; }
+    .professional-hero-background { display: flex; align-items: flex-end; justify-content: center; }
+    .professional-hero-background img { width: 100%; height: auto; object-fit: contain; }
+    .professional-hero-overlay { background: linear-gradient(180deg, rgba(7,23,44,.98) 0%, rgba(7,23,44,.9) 58%, rgba(7,23,44,.32) 100%); }
+    .professional-concerns-grid, .professional-points-grid { grid-template-columns: 1fr; }
+    .professional-usecases-inner { grid-template-columns: 1fr; gap: 42px; }
+  }
+
+  @media (max-width: 699px) {
+    .professional-container { padding: 0 20px; }
+    .professional-header { min-height: 64px; padding: 0 20px; }
+    .professional-header-cta { min-height: 40px; padding: 0 14px; font-size: 13px; }
+    .professional-brand { font-size: 18px; }
+    .professional-hero { min-height: 720px; }
+    .professional-hero-inner { min-height: 720px; padding-top: 72px; }
+    .professional-hero h1 { font-size: 2.3rem; }
+    .professional-lead { font-size: 16px; line-height: 1.85; }
+    .professional-actions { flex-direction: column; align-items: stretch; }
+    .professional-primary, .professional-secondary { width: 100%; }
+    .professional-proof-inner { grid-template-columns: 1fr; padding: 8px 20px; }
+    .professional-proof-inner span { justify-content: flex-start; min-height: 48px; border-right: 0; border-bottom: 1px solid var(--line); }
+    .professional-proof-inner span:last-child { border-bottom: 0; }
+    .professional-section { padding: 68px 0; }
+    .professional-section-heading { margin-bottom: 32px; }
+    .professional-section-heading h2 { font-size: 2rem; }
+    .professional-concerns-grid article, .professional-points-grid article { padding: 24px; }
+    .professional-workflow { grid-template-columns: 1fr; }
+    .professional-workflow article { min-height: 170px; border-right: 0; border-bottom: 1px solid var(--line); }
+    .professional-workflow article:last-child { border-bottom: 0; }
+    .professional-workflow img { margin-top: 18px; }
+    .professional-arrow { top: auto; right: 50%; bottom: -15px; transform: translateX(50%) rotate(90deg); }
+    .professional-local-note { align-items: flex-start; flex-direction: column; gap: 4px; }
+    .professional-case-card { padding: 26px; }
+    .professional-case-card h3 { font-size: 24px; }
+    .professional-final-inner { padding-top: 80px; padding-bottom: 80px; }
+    .professional-footer-inner { align-items: flex-start; flex-direction: column; justify-content: center; padding-top: 28px; padding-bottom: 28px; }
+  }
+</style>
