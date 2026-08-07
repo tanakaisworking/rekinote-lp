@@ -1,15 +1,28 @@
 {
   "reki-startup-community-hero.png": {
     "mode": "seo",
-    "role": "hero",
+    "role": "body",
     "slug": "reki-startup-community-hero",
     "alt": "スタートアップコミュニティの対話から、音声の流れが記録としてつながっていくヒーローイラスト",
     "assumptions": [
-      "LP2のファーストビュー右側に配置するヒーロー画像",
-      "実際のダッシュボード画像を手前に重ねるハイブリッド構成"
+      "LP2の「コミュニティの価値は、会話の中にある。」セクションに配置するイラスト",
+      "会話が記録としてつながる世界観を伝えるセクションビジュアル"
     ],
     "warnings": [
       "生成画像内の抽象カードは概念表現であり、実際の機能画面ではない"
+    ]
+  },
+  "reki-macbook-notes-hero.png": {
+    "mode": "seo",
+    "role": "hero",
+    "slug": "reki-macbook-notes-hero",
+    "alt": "深いネイビーの背景に浮かぶノートアプリのMacBookモックアップ",
+    "assumptions": [
+      "LP2のファーストビューに配置するヒーロー画像",
+      "画面内は実UIではなく、アプリの雰囲気を示すモックアップ"
+    ],
+    "warnings": [
+      "生成画像内の画面表示は概念モックであり、実際のUIの正確な再現ではない"
     ]
   }
 }

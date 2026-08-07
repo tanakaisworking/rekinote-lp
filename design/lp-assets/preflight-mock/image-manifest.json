@@ -1,0 +1,96 @@
+{
+  "generated_by": "seo-image-preflight-mvp",
+  "schema_version": "1.0.0",
+  "items": [
+    {
+      "original_file": "reki-macbook-notes-hero.png",
+      "original_bytes": 1707443,
+      "mode": "seo",
+      "role": "hero",
+      "slug": "reki-macbook-notes-hero",
+      "alt": "深いネイビーの背景に浮かぶノートアプリのMacBookモックアップ",
+      "original_width": 1536,
+      "original_height": 1024,
+      "has_alpha": false,
+      "variants": [
+        {
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "file": "images/reki-macbook-notes-hero-640w.webp",
+          "bytes": 18020,
+          "purpose": "responsive"
+        },
+        {
+          "format": "jpg",
+          "width": 640,
+          "height": 427,
+          "file": "images/reki-macbook-notes-hero-640w.jpg",
+          "bytes": 30629,
+          "purpose": "responsive-fallback"
+        },
+        {
+          "format": "webp",
+          "width": 960,
+          "height": 640,
+          "file": "images/reki-macbook-notes-hero-960w.webp",
+          "bytes": 32380,
+          "purpose": "responsive"
+        },
+        {
+          "format": "jpg",
+          "width": 960,
+          "height": 640,
+          "file": "images/reki-macbook-notes-hero-960w.jpg",
+          "bytes": 60070,
+          "purpose": "responsive-fallback"
+        },
+        {
+          "format": "webp",
+          "width": 1280,
+          "height": 853,
+          "file": "images/reki-macbook-notes-hero-1280w.webp",
+          "bytes": 50866,
+          "purpose": "responsive"
+        },
+        {
+          "format": "jpg",
+          "width": 1280,
+          "height": 853,
+          "file": "images/reki-macbook-notes-hero-1280w.jpg",
+          "bytes": 97125,
+          "purpose": "responsive-fallback"
+        },
+        {
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "file": "images/reki-macbook-notes-hero-1536w.webp",
+          "bytes": 66990,
+          "purpose": "responsive"
+        },
+        {
+          "format": "jpg",
+          "width": 1536,
+          "height": 1024,
+          "file": "images/reki-macbook-notes-hero-1536w.jpg",
+          "bytes": 132254,
+          "purpose": "responsive-fallback"
+        }
+      ],
+      "assumptions": [
+        "LP2のファーストビューに配置するヒーロー画像",
+        "画面内は実UIではなく、アプリの雰囲気を示すモックアップ",
+        "SEO mode assumes the image will be used on a website or web page."
+      ],
+      "warnings": [
+        "生成画像内の画面表示は概念モックであり、実際のUIの正確な再現ではない"
+      ],
+      "decisions": [
+        "Generated responsive WebP variants plus fallback images.",
+        "Prepared HTML implementation guidance.",
+        "Treated as a likely first-view/LCP image; lazy loading is not recommended."
+      ]
+    }
+  ]
+}

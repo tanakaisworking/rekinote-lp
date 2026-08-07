@@ -103,13 +103,13 @@ const solutions = [
           </div>
           <div class="p-hero__visual">
             <div class="p-hero__visual-glow" aria-hidden="true"></div>
-            <picture class="p-hero__scene">
-              <source media="(max-width: 699px)" srcset="/images/reki-startup-community-hero-640w.webp" type="image/webp" />
-              <source media="(max-width: 1023px)" srcset="/images/reki-startup-community-hero-960w.webp" type="image/webp" />
-              <source srcset="/images/reki-startup-community-hero-1536w.webp" type="image/webp" />
+            <picture class="p-hero__mock">
+              <source media="(max-width: 699px)" srcset="/images/reki-macbook-notes-hero-640w.webp" type="image/webp" />
+              <source media="(max-width: 1023px)" srcset="/images/reki-macbook-notes-hero-960w.webp" type="image/webp" />
+              <source srcset="/images/reki-macbook-notes-hero-1536w.webp" type="image/webp" />
               <img
-                src="/images/reki-startup-community-hero-1536w.jpg"
-                alt="スタートアップコミュニティの対話から、音声の流れが記録としてつながっていくヒーローイラスト"
+                src="/images/reki-macbook-notes-hero-1536w.jpg"
+                alt="深いネイビーの背景に浮かぶノートアプリのMacBookモックアップ"
                 width="1536"
                 height="1024"
                 loading="eager"
@@ -117,17 +117,6 @@ const solutions = [
                 decoding="async"
               />
             </picture>
-            <figure class="p-product-shot">
-              <img
-                src="/dashboard-hero.png"
-                alt="Reki noteの議事録一覧画面"
-                width="1563"
-                height="1006"
-                loading="eager"
-                decoding="async"
-              />
-              <figcaption>コミュニティの知恵を、次の挑戦へ。</figcaption>
-            </figure>
           </div>
         </div>
       </section>
@@ -151,11 +140,28 @@ const solutions = [
 
       <section id="problem" class="l-section l-section--soft p-issues" aria-labelledby="issues-title">
         <div class="l-container">
-          <header class="c-section-head">
-            <p class="c-section-head__eyebrow">For Community Builders</p>
-            <h2 id="issues-title" class="c-section-head__title">コミュニティの価値は、<br />会話の中にある。</h2>
-            <p class="c-section-head__lead">運営会議、メンタリング、イベント。スタートアップの現場では、次の一手につながる会話が毎日生まれます。</p>
-          </header>
+          <div class="p-issues__intro">
+            <header class="c-section-head">
+              <p class="c-section-head__eyebrow">For Community Builders</p>
+              <h2 id="issues-title" class="c-section-head__title">コミュニティの価値は、<br />会話の中にある。</h2>
+              <p class="c-section-head__lead">運営会議、メンタリング、イベント。スタートアップの現場では、次の一手につながる会話が毎日生まれます。</p>
+            </header>
+            <figure class="p-issues__visual">
+              <picture>
+                <source media="(max-width: 699px)" srcset="/images/reki-startup-community-hero-640w.webp" type="image/webp" />
+                <source srcset="/images/reki-startup-community-hero-1280w.webp" type="image/webp" />
+                <img
+                  src="/images/reki-startup-community-hero-1280w.jpg"
+                  alt="スタートアップコミュニティの対話から、音声の流れが記録としてつながっていくイラスト"
+                  width="1536"
+                  height="1024"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </picture>
+              <figcaption>会話が、次の一手につながる。</figcaption>
+            </figure>
+          </div>
           <ul class="p-issues__list">
             {issues.map((issue) => (
               <li class="p-issues__item">
@@ -397,11 +403,8 @@ const solutions = [
   .p-hero__note { margin-top: 14px; color: rgba(255,255,255,.72); font-size: 12px; line-height: 1.7; }
   .p-hero__visual { position: relative; min-width: 0; min-height: 520px; }
   .p-hero__visual-glow { position: absolute; inset: 14% 4% 4%; border-radius: 50%; background: rgba(255,255,255,.22); filter: blur(44px); }
-  .p-hero__scene { position: absolute; inset: 0 -32px 0 -24px; z-index: 0; overflow: hidden; border: 1px solid rgba(216,241,244,.25); border-radius: 24px; background: var(--primary-deep); box-shadow: 0 30px 70px rgba(7,23,44,.24); }
-  .p-hero__scene img { width: 100%; height: 100%; object-fit: cover; object-position: 62% center; }
-  .p-product-shot { position: absolute; top: 58px; right: -28px; z-index: 1; width: 70%; margin: 0; overflow: hidden; border: 8px solid rgba(255,255,255,.82); border-radius: 16px; background: var(--primary-deep); box-shadow: 0 30px 70px rgba(7,23,44,.34); transform: rotate(1deg); }
-  .p-product-shot img { width: 100%; height: auto; }
-  .p-product-shot figcaption { position: absolute; right: 16px; bottom: 14px; padding: 6px 10px; border-radius: 5px; color: #fff; background: rgba(7,23,44,.8); font-size: 12px; line-height: 1.4; }
+  .p-hero__mock { position: absolute; inset: 0 -32px 0 -24px; z-index: 0; overflow: hidden; border: 1px solid rgba(216,241,244,.25); border-radius: 24px; background: var(--primary-deep); box-shadow: 0 30px 70px rgba(7,23,44,.24); }
+  .p-hero__mock img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
   .p-facts { background: #fff; border-bottom: 1px solid var(--border); }
   .p-facts__grid { display: grid; grid-template-columns: 1fr; }
@@ -421,7 +424,12 @@ const solutions = [
   .c-section-head__title { margin-top: 12px; color: var(--primary); font-size: clamp(2rem, 5vw, 2.75rem); font-weight: 700; line-height: 1.4; }
   .c-section-head__lead { margin-top: 18px; color: var(--muted); font-size: 16px; line-height: 1.9; }
 
-  .p-issues__list { display: grid; grid-template-columns: 1fr; max-width: 920px; border-top: 1px solid var(--border); }
+  .p-issues__intro { display: grid; gap: 32px; align-items: end; }
+  .p-issues__intro .c-section-head { margin-bottom: 0; }
+  .p-issues__visual { position: relative; overflow: hidden; margin: 0; border: 1px solid var(--border); border-radius: 18px; background: var(--primary-deep); box-shadow: var(--shadow); }
+  .p-issues__visual img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+  .p-issues__visual figcaption { position: absolute; right: 14px; bottom: 12px; padding: 6px 10px; border-radius: 5px; color: #fff; background: rgba(7,23,44,.78); font-size: 12px; line-height: 1.4; }
+  .p-issues__list { display: grid; grid-template-columns: 1fr; max-width: 920px; margin-top: 48px; border-top: 1px solid var(--border); }
   .p-issues__item { display: grid; grid-template-columns: 48px 1fr; column-gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--border); }
   .p-issues__number { color: var(--brand-aqua); font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 30px; font-weight: 700; }
   .p-issues__item h3 { color: var(--primary); font-size: 20px; line-height: 1.5; }
@@ -515,8 +523,8 @@ const solutions = [
     .p-hero { padding: 112px 0 128px; }
     .p-hero__inner { grid-template-columns: 1.02fr .98fr; gap: 64px; }
     .p-hero__title { font-size: 4rem; }
-    .p-hero__visual { margin-right: -40px; }
-    .p-product-shot { top: 22px; width: 58%; }
+    .p-hero__visual { min-height: 420px; margin-right: -40px; }
+    .p-issues__intro { grid-template-columns: .86fr 1.14fr; gap: 64px; }
     .p-works__layout { grid-template-columns: .9fr 1.1fr; gap: 80px; }
     .p-works__grid { grid-template-columns: repeat(3, 1fr); }
   }
@@ -531,11 +539,8 @@ const solutions = [
     .p-hero__lead-group { display: block; }
     .p-hero__lead-break { display: none; }
     .p-hero__actions .c-button, .p-final-cta__actions .c-button { width: 100%; }
-    .p-hero__visual { min-height: 430px; margin-top: 12px; }
-    .p-hero__scene { inset: 0; border-radius: 18px; }
-    .p-hero__scene img { object-position: 68% center; }
-    .p-product-shot { top: 34px; right: -10px; width: 76%; border-width: 5px; }
-    .p-product-shot figcaption { right: 8px; bottom: 8px; font-size: 10px; }
+    .p-hero__visual { min-height: 280px; margin-top: 12px; }
+    .p-hero__mock { inset: 0; border-radius: 18px; }
     .p-compare__table-wrap { display: none; }
     .p-compare__cards { display: grid; gap: 12px; }
     .p-compare__note { text-align: left; }
