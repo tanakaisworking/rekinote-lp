@@ -113,9 +113,8 @@ const solutions = [
           <div class="p-hero__copy">
             <p class="p-hero__eyebrow">For Startup Communities</p>
             <h1 id="hero-title" class="p-hero__title">
-              スタートアップ<br />
-              <span>コミュニティを<br />支える</span><br />
-              議事録ツール。
+              スタートアップコミュニティを<br />
+              <span>支える議事録ツール。</span>
             </h1>
             <p class="p-hero__lead">
               <span class="p-hero__lead-group">運営会議・メンタリング・イベント。</span><br class="p-hero__lead-break" />
@@ -404,7 +403,7 @@ const solutions = [
   .p-hero__background img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center center; }
   .p-hero__overlay { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(7,23,44,.9) 0%, rgba(7,23,44,.72) 35%, rgba(7,23,44,.22) 70%, rgba(7,23,44,.08) 100%); }
   .p-hero__inner { position: relative; z-index: 1; display: flex; align-items: center; min-height: 760px; }
-  .p-hero__copy { max-width: 620px; }
+  .p-hero__copy { width: 100%; }
   .p-hero__eyebrow, .c-section-head__eyebrow, .p-solutions__label, .p-privacy__flow-label, .p-final-cta__eyebrow { color: var(--primary); font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
   .p-hero__eyebrow, .p-final-cta__eyebrow { color: rgba(255,255,255,.76); }
   .p-hero__title { margin-top: 14px; color: #fff; font-size: clamp(2.4rem, 7vw, 4.25rem); font-weight: 900; line-height: 1.28; text-shadow: 0 4px 18px rgba(7,23,44,.22); }
@@ -541,7 +540,7 @@ const solutions = [
     .l-header__cta { display: inline-flex; }
     .p-hero { min-height: 760px; }
     .p-hero__inner { min-height: 760px; }
-    .p-hero__title { font-size: 4rem; }
+    .p-hero__title { font-size: 3.25rem; }
     .p-issues__intro { grid-template-columns: .86fr 1.14fr; gap: 64px; }
     .p-works__layout { grid-template-columns: .9fr 1.1fr; gap: 80px; }
     .p-works__grid { grid-template-columns: repeat(3, 1fr); }
@@ -568,7 +567,7 @@ const solutions = [
 
   @media (max-width: 699px) {
     .l-container { padding-right: 20px; padding-left: 20px; }
-    .p-hero__title { font-size: 2.15rem; letter-spacing: 0; }
+    .p-hero__title { font-size: clamp(1.65rem, 6.5vw, 4rem); letter-spacing: 0; }
     .p-hero__lead-group { display: block; }
     .p-hero__lead-break { display: none; }
     .p-hero__actions .c-button, .p-final-cta__actions .c-button { width: 100%; }
