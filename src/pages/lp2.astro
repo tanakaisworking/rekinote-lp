@@ -433,12 +433,12 @@ const solutions = [
   .c-section-head__title { margin-top: 12px; color: var(--primary); font-size: clamp(2rem, 5vw, 2.75rem); font-weight: 700; line-height: 1.4; }
   .c-section-head__lead { margin-top: 18px; color: var(--muted); font-size: 16px; line-height: 1.9; }
 
-  .p-issues__intro { display: grid; gap: 32px; align-items: end; }
+  .p-issues__intro { display: grid; gap: 32px; align-items: center; }
   .p-issues__intro .c-section-head { margin-bottom: 0; }
   .p-issues__visual { position: relative; overflow: hidden; margin: 0; border: 1px solid var(--border); border-radius: 18px; background: var(--primary-deep); box-shadow: var(--shadow); }
   .p-issues__visual img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
   .p-issues__visual figcaption { position: absolute; right: 14px; bottom: 12px; padding: 6px 10px; border-radius: 5px; color: #fff; background: rgba(7,23,44,.78); font-size: 12px; line-height: 1.4; }
-  .p-issues__list { display: grid; grid-template-columns: 1fr; max-width: 920px; margin-top: 48px; border-top: 1px solid var(--border); }
+  .lp2-page .p-issues__list { display: grid; grid-template-columns: 1fr; max-width: 920px; margin-top: 64px; border-top: 1px solid var(--border); }
   .p-issues__item { display: grid; grid-template-columns: 48px 1fr; column-gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--border); }
   .p-issues__number { color: var(--brand-aqua); font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 30px; font-weight: 700; }
   .p-issues__item h3 { color: var(--primary); font-size: 20px; line-height: 1.5; }
@@ -526,12 +526,10 @@ const solutions = [
     .p-facts__grid { grid-template-columns: repeat(3, 1fr); }
     .p-facts__item { justify-content: center; border-right: 1px solid var(--border); border-bottom: 0; }
     .p-facts__item:last-child { border-right: 0; }
-    .p-issues__list, .p-solutions__list { grid-template-columns: repeat(3, 1fr); }
-    .p-issues__list { border-bottom: 1px solid var(--border); }
-    .p-issues__item { display: block; min-height: 228px; padding: 30px 28px; border-right: 1px solid var(--border); border-bottom: 0; }
-    .p-issues__item:last-child { border-right: 0; }
+    .lp2-page .p-issues__list { grid-template-columns: repeat(3, 1fr); max-width: none; gap: 24px; margin-top: 80px; border-top: 0; border-bottom: 0; }
+    .lp2-page .p-issues__item { display: block; min-height: 252px; padding: 34px 32px 38px; border: 1px solid var(--border); border-radius: 14px; background: #fff; }
     .p-issues__item h3 { margin-top: 14px; }
-    .p-issues__item p { margin-top: 12px; }
+    .p-issues__item p { margin-top: 16px; line-height: 1.9; }
     .p-solutions__item { padding: 32px; }
     .p-flow__item { padding: 28px 32px; }
     .p-privacy__layout { grid-template-columns: 1fr 1fr; }
