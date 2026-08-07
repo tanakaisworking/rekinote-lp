@@ -73,6 +73,7 @@ const solutions = [
         </a>
         <nav class="c-nav" aria-label="メインナビゲーション">
           <a href="#solution">できること</a>
+          <a href="#ai">AIと使う</a>
           <a href="#works-with">使える場面</a>
           <a href="#privacy">プライバシー</a>
           <a href="/ja/pricing/">料金</a>
@@ -82,6 +83,7 @@ const solutions = [
             <summary aria-label="メニューを開く"><span class="c-mobile-nav__bars" aria-hidden="true"></span></summary>
             <nav class="c-mobile-nav__panel" aria-label="モバイルナビゲーション">
               <a href="#solution">できること</a>
+              <a href="#ai">AIと使う</a>
               <a href="#works-with">使える場面</a>
               <a href="#privacy">プライバシー</a>
               <a href="/ja/pricing/">料金</a>
@@ -118,7 +120,7 @@ const solutions = [
             </h1>
             <p class="p-hero__lead">
               <span class="p-hero__lead-group">運営会議・メンタリング・イベント。</span><br class="p-hero__lead-break" />
-              コミュニティに生まれる会話を、あとから使える記録に。
+              コミュニティに生まれる会話を、AIも使える記録に。
             </p>
             <div class="p-hero__actions">
               <a href={MAC_DOWNLOAD_URL} class="c-button c-button--primary">Mac版を無料ダウンロード</a>
@@ -141,7 +143,7 @@ const solutions = [
           </div>
           <div class="p-facts__item">
             <span class="p-facts__check" aria-hidden="true">✓</span>
-            <div><strong>あとから探せる</strong><span>知見を記録に</span></div>
+            <div><strong>あとから探せる</strong><span>AIにも渡せる</span></div>
           </div>
         </div>
       </section>
@@ -203,6 +205,21 @@ const solutions = [
                 </ul>
               </li>
             ))}
+          </ol>
+        </div>
+      </section>
+
+      <section id="ai" class="l-section l-section--cool p-ai" aria-labelledby="ai-title">
+        <div class="l-container">
+          <header class="c-section-head c-section-head--center">
+            <p class="c-section-head__eyebrow">AI Ready</p>
+            <h2 id="ai-title" class="c-section-head__title">人手が足りないなら、<br />AIに会話の文脈を渡す。</h2>
+            <p class="c-section-head__lead">スタートアップは、人もお金も限られています。だからこそ、AIに任せられる仕事を増やしたい。Reki noteは、会話をAIが参照できる記録として残します。</p>
+          </header>
+          <ol class="p-flow__list">
+            <li class="p-flow__item"><span>01</span><div><h3>会話を、AIが読める形に</h3><p>音声を文字起こしと要約に変換。会議のたびに、最初から説明し直す必要がありません。</p></div></li>
+            <li class="p-flow__item"><span>02</span><div><h3>同じ文脈を、AIに渡す</h3><p>過去の議事録を横断して、決定事項や相談の経緯をAIにたずねられます。</p></div></li>
+            <li class="p-flow__item"><span>03</span><div><h3>記録の置き場所を、自分たちで選ぶ</h3><p>MarkdownやObsidianへ出力。コミュニティの知見を、使いたい場所で活用できます。</p></div></li>
           </ol>
         </div>
       </section>
