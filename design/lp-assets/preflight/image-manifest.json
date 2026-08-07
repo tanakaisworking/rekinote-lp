@@ -1,0 +1,96 @@
+{
+  "generated_by": "seo-image-preflight-mvp",
+  "schema_version": "1.0.0",
+  "items": [
+    {
+      "original_file": "reki-startup-community-hero.png",
+      "original_bytes": 2119335,
+      "mode": "seo",
+      "role": "hero",
+      "slug": "reki-startup-community-hero",
+      "alt": "スタートアップコミュニティの対話から、音声の流れが記録としてつながっていくヒーローイラスト",
+      "original_width": 1536,
+      "original_height": 1024,
+      "has_alpha": false,
+      "variants": [
+        {
+          "format": "webp",
+          "width": 640,
+          "height": 427,
+          "file": "images/reki-startup-community-hero-640w.webp",
+          "bytes": 29016,
+          "purpose": "responsive"
+        },
+        {
+          "format": "jpg",
+          "width": 640,
+          "height": 427,
+          "file": "images/reki-startup-community-hero-640w.jpg",
+          "bytes": 43694,
+          "purpose": "responsive-fallback"
+        },
+        {
+          "format": "webp",
+          "width": 960,
+          "height": 640,
+          "file": "images/reki-startup-community-hero-960w.webp",
+          "bytes": 54694,
+          "purpose": "responsive"
+        },
+        {
+          "format": "jpg",
+          "width": 960,
+          "height": 640,
+          "file": "images/reki-startup-community-hero-960w.jpg",
+          "bytes": 85398,
+          "purpose": "responsive-fallback"
+        },
+        {
+          "format": "webp",
+          "width": 1280,
+          "height": 853,
+          "file": "images/reki-startup-community-hero-1280w.webp",
+          "bytes": 85036,
+          "purpose": "responsive"
+        },
+        {
+          "format": "jpg",
+          "width": 1280,
+          "height": 853,
+          "file": "images/reki-startup-community-hero-1280w.jpg",
+          "bytes": 140940,
+          "purpose": "responsive-fallback"
+        },
+        {
+          "format": "webp",
+          "width": 1536,
+          "height": 1024,
+          "file": "images/reki-startup-community-hero-1536w.webp",
+          "bytes": 114736,
+          "purpose": "responsive"
+        },
+        {
+          "format": "jpg",
+          "width": 1536,
+          "height": 1024,
+          "file": "images/reki-startup-community-hero-1536w.jpg",
+          "bytes": 192534,
+          "purpose": "responsive-fallback"
+        }
+      ],
+      "assumptions": [
+        "LP2のファーストビュー右側に配置するヒーロー画像",
+        "実際のダッシュボード画像を手前に重ねるハイブリッド構成",
+        "SEO mode assumes the image will be used on a website or web page."
+      ],
+      "warnings": [
+        "生成画像内の抽象カードは概念表現であり、実際の機能画面ではない"
+      ],
+      "decisions": [
+        "Generated responsive WebP variants plus fallback images.",
+        "Prepared HTML implementation guidance.",
+        "Treated as a likely first-view/LCP image; lazy loading is not recommended."
+      ]
+    }
+  ]
+}

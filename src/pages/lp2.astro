@@ -103,6 +103,20 @@ const solutions = [
           </div>
           <div class="p-hero__visual">
             <div class="p-hero__visual-glow" aria-hidden="true"></div>
+            <picture class="p-hero__scene">
+              <source media="(max-width: 699px)" srcset="/images/reki-startup-community-hero-640w.webp" type="image/webp" />
+              <source media="(max-width: 1023px)" srcset="/images/reki-startup-community-hero-960w.webp" type="image/webp" />
+              <source srcset="/images/reki-startup-community-hero-1536w.webp" type="image/webp" />
+              <img
+                src="/images/reki-startup-community-hero-1536w.jpg"
+                alt="スタートアップコミュニティの対話から、音声の流れが記録としてつながっていくヒーローイラスト"
+                width="1536"
+                height="1024"
+                loading="eager"
+                fetchpriority="high"
+                decoding="async"
+              />
+            </picture>
             <figure class="p-product-shot">
               <img
                 src="/dashboard-hero.png"
@@ -381,9 +395,11 @@ const solutions = [
   .p-hero__lead-break { display: block; }
   .p-hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
   .p-hero__note { margin-top: 14px; color: rgba(255,255,255,.72); font-size: 12px; line-height: 1.7; }
-  .p-hero__visual { position: relative; min-width: 0; }
+  .p-hero__visual { position: relative; min-width: 0; min-height: 520px; }
   .p-hero__visual-glow { position: absolute; inset: 14% 4% 4%; border-radius: 50%; background: rgba(255,255,255,.22); filter: blur(44px); }
-  .p-product-shot { position: relative; margin: 0; overflow: hidden; border: 8px solid rgba(255,255,255,.82); border-radius: 16px; background: var(--primary-deep); box-shadow: 0 30px 70px rgba(7,23,44,.34); transform: rotate(1deg); }
+  .p-hero__scene { position: absolute; inset: 0 -32px 0 -24px; z-index: 0; overflow: hidden; border: 1px solid rgba(216,241,244,.25); border-radius: 24px; background: var(--primary-deep); box-shadow: 0 30px 70px rgba(7,23,44,.24); }
+  .p-hero__scene img { width: 100%; height: 100%; object-fit: cover; object-position: 62% center; }
+  .p-product-shot { position: absolute; top: 58px; right: -28px; z-index: 1; width: 70%; margin: 0; overflow: hidden; border: 8px solid rgba(255,255,255,.82); border-radius: 16px; background: var(--primary-deep); box-shadow: 0 30px 70px rgba(7,23,44,.34); transform: rotate(1deg); }
   .p-product-shot img { width: 100%; height: auto; }
   .p-product-shot figcaption { position: absolute; right: 16px; bottom: 14px; padding: 6px 10px; border-radius: 5px; color: #fff; background: rgba(7,23,44,.8); font-size: 12px; line-height: 1.4; }
 
@@ -500,6 +516,7 @@ const solutions = [
     .p-hero__inner { grid-template-columns: 1.02fr .98fr; gap: 64px; }
     .p-hero__title { font-size: 4rem; }
     .p-hero__visual { margin-right: -40px; }
+    .p-product-shot { top: 22px; width: 58%; }
     .p-works__layout { grid-template-columns: .9fr 1.1fr; gap: 80px; }
     .p-works__grid { grid-template-columns: repeat(3, 1fr); }
   }
@@ -514,7 +531,10 @@ const solutions = [
     .p-hero__lead-group { display: block; }
     .p-hero__lead-break { display: none; }
     .p-hero__actions .c-button, .p-final-cta__actions .c-button { width: 100%; }
-    .p-product-shot { border-width: 5px; }
+    .p-hero__visual { min-height: 430px; margin-top: 12px; }
+    .p-hero__scene { inset: 0; border-radius: 18px; }
+    .p-hero__scene img { object-position: 68% center; }
+    .p-product-shot { top: 34px; right: -10px; width: 76%; border-width: 5px; }
     .p-product-shot figcaption { right: 8px; bottom: 8px; font-size: 10px; }
     .p-compare__table-wrap { display: none; }
     .p-compare__cards { display: grid; gap: 12px; }

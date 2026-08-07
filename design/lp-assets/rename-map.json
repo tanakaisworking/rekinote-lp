@@ -1,0 +1,15 @@
+{
+  "reki-startup-community-hero.png": {
+    "mode": "seo",
+    "role": "hero",
+    "slug": "reki-startup-community-hero",
+    "alt": "スタートアップコミュニティの対話から、音声の流れが記録としてつながっていくヒーローイラスト",
+    "assumptions": [
+      "LP2のファーストビュー右側に配置するヒーロー画像",
+      "実際のダッシュボード画像を手前に重ねるハイブリッド構成"
+    ],
+    "warnings": [
+      "生成画像内の抽象カードは概念表現であり、実際の機能画面ではない"
+    ]
+  }
+}
