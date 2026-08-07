@@ -24,5 +24,18 @@
     "warnings": [
       "生成画像内の画面表示は概念モックであり、実際のUIの正確な再現ではない"
     ]
+  },
+  "reki-macbook-notes-real-ui-hero.png": {
+    "mode": "seo",
+    "role": "hero",
+    "slug": "reki-macbook-notes-real-ui-hero",
+    "alt": "Reki noteの実画面を表示した深いネイビーのMacBookモックアップ",
+    "assumptions": [
+      "LP2のファーストビュー全体に配置するHERO画像",
+      "実際のReki noteダッシュボードをMacBookの画面内に表示するモックアップ"
+    ],
+    "warnings": [
+      "生成画像内の画面は実UIを参照したモックであり、画面外のMacBookと背景は生成表現"
+    ]
   }
 }
