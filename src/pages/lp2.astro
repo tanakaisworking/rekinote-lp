@@ -83,6 +83,21 @@ const solutions = [
 
     <main id="top">
       <section class="p-hero" aria-labelledby="hero-title">
+        <picture class="p-hero__background" aria-hidden="true">
+          <source media="(max-width: 699px)" srcset="/images/reki-macbook-notes-real-ui-hero-640w.webp" type="image/webp" />
+          <source media="(max-width: 1023px)" srcset="/images/reki-macbook-notes-real-ui-hero-960w.webp" type="image/webp" />
+          <source srcset="/images/reki-macbook-notes-real-ui-hero-1536w.webp" type="image/webp" />
+          <img
+            src="/images/reki-macbook-notes-real-ui-hero-1536w.jpg"
+            alt=""
+            width="1536"
+            height="1024"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+        </picture>
+        <div class="p-hero__overlay" aria-hidden="true"></div>
         <div class="l-container p-hero__inner">
           <div class="p-hero__copy">
             <p class="p-hero__eyebrow">For Startup Communities</p>
@@ -100,23 +115,6 @@ const solutions = [
               <a href={WIN_DOWNLOAD_URL} class="c-button c-button--ghost">Windows版をダウンロード</a>
             </div>
             <p class="p-hero__note">Mac版はApple Silicon（M1以降）対応。Windows版は一部機能に制限があります。</p>
-          </div>
-          <div class="p-hero__visual">
-            <div class="p-hero__visual-glow" aria-hidden="true"></div>
-            <picture class="p-hero__mock">
-              <source media="(max-width: 699px)" srcset="/images/reki-macbook-notes-real-ui-hero-640w.webp" type="image/webp" />
-              <source media="(max-width: 1023px)" srcset="/images/reki-macbook-notes-real-ui-hero-960w.webp" type="image/webp" />
-              <source srcset="/images/reki-macbook-notes-real-ui-hero-1536w.webp" type="image/webp" />
-              <img
-                src="/images/reki-macbook-notes-real-ui-hero-1536w.jpg"
-                alt="Reki noteの実画面を表示した深いネイビーのMacBookモックアップ"
-                width="1536"
-                height="1024"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-              />
-            </picture>
           </div>
         </div>
       </section>
@@ -388,9 +386,12 @@ const solutions = [
   .c-button--light:hover { background: var(--cool); }
   .c-button--sm { min-height: 40px; padding: 9px 16px; font-size: 14px; }
 
-  .p-hero { position: relative; isolation: isolate; overflow: hidden; padding: 72px 0 88px; color: #fff; background: var(--gradient-brand); }
+  .p-hero { position: relative; isolation: isolate; min-height: 760px; overflow: hidden; padding: 0; color: #fff; background: var(--primary-deep); }
   .p-hero::before { content: ''; position: absolute; inset: 0; z-index: -1; opacity: .22; background-image: linear-gradient(rgba(255,255,255,.32) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.32) 1px, transparent 1px); background-size: 56px 56px; mask-image: linear-gradient(90deg, #000, transparent 80%); }
-  .p-hero__inner { display: grid; align-items: center; gap: 48px; }
+  .p-hero__background { position: absolute; inset: 0; z-index: -2; }
+  .p-hero__background img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center center; }
+  .p-hero__overlay { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(7,23,44,.9) 0%, rgba(7,23,44,.72) 35%, rgba(7,23,44,.22) 70%, rgba(7,23,44,.08) 100%); }
+  .p-hero__inner { position: relative; z-index: 1; display: flex; align-items: center; min-height: 760px; }
   .p-hero__copy { max-width: 620px; }
   .p-hero__eyebrow, .c-section-head__eyebrow, .p-solutions__label, .p-privacy__flow-label, .p-final-cta__eyebrow { color: var(--primary); font-family: Inter, 'Helvetica Neue', Arial, sans-serif; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
   .p-hero__eyebrow, .p-final-cta__eyebrow { color: rgba(255,255,255,.76); }
@@ -401,10 +402,6 @@ const solutions = [
   .p-hero__lead-break { display: block; }
   .p-hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
   .p-hero__note { margin-top: 14px; color: rgba(255,255,255,.72); font-size: 12px; line-height: 1.7; }
-  .p-hero__visual { position: relative; min-width: 0; min-height: 520px; }
-  .p-hero__visual-glow { position: absolute; inset: 14% 4% 4%; border-radius: 50%; background: rgba(255,255,255,.22); filter: blur(44px); }
-  .p-hero__mock { position: absolute; inset: 0 -32px 0 -24px; z-index: 0; overflow: hidden; border: 1px solid rgba(216,241,244,.25); border-radius: 24px; background: var(--primary-deep); box-shadow: 0 30px 70px rgba(7,23,44,.24); }
-  .p-hero__mock img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
 
   .p-facts { background: #fff; border-bottom: 1px solid var(--border); }
   .p-facts__grid { display: grid; grid-template-columns: 1fr; }
@@ -520,13 +517,23 @@ const solutions = [
   @media (min-width: 1024px) {
     .c-nav { display: flex; }
     .l-header__cta { display: inline-flex; }
-    .p-hero { padding: 112px 0 128px; }
-    .p-hero__inner { grid-template-columns: 1.02fr .98fr; gap: 64px; }
+    .p-hero { min-height: 760px; }
+    .p-hero__inner { min-height: 760px; }
     .p-hero__title { font-size: 4rem; }
-    .p-hero__visual { min-height: 420px; margin-right: -40px; }
     .p-issues__intro { grid-template-columns: .86fr 1.14fr; gap: 64px; }
     .p-works__layout { grid-template-columns: .9fr 1.1fr; gap: 80px; }
     .p-works__grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (min-width: 1200px) {
+    .p-hero__background { display: flex; align-items: center; justify-content: flex-end; }
+    .p-hero__background img { width: auto; max-width: none; height: 100%; object-fit: contain; transform: translateX(90px); -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 20%, #000 100%); mask-image: linear-gradient(90deg, transparent 0%, #000 20%, #000 100%); }
+  }
+
+  @media (max-width: 1199px) {
+    .p-hero__background { display: flex; align-items: flex-end; justify-content: center; }
+    .p-hero__background img { width: 100%; height: auto; object-fit: contain; }
+    .p-hero__overlay { background: linear-gradient(180deg, rgba(7,23,44,.98) 0%, rgba(7,23,44,.9) 56%, rgba(7,23,44,.3) 100%); }
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -539,8 +546,8 @@ const solutions = [
     .p-hero__lead-group { display: block; }
     .p-hero__lead-break { display: none; }
     .p-hero__actions .c-button, .p-final-cta__actions .c-button { width: 100%; }
-    .p-hero__visual { min-height: 280px; margin-top: 12px; }
-    .p-hero__mock { inset: 0; border-radius: 18px; }
+    .p-hero { min-height: 760px; }
+    .p-hero__inner { min-height: 760px; align-items: flex-start; padding-top: 88px; padding-bottom: 72px; }
     .p-compare__table-wrap { display: none; }
     .p-compare__cards { display: grid; gap: 12px; }
     .p-compare__note { text-align: left; }
